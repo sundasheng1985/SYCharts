@@ -1,0 +1,289 @@
+[{
+ "title": "广告行销宣传页",
+ "request": "MAdvertRequest",
+ "response": "MAdvertResponse",
+ "param": [
+           {
+           "key": "advertKey",
+           "value": "01",
+           "type": "NSString"
+           }
+           ]
+ },
+ {
+ "title": "取得更版资讯",
+ "request": "MCheckVersionRequest",
+ "response": "MCheckVersionResponse",
+ "param": []
+ },
+ {
+ "title": "取得券商公告",
+ "request": "MAnnouncementRequest",
+ "response": "MAnnouncementResponse",
+ "param": []
+ },
+  {
+  "title": "取得可使用的分类类别",
+  "request": "MGetSourceClassRequest",
+  "response": "MGetSourceClassResponse",
+  "param": []
+  },
+  {
+  "title": "取得主选单功能",
+  "request": "MGetMenuRequest",
+  "response": "MGetMenuResponse",
+  "param": []
+  },
+  {
+  "title": "取得各券商APP可使用的資訊源類別",
+  "request": "MGetSourceRequest",
+  "response": "MGetSourceResponse",
+  "param": []
+  },
+  {
+  "title": "证券行情列表",
+  "request": "MQuoteRequest",
+  "response": "MQuoteResponse",
+  "param": [
+            {
+            "key": "code",
+            "value": "600000.sh",
+            "type": "NSString"
+            }
+            ]
+  },
+  {
+  "title": "证券快照行情",
+  "request": "MSnapQuoteRequest",
+  "response": "MSnapQuoteResponse",
+  "param": [
+            {
+            "key": "code",
+            "value": "600000.sh",
+            "type": "NSString"
+            }
+            ]
+  },
+  {
+  "title": "板块排行",
+  "request": "MSectionRankingRequest",
+  "response": "MSectionRankingResponse",
+  "param": [
+            {
+            "key": "code",
+            "value": "Trade",
+            "type": "NSString"
+            },
+            {
+            "key": "pageIndex",
+            "value": "-1",
+            "type": "NSString"
+            }
+            ]
+  },
+ {
+ "title": "版块分类即时行情列表",
+ "request": "MCategoryQuoteListRequest",
+ "response": "MCategoryQuoteListResponse",
+ "param": [
+           {
+           "key": "categoryID",
+           "value": "SHSZ1400",
+           "type": "NSString"
+           },
+           {
+            "key": "pageIndex",
+           "value": "0",
+           "type": "NSString"
+           }
+          ]
+ },
+  {
+  "title": "分类涨幅排行",
+  "request": "MRiseRankingRequest",
+  "response": "MRiseRankingResponse",
+  "param": [
+            {
+            "key": "code",
+            "value": "SHAIndex",
+            "type": "NSString"
+            },
+            {
+            "key": "pageIndex",
+            "value": "-1",
+            "type": "NSString"
+            }
+            ]
+  },
+  {
+  "title": "分类跌幅排行",
+  "request": "MFallRankingRequest",
+  "response": "MFallRankingResponse",
+  "param": [
+            {
+            "key": "code",
+            "value": "allstocks",
+            "type": "NSString"
+            },
+            {
+            "key": "pageIndex",
+            "value": "-1",
+            "type": "NSString"
+            }
+            ]
+  },
+  {
+  "title": "走势数据",
+  "request": "MChartRequest",
+  "response": "MChartResponse",
+  "param": [
+            {
+            "key": "code",
+            "value": "600000.sh",
+            "type": "NSString"
+            },
+            {
+            "key": "subtype",
+            "value": "1001",
+            "type": "NSString"
+            },
+            {
+            "key": "chartType",
+            "value": "MChartTypeOneDay",
+            "type": "MChartType"
+            }
+            ]
+  },
+  {
+  "title": "K线数据",
+  "request": "MOHLCRequest",
+  "response": "MOHLCResponse",
+  "param": [
+            {
+            "key": "code",
+            "value": "600000.sh",
+            "type": "NSString"
+            },
+            {
+            "key": "subtype",
+            "value": "1010",
+            "type": "NSString"
+            },
+            {
+            "key": "period",
+            "value": "MOHLCPeriodDay",
+            "type": "MOHLCPeriod"
+            },
+            {
+            "key": "unit",
+            "value": "1",
+            "type": "NSInteger"
+            }
+            ]
+  },
+  {
+  "title": "经纪席位",
+  "request": "MBrokerSeatRequest",
+  "response": "MBrokerSeatResponse",
+  "param": [
+            {
+            "key": "code",
+            "value": "00852.hk",
+            "type": "NSString"
+            }
+            ]
+  },
+  {
+  "title": "搜寻股票",
+  "request": "MSearchRequest",
+  "response": "MSearchResponse",
+  "param": [
+            {
+            "key": "keyword",
+            "value": "600000",
+            "type": "NSString"
+            }
+            ]
+  },
+  {
+  "title": "分类即时列表",
+  "request": "MCategoryQuoteListRequest",
+  "response": "MCategoryQuoteListResponse",
+  "param": [
+            {
+            "key": "categoryID",
+            "value": "SHSZ1400",
+            "type": "NSString"
+            }
+            ]
+  },
+  {
+  "title": "期权标的证券",
+  "request": "MUnderlyingStockRequest",
+  "response": "MUnderlyingStockResponse",
+  "param": []
+  },
+  {
+  "title": "期权交割月列表",
+  "request": "MExpireMonthRequest",
+  "response": "MExpireMonthResponse",
+  "param": [
+            {
+            "key": "stockID",
+            "value": "601318.sh",
+            "type": "NSString"
+            }
+            ]
+  },
+  {
+  "title": "期权行情",
+  "request": "MOptionRequest",
+  "response": "MOptionResponse",
+  "param": [
+            {
+            "key": "stockID",
+            "value": "601318.sh",
+            "type": "NSString"
+            },
+            {
+            "key": "pageIndex",
+            "value": "1",
+            "type": "NSInteger"
+            },
+            {
+            "key": "optionType",
+            "value": "MOptionTypeUnknown",
+            "type": "MOptionType"
+            }
+            ]
+  },
+  {
+  "title": "期权T型报价行情",
+  "request": "MOptionTRequest",
+  "response": "MOptionTResponse",
+  "param": [
+            {
+            "key": "stockID",
+            "value": "601318.sh",
+            "type": "NSString"
+            },
+            {
+            "key": "expireMonth",
+            "value": "1506",
+            "type": "NSString"
+            }
+            ]
+  },
+  {
+  "title": "使用者行為記錄",
+  "request": "MEventRequest",
+  "response": "MEventResponse",
+  "param": [
+            {
+            "key": "fid",
+            "value": "A11",
+            "type": "NSString"
+            }
+            ]
+  }
+  ]

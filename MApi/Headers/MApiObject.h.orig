@@ -1,0 +1,699 @@
+//
+//  MApiObject.h
+//  MobileLibrary
+//
+//  Created by 李政修 on 2015/1/14.
+//  Copyright (c) 2015年 Mitake. All rights reserved.
+//
+
+#import <Foundation/Foundation.h>
+
+typedef NS_ENUM(NSUInteger, MBSVolumeType){
+    /**
+     *  内外盘别
+     */
+    MBSVolumeTypeBuy,
+    MBSVolumeTypeSell
+};
+
+typedef NS_ENUM(NSUInteger, MChangeState){
+    /**
+     *  涨跌状态
+     */
+    MChangeStateFlat,
+    MChangeStateRise,
+    MChangeStateDrop
+};
+
+typedef NS_ENUM(NSUInteger, MChartType){
+    /**
+     *  走势类别
+     */
+    MChartTypeOneDay,
+    MChartTypeFiveDays
+};
+
+typedef NS_ENUM(NSUInteger, MOHLCPeriod){
+    /**
+     *  K线周期
+     */
+    MOHLCPeriodDay,
+    MOHLCPeriodWeek,
+    MOHLCPeriodMonth,
+    MOHLCPeriodMinute
+};
+
+typedef NS_ENUM(NSInteger, MResponseStatus){
+    /**
+     *  回传代码
+     */
+    MResponseStatusSuccess = 200,
+    MResponseStatusSessionExpired = 401,
+    MResponseStatusError = 404,
+    MResponseStatusNotReachabled = 0,
+    MResponseStatusServerError = 500,
+    MResponseStatusParameterError = 502
+};
+
+typedef NS_ENUM(NSUInteger, MOptionType){
+    /**
+     *  期权类别
+     */
+    MOptionTypeUnknown,
+    MOptionTypeCall,
+    MOptionTypePut
+};
+
+typedef NS_ENUM(NSInteger, MStockStatus){
+    /**
+     *  交易状态
+     */
+    MStockStatusNormal ,   //正常交易
+    MStockStatusPause ,    //暂停交易
+    MStockStatusSuspend,   //停牌
+    MStockStatusUnmarket   //退市
+};
+
+typedef NS_ENUM(NSInteger, MStockStage) {
+    /**
+     *  交易阶段
+     */
+    MStockStageUnopen ,         //未开市
+    MStockStageAuction ,        //集合竞价
+    MStockStageUnknown ,        //
+    MStockStageOpen ,          //连续竞价
+    MStockStageTempSuspensed,  //临时停市
+    MStockStageClosed,         //已收盘
+    MStockStageLunchBreak,     //午间休市
+    MStockStageOnTrading       //交易中
+};
+
+@class MStockItem;
+
+#pragma mark - 请求类
+
+/*! @brief 请求类
+ */
+@interface MRequest : NSObject <NSCopying, NSCoding>
+@property (nonatomic, copy, readonly) NSString *APIVersion;
+/** 请求超时时间 */
+@property (nonatomic) NSTimeInterval timeoutInterval;
+/** 取消请求 */
+- (void)cancel;
+@end
+
+<<<<<<< HEAD
+/**
+ *  取得更版資訊
+ */
+@interface MCheckVersionRequest : MRequest
+@end
+
+/*! @brief 使用者行為記錄请求类
+ */
+@interface MEventRequest : MRequest
+/** 功能代码 */
+@property (nonatomic, retain) NSString *fid;
+=======
+/*! @brief 取得可使用的分类类别请求
+ */
+@interface MGetSourceClassRequest : MRequest
+>>>>>>> 22_新增取得各券商APP可使用的分類類別
+@end
+
+/*! @brief 股票行情请求类
+ */
+@interface MQuoteRequest : MRequest
+/** 股票代码(可多笔，用逗号隔开) */
+@property (nonatomic, retain) NSString *code;
+
+@end
+
+/*! @brief 股票快照行情请求类
+ */
+@interface MSnapQuoteRequest : MRequest
+/** 股票代码(只可单笔查询) */
+@property (nonatomic, retain) NSString *code;
+@end
+
+/*! @brief 板块排行请求类
+ */
+@interface MSectionRankingRequest : MRequest
+/** 板块代码 */
+@property (nonatomic, retain) NSString *code;
+/** 页次 */
+@property (nonatomic, assign) NSInteger pageIndex;
+@end
+
+/*! @brief 分类涨幅排行请求类
+ */
+@interface MRiseRankingRequest : MRequest
+/** 分类代码 */
+@property (nonatomic, retain) NSString *code;
+/** 页次 */
+@property (nonatomic, assign) NSInteger pageIndex;
+@end
+
+/*! @brief 分类跌幅排行请求类
+ */
+@interface MFallRankingRequest : MRequest
+/** 分类代码 */
+@property (nonatomic, retain) NSString *code;
+/** 页次 */
+@property (nonatomic, assign) NSInteger pageIndex;
+@end
+
+/*! @brief 历史行情(K线数据)请求类
+ */
+@interface MOHLCRequest : MRequest
+/** 股票代码 */
+@property (nonatomic, retain) NSString *code;
+/** 次类别 */
+@property (nonatomic, retain) NSString *subtype;
+/** K线周期 */
+@property (nonatomic) MOHLCPeriod period;
+/** 周期单位 */
+@property (nonatomic) NSInteger unit;
+@end
+
+/*! @brief 当日走势数据请求类
+ */
+@interface MChartRequest : MRequest
+/** 股票代码 */
+@property (nonatomic, retain) NSString *code;
+/** 次类别 */
+@property (nonatomic, retain) NSString *subtype;
+/** 走势类别 */
+@property (nonatomic) MChartType chartType;
+@end
+
+/*! @brief 期权行情请求类
+ *
+ *  请求期权行情列表，若期权类别设置为MOptionTypeUnknown可查询认购及认沽的期权股票。
+ */
+@interface MOptionRequest : MRequest
+/** 标的证券代码 */
+@property (nonatomic, retain) NSString *stockID;
+/** 期权类别 */
+@property (nonatomic) MOptionType optionType;
+/** 页次 */
+@property (nonatomic, assign) NSInteger pageIndex;
+@end
+
+/*! @brief 期权T型报价行情请求类
+ *
+ *  请求期权T型报价行情列表。
+ */
+@interface MOptionTRequest : MRequest
+/** 标的证券代码 */
+@property (nonatomic, retain) NSString *stockID;
+/** 期权交割月 */
+@property (nonatomic, retain) NSString *expireMonth;
+@end
+
+/*! @brief 标的证券列表请求类
+ */
+@interface MUnderlyingStockRequest : MRequest
+
+@end
+
+/*! @brief 交割月列表请求类
+ */
+@interface MExpireMonthRequest : MRequest
+/** 标的证券代码 */
+@property (nonatomic, retain) NSString *stockID;
+@end
+
+/*! @brief 板块分类列表请求类
+ */
+@interface MCategoryListRequest : MRequest
+/** 市场 */
+@property (nonatomic, retain) NSString *market;
+/** 子类型 */
+@property (nonatomic, retain) NSString *subtype;
+@end
+
+/*! @brief 搜寻股票请求类
+ */
+@interface MSearchRequest : MRequest
+/** 搜寻文字 */
+@property (nonatomic, retain) NSString *keyword;
+@end
+
+/*! @brief 經紀席位请求类(港股专用)
+ */
+@interface MBrokerSeatRequest : MRequest
+/** 港股股票代码 */
+@property (nonatomic, retain) NSString *code;
+@end
+
+#pragma mark - 应答类类
+
+/*! @brief 应答类类
+ *
+ *  MResponse为应答类数据的基类
+ */
+@interface MResponse : NSObject <NSCopying, NSCoding>
+/** 回传代码 */
+@property (nonatomic, assign) MResponseStatus status;
+/** 回传信息 */
+@property (nonatomic, retain) NSString *message;
+/** 更新时间 */
+@property (nonatomic, retain) NSString *datetime;
+/** 总页次 */
+@property (nonatomic, assign) NSUInteger numberOfPages;
+/** 请求对象 */
+@property (nonatomic, assign) MRequest *request;
+/**
+ *  是否为缓存数据
+ *
+ *  YES:缓存数据, NO:真实数据(目前只有走势及k线数据支持缓存数据的回传)
+ */
+@property (nonatomic, assign) BOOL isCacheResponse;
+@end
+
+<<<<<<< HEAD
+/**
+ *  取得更版資訊
+ */
+@interface MCheckVersionResponse : MResponse
+@property (nonatomic, retain) NSDictionary *versionInfo;
+@end
+
+
+/*! @brief 使用者行为記錄应答类
+ */
+@interface MEventResponse : MResponse
+
+@end
+
+=======
+/*! @brief 取得可使用的分类类别应答类
+ */
+@interface MGetSourceClassResponse : MResponse
+@property (nonatomic, assign) NSDictionary *sourceClassInfos;
+@end
+
+
+>>>>>>> 22_新增取得各券商APP可使用的分類類別
+/*! @brief 股票行情应答类
+ *
+ *  透过MQuoteRequest取得之股票行情回传数据，包含单笔或多笔股票行情
+ */
+@interface MQuoteResponse : MResponse
+/** 股票行情列表 */
+@property (nonatomic, retain) NSArray *stockItems;
+@end
+
+/*! @brief 股票快照行情应答类
+ */
+@interface MSnapQuoteResponse : MResponse
+/** 股票快照行情 */
+@property (nonatomic, retain) MStockItem *stockItem;
+@end
+
+/*! @brief 板块排行应答类
+ */
+@interface MSectionRankingResponse : MResponse
+/** 板块排行列表 */
+@property (nonatomic, retain) NSArray *sectionRankingItems;
+@end
+
+/*! @brief 分类涨幅排行应答类
+ */
+@interface MRiseRankingResponse : MResponse
+/** 股票区块列表 */
+@property (nonatomic, retain) NSArray *stockItems;
+@end
+
+/*! @brief 分类跌幅排行应答类
+ */
+@interface MFallRankingResponse : MResponse
+/** 股票区块列表 */
+@property (nonatomic, retain) NSArray *stockItems;
+@end
+
+/*! @brief 走势数据应答类
+ */
+@interface MChartResponse : MResponse
+/** 走势数据数组 */
+@property (nonatomic, retain) NSArray *OHLCItems;
+/** 交易日，若五日则有五个交易日、若分时则显示当日 */
+@property (nonatomic, retain) NSArray *tradeDates;
+@end
+
+/*! @brief 历史行情应答类
+ */
+@interface MOHLCResponse : MResponse
+/** K线数据数组 */
+@property (nonatomic, retain) NSArray *OHLCItems;
+@end
+
+/*! @brief 期权行情应答类
+ */
+@interface MOptionResponse : MResponse
+/** 期权行情列表 */
+@property (nonatomic, retain) NSArray *optionItems;
+@end
+
+/*! @brief 期权T型报价行情应答类
+ */
+@interface MOptionTResponse : MResponse
+/** 期权行情列表 */
+@property (nonatomic, retain) NSArray *optionItems;
+@end
+
+/*! @brief 交割月应答类
+ */
+@interface MExpireMonthResponse : MResponse
+/** 交割月列表 */
+@property (nonatomic, retain) NSArray *expireMonths;
+@end
+
+/*! @brief 标的证券应答类
+ */
+@interface MUnderlyingStockResponse : MResponse
+/** 标的证券列表 */
+@property (nonatomic, retain) NSArray *stockItems;
+@end
+
+/*! @brief 板块分类应答类
+ */
+@interface MCategoryListResponse : MResponse
+/** 分类列表 */
+@property (nonatomic, retain) NSArray *categoryItems;
+@end
+
+/*! @brief 搜寻股票应答类
+ */
+@interface MSearchResponse : MResponse
+/** 搜寻结果列表 */
+@property (nonatomic, retain) NSArray *resultItems;
+@end
+
+/*! @brief 經紀席位应答类
+ */
+@interface MBrokerSeatResponse : MResponse
+/** 經紀席位(买) */
+@property (nonatomic, retain) NSArray *buyBrokerSeatItems;
+/** 經紀席位(卖) */
+@property (nonatomic, retain) NSArray *sellBrokerSeatItems;
+@end
+
+
+#pragma mark - 数据模型
+
+/*! @brief 数据模型基类
+ */
+@interface MBaseItem : NSObject <NSCopying, NSCoding>
+@end
+
+/*! @brief 交易时间模型类
+ */
+@interface MTimeZone : MBaseItem
+/** 开盘时间(HHmm) */
+@property (nonatomic, retain) NSString *openTime;
+/** 收盘时间(HHmm) */
+@property (nonatomic, retain) NSString *closeTime;
+@end
+
+/*! @brief 市场资讯模型类
+ */
+@interface MMarketInfo : MBaseItem
+/** 交易单位 */
+@property (nonatomic, assign) NSInteger tradeUnit;
+/** 小数位数 */
+@property (nonatomic, assign) UInt8 decimal;
+/** 交易时间列表 */
+@property (nonatomic, retain) NSArray *timezones;
+@end
+
+/*! @brief 历史行情
+ *
+ *  包含时间、开、高、低、收、量等历史行情数据。可用来绘制走势或历史k线图。
+ */
+@interface MOHLCItem : MBaseItem
+/** 时间 */
+@property (nonatomic, retain) NSString *datetime;
+/** 开盘价 */
+@property (nonatomic, retain) NSString *openPrice;
+/** 最高价 */
+@property (nonatomic, retain) NSString *highPrice;
+/** 最低价 */
+@property (nonatomic, retain) NSString *lowPrice;
+/** 收盘价 */
+@property (nonatomic, retain) NSString *closePrice;
+/** 交易量 */
+@property (nonatomic, retain) NSString *tradeVolume;
+/** 均价 */
+@property (nonatomic, retain) NSString *averagePrice;
+@end
+
+/*! @brief 股票行情
+ *
+ *  股票行情类别，包含各种行情、五档等数据
+ */
+@interface MStockItem : MBaseItem
+/** @brief 股票状态
+ *
+ * 正常交易=0, 暂停交易=1, 停牌=2, 退市=3
+ */
+@property (nonatomic, assign) NSInteger status;
+/** @brief 交易階段
+ *
+ * 未开市=0, 虚拟盘=1, 集合竞价=2, 连续竞价=3, 临时停市=4, 已收盘=5
+ */
+@property (nonatomic, assign) NSInteger stage;
+/** @brief 股票代码
+ *
+ * 含市場代號的股票代碼
+ */
+@property (nonatomic, retain) NSString *ID;
+/** 股票名 */
+@property (nonatomic, retain) NSString *name;
+/** 交易时间 */
+@property (nonatomic, retain) NSString *datetime;
+/** 市场别 */
+@property (nonatomic, retain) NSString *market;
+/** 次类别 */
+@property (nonatomic, retain) NSString *subtype;
+/** 最新价 */
+@property (nonatomic, retain) NSString *lastPrice;
+/** 最高价 */
+@property (nonatomic, retain) NSString *highPrice;
+/** 最低价 */
+@property (nonatomic, retain) NSString *lowPrice;
+/** 今开价 */
+@property (nonatomic, retain) NSString *openPrice;
+/** 昨收价 */
+@property (nonatomic, retain) NSString *preClosePrice;
+/** 涨跌比率 */
+@property (nonatomic, retain) NSString *changeRate;
+/** 总量 */
+@property (nonatomic, retain) NSString *volume;
+/** 当前成交量 */
+@property (nonatomic, retain) NSString *nowVolume;
+/** 换手率 */
+@property (nonatomic, retain) NSString *turnoverRate;
+/** 涨停价 */
+@property (nonatomic, retain) NSString *limitUp;
+/** 跌停价 */
+@property (nonatomic, retain) NSString *limitDown;
+/** 涨跌 */
+@property (nonatomic, retain) NSString *change;
+/** 成交金额 */
+@property (nonatomic, retain) NSString *amount;
+/** 买一价 */
+@property (nonatomic, retain) NSString *buyPrice;
+/** 卖一价 */
+@property (nonatomic, retain) NSString *sellPrice;
+/** 外盘量 */
+@property (nonatomic, retain) NSString *buyVolume;
+/** 内盘量 */
+@property (nonatomic, retain) NSString *sellVolume;
+/** 总值 */
+@property (nonatomic, retain) NSString *totalValue;
+/** 流值 */
+@property (nonatomic, retain) NSString *flowValue;
+/** 净资产 */
+@property (nonatomic, retain) NSString *netAsset;
+/** PE(市盈) */
+@property (nonatomic, retain) NSString *PE;
+/** ROE(净资产收益率) */
+@property (nonatomic, retain) NSString *ROE;
+/** 总股本 */
+@property (nonatomic, retain) NSString *capitalization;
+/** 流通股 */
+@property (nonatomic, retain) NSString *circulatingShare;
+/** 五档买价 */
+@property (nonatomic, retain) NSArray *buyPrices;
+/** 五档买量 */
+@property (nonatomic, retain) NSArray *buyVolumes;
+/** 五档卖价 */
+@property (nonatomic, retain) NSArray *sellPrices;
+/** 五档卖量 */
+@property (nonatomic, retain) NSArray *sellVolumes;
+/** 振幅比率 */
+@property (nonatomic, retain) NSString *amplitudeRate;
+/** 收益 */
+@property (nonatomic, retain) NSString *receipts;
+/** 最新十笔明细 */
+@property (nonatomic, retain) NSArray *tickItems;
+/** 股票代码(不含市场) */
+@property (nonatomic, retain) NSString *code;
+/** 涨跌状态 */
+@property (nonatomic, assign) MChangeState changeState;
+/** 上涨家数(指数类专用) */
+@property (nonatomic, retain) NSString *advanceCount;
+/** 下跌家数(指数类专用) */
+@property (nonatomic, retain) NSString *declineCount;
+/** 平盘家数(指数类专用) */
+@property (nonatomic, retain) NSString *equalCount;
+/** 是否为指数股票 */
+@property (nonatomic, readonly, getter=isIndex) BOOL index;
+/** 是否为香港股票 */
+@property (nonatomic, readonly, getter=isHongKong) BOOL hongKong;
+/** 是否为债券股票 */
+@property (nonatomic, readonly, getter=isBond) BOOL bond;
+/** 是否为基金股票 */
+@property (nonatomic, readonly, getter=isFund) BOOL fund;
+/** 是否为权证股票 */
+@property (nonatomic, readonly, getter=isWrnt) BOOL wrnt;
+/** 是否为期权股票 */
+@property (nonatomic, readonly, getter=isOption) BOOL option;
+
+/**
+ *  @brief 股票比较
+ *
+ *  @param stockItem 欲比较的股票
+ *
+ *  @return 比较结果
+ */
+- (BOOL)isEqualToStockItem:(MStockItem *)stockItem;
+@end
+
+/*! @brief 期权行情
+ */
+@interface MOptionItem : MStockItem
+/** 合约代码 */
+@property (nonatomic, retain) NSString *contractID;
+/** 标的证券代码 */
+@property (nonatomic, retain) NSString *stockID;
+/** 标的证券简称 */
+@property (nonatomic, retain) NSString *stockSymble;
+/** 标的证券类型 */
+@property (nonatomic, retain) NSString *stockType;
+/** 合约单位 */
+@property (nonatomic, retain) NSString *unit;
+/** 执行价格 */
+@property (nonatomic, retain) NSString *exePrice;
+/** 首交易日 */
+@property (nonatomic, retain) NSString *startDate;
+/** 最后交易日 */
+@property (nonatomic, retain) NSString *endDate;
+/** 行权日 */
+@property (nonatomic, retain) NSString *exeDate;
+/** 交割日 */
+@property (nonatomic, retain) NSString *deliDate;
+/** 到期日 */
+@property (nonatomic, retain) NSString *expDate;
+/** 合约版号 */
+@property (nonatomic, retain) NSString *version;
+/** 前结算价 */
+@property (nonatomic, retain) NSString *presetPrice;
+/** 标的证券昨收 */
+@property (nonatomic, retain) NSString *stockClose;
+/** 标的证券价格 */
+@property (nonatomic, retain) NSString *stockLast;
+/** 有无涨跌限制 */
+@property (nonatomic, assign) BOOL isLimit;
+/** 剩余天数 */
+@property (nonatomic, retain) NSString *remainDate;
+/** 持仓量 */
+@property (nonatomic, retain) NSString *openInterest;
+/** 期权类别(Call or Put) */
+@property (nonatomic, readonly) MOptionType optionType;
+@end
+
+/*! @brief 板块排行
+ */
+@interface MSectionRankingItem : MBaseItem
+/** 板块名称 */
+@property (nonatomic, retain) NSString *name;
+/** 板块代号 */
+@property (nonatomic, retain) NSString *ID;
+/** 板块涨幅比 */
+@property (nonatomic, retain) NSString *changeRate;
+/** 板块涨幅 */
+@property (nonatomic, retain) NSString *change;
+/** 领涨名称 */
+@property (nonatomic, retain) NSString *stockName;
+/** 领涨代号 */
+@property (nonatomic, retain) NSString *stockID;
+/** 领涨个股涨幅比 */
+@property (nonatomic, retain) NSString *stockChangeRate;
+/** 领涨个股涨幅 */
+@property (nonatomic, retain) NSString *stockChange;
+@end
+
+/*! @brief 期权标的证券
+ */
+@interface MUnderlyingStockItem : MBaseItem
+/** 标的证券代码 */
+@property (nonatomic, retain) NSString *stockID;
+/** 标的证券简称 */
+@property (nonatomic, retain) NSString *stockSymbol;
+@end
+
+/*! @brief 搜寻商品结果类
+ */
+@interface MSearchResultItem : MBaseItem
+/** 股票代码 */
+@property (nonatomic, retain) NSString *stockID;
+/** 股票名称 */
+@property (nonatomic, retain) NSString *name;
+/** 市场别 */
+@property (nonatomic, retain) NSString *market;
+/** 拼音 */
+@property (nonatomic, retain) NSString *pinyin;
+/** 次类别 */
+@property (nonatomic, retain) NSString *subtype;
+/** 股票代码(不含市场别) */
+@property (nonatomic, retain) NSString *code;
+@end
+
+/*! @brief 分时成交
+ *
+ *  包含时、价、量、内外盘等分时数据，可用于显示分时明细画面。
+ */
+@interface MTickItem : MBaseItem
+/** 时间 */
+@property (nonatomic, retain) NSString *datetime;
+/** 最新价 */
+@property (nonatomic, retain) NSString *tradePrice;
+/** 量 */
+@property (nonatomic, retain) NSString *tradeVolume;
+/** 内外盘 */
+@property (nonatomic, assign) MBSVolumeType type;
+@end
+
+/*! @brief 板块分类
+ */
+@interface MCategoryItem : MBaseItem
+/** 分类代码 */
+@property (nonatomic, retain) NSString *code;
+/** 分类名 */
+@property (nonatomic, retain) NSString *name;
+@end
+
+/*! @brief 经纪席位
+ */
+@interface MBrokerSeatItem : MBaseItem
+/** 量 */
+@property (nonatomic, retain) NSString *value;
+/** 名称 */
+@property (nonatomic, retain) NSString *name;
+/** 完整名称 */
+@property (nonatomic, retain) NSString *fullName;
+@end
+

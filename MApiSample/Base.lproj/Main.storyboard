@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="wXL-h1-aC9">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--Main View Controller-->
+        <scene sceneID="WrM-wZ-Vm8">
+            <objects>
+                <viewController id="eX7-o5-6aO" customClass="MainViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="976-bK-IsY"/>
+                        <viewControllerLayoutGuide type="bottom" id="Y1R-KL-PY0"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="pac-mE-hpV">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="wuH-Ij-bTi"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ekB-ja-jTK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="775" y="23"/>
+        </scene>
+        <!--Response View Controller-->
+        <scene sceneID="KaJ-V7-Bbg">
+            <objects>
+                <viewController storyboardIdentifier="ResponseViewController" id="YJR-Cs-DVe" customClass="ResponseViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="OXf-to-8bF"/>
+                        <viewControllerLayoutGuide type="bottom" id="kCM-dS-HMT"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Svf-zi-x5S">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pCt-bS-zBF">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="kCM-dS-HMT" firstAttribute="top" secondItem="pCt-bS-zBF" secondAttribute="bottom" id="0Ar-vj-8or"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="pCt-bS-zBF" secondAttribute="trailing" constant="-16" id="8n9-bK-fui"/>
+                            <constraint firstItem="pCt-bS-zBF" firstAttribute="top" secondItem="Svf-zi-x5S" secondAttribute="topMargin" id="GVw-mC-wDa"/>
+                            <constraint firstItem="pCt-bS-zBF" firstAttribute="leading" secondItem="Svf-zi-x5S" secondAttribute="leadingMargin" constant="-16" id="ul7-cx-HlJ"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="textView" destination="pCt-bS-zBF" id="LKC-6A-Ff9"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fRw-JT-sA8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1385" y="23"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="U32-bj-BLA">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="wXL-h1-aC9" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="48k-bc-gBX">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="eX7-o5-6aO" kind="relationship" relationship="rootViewController" id="chq-pI-H5R"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="87x-x9-O1c" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="47" y="13"/>
+        </scene>
+    </scenes>
+</document>

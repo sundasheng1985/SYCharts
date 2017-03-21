@@ -1,0 +1,1532 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXAggregateTarget section */
+		E9A82E3C1B146C530011A2A4 /* Documentation */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = E9A82E411B146C530011A2A4 /* Build configuration list for PBXAggregateTarget "Documentation" */;
+			buildPhases = (
+				E9A82E421B146C580011A2A4 /* ShellScript */,
+			);
+			dependencies = (
+			);
+			name = Documentation;
+			productName = Documentation;
+		};
+/* End PBXAggregateTarget section */
+
+/* Begin PBXBuildFile section */
+		D862ECA51AE0A7FF009B6EC1 /* MBrokerSeatRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = D862ECA41AE0A7FF009B6EC1 /* MBrokerSeatRequest.m */; };
+		D862ED081AE0B232009B6EC1 /* MAuthResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = D862ECAF1AE0B232009B6EC1 /* MAuthResponse.m */; };
+		D862ED091AE0B232009B6EC1 /* MBigEventNotificationResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = D862ECB11AE0B232009B6EC1 /* MBigEventNotificationResponse.m */; };
+		D862ED0A1AE0B232009B6EC1 /* MBlockTradeInfoResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = D862ECB31AE0B232009B6EC1 /* MBlockTradeInfoResponse.m */; };
+		D862ED0B1AE0B232009B6EC1 /* MBonusFinanceResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = D862ECB51AE0B232009B6EC1 /* MBonusFinanceResponse.m */; };
+		D862ED0C1AE0B232009B6EC1 /* MBrokerSeatResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = D862ECB71AE0B232009B6EC1 /* MBrokerSeatResponse.m */; };
+		D862ED0D1AE0B232009B6EC1 /* MCategoryListResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = D862ECB91AE0B232009B6EC1 /* MCategoryListResponse.m */; };
+		D862ED0E1AE0B232009B6EC1 /* MRiseRankingResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = D862ECBB1AE0B232009B6EC1 /* MRiseRankingResponse.m */; };
+		D862ED0F1AE0B232009B6EC1 /* MChartResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = D862ECBD1AE0B232009B6EC1 /* MChartResponse.m */; };
+		D862ED101AE0B232009B6EC1 /* MCompanyInfoResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = D862ECBF1AE0B232009B6EC1 /* MCompanyInfoResponse.m */; };
+		D862ED111AE0B232009B6EC1 /* MControlingShareHolderResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = D862ECC11AE0B232009B6EC1 /* MControlingShareHolderResponse.m */; };
+		D862ED121AE0B232009B6EC1 /* MCoreBusinessResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = D862ECC31AE0B232009B6EC1 /* MCoreBusinessResponse.m */; };
+		D862ED141AE0B232009B6EC1 /* MExpireMonthResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = D862ECC71AE0B232009B6EC1 /* MExpireMonthResponse.m */; };
+		D862ED151AE0B232009B6EC1 /* MFinancialInfoResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = D862ECC91AE0B232009B6EC1 /* MFinancialInfoResponse.m */; };
+		D862ED161AE0B232009B6EC1 /* MFinancialSummaryResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = D862ECCB1AE0B232009B6EC1 /* MFinancialSummaryResponse.m */; };
+		D862ED171AE0B232009B6EC1 /* MForecastRatingResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = D862ECCD1AE0B232009B6EC1 /* MForecastRatingResponse.m */; };
+		D862ED181AE0B232009B6EC1 /* MForecastYearResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = D862ECCF1AE0B232009B6EC1 /* MForecastYearResponse.m */; };
+		D862ED191AE0B232009B6EC1 /* MFundShareHolderInfoResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = D862ECD11AE0B232009B6EC1 /* MFundShareHolderInfoResponse.m */; };
+		D862ED1A1AE0B232009B6EC1 /* MIPOInfoResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = D862ECD31AE0B232009B6EC1 /* MIPOInfoResponse.m */; };
+		D862ED1B1AE0B232009B6EC1 /* MLatestIndexResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = D862ECD51AE0B232009B6EC1 /* MLatestIndexResponse.m */; };
+		D862ED1C1AE0B232009B6EC1 /* MLeaderPersonInfoResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = D862ECD71AE0B232009B6EC1 /* MLeaderPersonInfoResponse.m */; };
+		D862ED1D1AE0B232009B6EC1 /* MNewsImgResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = D862ECD91AE0B232009B6EC1 /* MNewsImgResponse.m */; };
+		D862ED1E1AE0B232009B6EC1 /* MNewsListResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = D862ECDB1AE0B232009B6EC1 /* MNewsListResponse.m */; };
+		D862ED1F1AE0B232009B6EC1 /* MNewsResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = D862ECDD1AE0B232009B6EC1 /* MNewsResponse.m */; };
+		D862ED201AE0B232009B6EC1 /* MOHLCResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = D862ECDF1AE0B232009B6EC1 /* MOHLCResponse.m */; };
+		D862ED211AE0B232009B6EC1 /* MOptionResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = D862ECE11AE0B232009B6EC1 /* MOptionResponse.m */; };
+		D862ED221AE0B232009B6EC1 /* MQuoteResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = D862ECE31AE0B232009B6EC1 /* MQuoteResponse.m */; };
+		D862ED241AE0B232009B6EC1 /* MResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = D862ECE71AE0B232009B6EC1 /* MResponse.m */; };
+		D862ED251AE0B232009B6EC1 /* MSearchResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = D862ECE91AE0B232009B6EC1 /* MSearchResponse.m */; };
+		D862ED261AE0B232009B6EC1 /* MSectionRankingResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = D862ECEB1AE0B232009B6EC1 /* MSectionRankingResponse.m */; };
+		D862ED271AE0B232009B6EC1 /* MShareHolderHistoryInfoResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = D862ECED1AE0B232009B6EC1 /* MShareHolderHistoryInfoResponse.m */; };
+		D862ED281AE0B232009B6EC1 /* MStockBulletinListResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = D862ECEF1AE0B232009B6EC1 /* MStockBulletinListResponse.m */; };
+		D862ED291AE0B232009B6EC1 /* MStockBulletinResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = D862ECF11AE0B232009B6EC1 /* MStockBulletinResponse.m */; };
+		D862ED2A1AE0B232009B6EC1 /* MStockNewsListResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = D862ECF31AE0B232009B6EC1 /* MStockNewsListResponse.m */; };
+		D862ED2B1AE0B232009B6EC1 /* MStockNewsResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = D862ECF51AE0B232009B6EC1 /* MStockNewsResponse.m */; };
+		D862ED2C1AE0B232009B6EC1 /* MStockReportListResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = D862ECF71AE0B232009B6EC1 /* MStockReportListResponse.m */; };
+		D862ED2D1AE0B232009B6EC1 /* MStockReportResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = D862ECF91AE0B232009B6EC1 /* MStockReportResponse.m */; };
+		D862ED2E1AE0B232009B6EC1 /* MStockShareChangeInfoResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = D862ECFB1AE0B232009B6EC1 /* MStockShareChangeInfoResponse.m */; };
+		D862ED2F1AE0B232009B6EC1 /* MStockShareInfoResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = D862ECFD1AE0B232009B6EC1 /* MStockShareInfoResponse.m */; };
+		D862ED311AE0B232009B6EC1 /* MTopLiquidShareHolderResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = D862ED011AE0B232009B6EC1 /* MTopLiquidShareHolderResponse.m */; };
+		D862ED321AE0B232009B6EC1 /* MTopShareHolderResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = D862ED031AE0B232009B6EC1 /* MTopShareHolderResponse.m */; };
+		D862ED331AE0B232009B6EC1 /* MTradeDetailInfoResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = D862ED051AE0B232009B6EC1 /* MTradeDetailInfoResponse.m */; };
+		D862ED341AE0B232009B6EC1 /* MUnderlyingStockResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = D862ED071AE0B232009B6EC1 /* MUnderlyingStockResponse.m */; };
+		D862ED391AE0B261009B6EC1 /* MBrokerSeatItem.m in Sources */ = {isa = PBXBuildFile; fileRef = D862ED381AE0B261009B6EC1 /* MBrokerSeatItem.m */; };
+		D862ED481AE1FF13009B6EC1 /* MImageCacheManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D862ED471AE1FF13009B6EC1 /* MImageCacheManager.m */; };
+		D862ED4D1AE27F45009B6EC1 /* MApiRequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D862ED4C1AE27F45009B6EC1 /* MApiRequestManager.m */; };
+		D89221521ADDF5A90020A662 /* MCategoryItem.m in Sources */ = {isa = PBXBuildFile; fileRef = D892210C1ADDF5A90020A662 /* MCategoryItem.m */; };
+		D89221531ADDF5A90020A662 /* MOHLCItem.m in Sources */ = {isa = PBXBuildFile; fileRef = D892210E1ADDF5A90020A662 /* MOHLCItem.m */; };
+		D89221541ADDF5A90020A662 /* MOptionItem.m in Sources */ = {isa = PBXBuildFile; fileRef = D89221101ADDF5A90020A662 /* MOptionItem.m */; };
+		D89221551ADDF5A90020A662 /* MSearchResultItem.m in Sources */ = {isa = PBXBuildFile; fileRef = D89221121ADDF5A90020A662 /* MSearchResultItem.m */; };
+		D89221561ADDF5A90020A662 /* MSectionRankingItem.m in Sources */ = {isa = PBXBuildFile; fileRef = D89221141ADDF5A90020A662 /* MSectionRankingItem.m */; };
+		D89221571ADDF5A90020A662 /* MStockItem.m in Sources */ = {isa = PBXBuildFile; fileRef = D89221161ADDF5A90020A662 /* MStockItem.m */; };
+		D89221581ADDF5A90020A662 /* MStockRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = D89221181ADDF5A90020A662 /* MStockRecord.m */; };
+		D89221591ADDF5A90020A662 /* MTickItem.m in Sources */ = {isa = PBXBuildFile; fileRef = D892211A1ADDF5A90020A662 /* MTickItem.m */; };
+		D89221681ADDF5A90020A662 /* MNewsDetailItem.m in Sources */ = {isa = PBXBuildFile; fileRef = D89221391ADDF5A90020A662 /* MNewsDetailItem.m */; };
+		D89221691ADDF5A90020A662 /* MNewsItem.m in Sources */ = {isa = PBXBuildFile; fileRef = D892213B1ADDF5A90020A662 /* MNewsItem.m */; };
+		D892216C1ADDF5A90020A662 /* MStockBulletinDetailItem.m in Sources */ = {isa = PBXBuildFile; fileRef = D89221411ADDF5A90020A662 /* MStockBulletinDetailItem.m */; };
+		D892216D1ADDF5A90020A662 /* MStockBulletinItem.m in Sources */ = {isa = PBXBuildFile; fileRef = D89221431ADDF5A90020A662 /* MStockBulletinItem.m */; };
+		D892216E1ADDF5A90020A662 /* MStockNewsDetailItem.m in Sources */ = {isa = PBXBuildFile; fileRef = D89221451ADDF5A90020A662 /* MStockNewsDetailItem.m */; };
+		D892216F1ADDF5A90020A662 /* MStockNewsItem.m in Sources */ = {isa = PBXBuildFile; fileRef = D89221471ADDF5A90020A662 /* MStockNewsItem.m */; };
+		D89221701ADDF5A90020A662 /* MStockReportDetailItem.m in Sources */ = {isa = PBXBuildFile; fileRef = D89221491ADDF5A90020A662 /* MStockReportDetailItem.m */; };
+		D89221711ADDF5A90020A662 /* MStockReportItem.m in Sources */ = {isa = PBXBuildFile; fileRef = D892214B1ADDF5A90020A662 /* MStockReportItem.m */; };
+		D8B9D3DA1AE355B700DDF3AE /* MCoreDataHelper+StockRecords.m in Sources */ = {isa = PBXBuildFile; fileRef = D8B9D3D91AE355B700DDF3AE /* MCoreDataHelper+StockRecords.m */; };
+		E9024E7A1B15BC7F00D152B9 /* NSData+MKBase64.m in Sources */ = {isa = PBXBuildFile; fileRef = E9024E6B1B15BC7E00D152B9 /* NSData+MKBase64.m */; };
+		E9024E7B1B15BC7F00D152B9 /* NSDate+RFC1123.m in Sources */ = {isa = PBXBuildFile; fileRef = E9024E6D1B15BC7E00D152B9 /* NSDate+RFC1123.m */; };
+		E9024E7C1B15BC7F00D152B9 /* NSDictionary+RequestEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = E9024E6F1B15BC7E00D152B9 /* NSDictionary+RequestEncoding.m */; };
+		E9024E7D1B15BC7F00D152B9 /* NSString+MKNetworkKitAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = E9024E711B15BC7F00D152B9 /* NSString+MKNetworkKitAdditions.m */; };
+		E9024E7E1B15BC7F00D152B9 /* UIAlertView+MKNetworkKitAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = E9024E731B15BC7F00D152B9 /* UIAlertView+MKNetworkKitAdditions.m */; };
+		E9024E7F1B15BC7F00D152B9 /* MKNetworkEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = E9024E751B15BC7F00D152B9 /* MKNetworkEngine.m */; };
+		E9024E801B15BC7F00D152B9 /* MKNetworkOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = E9024E781B15BC7F00D152B9 /* MKNetworkOperation.m */; };
+		E9024E831B15BC9F00D152B9 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = E9024E821B15BC9F00D152B9 /* Reachability.m */; };
+		E902EB221B0D918500DB33BA /* MOptionTRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = E902EB211B0D918500DB33BA /* MOptionTRequest.m */; };
+		E9156D401B15CAD10088C785 /* MApi.m in Sources */ = {isa = PBXBuildFile; fileRef = E9156D3F1B15CAD10088C785 /* MApi.m */; };
+		E92277A41B1EA972007F0BCE /* BackDoorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E922779E1B1EA972007F0BCE /* BackDoorViewController.m */; };
+		E92277A51B1EA972007F0BCE /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E92277A01B1EA972007F0BCE /* MainViewController.m */; };
+		E92277A61B1EA972007F0BCE /* ResponseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E92277A21B1EA972007F0BCE /* ResponseViewController.m */; };
+		E92277A71B1EA972007F0BCE /* TestQuoteInfos.json in Resources */ = {isa = PBXBuildFile; fileRef = E92277A31B1EA972007F0BCE /* TestQuoteInfos.json */; };
+		E93091F81B16C6900044700F /* MMarketInfoRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = E93091F71B16C6900044700F /* MMarketInfoRequest.m */; };
+		E93091FB1B16C75E0044700F /* MMarketInfoResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = E93091FA1B16C75E0044700F /* MMarketInfoResponse.m */; };
+		E93091FE1B16CCAC0044700F /* MTimeZone.m in Sources */ = {isa = PBXBuildFile; fileRef = E93091FD1B16CCAC0044700F /* MTimeZone.m */; };
+		E93092011B16CCF10044700F /* MMarketInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = E93092001B16CCF10044700F /* MMarketInfo.m */; };
+		E930920B1B16D9A50044700F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E930920A1B16D9A50044700F /* main.m */; };
+		E930920E1B16D9A50044700F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E930920D1B16D9A50044700F /* AppDelegate.m */; };
+		E93092141B16D9A50044700F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E93092121B16D9A50044700F /* Main.storyboard */; };
+		E93092161B16D9A50044700F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E93092151B16D9A50044700F /* Images.xcassets */; };
+		E93092191B16D9A50044700F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = E93092171B16D9A50044700F /* LaunchScreen.xib */; };
+		E930922C1B16DAD00044700F /* libMApi.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D8118BFD1AA2BD2D00910C76 /* libMApi.a */; };
+		E93092301B16E1600044700F /* market.json in Resources */ = {isa = PBXBuildFile; fileRef = E930922F1B16E1600044700F /* market.json */; };
+		E9544BB01B65E54700A4C8B8 /* MGetSourceClassRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = E9544BAF1B65E54700A4C8B8 /* MGetSourceClassRequest.m */; };
+		E9544BB31B65EB8400A4C8B8 /* MGetSourceClassResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = E9544BB21B65EB8400A4C8B8 /* MGetSourceClassResponse.m */; };
+		E9544BB61B65F7A600A4C8B8 /* MGetMenuRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = E9544BB51B65F7A600A4C8B8 /* MGetMenuRequest.m */; };
+		E9544BB91B65F99100A4C8B8 /* MGetMenuResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = E9544BB81B65F99100A4C8B8 /* MGetMenuResponse.m */; };
+		E95A82BC1AEB912800986AE4 /* MFallRankingRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = E95A82BB1AEB912800986AE4 /* MFallRankingRequest.m */; };
+		E95A82BF1AEB927900986AE4 /* MFallRankingResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = E95A82BE1AEB927900986AE4 /* MFallRankingResponse.m */; };
+		E95B43FC1B779C5200756960 /* MGetSourceRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = E95B43FB1B779C5200756960 /* MGetSourceRequest.m */; };
+		E95B43FF1B779C5F00756960 /* MGetSourceResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = E95B43FE1B779C5F00756960 /* MGetSourceResponse.m */; };
+		E95D22C51B1E91F700B8D8D7 /* MApi.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = E9024E2B1B159EB300D152B9 /* MApi.h */; };
+		E95D22C61B1E91F700B8D8D7 /* MApiObject+Info.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = E9024E2C1B159EB300D152B9 /* MApiObject+Info.h */; };
+		E95D22C71B1E91F700B8D8D7 /* MApiObject.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = E9024E2D1B159EB300D152B9 /* MApiObject.h */; };
+		E96C133B1B78F468007607E5 /* MCheckVersionRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = E96C133A1B78F468007607E5 /* MCheckVersionRequest.m */; };
+		E96C133E1B78F475007607E5 /* MCheckVersionResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = E96C133D1B78F475007607E5 /* MCheckVersionResponse.m */; };
+		E979EF0F1AC052210063210F /* NSData+MApiAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = E979EE301AC052210063210F /* NSData+MApiAdditions.m */; };
+		E979EF101AC052210063210F /* MApiCache.m in Sources */ = {isa = PBXBuildFile; fileRef = E979EE331AC052210063210F /* MApiCache.m */; };
+		E979EF111AC052210063210F /* MApiHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = E979EE351AC052210063210F /* MApiHelper.m */; };
+		E979EF121AC052210063210F /* MCoreDataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = E979EE371AC052210063210F /* MCoreDataHelper.m */; };
+		E99261DE1AD6C30000D21A1D /* NSString+MApiAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = E99261DD1AD6C30000D21A1D /* NSString+MApiAdditions.m */; };
+		E99261E31AD6E41E00D21A1D /* MSectionRankingRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = E99261E21AD6E41E00D21A1D /* MSectionRankingRequest.m */; };
+		E998DC771AE60B68007BE6FA /* MSnapQuoteRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = E998DC761AE60B68007BE6FA /* MSnapQuoteRequest.m */; };
+		E998DC7C1AE60C22007BE6FA /* MSnapQuoteResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = E998DC7B1AE60C22007BE6FA /* MSnapQuoteResponse.m */; };
+		E9D1B4DB1AC81178000C797E /* MBaseItem.m in Sources */ = {isa = PBXBuildFile; fileRef = E9D1B3E81AC81178000C797E /* MBaseItem.m */; };
+		E9D1B4FF1AC81178000C797E /* MAuthRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = E9D1B4311AC81178000C797E /* MAuthRequest.m */; };
+		E9D1B5001AC81178000C797E /* MBigEventNotificationRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = E9D1B4331AC81178000C797E /* MBigEventNotificationRequest.m */; };
+		E9D1B5011AC81178000C797E /* MBlockTradeInfoRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = E9D1B4351AC81178000C797E /* MBlockTradeInfoRequest.m */; };
+		E9D1B5021AC81178000C797E /* MBonusFinanceRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = E9D1B4371AC81178000C797E /* MBonusFinanceRequest.m */; };
+		E9D1B5031AC81178000C797E /* MCategoryListRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = E9D1B4391AC81178000C797E /* MCategoryListRequest.m */; };
+		E9D1B5041AC81178000C797E /* MRiseRankingRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = E9D1B43B1AC81178000C797E /* MRiseRankingRequest.m */; };
+		E9D1B5051AC81178000C797E /* MChartRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = E9D1B43D1AC81178000C797E /* MChartRequest.m */; };
+		E9D1B5061AC81178000C797E /* MCompanyInfoRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = E9D1B43F1AC81178000C797E /* MCompanyInfoRequest.m */; };
+		E9D1B5071AC81178000C797E /* MControlingShareHolderRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = E9D1B4411AC81178000C797E /* MControlingShareHolderRequest.m */; };
+		E9D1B5081AC81178000C797E /* MCoreBusinessRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = E9D1B4431AC81178000C797E /* MCoreBusinessRequest.m */; };
+		E9D1B50A1AC81178000C797E /* MExpireMonthRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = E9D1B4471AC81178000C797E /* MExpireMonthRequest.m */; };
+		E9D1B50B1AC81178000C797E /* MFinancialInfoRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = E9D1B4491AC81178000C797E /* MFinancialInfoRequest.m */; };
+		E9D1B50C1AC81178000C797E /* MFinancialSummaryRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = E9D1B44B1AC81178000C797E /* MFinancialSummaryRequest.m */; };
+		E9D1B50D1AC81178000C797E /* MForecastRatingRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = E9D1B44D1AC81178000C797E /* MForecastRatingRequest.m */; };
+		E9D1B50E1AC81178000C797E /* MForecastYearRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = E9D1B44F1AC81178000C797E /* MForecastYearRequest.m */; };
+		E9D1B50F1AC81178000C797E /* MFundShareHolderInfoRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = E9D1B4511AC81178000C797E /* MFundShareHolderInfoRequest.m */; };
+		E9D1B5101AC81178000C797E /* MIPOInfoRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = E9D1B4531AC81178000C797E /* MIPOInfoRequest.m */; };
+		E9D1B5111AC81178000C797E /* MLatestIndexRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = E9D1B4551AC81178000C797E /* MLatestIndexRequest.m */; };
+		E9D1B5121AC81178000C797E /* MLeaderPersonInfoRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = E9D1B4571AC81178000C797E /* MLeaderPersonInfoRequest.m */; };
+		E9D1B5131AC81178000C797E /* MNewsListRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = E9D1B4591AC81178000C797E /* MNewsListRequest.m */; };
+		E9D1B5141AC81178000C797E /* MNewsRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = E9D1B45B1AC81178000C797E /* MNewsRequest.m */; };
+		E9D1B5151AC81178000C797E /* MOHLCRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = E9D1B45D1AC81178000C797E /* MOHLCRequest.m */; };
+		E9D1B5161AC81178000C797E /* MOptionRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = E9D1B45F1AC81178000C797E /* MOptionRequest.m */; };
+		E9D1B5181AC81178000C797E /* MQuoteRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = E9D1B4631AC81178000C797E /* MQuoteRequest.m */; };
+		E9D1B5191AC81178000C797E /* MRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = E9D1B4651AC81178000C797E /* MRequest.m */; };
+		E9D1B51A1AC81178000C797E /* MSearchRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = E9D1B4671AC81178000C797E /* MSearchRequest.m */; };
+		E9D1B51B1AC81178000C797E /* MShareHolderHistoryInfoRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = E9D1B4691AC81178000C797E /* MShareHolderHistoryInfoRequest.m */; };
+		E9D1B51C1AC81178000C797E /* MStockBulletinListRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = E9D1B46B1AC81178000C797E /* MStockBulletinListRequest.m */; };
+		E9D1B51D1AC81178000C797E /* MStockBulletinRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = E9D1B46D1AC81178000C797E /* MStockBulletinRequest.m */; };
+		E9D1B51E1AC81178000C797E /* MStockNewsListRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = E9D1B46F1AC81178000C797E /* MStockNewsListRequest.m */; };
+		E9D1B51F1AC81178000C797E /* MStockNewsRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = E9D1B4711AC81178000C797E /* MStockNewsRequest.m */; };
+		E9D1B5201AC81178000C797E /* MStockReportListRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = E9D1B4731AC81178000C797E /* MStockReportListRequest.m */; };
+		E9D1B5211AC81178000C797E /* MStockReportRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = E9D1B4751AC81178000C797E /* MStockReportRequest.m */; };
+		E9D1B5221AC81178000C797E /* MStockShareChangeInfoRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = E9D1B4771AC81178000C797E /* MStockShareChangeInfoRequest.m */; };
+		E9D1B5231AC81178000C797E /* MStockShareInfoRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = E9D1B4791AC81178000C797E /* MStockShareInfoRequest.m */; };
+		E9D1B5241AC81178000C797E /* MStockTableRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = E9D1B47B1AC81178000C797E /* MStockTableRequest.m */; };
+		E9D1B5261AC81178000C797E /* MTopLiquidShareHolderRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = E9D1B47F1AC81178000C797E /* MTopLiquidShareHolderRequest.m */; };
+		E9D1B5271AC81178000C797E /* MTopShareHolderRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = E9D1B4811AC81178000C797E /* MTopShareHolderRequest.m */; };
+		E9D1B5281AC81178000C797E /* MTradeDetailInfoRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = E9D1B4831AC81178000C797E /* MTradeDetailInfoRequest.m */; };
+		E9D1B5291AC81178000C797E /* MUnderlyingStockRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = E9D1B4851AC81178000C797E /* MUnderlyingStockRequest.m */; };
+		E9E6A24F1B4BC0440007A15D /* MEchoRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = E9E6A24E1B4BC0440007A15D /* MEchoRequest.m */; };
+		E9E6A2521B4BC0670007A15D /* MEchoResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = E9E6A2511B4BC0670007A15D /* MEchoResponse.m */; };
+		E9F17D421B5F839500D66632 /* MBase64.m in Sources */ = {isa = PBXBuildFile; fileRef = E9F17D411B5F839500D66632 /* MBase64.m */; };
+		E9F42BE91ADB6D6800A20C5B /* MNewsImgRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = E9F42BE81ADB6D6800A20C5B /* MNewsImgRequest.m */; };
+		EFBD4EAC1B6867BE00B2585A /* MTransform.mm in Sources */ = {isa = PBXBuildFile; fileRef = EFBD4EA91B6867BE00B2585A /* MTransform.mm */; };
+		EFBD4EAD1B6867BE00B2585A /* transform.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EFBD4EAA1B6867BE00B2585A /* transform.cpp */; };
+		EFBD4EB01B6867CD00B2585A /* NSString+MTransform.m in Sources */ = {isa = PBXBuildFile; fileRef = EFBD4EAF1B6867CD00B2585A /* NSString+MTransform.m */; };
+		EFBD4EC21B68A16500B2585A /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = EFBD4EC11B68A16500B2585A /* libc++.dylib */; };
+		EFBD4EC31B68A17400B2585A /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = EFBD4EC11B68A16500B2585A /* libc++.dylib */; };
+		EFC268B71B73066E00A10822 /* MEventRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = EFC268B61B73066E00A10822 /* MEventRequest.m */; };
+		EFC268BA1B73068900A10822 /* MEventResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = EFC268B91B73068900A10822 /* MEventResponse.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		E930922D1B16DADA0044700F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D8A9D6BA1A7DDBE200D21726 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D8118BFC1AA2BD2D00910C76;
+			remoteInfo = MApi;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		D8118BFB1AA2BD2D00910C76 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 12;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+				E95D22C51B1E91F700B8D8D7 /* MApi.h in CopyFiles */,
+				E95D22C61B1E91F700B8D8D7 /* MApiObject+Info.h in CopyFiles */,
+				E95D22C71B1E91F700B8D8D7 /* MApiObject.h in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		D8118BFD1AA2BD2D00910C76 /* libMApi.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libMApi.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		D8118C3B1AA2C12400910C76 /* MApi-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MApi-Prefix.pch"; sourceTree = "<group>"; };
+		D862ECA31AE0A7FF009B6EC1 /* MBrokerSeatRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBrokerSeatRequest.h; sourceTree = "<group>"; };
+		D862ECA41AE0A7FF009B6EC1 /* MBrokerSeatRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBrokerSeatRequest.m; sourceTree = "<group>"; };
+		D862ECAE1AE0B232009B6EC1 /* MAuthResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MAuthResponse.h; sourceTree = "<group>"; };
+		D862ECAF1AE0B232009B6EC1 /* MAuthResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MAuthResponse.m; sourceTree = "<group>"; };
+		D862ECB01AE0B232009B6EC1 /* MBigEventNotificationResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBigEventNotificationResponse.h; sourceTree = "<group>"; };
+		D862ECB11AE0B232009B6EC1 /* MBigEventNotificationResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBigEventNotificationResponse.m; sourceTree = "<group>"; };
+		D862ECB21AE0B232009B6EC1 /* MBlockTradeInfoResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBlockTradeInfoResponse.h; sourceTree = "<group>"; };
+		D862ECB31AE0B232009B6EC1 /* MBlockTradeInfoResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBlockTradeInfoResponse.m; sourceTree = "<group>"; };
+		D862ECB41AE0B232009B6EC1 /* MBonusFinanceResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBonusFinanceResponse.h; sourceTree = "<group>"; };
+		D862ECB51AE0B232009B6EC1 /* MBonusFinanceResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBonusFinanceResponse.m; sourceTree = "<group>"; };
+		D862ECB61AE0B232009B6EC1 /* MBrokerSeatResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBrokerSeatResponse.h; sourceTree = "<group>"; };
+		D862ECB71AE0B232009B6EC1 /* MBrokerSeatResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBrokerSeatResponse.m; sourceTree = "<group>"; };
+		D862ECB81AE0B232009B6EC1 /* MCategoryListResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCategoryListResponse.h; sourceTree = "<group>"; };
+		D862ECB91AE0B232009B6EC1 /* MCategoryListResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCategoryListResponse.m; sourceTree = "<group>"; };
+		D862ECBA1AE0B232009B6EC1 /* MRiseRankingResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRiseRankingResponse.h; sourceTree = "<group>"; };
+		D862ECBB1AE0B232009B6EC1 /* MRiseRankingResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRiseRankingResponse.m; sourceTree = "<group>"; };
+		D862ECBC1AE0B232009B6EC1 /* MChartResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MChartResponse.h; sourceTree = "<group>"; };
+		D862ECBD1AE0B232009B6EC1 /* MChartResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MChartResponse.m; sourceTree = "<group>"; };
+		D862ECBE1AE0B232009B6EC1 /* MCompanyInfoResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCompanyInfoResponse.h; sourceTree = "<group>"; };
+		D862ECBF1AE0B232009B6EC1 /* MCompanyInfoResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCompanyInfoResponse.m; sourceTree = "<group>"; };
+		D862ECC01AE0B232009B6EC1 /* MControlingShareHolderResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MControlingShareHolderResponse.h; sourceTree = "<group>"; };
+		D862ECC11AE0B232009B6EC1 /* MControlingShareHolderResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MControlingShareHolderResponse.m; sourceTree = "<group>"; };
+		D862ECC21AE0B232009B6EC1 /* MCoreBusinessResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCoreBusinessResponse.h; sourceTree = "<group>"; };
+		D862ECC31AE0B232009B6EC1 /* MCoreBusinessResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCoreBusinessResponse.m; sourceTree = "<group>"; };
+		D862ECC61AE0B232009B6EC1 /* MExpireMonthResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MExpireMonthResponse.h; sourceTree = "<group>"; };
+		D862ECC71AE0B232009B6EC1 /* MExpireMonthResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MExpireMonthResponse.m; sourceTree = "<group>"; };
+		D862ECC81AE0B232009B6EC1 /* MFinancialInfoResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MFinancialInfoResponse.h; sourceTree = "<group>"; };
+		D862ECC91AE0B232009B6EC1 /* MFinancialInfoResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MFinancialInfoResponse.m; sourceTree = "<group>"; };
+		D862ECCA1AE0B232009B6EC1 /* MFinancialSummaryResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MFinancialSummaryResponse.h; sourceTree = "<group>"; };
+		D862ECCB1AE0B232009B6EC1 /* MFinancialSummaryResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MFinancialSummaryResponse.m; sourceTree = "<group>"; };
+		D862ECCC1AE0B232009B6EC1 /* MForecastRatingResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MForecastRatingResponse.h; sourceTree = "<group>"; };
+		D862ECCD1AE0B232009B6EC1 /* MForecastRatingResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MForecastRatingResponse.m; sourceTree = "<group>"; };
+		D862ECCE1AE0B232009B6EC1 /* MForecastYearResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MForecastYearResponse.h; sourceTree = "<group>"; };
+		D862ECCF1AE0B232009B6EC1 /* MForecastYearResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MForecastYearResponse.m; sourceTree = "<group>"; };
+		D862ECD01AE0B232009B6EC1 /* MFundShareHolderInfoResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MFundShareHolderInfoResponse.h; sourceTree = "<group>"; };
+		D862ECD11AE0B232009B6EC1 /* MFundShareHolderInfoResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MFundShareHolderInfoResponse.m; sourceTree = "<group>"; };
+		D862ECD21AE0B232009B6EC1 /* MIPOInfoResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MIPOInfoResponse.h; sourceTree = "<group>"; };
+		D862ECD31AE0B232009B6EC1 /* MIPOInfoResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MIPOInfoResponse.m; sourceTree = "<group>"; };
+		D862ECD41AE0B232009B6EC1 /* MLatestIndexResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLatestIndexResponse.h; sourceTree = "<group>"; };
+		D862ECD51AE0B232009B6EC1 /* MLatestIndexResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLatestIndexResponse.m; sourceTree = "<group>"; };
+		D862ECD61AE0B232009B6EC1 /* MLeaderPersonInfoResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLeaderPersonInfoResponse.h; sourceTree = "<group>"; };
+		D862ECD71AE0B232009B6EC1 /* MLeaderPersonInfoResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLeaderPersonInfoResponse.m; sourceTree = "<group>"; };
+		D862ECD81AE0B232009B6EC1 /* MNewsImgResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MNewsImgResponse.h; sourceTree = "<group>"; };
+		D862ECD91AE0B232009B6EC1 /* MNewsImgResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MNewsImgResponse.m; sourceTree = "<group>"; };
+		D862ECDA1AE0B232009B6EC1 /* MNewsListResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MNewsListResponse.h; sourceTree = "<group>"; };
+		D862ECDB1AE0B232009B6EC1 /* MNewsListResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MNewsListResponse.m; sourceTree = "<group>"; };
+		D862ECDC1AE0B232009B6EC1 /* MNewsResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MNewsResponse.h; sourceTree = "<group>"; };
+		D862ECDD1AE0B232009B6EC1 /* MNewsResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MNewsResponse.m; sourceTree = "<group>"; };
+		D862ECDE1AE0B232009B6EC1 /* MOHLCResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MOHLCResponse.h; sourceTree = "<group>"; };
+		D862ECDF1AE0B232009B6EC1 /* MOHLCResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MOHLCResponse.m; sourceTree = "<group>"; };
+		D862ECE01AE0B232009B6EC1 /* MOptionResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MOptionResponse.h; sourceTree = "<group>"; };
+		D862ECE11AE0B232009B6EC1 /* MOptionResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MOptionResponse.m; sourceTree = "<group>"; };
+		D862ECE21AE0B232009B6EC1 /* MQuoteResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MQuoteResponse.h; sourceTree = "<group>"; };
+		D862ECE31AE0B232009B6EC1 /* MQuoteResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MQuoteResponse.m; sourceTree = "<group>"; };
+		D862ECE61AE0B232009B6EC1 /* MResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MResponse.h; sourceTree = "<group>"; };
+		D862ECE71AE0B232009B6EC1 /* MResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MResponse.m; sourceTree = "<group>"; };
+		D862ECE81AE0B232009B6EC1 /* MSearchResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSearchResponse.h; sourceTree = "<group>"; };
+		D862ECE91AE0B232009B6EC1 /* MSearchResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSearchResponse.m; sourceTree = "<group>"; };
+		D862ECEA1AE0B232009B6EC1 /* MSectionRankingResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSectionRankingResponse.h; sourceTree = "<group>"; };
+		D862ECEB1AE0B232009B6EC1 /* MSectionRankingResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSectionRankingResponse.m; sourceTree = "<group>"; };
+		D862ECEC1AE0B232009B6EC1 /* MShareHolderHistoryInfoResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MShareHolderHistoryInfoResponse.h; sourceTree = "<group>"; };
+		D862ECED1AE0B232009B6EC1 /* MShareHolderHistoryInfoResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MShareHolderHistoryInfoResponse.m; sourceTree = "<group>"; };
+		D862ECEE1AE0B232009B6EC1 /* MStockBulletinListResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MStockBulletinListResponse.h; sourceTree = "<group>"; };
+		D862ECEF1AE0B232009B6EC1 /* MStockBulletinListResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MStockBulletinListResponse.m; sourceTree = "<group>"; };
+		D862ECF01AE0B232009B6EC1 /* MStockBulletinResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MStockBulletinResponse.h; sourceTree = "<group>"; };
+		D862ECF11AE0B232009B6EC1 /* MStockBulletinResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MStockBulletinResponse.m; sourceTree = "<group>"; };
+		D862ECF21AE0B232009B6EC1 /* MStockNewsListResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MStockNewsListResponse.h; sourceTree = "<group>"; };
+		D862ECF31AE0B232009B6EC1 /* MStockNewsListResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MStockNewsListResponse.m; sourceTree = "<group>"; };
+		D862ECF41AE0B232009B6EC1 /* MStockNewsResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MStockNewsResponse.h; sourceTree = "<group>"; };
+		D862ECF51AE0B232009B6EC1 /* MStockNewsResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MStockNewsResponse.m; sourceTree = "<group>"; };
+		D862ECF61AE0B232009B6EC1 /* MStockReportListResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MStockReportListResponse.h; sourceTree = "<group>"; };
+		D862ECF71AE0B232009B6EC1 /* MStockReportListResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MStockReportListResponse.m; sourceTree = "<group>"; };
+		D862ECF81AE0B232009B6EC1 /* MStockReportResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MStockReportResponse.h; sourceTree = "<group>"; };
+		D862ECF91AE0B232009B6EC1 /* MStockReportResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MStockReportResponse.m; sourceTree = "<group>"; };
+		D862ECFA1AE0B232009B6EC1 /* MStockShareChangeInfoResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MStockShareChangeInfoResponse.h; sourceTree = "<group>"; };
+		D862ECFB1AE0B232009B6EC1 /* MStockShareChangeInfoResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MStockShareChangeInfoResponse.m; sourceTree = "<group>"; };
+		D862ECFC1AE0B232009B6EC1 /* MStockShareInfoResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MStockShareInfoResponse.h; sourceTree = "<group>"; };
+		D862ECFD1AE0B232009B6EC1 /* MStockShareInfoResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MStockShareInfoResponse.m; sourceTree = "<group>"; };
+		D862ED001AE0B232009B6EC1 /* MTopLiquidShareHolderResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTopLiquidShareHolderResponse.h; sourceTree = "<group>"; };
+		D862ED011AE0B232009B6EC1 /* MTopLiquidShareHolderResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTopLiquidShareHolderResponse.m; sourceTree = "<group>"; };
+		D862ED021AE0B232009B6EC1 /* MTopShareHolderResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTopShareHolderResponse.h; sourceTree = "<group>"; };
+		D862ED031AE0B232009B6EC1 /* MTopShareHolderResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTopShareHolderResponse.m; sourceTree = "<group>"; };
+		D862ED041AE0B232009B6EC1 /* MTradeDetailInfoResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTradeDetailInfoResponse.h; sourceTree = "<group>"; };
+		D862ED051AE0B232009B6EC1 /* MTradeDetailInfoResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTradeDetailInfoResponse.m; sourceTree = "<group>"; };
+		D862ED061AE0B232009B6EC1 /* MUnderlyingStockResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MUnderlyingStockResponse.h; sourceTree = "<group>"; };
+		D862ED071AE0B232009B6EC1 /* MUnderlyingStockResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MUnderlyingStockResponse.m; sourceTree = "<group>"; };
+		D862ED371AE0B261009B6EC1 /* MBrokerSeatItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBrokerSeatItem.h; sourceTree = "<group>"; };
+		D862ED381AE0B261009B6EC1 /* MBrokerSeatItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBrokerSeatItem.m; sourceTree = "<group>"; };
+		D862ED461AE1FF13009B6EC1 /* MImageCacheManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MImageCacheManager.h; sourceTree = "<group>"; };
+		D862ED471AE1FF13009B6EC1 /* MImageCacheManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MImageCacheManager.m; sourceTree = "<group>"; };
+		D862ED4B1AE27F45009B6EC1 /* MApiRequestManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MApiRequestManager.h; sourceTree = "<group>"; };
+		D862ED4C1AE27F45009B6EC1 /* MApiRequestManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MApiRequestManager.m; sourceTree = "<group>"; };
+		D892210B1ADDF5A90020A662 /* MCategoryItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCategoryItem.h; sourceTree = "<group>"; };
+		D892210C1ADDF5A90020A662 /* MCategoryItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCategoryItem.m; sourceTree = "<group>"; };
+		D892210D1ADDF5A90020A662 /* MOHLCItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MOHLCItem.h; sourceTree = "<group>"; };
+		D892210E1ADDF5A90020A662 /* MOHLCItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MOHLCItem.m; sourceTree = "<group>"; };
+		D892210F1ADDF5A90020A662 /* MOptionItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MOptionItem.h; sourceTree = "<group>"; };
+		D89221101ADDF5A90020A662 /* MOptionItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MOptionItem.m; sourceTree = "<group>"; };
+		D89221111ADDF5A90020A662 /* MSearchResultItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSearchResultItem.h; sourceTree = "<group>"; };
+		D89221121ADDF5A90020A662 /* MSearchResultItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSearchResultItem.m; sourceTree = "<group>"; };
+		D89221131ADDF5A90020A662 /* MSectionRankingItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSectionRankingItem.h; sourceTree = "<group>"; };
+		D89221141ADDF5A90020A662 /* MSectionRankingItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSectionRankingItem.m; sourceTree = "<group>"; };
+		D89221151ADDF5A90020A662 /* MStockItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MStockItem.h; sourceTree = "<group>"; };
+		D89221161ADDF5A90020A662 /* MStockItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MStockItem.m; sourceTree = "<group>"; };
+		D89221171ADDF5A90020A662 /* MStockRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MStockRecord.h; sourceTree = "<group>"; };
+		D89221181ADDF5A90020A662 /* MStockRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MStockRecord.m; sourceTree = "<group>"; };
+		D89221191ADDF5A90020A662 /* MTickItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTickItem.h; sourceTree = "<group>"; };
+		D892211A1ADDF5A90020A662 /* MTickItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTickItem.m; sourceTree = "<group>"; };
+		D89221381ADDF5A90020A662 /* MNewsDetailItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MNewsDetailItem.h; sourceTree = "<group>"; };
+		D89221391ADDF5A90020A662 /* MNewsDetailItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MNewsDetailItem.m; sourceTree = "<group>"; };
+		D892213A1ADDF5A90020A662 /* MNewsItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MNewsItem.h; sourceTree = "<group>"; };
+		D892213B1ADDF5A90020A662 /* MNewsItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MNewsItem.m; sourceTree = "<group>"; };
+		D89221401ADDF5A90020A662 /* MStockBulletinDetailItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MStockBulletinDetailItem.h; sourceTree = "<group>"; };
+		D89221411ADDF5A90020A662 /* MStockBulletinDetailItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MStockBulletinDetailItem.m; sourceTree = "<group>"; };
+		D89221421ADDF5A90020A662 /* MStockBulletinItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MStockBulletinItem.h; sourceTree = "<group>"; };
+		D89221431ADDF5A90020A662 /* MStockBulletinItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MStockBulletinItem.m; sourceTree = "<group>"; };
+		D89221441ADDF5A90020A662 /* MStockNewsDetailItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MStockNewsDetailItem.h; sourceTree = "<group>"; };
+		D89221451ADDF5A90020A662 /* MStockNewsDetailItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MStockNewsDetailItem.m; sourceTree = "<group>"; };
+		D89221461ADDF5A90020A662 /* MStockNewsItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MStockNewsItem.h; sourceTree = "<group>"; };
+		D89221471ADDF5A90020A662 /* MStockNewsItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MStockNewsItem.m; sourceTree = "<group>"; };
+		D89221481ADDF5A90020A662 /* MStockReportDetailItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MStockReportDetailItem.h; sourceTree = "<group>"; };
+		D89221491ADDF5A90020A662 /* MStockReportDetailItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MStockReportDetailItem.m; sourceTree = "<group>"; };
+		D892214A1ADDF5A90020A662 /* MStockReportItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MStockReportItem.h; sourceTree = "<group>"; };
+		D892214B1ADDF5A90020A662 /* MStockReportItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MStockReportItem.m; sourceTree = "<group>"; };
+		D8B9D3D81AE355B700DDF3AE /* MCoreDataHelper+StockRecords.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MCoreDataHelper+StockRecords.h"; sourceTree = "<group>"; };
+		D8B9D3D91AE355B700DDF3AE /* MCoreDataHelper+StockRecords.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MCoreDataHelper+StockRecords.m"; sourceTree = "<group>"; };
+		E9024E2B1B159EB300D152B9 /* MApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MApi.h; sourceTree = "<group>"; };
+		E9024E2C1B159EB300D152B9 /* MApiObject+Info.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MApiObject+Info.h"; sourceTree = "<group>"; };
+		E9024E2D1B159EB300D152B9 /* MApiObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MApiObject.h; sourceTree = "<group>"; };
+		E9024E6A1B15BC7E00D152B9 /* NSData+MKBase64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+MKBase64.h"; sourceTree = "<group>"; };
+		E9024E6B1B15BC7E00D152B9 /* NSData+MKBase64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+MKBase64.m"; sourceTree = "<group>"; };
+		E9024E6C1B15BC7E00D152B9 /* NSDate+RFC1123.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+RFC1123.h"; sourceTree = "<group>"; };
+		E9024E6D1B15BC7E00D152B9 /* NSDate+RFC1123.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+RFC1123.m"; sourceTree = "<group>"; };
+		E9024E6E1B15BC7E00D152B9 /* NSDictionary+RequestEncoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+RequestEncoding.h"; sourceTree = "<group>"; };
+		E9024E6F1B15BC7E00D152B9 /* NSDictionary+RequestEncoding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+RequestEncoding.m"; sourceTree = "<group>"; };
+		E9024E701B15BC7E00D152B9 /* NSString+MKNetworkKitAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+MKNetworkKitAdditions.h"; sourceTree = "<group>"; };
+		E9024E711B15BC7F00D152B9 /* NSString+MKNetworkKitAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+MKNetworkKitAdditions.m"; sourceTree = "<group>"; };
+		E9024E721B15BC7F00D152B9 /* UIAlertView+MKNetworkKitAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertView+MKNetworkKitAdditions.h"; sourceTree = "<group>"; };
+		E9024E731B15BC7F00D152B9 /* UIAlertView+MKNetworkKitAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertView+MKNetworkKitAdditions.m"; sourceTree = "<group>"; };
+		E9024E741B15BC7F00D152B9 /* MKNetworkEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKNetworkEngine.h; sourceTree = "<group>"; };
+		E9024E751B15BC7F00D152B9 /* MKNetworkEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKNetworkEngine.m; sourceTree = "<group>"; };
+		E9024E761B15BC7F00D152B9 /* MKNetworkKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKNetworkKit.h; sourceTree = "<group>"; };
+		E9024E771B15BC7F00D152B9 /* MKNetworkOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKNetworkOperation.h; sourceTree = "<group>"; };
+		E9024E781B15BC7F00D152B9 /* MKNetworkOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKNetworkOperation.m; sourceTree = "<group>"; };
+		E9024E811B15BC9F00D152B9 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		E9024E821B15BC9F00D152B9 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		E902EB201B0D918500DB33BA /* MOptionTRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MOptionTRequest.h; sourceTree = "<group>"; };
+		E902EB211B0D918500DB33BA /* MOptionTRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MOptionTRequest.m; sourceTree = "<group>"; };
+		E9156D3F1B15CAD10088C785 /* MApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MApi.m; sourceTree = "<group>"; };
+		E922779D1B1EA972007F0BCE /* BackDoorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BackDoorViewController.h; sourceTree = "<group>"; };
+		E922779E1B1EA972007F0BCE /* BackDoorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BackDoorViewController.m; sourceTree = "<group>"; };
+		E922779F1B1EA972007F0BCE /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		E92277A01B1EA972007F0BCE /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		E92277A11B1EA972007F0BCE /* ResponseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResponseViewController.h; sourceTree = "<group>"; };
+		E92277A21B1EA972007F0BCE /* ResponseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResponseViewController.m; sourceTree = "<group>"; };
+		E92277A31B1EA972007F0BCE /* TestQuoteInfos.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = TestQuoteInfos.json; sourceTree = "<group>"; };
+		E93091F61B16C6900044700F /* MMarketInfoRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMarketInfoRequest.h; sourceTree = "<group>"; };
+		E93091F71B16C6900044700F /* MMarketInfoRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMarketInfoRequest.m; sourceTree = "<group>"; };
+		E93091F91B16C75E0044700F /* MMarketInfoResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMarketInfoResponse.h; sourceTree = "<group>"; };
+		E93091FA1B16C75E0044700F /* MMarketInfoResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMarketInfoResponse.m; sourceTree = "<group>"; };
+		E93091FC1B16CCAC0044700F /* MTimeZone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTimeZone.h; sourceTree = "<group>"; };
+		E93091FD1B16CCAC0044700F /* MTimeZone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTimeZone.m; sourceTree = "<group>"; };
+		E93091FF1B16CCF10044700F /* MMarketInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMarketInfo.h; sourceTree = "<group>"; };
+		E93092001B16CCF10044700F /* MMarketInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMarketInfo.m; sourceTree = "<group>"; };
+		E93092061B16D9A50044700F /* MApiSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MApiSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E93092091B16D9A50044700F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E930920A1B16D9A50044700F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		E930920C1B16D9A50044700F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		E930920D1B16D9A50044700F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		E93092131B16D9A50044700F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		E93092151B16D9A50044700F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		E93092181B16D9A50044700F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		E930922F1B16E1600044700F /* market.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = market.json; sourceTree = "<group>"; };
+		E9544BAE1B65E54700A4C8B8 /* MGetSourceClassRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGetSourceClassRequest.h; sourceTree = "<group>"; };
+		E9544BAF1B65E54700A4C8B8 /* MGetSourceClassRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGetSourceClassRequest.m; sourceTree = "<group>"; };
+		E9544BB11B65EB8400A4C8B8 /* MGetSourceClassResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGetSourceClassResponse.h; sourceTree = "<group>"; };
+		E9544BB21B65EB8400A4C8B8 /* MGetSourceClassResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGetSourceClassResponse.m; sourceTree = "<group>"; };
+		E9544BB41B65F7A600A4C8B8 /* MGetMenuRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGetMenuRequest.h; sourceTree = "<group>"; };
+		E9544BB51B65F7A600A4C8B8 /* MGetMenuRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGetMenuRequest.m; sourceTree = "<group>"; };
+		E9544BB71B65F99100A4C8B8 /* MGetMenuResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGetMenuResponse.h; sourceTree = "<group>"; };
+		E9544BB81B65F99100A4C8B8 /* MGetMenuResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGetMenuResponse.m; sourceTree = "<group>"; };
+		E95A82BA1AEB912800986AE4 /* MFallRankingRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MFallRankingRequest.h; sourceTree = "<group>"; };
+		E95A82BB1AEB912800986AE4 /* MFallRankingRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MFallRankingRequest.m; sourceTree = "<group>"; };
+		E95A82BD1AEB927900986AE4 /* MFallRankingResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MFallRankingResponse.h; sourceTree = "<group>"; };
+		E95A82BE1AEB927900986AE4 /* MFallRankingResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MFallRankingResponse.m; sourceTree = "<group>"; };
+<<<<<<< HEAD
+		E96C13391B78F468007607E5 /* MCheckVersionRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCheckVersionRequest.h; sourceTree = "<group>"; };
+		E96C133A1B78F468007607E5 /* MCheckVersionRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCheckVersionRequest.m; sourceTree = "<group>"; };
+		E96C133C1B78F475007607E5 /* MCheckVersionResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCheckVersionResponse.h; sourceTree = "<group>"; };
+		E96C133D1B78F475007607E5 /* MCheckVersionResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCheckVersionResponse.m; sourceTree = "<group>"; };
+=======
+		E95B43FA1B779C5200756960 /* MGetSourceRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGetSourceRequest.h; sourceTree = "<group>"; };
+		E95B43FB1B779C5200756960 /* MGetSourceRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGetSourceRequest.m; sourceTree = "<group>"; };
+		E95B43FD1B779C5F00756960 /* MGetSourceResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGetSourceResponse.h; sourceTree = "<group>"; };
+		E95B43FE1B779C5F00756960 /* MGetSourceResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGetSourceResponse.m; sourceTree = "<group>"; };
+>>>>>>> 21_新增取得各券商APP可使用的資訊源類別_MGetAppSource
+		E979EE2F1AC052210063210F /* NSData+MApiAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+MApiAdditions.h"; sourceTree = "<group>"; };
+		E979EE301AC052210063210F /* NSData+MApiAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+MApiAdditions.m"; sourceTree = "<group>"; };
+		E979EE321AC052210063210F /* MApiCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MApiCache.h; sourceTree = "<group>"; };
+		E979EE331AC052210063210F /* MApiCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MApiCache.m; sourceTree = "<group>"; };
+		E979EE341AC052210063210F /* MApiHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MApiHelper.h; sourceTree = "<group>"; };
+		E979EE351AC052210063210F /* MApiHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MApiHelper.m; sourceTree = "<group>"; };
+		E979EE361AC052210063210F /* MCoreDataHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCoreDataHelper.h; sourceTree = "<group>"; };
+		E979EE371AC052210063210F /* MCoreDataHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCoreDataHelper.m; sourceTree = "<group>"; };
+		E99261DC1AD6C30000D21A1D /* NSString+MApiAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+MApiAdditions.h"; sourceTree = "<group>"; };
+		E99261DD1AD6C30000D21A1D /* NSString+MApiAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+MApiAdditions.m"; sourceTree = "<group>"; };
+		E99261E11AD6E41E00D21A1D /* MSectionRankingRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSectionRankingRequest.h; sourceTree = "<group>"; };
+		E99261E21AD6E41E00D21A1D /* MSectionRankingRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSectionRankingRequest.m; sourceTree = "<group>"; };
+		E998DC751AE60B68007BE6FA /* MSnapQuoteRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSnapQuoteRequest.h; sourceTree = "<group>"; };
+		E998DC761AE60B68007BE6FA /* MSnapQuoteRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSnapQuoteRequest.m; sourceTree = "<group>"; };
+		E998DC7A1AE60C22007BE6FA /* MSnapQuoteResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSnapQuoteResponse.h; sourceTree = "<group>"; };
+		E998DC7B1AE60C22007BE6FA /* MSnapQuoteResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSnapQuoteResponse.m; sourceTree = "<group>"; };
+		E9D1B3E71AC81178000C797E /* MBaseItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBaseItem.h; sourceTree = "<group>"; };
+		E9D1B3E81AC81178000C797E /* MBaseItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBaseItem.m; sourceTree = "<group>"; };
+		E9D1B4301AC81178000C797E /* MAuthRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MAuthRequest.h; sourceTree = "<group>"; };
+		E9D1B4311AC81178000C797E /* MAuthRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MAuthRequest.m; sourceTree = "<group>"; };
+		E9D1B4321AC81178000C797E /* MBigEventNotificationRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBigEventNotificationRequest.h; sourceTree = "<group>"; };
+		E9D1B4331AC81178000C797E /* MBigEventNotificationRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBigEventNotificationRequest.m; sourceTree = "<group>"; };
+		E9D1B4341AC81178000C797E /* MBlockTradeInfoRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBlockTradeInfoRequest.h; sourceTree = "<group>"; };
+		E9D1B4351AC81178000C797E /* MBlockTradeInfoRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBlockTradeInfoRequest.m; sourceTree = "<group>"; };
+		E9D1B4361AC81178000C797E /* MBonusFinanceRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBonusFinanceRequest.h; sourceTree = "<group>"; };
+		E9D1B4371AC81178000C797E /* MBonusFinanceRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBonusFinanceRequest.m; sourceTree = "<group>"; };
+		E9D1B4381AC81178000C797E /* MCategoryListRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCategoryListRequest.h; sourceTree = "<group>"; };
+		E9D1B4391AC81178000C797E /* MCategoryListRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCategoryListRequest.m; sourceTree = "<group>"; };
+		E9D1B43A1AC81178000C797E /* MRiseRankingRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRiseRankingRequest.h; sourceTree = "<group>"; };
+		E9D1B43B1AC81178000C797E /* MRiseRankingRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRiseRankingRequest.m; sourceTree = "<group>"; };
+		E9D1B43C1AC81178000C797E /* MChartRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MChartRequest.h; sourceTree = "<group>"; };
+		E9D1B43D1AC81178000C797E /* MChartRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MChartRequest.m; sourceTree = "<group>"; };
+		E9D1B43E1AC81178000C797E /* MCompanyInfoRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCompanyInfoRequest.h; sourceTree = "<group>"; };
+		E9D1B43F1AC81178000C797E /* MCompanyInfoRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCompanyInfoRequest.m; sourceTree = "<group>"; };
+		E9D1B4401AC81178000C797E /* MControlingShareHolderRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MControlingShareHolderRequest.h; sourceTree = "<group>"; };
+		E9D1B4411AC81178000C797E /* MControlingShareHolderRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MControlingShareHolderRequest.m; sourceTree = "<group>"; };
+		E9D1B4421AC81178000C797E /* MCoreBusinessRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCoreBusinessRequest.h; sourceTree = "<group>"; };
+		E9D1B4431AC81178000C797E /* MCoreBusinessRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCoreBusinessRequest.m; sourceTree = "<group>"; };
+		E9D1B4461AC81178000C797E /* MExpireMonthRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MExpireMonthRequest.h; sourceTree = "<group>"; };
+		E9D1B4471AC81178000C797E /* MExpireMonthRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MExpireMonthRequest.m; sourceTree = "<group>"; };
+		E9D1B4481AC81178000C797E /* MFinancialInfoRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MFinancialInfoRequest.h; sourceTree = "<group>"; };
+		E9D1B4491AC81178000C797E /* MFinancialInfoRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MFinancialInfoRequest.m; sourceTree = "<group>"; };
+		E9D1B44A1AC81178000C797E /* MFinancialSummaryRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MFinancialSummaryRequest.h; sourceTree = "<group>"; };
+		E9D1B44B1AC81178000C797E /* MFinancialSummaryRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MFinancialSummaryRequest.m; sourceTree = "<group>"; };
+		E9D1B44C1AC81178000C797E /* MForecastRatingRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MForecastRatingRequest.h; sourceTree = "<group>"; };
+		E9D1B44D1AC81178000C797E /* MForecastRatingRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MForecastRatingRequest.m; sourceTree = "<group>"; };
+		E9D1B44E1AC81178000C797E /* MForecastYearRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MForecastYearRequest.h; sourceTree = "<group>"; };
+		E9D1B44F1AC81178000C797E /* MForecastYearRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MForecastYearRequest.m; sourceTree = "<group>"; };
+		E9D1B4501AC81178000C797E /* MFundShareHolderInfoRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MFundShareHolderInfoRequest.h; sourceTree = "<group>"; };
+		E9D1B4511AC81178000C797E /* MFundShareHolderInfoRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MFundShareHolderInfoRequest.m; sourceTree = "<group>"; };
+		E9D1B4521AC81178000C797E /* MIPOInfoRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MIPOInfoRequest.h; sourceTree = "<group>"; };
+		E9D1B4531AC81178000C797E /* MIPOInfoRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MIPOInfoRequest.m; sourceTree = "<group>"; };
+		E9D1B4541AC81178000C797E /* MLatestIndexRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLatestIndexRequest.h; sourceTree = "<group>"; };
+		E9D1B4551AC81178000C797E /* MLatestIndexRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLatestIndexRequest.m; sourceTree = "<group>"; };
+		E9D1B4561AC81178000C797E /* MLeaderPersonInfoRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLeaderPersonInfoRequest.h; sourceTree = "<group>"; };
+		E9D1B4571AC81178000C797E /* MLeaderPersonInfoRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLeaderPersonInfoRequest.m; sourceTree = "<group>"; };
+		E9D1B4581AC81178000C797E /* MNewsListRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MNewsListRequest.h; sourceTree = "<group>"; };
+		E9D1B4591AC81178000C797E /* MNewsListRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MNewsListRequest.m; sourceTree = "<group>"; };
+		E9D1B45A1AC81178000C797E /* MNewsRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MNewsRequest.h; sourceTree = "<group>"; };
+		E9D1B45B1AC81178000C797E /* MNewsRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MNewsRequest.m; sourceTree = "<group>"; };
+		E9D1B45C1AC81178000C797E /* MOHLCRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MOHLCRequest.h; sourceTree = "<group>"; };
+		E9D1B45D1AC81178000C797E /* MOHLCRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MOHLCRequest.m; sourceTree = "<group>"; };
+		E9D1B45E1AC81178000C797E /* MOptionRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MOptionRequest.h; sourceTree = "<group>"; };
+		E9D1B45F1AC81178000C797E /* MOptionRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MOptionRequest.m; sourceTree = "<group>"; };
+		E9D1B4621AC81178000C797E /* MQuoteRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MQuoteRequest.h; sourceTree = "<group>"; };
+		E9D1B4631AC81178000C797E /* MQuoteRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MQuoteRequest.m; sourceTree = "<group>"; };
+		E9D1B4641AC81178000C797E /* MRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRequest.h; sourceTree = "<group>"; };
+		E9D1B4651AC81178000C797E /* MRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRequest.m; sourceTree = "<group>"; };
+		E9D1B4661AC81178000C797E /* MSearchRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSearchRequest.h; sourceTree = "<group>"; };
+		E9D1B4671AC81178000C797E /* MSearchRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSearchRequest.m; sourceTree = "<group>"; };
+		E9D1B4681AC81178000C797E /* MShareHolderHistoryInfoRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MShareHolderHistoryInfoRequest.h; sourceTree = "<group>"; };
+		E9D1B4691AC81178000C797E /* MShareHolderHistoryInfoRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MShareHolderHistoryInfoRequest.m; sourceTree = "<group>"; };
+		E9D1B46A1AC81178000C797E /* MStockBulletinListRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MStockBulletinListRequest.h; sourceTree = "<group>"; };
+		E9D1B46B1AC81178000C797E /* MStockBulletinListRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MStockBulletinListRequest.m; sourceTree = "<group>"; };
+		E9D1B46C1AC81178000C797E /* MStockBulletinRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MStockBulletinRequest.h; sourceTree = "<group>"; };
+		E9D1B46D1AC81178000C797E /* MStockBulletinRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MStockBulletinRequest.m; sourceTree = "<group>"; };
+		E9D1B46E1AC81178000C797E /* MStockNewsListRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MStockNewsListRequest.h; sourceTree = "<group>"; };
+		E9D1B46F1AC81178000C797E /* MStockNewsListRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MStockNewsListRequest.m; sourceTree = "<group>"; };
+		E9D1B4701AC81178000C797E /* MStockNewsRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MStockNewsRequest.h; sourceTree = "<group>"; };
+		E9D1B4711AC81178000C797E /* MStockNewsRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MStockNewsRequest.m; sourceTree = "<group>"; };
+		E9D1B4721AC81178000C797E /* MStockReportListRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MStockReportListRequest.h; sourceTree = "<group>"; };
+		E9D1B4731AC81178000C797E /* MStockReportListRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MStockReportListRequest.m; sourceTree = "<group>"; };
+		E9D1B4741AC81178000C797E /* MStockReportRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MStockReportRequest.h; sourceTree = "<group>"; };
+		E9D1B4751AC81178000C797E /* MStockReportRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MStockReportRequest.m; sourceTree = "<group>"; };
+		E9D1B4761AC81178000C797E /* MStockShareChangeInfoRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MStockShareChangeInfoRequest.h; sourceTree = "<group>"; };
+		E9D1B4771AC81178000C797E /* MStockShareChangeInfoRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MStockShareChangeInfoRequest.m; sourceTree = "<group>"; };
+		E9D1B4781AC81178000C797E /* MStockShareInfoRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MStockShareInfoRequest.h; sourceTree = "<group>"; };
+		E9D1B4791AC81178000C797E /* MStockShareInfoRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MStockShareInfoRequest.m; sourceTree = "<group>"; };
+		E9D1B47A1AC81178000C797E /* MStockTableRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MStockTableRequest.h; sourceTree = "<group>"; };
+		E9D1B47B1AC81178000C797E /* MStockTableRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MStockTableRequest.m; sourceTree = "<group>"; };
+		E9D1B47E1AC81178000C797E /* MTopLiquidShareHolderRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTopLiquidShareHolderRequest.h; sourceTree = "<group>"; };
+		E9D1B47F1AC81178000C797E /* MTopLiquidShareHolderRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTopLiquidShareHolderRequest.m; sourceTree = "<group>"; };
+		E9D1B4801AC81178000C797E /* MTopShareHolderRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTopShareHolderRequest.h; sourceTree = "<group>"; };
+		E9D1B4811AC81178000C797E /* MTopShareHolderRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTopShareHolderRequest.m; sourceTree = "<group>"; };
+		E9D1B4821AC81178000C797E /* MTradeDetailInfoRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTradeDetailInfoRequest.h; sourceTree = "<group>"; };
+		E9D1B4831AC81178000C797E /* MTradeDetailInfoRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTradeDetailInfoRequest.m; sourceTree = "<group>"; };
+		E9D1B4841AC81178000C797E /* MUnderlyingStockRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MUnderlyingStockRequest.h; sourceTree = "<group>"; };
+		E9D1B4851AC81178000C797E /* MUnderlyingStockRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MUnderlyingStockRequest.m; sourceTree = "<group>"; };
+		E9E6A24D1B4BC0440007A15D /* MEchoRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MEchoRequest.h; sourceTree = "<group>"; };
+		E9E6A24E1B4BC0440007A15D /* MEchoRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MEchoRequest.m; sourceTree = "<group>"; };
+		E9E6A2501B4BC0670007A15D /* MEchoResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MEchoResponse.h; sourceTree = "<group>"; };
+		E9E6A2511B4BC0670007A15D /* MEchoResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MEchoResponse.m; sourceTree = "<group>"; };
+		E9F17D401B5F839500D66632 /* MBase64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBase64.h; sourceTree = "<group>"; };
+		E9F17D411B5F839500D66632 /* MBase64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBase64.m; sourceTree = "<group>"; };
+		E9F42BE71ADB6D6800A20C5B /* MNewsImgRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MNewsImgRequest.h; sourceTree = "<group>"; };
+		E9F42BE81ADB6D6800A20C5B /* MNewsImgRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MNewsImgRequest.m; sourceTree = "<group>"; };
+		EFBD4EA81B6867BE00B2585A /* MTransform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTransform.h; sourceTree = "<group>"; };
+		EFBD4EA91B6867BE00B2585A /* MTransform.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MTransform.mm; sourceTree = "<group>"; };
+		EFBD4EAA1B6867BE00B2585A /* transform.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = transform.cpp; sourceTree = "<group>"; };
+		EFBD4EAB1B6867BE00B2585A /* transform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = transform.h; sourceTree = "<group>"; };
+		EFBD4EAE1B6867CD00B2585A /* NSString+MTransform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+MTransform.h"; sourceTree = "<group>"; };
+		EFBD4EAF1B6867CD00B2585A /* NSString+MTransform.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+MTransform.m"; sourceTree = "<group>"; };
+		EFBD4EC11B68A16500B2585A /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
+		EFC268B51B73066E00A10822 /* MEventRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MEventRequest.h; sourceTree = "<group>"; };
+		EFC268B61B73066E00A10822 /* MEventRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MEventRequest.m; sourceTree = "<group>"; };
+		EFC268B81B73068900A10822 /* MEventResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MEventResponse.h; sourceTree = "<group>"; };
+		EFC268B91B73068900A10822 /* MEventResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MEventResponse.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D8118BFA1AA2BD2D00910C76 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EFBD4EC21B68A16500B2585A /* libc++.dylib in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E93092031B16D9A50044700F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EFBD4EC31B68A17400B2585A /* libc++.dylib in Frameworks */,
+				E930922C1B16DAD00044700F /* libMApi.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D8118BFE1AA2BD2D00910C76 /* MApi */ = {
+			isa = PBXGroup;
+			children = (
+				E9024E651B15BC7E00D152B9 /* ThirdParty */,
+				E9024E2A1B159EB300D152B9 /* Headers */,
+				E979EE2D1AC052210063210F /* Private */,
+				D8118C3A1AA2C11B00910C76 /* Supporting Files */,
+			);
+			path = MApi;
+			sourceTree = "<group>";
+		};
+		D8118C3A1AA2C11B00910C76 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D8118C3B1AA2C12400910C76 /* MApi-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D862ECAD1AE0B232009B6EC1 /* Responses */ = {
+			isa = PBXGroup;
+			children = (
+<<<<<<< HEAD
+				E96C133C1B78F475007607E5 /* MCheckVersionResponse.h */,
+				E96C133D1B78F475007607E5 /* MCheckVersionResponse.m */,
+				EFC268B81B73068900A10822 /* MEventResponse.h */,
+				EFC268B91B73068900A10822 /* MEventResponse.m */,
+=======
+				E95B43FD1B779C5F00756960 /* MGetSourceResponse.h */,
+				E95B43FE1B779C5F00756960 /* MGetSourceResponse.m */,
+>>>>>>> 21_新增取得各券商APP可使用的資訊源類別_MGetAppSource
+				E9E6A2501B4BC0670007A15D /* MEchoResponse.h */,
+				E9E6A2511B4BC0670007A15D /* MEchoResponse.m */,
+				D862ECAE1AE0B232009B6EC1 /* MAuthResponse.h */,
+				D862ECAF1AE0B232009B6EC1 /* MAuthResponse.m */,
+				D862ECB01AE0B232009B6EC1 /* MBigEventNotificationResponse.h */,
+				D862ECB11AE0B232009B6EC1 /* MBigEventNotificationResponse.m */,
+				D862ECB21AE0B232009B6EC1 /* MBlockTradeInfoResponse.h */,
+				D862ECB31AE0B232009B6EC1 /* MBlockTradeInfoResponse.m */,
+				D862ECB41AE0B232009B6EC1 /* MBonusFinanceResponse.h */,
+				D862ECB51AE0B232009B6EC1 /* MBonusFinanceResponse.m */,
+				D862ECB61AE0B232009B6EC1 /* MBrokerSeatResponse.h */,
+				D862ECB71AE0B232009B6EC1 /* MBrokerSeatResponse.m */,
+				D862ECB81AE0B232009B6EC1 /* MCategoryListResponse.h */,
+				D862ECB91AE0B232009B6EC1 /* MCategoryListResponse.m */,
+				D862ECBC1AE0B232009B6EC1 /* MChartResponse.h */,
+				D862ECBD1AE0B232009B6EC1 /* MChartResponse.m */,
+				D862ECBE1AE0B232009B6EC1 /* MCompanyInfoResponse.h */,
+				D862ECBF1AE0B232009B6EC1 /* MCompanyInfoResponse.m */,
+				D862ECC01AE0B232009B6EC1 /* MControlingShareHolderResponse.h */,
+				D862ECC11AE0B232009B6EC1 /* MControlingShareHolderResponse.m */,
+				D862ECC21AE0B232009B6EC1 /* MCoreBusinessResponse.h */,
+				D862ECC31AE0B232009B6EC1 /* MCoreBusinessResponse.m */,
+				D862ECC61AE0B232009B6EC1 /* MExpireMonthResponse.h */,
+				D862ECC71AE0B232009B6EC1 /* MExpireMonthResponse.m */,
+				E95A82BD1AEB927900986AE4 /* MFallRankingResponse.h */,
+				E95A82BE1AEB927900986AE4 /* MFallRankingResponse.m */,
+				D862ECC81AE0B232009B6EC1 /* MFinancialInfoResponse.h */,
+				D862ECC91AE0B232009B6EC1 /* MFinancialInfoResponse.m */,
+				D862ECCA1AE0B232009B6EC1 /* MFinancialSummaryResponse.h */,
+				D862ECCB1AE0B232009B6EC1 /* MFinancialSummaryResponse.m */,
+				D862ECCC1AE0B232009B6EC1 /* MForecastRatingResponse.h */,
+				D862ECCD1AE0B232009B6EC1 /* MForecastRatingResponse.m */,
+				D862ECCE1AE0B232009B6EC1 /* MForecastYearResponse.h */,
+				D862ECCF1AE0B232009B6EC1 /* MForecastYearResponse.m */,
+				D862ECD01AE0B232009B6EC1 /* MFundShareHolderInfoResponse.h */,
+				D862ECD11AE0B232009B6EC1 /* MFundShareHolderInfoResponse.m */,
+				D862ECD21AE0B232009B6EC1 /* MIPOInfoResponse.h */,
+				D862ECD31AE0B232009B6EC1 /* MIPOInfoResponse.m */,
+				D862ECD41AE0B232009B6EC1 /* MLatestIndexResponse.h */,
+				D862ECD51AE0B232009B6EC1 /* MLatestIndexResponse.m */,
+				D862ECD61AE0B232009B6EC1 /* MLeaderPersonInfoResponse.h */,
+				D862ECD71AE0B232009B6EC1 /* MLeaderPersonInfoResponse.m */,
+				D862ECD81AE0B232009B6EC1 /* MNewsImgResponse.h */,
+				D862ECD91AE0B232009B6EC1 /* MNewsImgResponse.m */,
+				D862ECDA1AE0B232009B6EC1 /* MNewsListResponse.h */,
+				D862ECDB1AE0B232009B6EC1 /* MNewsListResponse.m */,
+				D862ECDC1AE0B232009B6EC1 /* MNewsResponse.h */,
+				D862ECDD1AE0B232009B6EC1 /* MNewsResponse.m */,
+				D862ECDE1AE0B232009B6EC1 /* MOHLCResponse.h */,
+				D862ECDF1AE0B232009B6EC1 /* MOHLCResponse.m */,
+				D862ECE01AE0B232009B6EC1 /* MOptionResponse.h */,
+				D862ECE11AE0B232009B6EC1 /* MOptionResponse.m */,
+				D862ECE21AE0B232009B6EC1 /* MQuoteResponse.h */,
+				D862ECE31AE0B232009B6EC1 /* MQuoteResponse.m */,
+				D862ECE61AE0B232009B6EC1 /* MResponse.h */,
+				D862ECE71AE0B232009B6EC1 /* MResponse.m */,
+				D862ECBA1AE0B232009B6EC1 /* MRiseRankingResponse.h */,
+				D862ECBB1AE0B232009B6EC1 /* MRiseRankingResponse.m */,
+				D862ECE81AE0B232009B6EC1 /* MSearchResponse.h */,
+				D862ECE91AE0B232009B6EC1 /* MSearchResponse.m */,
+				D862ECEA1AE0B232009B6EC1 /* MSectionRankingResponse.h */,
+				D862ECEB1AE0B232009B6EC1 /* MSectionRankingResponse.m */,
+				D862ECEC1AE0B232009B6EC1 /* MShareHolderHistoryInfoResponse.h */,
+				D862ECED1AE0B232009B6EC1 /* MShareHolderHistoryInfoResponse.m */,
+				E998DC7A1AE60C22007BE6FA /* MSnapQuoteResponse.h */,
+				E998DC7B1AE60C22007BE6FA /* MSnapQuoteResponse.m */,
+				D862ECEE1AE0B232009B6EC1 /* MStockBulletinListResponse.h */,
+				D862ECEF1AE0B232009B6EC1 /* MStockBulletinListResponse.m */,
+				D862ECF01AE0B232009B6EC1 /* MStockBulletinResponse.h */,
+				D862ECF11AE0B232009B6EC1 /* MStockBulletinResponse.m */,
+				D862ECF21AE0B232009B6EC1 /* MStockNewsListResponse.h */,
+				D862ECF31AE0B232009B6EC1 /* MStockNewsListResponse.m */,
+				D862ECF41AE0B232009B6EC1 /* MStockNewsResponse.h */,
+				D862ECF51AE0B232009B6EC1 /* MStockNewsResponse.m */,
+				D862ECF61AE0B232009B6EC1 /* MStockReportListResponse.h */,
+				D862ECF71AE0B232009B6EC1 /* MStockReportListResponse.m */,
+				D862ECF81AE0B232009B6EC1 /* MStockReportResponse.h */,
+				D862ECF91AE0B232009B6EC1 /* MStockReportResponse.m */,
+				D862ECFA1AE0B232009B6EC1 /* MStockShareChangeInfoResponse.h */,
+				D862ECFB1AE0B232009B6EC1 /* MStockShareChangeInfoResponse.m */,
+				D862ECFC1AE0B232009B6EC1 /* MStockShareInfoResponse.h */,
+				D862ECFD1AE0B232009B6EC1 /* MStockShareInfoResponse.m */,
+				D862ED001AE0B232009B6EC1 /* MTopLiquidShareHolderResponse.h */,
+				D862ED011AE0B232009B6EC1 /* MTopLiquidShareHolderResponse.m */,
+				D862ED021AE0B232009B6EC1 /* MTopShareHolderResponse.h */,
+				D862ED031AE0B232009B6EC1 /* MTopShareHolderResponse.m */,
+				D862ED041AE0B232009B6EC1 /* MTradeDetailInfoResponse.h */,
+				D862ED051AE0B232009B6EC1 /* MTradeDetailInfoResponse.m */,
+				D862ED061AE0B232009B6EC1 /* MUnderlyingStockResponse.h */,
+				D862ED071AE0B232009B6EC1 /* MUnderlyingStockResponse.m */,
+				E93091F91B16C75E0044700F /* MMarketInfoResponse.h */,
+				E93091FA1B16C75E0044700F /* MMarketInfoResponse.m */,
+				E9544BB11B65EB8400A4C8B8 /* MGetSourceClassResponse.h */,
+				E9544BB21B65EB8400A4C8B8 /* MGetSourceClassResponse.m */,
+				E9544BB71B65F99100A4C8B8 /* MGetMenuResponse.h */,
+				E9544BB81B65F99100A4C8B8 /* MGetMenuResponse.m */,
+			);
+			name = Responses;
+			path = MApi/Private/Responses;
+			sourceTree = SOURCE_ROOT;
+		};
+		D892210A1ADDF5A90020A662 /* Financial */ = {
+			isa = PBXGroup;
+			children = (
+				D862ED371AE0B261009B6EC1 /* MBrokerSeatItem.h */,
+				D862ED381AE0B261009B6EC1 /* MBrokerSeatItem.m */,
+				D892210B1ADDF5A90020A662 /* MCategoryItem.h */,
+				D892210C1ADDF5A90020A662 /* MCategoryItem.m */,
+				E93091FF1B16CCF10044700F /* MMarketInfo.h */,
+				E93092001B16CCF10044700F /* MMarketInfo.m */,
+				D892210D1ADDF5A90020A662 /* MOHLCItem.h */,
+				D892210E1ADDF5A90020A662 /* MOHLCItem.m */,
+				D892210F1ADDF5A90020A662 /* MOptionItem.h */,
+				D89221101ADDF5A90020A662 /* MOptionItem.m */,
+				D89221111ADDF5A90020A662 /* MSearchResultItem.h */,
+				D89221121ADDF5A90020A662 /* MSearchResultItem.m */,
+				D89221131ADDF5A90020A662 /* MSectionRankingItem.h */,
+				D89221141ADDF5A90020A662 /* MSectionRankingItem.m */,
+				D89221151ADDF5A90020A662 /* MStockItem.h */,
+				D89221161ADDF5A90020A662 /* MStockItem.m */,
+				D89221171ADDF5A90020A662 /* MStockRecord.h */,
+				D89221181ADDF5A90020A662 /* MStockRecord.m */,
+				D89221191ADDF5A90020A662 /* MTickItem.h */,
+				D892211A1ADDF5A90020A662 /* MTickItem.m */,
+				E93091FC1B16CCAC0044700F /* MTimeZone.h */,
+				E93091FD1B16CCAC0044700F /* MTimeZone.m */,
+			);
+			path = Financial;
+			sourceTree = "<group>";
+		};
+		D892211B1ADDF5A90020A662 /* Infomation */ = {
+			isa = PBXGroup;
+			children = (
+				D89221381ADDF5A90020A662 /* MNewsDetailItem.h */,
+				D89221391ADDF5A90020A662 /* MNewsDetailItem.m */,
+				D892213A1ADDF5A90020A662 /* MNewsItem.h */,
+				D892213B1ADDF5A90020A662 /* MNewsItem.m */,
+				D89221401ADDF5A90020A662 /* MStockBulletinDetailItem.h */,
+				D89221411ADDF5A90020A662 /* MStockBulletinDetailItem.m */,
+				D89221421ADDF5A90020A662 /* MStockBulletinItem.h */,
+				D89221431ADDF5A90020A662 /* MStockBulletinItem.m */,
+				D89221441ADDF5A90020A662 /* MStockNewsDetailItem.h */,
+				D89221451ADDF5A90020A662 /* MStockNewsDetailItem.m */,
+				D89221461ADDF5A90020A662 /* MStockNewsItem.h */,
+				D89221471ADDF5A90020A662 /* MStockNewsItem.m */,
+				D89221481ADDF5A90020A662 /* MStockReportDetailItem.h */,
+				D89221491ADDF5A90020A662 /* MStockReportDetailItem.m */,
+				D892214A1ADDF5A90020A662 /* MStockReportItem.h */,
+				D892214B1ADDF5A90020A662 /* MStockReportItem.m */,
+			);
+			path = Infomation;
+			sourceTree = "<group>";
+		};
+		D8A9D6B91A7DDBE200D21726 = {
+			isa = PBXGroup;
+			children = (
+				EFBD4EC11B68A16500B2585A /* libc++.dylib */,
+				D8118BFE1AA2BD2D00910C76 /* MApi */,
+				E93092071B16D9A50044700F /* MApiSample */,
+				D8A9D6C41A7DDBE200D21726 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D8A9D6C41A7DDBE200D21726 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D8118BFD1AA2BD2D00910C76 /* libMApi.a */,
+				E93092061B16D9A50044700F /* MApiSample.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E9024E2A1B159EB300D152B9 /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				E9024E2B1B159EB300D152B9 /* MApi.h */,
+				E9024E2C1B159EB300D152B9 /* MApiObject+Info.h */,
+				E9024E2D1B159EB300D152B9 /* MApiObject.h */,
+			);
+			path = Headers;
+			sourceTree = "<group>";
+		};
+		E9024E651B15BC7E00D152B9 /* ThirdParty */ = {
+			isa = PBXGroup;
+			children = (
+				E9024E681B15BC7E00D152B9 /* MKNetworkKit */,
+				E9024E811B15BC9F00D152B9 /* Reachability.h */,
+				E9024E821B15BC9F00D152B9 /* Reachability.m */,
+			);
+			path = ThirdParty;
+			sourceTree = "<group>";
+		};
+		E9024E681B15BC7E00D152B9 /* MKNetworkKit */ = {
+			isa = PBXGroup;
+			children = (
+				E9024E691B15BC7E00D152B9 /* Categories */,
+				E9024E741B15BC7F00D152B9 /* MKNetworkEngine.h */,
+				E9024E751B15BC7F00D152B9 /* MKNetworkEngine.m */,
+				E9024E761B15BC7F00D152B9 /* MKNetworkKit.h */,
+				E9024E771B15BC7F00D152B9 /* MKNetworkOperation.h */,
+				E9024E781B15BC7F00D152B9 /* MKNetworkOperation.m */,
+			);
+			path = MKNetworkKit;
+			sourceTree = "<group>";
+		};
+		E9024E691B15BC7E00D152B9 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				E9024E6A1B15BC7E00D152B9 /* NSData+MKBase64.h */,
+				E9024E6B1B15BC7E00D152B9 /* NSData+MKBase64.m */,
+				E9024E6C1B15BC7E00D152B9 /* NSDate+RFC1123.h */,
+				E9024E6D1B15BC7E00D152B9 /* NSDate+RFC1123.m */,
+				E9024E6E1B15BC7E00D152B9 /* NSDictionary+RequestEncoding.h */,
+				E9024E6F1B15BC7E00D152B9 /* NSDictionary+RequestEncoding.m */,
+				E9024E701B15BC7E00D152B9 /* NSString+MKNetworkKitAdditions.h */,
+				E9024E711B15BC7F00D152B9 /* NSString+MKNetworkKitAdditions.m */,
+				E9024E721B15BC7F00D152B9 /* UIAlertView+MKNetworkKitAdditions.h */,
+				E9024E731B15BC7F00D152B9 /* UIAlertView+MKNetworkKitAdditions.m */,
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
+		E93092071B16D9A50044700F /* MApiSample */ = {
+			isa = PBXGroup;
+			children = (
+				E922779D1B1EA972007F0BCE /* BackDoorViewController.h */,
+				E922779E1B1EA972007F0BCE /* BackDoorViewController.m */,
+				E922779F1B1EA972007F0BCE /* MainViewController.h */,
+				E92277A01B1EA972007F0BCE /* MainViewController.m */,
+				E92277A11B1EA972007F0BCE /* ResponseViewController.h */,
+				E92277A21B1EA972007F0BCE /* ResponseViewController.m */,
+				E92277A31B1EA972007F0BCE /* TestQuoteInfos.json */,
+				E930920C1B16D9A50044700F /* AppDelegate.h */,
+				E930920D1B16D9A50044700F /* AppDelegate.m */,
+				E93092121B16D9A50044700F /* Main.storyboard */,
+				E93092151B16D9A50044700F /* Images.xcassets */,
+				E93092171B16D9A50044700F /* LaunchScreen.xib */,
+				E93092081B16D9A50044700F /* Supporting Files */,
+			);
+			path = MApiSample;
+			sourceTree = "<group>";
+		};
+		E93092081B16D9A50044700F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				E930922F1B16E1600044700F /* market.json */,
+				E93092091B16D9A50044700F /* Info.plist */,
+				E930920A1B16D9A50044700F /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		E979EE2D1AC052210063210F /* Private */ = {
+			isa = PBXGroup;
+			children = (
+				E9156D3F1B15CAD10088C785 /* MApi.m */,
+				E979EE2E1AC052210063210F /* Categories */,
+				E979EE311AC052210063210F /* Helpers */,
+				E9D1B3E61AC81178000C797E /* Models */,
+				E9D1B42F1AC81178000C797E /* Requests */,
+				D862ECAD1AE0B232009B6EC1 /* Responses */,
+			);
+			path = Private;
+			sourceTree = "<group>";
+		};
+		E979EE2E1AC052210063210F /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				EFBD4EAE1B6867CD00B2585A /* NSString+MTransform.h */,
+				EFBD4EAF1B6867CD00B2585A /* NSString+MTransform.m */,
+				E979EE2F1AC052210063210F /* NSData+MApiAdditions.h */,
+				E979EE301AC052210063210F /* NSData+MApiAdditions.m */,
+				E99261DC1AD6C30000D21A1D /* NSString+MApiAdditions.h */,
+				E99261DD1AD6C30000D21A1D /* NSString+MApiAdditions.m */,
+				D8B9D3D81AE355B700DDF3AE /* MCoreDataHelper+StockRecords.h */,
+				D8B9D3D91AE355B700DDF3AE /* MCoreDataHelper+StockRecords.m */,
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
+		E979EE311AC052210063210F /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				EFBD4EA81B6867BE00B2585A /* MTransform.h */,
+				EFBD4EA91B6867BE00B2585A /* MTransform.mm */,
+				EFBD4EAA1B6867BE00B2585A /* transform.cpp */,
+				EFBD4EAB1B6867BE00B2585A /* transform.h */,
+				E9F17D401B5F839500D66632 /* MBase64.h */,
+				E9F17D411B5F839500D66632 /* MBase64.m */,
+				E979EE321AC052210063210F /* MApiCache.h */,
+				E979EE331AC052210063210F /* MApiCache.m */,
+				E979EE341AC052210063210F /* MApiHelper.h */,
+				E979EE351AC052210063210F /* MApiHelper.m */,
+				D862ED4B1AE27F45009B6EC1 /* MApiRequestManager.h */,
+				D862ED4C1AE27F45009B6EC1 /* MApiRequestManager.m */,
+				E979EE361AC052210063210F /* MCoreDataHelper.h */,
+				E979EE371AC052210063210F /* MCoreDataHelper.m */,
+				D862ED461AE1FF13009B6EC1 /* MImageCacheManager.h */,
+				D862ED471AE1FF13009B6EC1 /* MImageCacheManager.m */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		E9D1B3E61AC81178000C797E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				D892210A1ADDF5A90020A662 /* Financial */,
+				D892211B1ADDF5A90020A662 /* Infomation */,
+				E9D1B3E71AC81178000C797E /* MBaseItem.h */,
+				E9D1B3E81AC81178000C797E /* MBaseItem.m */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		E9D1B42F1AC81178000C797E /* Requests */ = {
+			isa = PBXGroup;
+			children = (
+<<<<<<< HEAD
+				E96C13391B78F468007607E5 /* MCheckVersionRequest.h */,
+				E96C133A1B78F468007607E5 /* MCheckVersionRequest.m */,
+				EFC268B51B73066E00A10822 /* MEventRequest.h */,
+				EFC268B61B73066E00A10822 /* MEventRequest.m */,
+=======
+				E95B43FA1B779C5200756960 /* MGetSourceRequest.h */,
+				E95B43FB1B779C5200756960 /* MGetSourceRequest.m */,
+>>>>>>> 21_新增取得各券商APP可使用的資訊源類別_MGetAppSource
+				E9E6A24D1B4BC0440007A15D /* MEchoRequest.h */,
+				E9E6A24E1B4BC0440007A15D /* MEchoRequest.m */,
+				E9D1B4301AC81178000C797E /* MAuthRequest.h */,
+				E9D1B4311AC81178000C797E /* MAuthRequest.m */,
+				E9D1B4321AC81178000C797E /* MBigEventNotificationRequest.h */,
+				E9D1B4331AC81178000C797E /* MBigEventNotificationRequest.m */,
+				E9D1B4341AC81178000C797E /* MBlockTradeInfoRequest.h */,
+				E9D1B4351AC81178000C797E /* MBlockTradeInfoRequest.m */,
+				E9D1B4361AC81178000C797E /* MBonusFinanceRequest.h */,
+				E9D1B4371AC81178000C797E /* MBonusFinanceRequest.m */,
+				D862ECA31AE0A7FF009B6EC1 /* MBrokerSeatRequest.h */,
+				D862ECA41AE0A7FF009B6EC1 /* MBrokerSeatRequest.m */,
+				E9D1B4381AC81178000C797E /* MCategoryListRequest.h */,
+				E9D1B4391AC81178000C797E /* MCategoryListRequest.m */,
+				E9D1B43C1AC81178000C797E /* MChartRequest.h */,
+				E9D1B43D1AC81178000C797E /* MChartRequest.m */,
+				E9D1B43E1AC81178000C797E /* MCompanyInfoRequest.h */,
+				E9D1B43F1AC81178000C797E /* MCompanyInfoRequest.m */,
+				E9D1B4401AC81178000C797E /* MControlingShareHolderRequest.h */,
+				E9D1B4411AC81178000C797E /* MControlingShareHolderRequest.m */,
+				E9D1B4421AC81178000C797E /* MCoreBusinessRequest.h */,
+				E9D1B4431AC81178000C797E /* MCoreBusinessRequest.m */,
+				E9D1B4461AC81178000C797E /* MExpireMonthRequest.h */,
+				E9D1B4471AC81178000C797E /* MExpireMonthRequest.m */,
+				E95A82BA1AEB912800986AE4 /* MFallRankingRequest.h */,
+				E95A82BB1AEB912800986AE4 /* MFallRankingRequest.m */,
+				E9D1B4481AC81178000C797E /* MFinancialInfoRequest.h */,
+				E9D1B4491AC81178000C797E /* MFinancialInfoRequest.m */,
+				E9D1B44A1AC81178000C797E /* MFinancialSummaryRequest.h */,
+				E9D1B44B1AC81178000C797E /* MFinancialSummaryRequest.m */,
+				E9D1B44C1AC81178000C797E /* MForecastRatingRequest.h */,
+				E9D1B44D1AC81178000C797E /* MForecastRatingRequest.m */,
+				E9D1B44E1AC81178000C797E /* MForecastYearRequest.h */,
+				E9D1B44F1AC81178000C797E /* MForecastYearRequest.m */,
+				E9D1B4501AC81178000C797E /* MFundShareHolderInfoRequest.h */,
+				E9D1B4511AC81178000C797E /* MFundShareHolderInfoRequest.m */,
+				E9D1B4521AC81178000C797E /* MIPOInfoRequest.h */,
+				E9D1B4531AC81178000C797E /* MIPOInfoRequest.m */,
+				E9D1B4541AC81178000C797E /* MLatestIndexRequest.h */,
+				E9D1B4551AC81178000C797E /* MLatestIndexRequest.m */,
+				E9D1B4561AC81178000C797E /* MLeaderPersonInfoRequest.h */,
+				E9D1B4571AC81178000C797E /* MLeaderPersonInfoRequest.m */,
+				E93091F61B16C6900044700F /* MMarketInfoRequest.h */,
+				E93091F71B16C6900044700F /* MMarketInfoRequest.m */,
+				E9F42BE71ADB6D6800A20C5B /* MNewsImgRequest.h */,
+				E9F42BE81ADB6D6800A20C5B /* MNewsImgRequest.m */,
+				E9D1B4581AC81178000C797E /* MNewsListRequest.h */,
+				E9D1B4591AC81178000C797E /* MNewsListRequest.m */,
+				E9D1B45A1AC81178000C797E /* MNewsRequest.h */,
+				E9D1B45B1AC81178000C797E /* MNewsRequest.m */,
+				E9D1B45C1AC81178000C797E /* MOHLCRequest.h */,
+				E9D1B45D1AC81178000C797E /* MOHLCRequest.m */,
+				E9D1B45E1AC81178000C797E /* MOptionRequest.h */,
+				E9D1B45F1AC81178000C797E /* MOptionRequest.m */,
+				E902EB201B0D918500DB33BA /* MOptionTRequest.h */,
+				E902EB211B0D918500DB33BA /* MOptionTRequest.m */,
+				E9D1B4621AC81178000C797E /* MQuoteRequest.h */,
+				E9D1B4631AC81178000C797E /* MQuoteRequest.m */,
+				E9D1B4641AC81178000C797E /* MRequest.h */,
+				E9D1B4651AC81178000C797E /* MRequest.m */,
+				E9D1B43A1AC81178000C797E /* MRiseRankingRequest.h */,
+				E9D1B43B1AC81178000C797E /* MRiseRankingRequest.m */,
+				E9D1B4661AC81178000C797E /* MSearchRequest.h */,
+				E9D1B4671AC81178000C797E /* MSearchRequest.m */,
+				E99261E11AD6E41E00D21A1D /* MSectionRankingRequest.h */,
+				E99261E21AD6E41E00D21A1D /* MSectionRankingRequest.m */,
+				E9D1B4681AC81178000C797E /* MShareHolderHistoryInfoRequest.h */,
+				E9D1B4691AC81178000C797E /* MShareHolderHistoryInfoRequest.m */,
+				E998DC751AE60B68007BE6FA /* MSnapQuoteRequest.h */,
+				E998DC761AE60B68007BE6FA /* MSnapQuoteRequest.m */,
+				E9D1B46A1AC81178000C797E /* MStockBulletinListRequest.h */,
+				E9D1B46B1AC81178000C797E /* MStockBulletinListRequest.m */,
+				E9D1B46C1AC81178000C797E /* MStockBulletinRequest.h */,
+				E9D1B46D1AC81178000C797E /* MStockBulletinRequest.m */,
+				E9D1B46E1AC81178000C797E /* MStockNewsListRequest.h */,
+				E9D1B46F1AC81178000C797E /* MStockNewsListRequest.m */,
+				E9D1B4701AC81178000C797E /* MStockNewsRequest.h */,
+				E9D1B4711AC81178000C797E /* MStockNewsRequest.m */,
+				E9D1B4721AC81178000C797E /* MStockReportListRequest.h */,
+				E9D1B4731AC81178000C797E /* MStockReportListRequest.m */,
+				E9D1B4741AC81178000C797E /* MStockReportRequest.h */,
+				E9D1B4751AC81178000C797E /* MStockReportRequest.m */,
+				E9D1B4761AC81178000C797E /* MStockShareChangeInfoRequest.h */,
+				E9D1B4771AC81178000C797E /* MStockShareChangeInfoRequest.m */,
+				E9D1B4781AC81178000C797E /* MStockShareInfoRequest.h */,
+				E9D1B4791AC81178000C797E /* MStockShareInfoRequest.m */,
+				E9D1B47A1AC81178000C797E /* MStockTableRequest.h */,
+				E9D1B47B1AC81178000C797E /* MStockTableRequest.m */,
+				E9D1B47E1AC81178000C797E /* MTopLiquidShareHolderRequest.h */,
+				E9D1B47F1AC81178000C797E /* MTopLiquidShareHolderRequest.m */,
+				E9D1B4801AC81178000C797E /* MTopShareHolderRequest.h */,
+				E9D1B4811AC81178000C797E /* MTopShareHolderRequest.m */,
+				E9D1B4821AC81178000C797E /* MTradeDetailInfoRequest.h */,
+				E9D1B4831AC81178000C797E /* MTradeDetailInfoRequest.m */,
+				E9D1B4841AC81178000C797E /* MUnderlyingStockRequest.h */,
+				E9D1B4851AC81178000C797E /* MUnderlyingStockRequest.m */,
+				E9544BAE1B65E54700A4C8B8 /* MGetSourceClassRequest.h */,
+				E9544BAF1B65E54700A4C8B8 /* MGetSourceClassRequest.m */,
+				E9544BB41B65F7A600A4C8B8 /* MGetMenuRequest.h */,
+				E9544BB51B65F7A600A4C8B8 /* MGetMenuRequest.m */,
+			);
+			path = Requests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D8118BFC1AA2BD2D00910C76 /* MApi */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D8118C0E1AA2BD2D00910C76 /* Build configuration list for PBXNativeTarget "MApi" */;
+			buildPhases = (
+				D8118BF91AA2BD2D00910C76 /* Sources */,
+				D8118BFA1AA2BD2D00910C76 /* Frameworks */,
+				D8118BFB1AA2BD2D00910C76 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MApi;
+			productName = MApi;
+			productReference = D8118BFD1AA2BD2D00910C76 /* libMApi.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		E93092051B16D9A50044700F /* MApiSample */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E93092261B16D9A60044700F /* Build configuration list for PBXNativeTarget "MApiSample" */;
+			buildPhases = (
+				E93092021B16D9A50044700F /* Sources */,
+				E93092031B16D9A50044700F /* Frameworks */,
+				E93092041B16D9A50044700F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E930922E1B16DADA0044700F /* PBXTargetDependency */,
+			);
+			name = MApiSample;
+			productName = MApiSample;
+			productReference = E93092061B16D9A50044700F /* MApiSample.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D8A9D6BA1A7DDBE200D21726 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0610;
+				ORGANIZATIONNAME = Mitake;
+				TargetAttributes = {
+					D8118BFC1AA2BD2D00910C76 = {
+						CreatedOnToolsVersion = 6.1.1;
+					};
+					E93092051B16D9A50044700F = {
+						CreatedOnToolsVersion = 6.3.1;
+					};
+					E9A82E3C1B146C530011A2A4 = {
+						CreatedOnToolsVersion = 6.3.1;
+					};
+				};
+			};
+			buildConfigurationList = D8A9D6BD1A7DDBE200D21726 /* Build configuration list for PBXProject "MAPI" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+				English,
+			);
+			mainGroup = D8A9D6B91A7DDBE200D21726;
+			productRefGroup = D8A9D6C41A7DDBE200D21726 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D8118BFC1AA2BD2D00910C76 /* MApi */,
+				E9A82E3C1B146C530011A2A4 /* Documentation */,
+				E93092051B16D9A50044700F /* MApiSample */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E93092041B16D9A50044700F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E93092141B16D9A50044700F /* Main.storyboard in Resources */,
+				E92277A71B1EA972007F0BCE /* TestQuoteInfos.json in Resources */,
+				E93092191B16D9A50044700F /* LaunchScreen.xib in Resources */,
+				E93092161B16D9A50044700F /* Images.xcassets in Resources */,
+				E93092301B16E1600044700F /* market.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		E9A82E421B146C580011A2A4 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#appledoc Xcode script\n# Start constants\ncompany=\"北京水晶森林数码\";\ncompanyID=\"com.mitake\";\ncompanyURL=\"http://www.mitake.com.cn\";\ntarget=\"iphoneos\";\noutputPath=\"~/help\";\n# End constants\n/usr/local/bin/appledoc \\\n--project-name \"${PROJECT_NAME}\" \\\n--project-company \"${company}\" \\\n--company-id \"${companyID}\" \\\n--docset-atom-filename \"${company}.atom\" \\\n--docset-feed-url \"${companyURL}/${company}/%DOCSETATOMFILENAME\" \\\n--docset-package-url \"${companyURL}/${company}/%DOCSETPACKAGEFILENAME\" \\\n--docset-fallback-url \"${companyURL}/${company}\" \\\n--output \"${outputPath}\" \\\n--publish-docset \\\n--docset-platform-family \"${target}\" \\\n--logformat xcode \\\n--keep-intermediate-files \\\n--no-repeat-first-par \\\n--no-warn-invalid-crossref \\\n--no-create-docset \\\n--ignore \"*.m\" \\\n--exit-threshold 2 \\\n\"${PROJECT_DIR}/MApi/Public\"";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D8118BF91AA2BD2D00910C76 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D862ED1A1AE0B232009B6EC1 /* MIPOInfoResponse.m in Sources */,
+				E99261E31AD6E41E00D21A1D /* MSectionRankingRequest.m in Sources */,
+				E998DC771AE60B68007BE6FA /* MSnapQuoteRequest.m in Sources */,
+				E9D1B51B1AC81178000C797E /* MShareHolderHistoryInfoRequest.m in Sources */,
+				E9024E831B15BC9F00D152B9 /* Reachability.m in Sources */,
+				D862ED2E1AE0B232009B6EC1 /* MStockShareChangeInfoResponse.m in Sources */,
+				D89221531ADDF5A90020A662 /* MOHLCItem.m in Sources */,
+				E9D1B50F1AC81178000C797E /* MFundShareHolderInfoRequest.m in Sources */,
+				D862ED271AE0B232009B6EC1 /* MShareHolderHistoryInfoResponse.m in Sources */,
+				E9D1B51F1AC81178000C797E /* MStockNewsRequest.m in Sources */,
+				E9D1B5231AC81178000C797E /* MStockShareInfoRequest.m in Sources */,
+				E95A82BF1AEB927900986AE4 /* MFallRankingResponse.m in Sources */,
+				D862ED341AE0B232009B6EC1 /* MUnderlyingStockResponse.m in Sources */,
+				E9D1B5031AC81178000C797E /* MCategoryListRequest.m in Sources */,
+				E9F42BE91ADB6D6800A20C5B /* MNewsImgRequest.m in Sources */,
+				E9D1B51A1AC81178000C797E /* MSearchRequest.m in Sources */,
+				D89221701ADDF5A90020A662 /* MStockReportDetailItem.m in Sources */,
+				D862ED291AE0B232009B6EC1 /* MStockBulletinResponse.m in Sources */,
+				D892216F1ADDF5A90020A662 /* MStockNewsItem.m in Sources */,
+				D862ED151AE0B232009B6EC1 /* MFinancialInfoResponse.m in Sources */,
+<<<<<<< HEAD
+				E9544BB01B65E54700A4C8B8 /* MGetSourceClassRequest.m in Sources */,
+=======
+				E95B43FC1B779C5200756960 /* MGetSourceRequest.m in Sources */,
+>>>>>>> 21_新增取得各券商APP可使用的資訊源類別_MGetAppSource
+				E9D1B5261AC81178000C797E /* MTopLiquidShareHolderRequest.m in Sources */,
+				D862ED211AE0B232009B6EC1 /* MOptionResponse.m in Sources */,
+				E9544BB91B65F99100A4C8B8 /* MGetMenuResponse.m in Sources */,
+				E9D1B5101AC81178000C797E /* MIPOInfoRequest.m in Sources */,
+				E9024E7B1B15BC7F00D152B9 /* NSDate+RFC1123.m in Sources */,
+				D862ED141AE0B232009B6EC1 /* MExpireMonthResponse.m in Sources */,
+				D862ED1E1AE0B232009B6EC1 /* MNewsListResponse.m in Sources */,
+				D862ED221AE0B232009B6EC1 /* MQuoteResponse.m in Sources */,
+				E979EF121AC052210063210F /* MCoreDataHelper.m in Sources */,
+				D862ECA51AE0A7FF009B6EC1 /* MBrokerSeatRequest.m in Sources */,
+<<<<<<< HEAD
+				E9544BB31B65EB8400A4C8B8 /* MGetSourceClassResponse.m in Sources */,
+=======
+				E95B43FF1B779C5F00756960 /* MGetSourceResponse.m in Sources */,
+>>>>>>> 21_新增取得各券商APP可使用的資訊源類別_MGetAppSource
+				D862ED181AE0B232009B6EC1 /* MForecastYearResponse.m in Sources */,
+				E93091FE1B16CCAC0044700F /* MTimeZone.m in Sources */,
+				D862ED1D1AE0B232009B6EC1 /* MNewsImgResponse.m in Sources */,
+				E9D1B5161AC81178000C797E /* MOptionRequest.m in Sources */,
+				E9D1B5241AC81178000C797E /* MStockTableRequest.m in Sources */,
+				E9D1B5141AC81178000C797E /* MNewsRequest.m in Sources */,
+				E9D1B5271AC81178000C797E /* MTopShareHolderRequest.m in Sources */,
+				E93091F81B16C6900044700F /* MMarketInfoRequest.m in Sources */,
+				E9D1B50E1AC81178000C797E /* MForecastYearRequest.m in Sources */,
+				D862ED391AE0B261009B6EC1 /* MBrokerSeatItem.m in Sources */,
+				E9544BB61B65F7A600A4C8B8 /* MGetMenuRequest.m in Sources */,
+				D862ED2C1AE0B232009B6EC1 /* MStockReportListResponse.m in Sources */,
+				E9D1B5011AC81178000C797E /* MBlockTradeInfoRequest.m in Sources */,
+				D862ED321AE0B232009B6EC1 /* MTopShareHolderResponse.m in Sources */,
+				E9156D401B15CAD10088C785 /* MApi.m in Sources */,
+				D862ED1F1AE0B232009B6EC1 /* MNewsResponse.m in Sources */,
+				D862ED2F1AE0B232009B6EC1 /* MStockShareInfoResponse.m in Sources */,
+				E979EF111AC052210063210F /* MApiHelper.m in Sources */,
+				E9E6A24F1B4BC0440007A15D /* MEchoRequest.m in Sources */,
+				E99261DE1AD6C30000D21A1D /* NSString+MApiAdditions.m in Sources */,
+				D862ED2B1AE0B232009B6EC1 /* MStockNewsResponse.m in Sources */,
+				D89221571ADDF5A90020A662 /* MStockItem.m in Sources */,
+				E9024E801B15BC7F00D152B9 /* MKNetworkOperation.m in Sources */,
+				E9D1B5201AC81178000C797E /* MStockReportListRequest.m in Sources */,
+				D862ED1C1AE0B232009B6EC1 /* MLeaderPersonInfoResponse.m in Sources */,
+				E9D1B51C1AC81178000C797E /* MStockBulletinListRequest.m in Sources */,
+				D8B9D3DA1AE355B700DDF3AE /* MCoreDataHelper+StockRecords.m in Sources */,
+				D862ED2A1AE0B232009B6EC1 /* MStockNewsListResponse.m in Sources */,
+				E9D1B5191AC81178000C797E /* MRequest.m in Sources */,
+				E979EF0F1AC052210063210F /* NSData+MApiAdditions.m in Sources */,
+				E9D1B5021AC81178000C797E /* MBonusFinanceRequest.m in Sources */,
+				E9D1B5111AC81178000C797E /* MLatestIndexRequest.m in Sources */,
+				D892216E1ADDF5A90020A662 /* MStockNewsDetailItem.m in Sources */,
+				D862ED2D1AE0B232009B6EC1 /* MStockReportResponse.m in Sources */,
+				E998DC7C1AE60C22007BE6FA /* MSnapQuoteResponse.m in Sources */,
+				E9F17D421B5F839500D66632 /* MBase64.m in Sources */,
+				D862ED081AE0B232009B6EC1 /* MAuthResponse.m in Sources */,
+				E9D1B5281AC81178000C797E /* MTradeDetailInfoRequest.m in Sources */,
+				D862ED481AE1FF13009B6EC1 /* MImageCacheManager.m in Sources */,
+				D862ED091AE0B232009B6EC1 /* MBigEventNotificationResponse.m in Sources */,
+				D862ED201AE0B232009B6EC1 /* MOHLCResponse.m in Sources */,
+				D862ED101AE0B232009B6EC1 /* MCompanyInfoResponse.m in Sources */,
+				EFBD4EB01B6867CD00B2585A /* NSString+MTransform.m in Sources */,
+				D862ED0C1AE0B232009B6EC1 /* MBrokerSeatResponse.m in Sources */,
+				D862ED0B1AE0B232009B6EC1 /* MBonusFinanceResponse.m in Sources */,
+				D89221581ADDF5A90020A662 /* MStockRecord.m in Sources */,
+				D862ED171AE0B232009B6EC1 /* MForecastRatingResponse.m in Sources */,
+				D862ED0F1AE0B232009B6EC1 /* MChartResponse.m in Sources */,
+				E9D1B50D1AC81178000C797E /* MForecastRatingRequest.m in Sources */,
+				D89221541ADDF5A90020A662 /* MOptionItem.m in Sources */,
+				EFBD4EAC1B6867BE00B2585A /* MTransform.mm in Sources */,
+				D862ED0E1AE0B232009B6EC1 /* MRiseRankingResponse.m in Sources */,
+				D89221711ADDF5A90020A662 /* MStockReportItem.m in Sources */,
+				D862ED0A1AE0B232009B6EC1 /* MBlockTradeInfoResponse.m in Sources */,
+				D862ED281AE0B232009B6EC1 /* MStockBulletinListResponse.m in Sources */,
+				E9D1B51E1AC81178000C797E /* MStockNewsListRequest.m in Sources */,
+				E9D1B5151AC81178000C797E /* MOHLCRequest.m in Sources */,
+				D89221591ADDF5A90020A662 /* MTickItem.m in Sources */,
+				E9D1B50C1AC81178000C797E /* MFinancialSummaryRequest.m in Sources */,
+				E96C133B1B78F468007607E5 /* MCheckVersionRequest.m in Sources */,
+				EFBD4EAD1B6867BE00B2585A /* transform.cpp in Sources */,
+				E9024E7F1B15BC7F00D152B9 /* MKNetworkEngine.m in Sources */,
+				E9E6A2521B4BC0670007A15D /* MEchoResponse.m in Sources */,
+				E9D1B5001AC81178000C797E /* MBigEventNotificationRequest.m in Sources */,
+				D862ED311AE0B232009B6EC1 /* MTopLiquidShareHolderResponse.m in Sources */,
+				E9D1B5131AC81178000C797E /* MNewsListRequest.m in Sources */,
+				D89221521ADDF5A90020A662 /* MCategoryItem.m in Sources */,
+				EFC268BA1B73068900A10822 /* MEventResponse.m in Sources */,
+				D862ED121AE0B232009B6EC1 /* MCoreBusinessResponse.m in Sources */,
+				D862ED111AE0B232009B6EC1 /* MControlingShareHolderResponse.m in Sources */,
+				E9024E7D1B15BC7F00D152B9 /* NSString+MKNetworkKitAdditions.m in Sources */,
+				E9D1B5061AC81178000C797E /* MCompanyInfoRequest.m in Sources */,
+				EFC268B71B73066E00A10822 /* MEventRequest.m in Sources */,
+				D89221551ADDF5A90020A662 /* MSearchResultItem.m in Sources */,
+				D862ED261AE0B232009B6EC1 /* MSectionRankingResponse.m in Sources */,
+				D892216D1ADDF5A90020A662 /* MStockBulletinItem.m in Sources */,
+				D862ED161AE0B232009B6EC1 /* MFinancialSummaryResponse.m in Sources */,
+				E9D1B5071AC81178000C797E /* MControlingShareHolderRequest.m in Sources */,
+				E9D1B51D1AC81178000C797E /* MStockBulletinRequest.m in Sources */,
+				D862ED241AE0B232009B6EC1 /* MResponse.m in Sources */,
+				E9D1B4DB1AC81178000C797E /* MBaseItem.m in Sources */,
+				E9D1B5291AC81178000C797E /* MUnderlyingStockRequest.m in Sources */,
+				D862ED4D1AE27F45009B6EC1 /* MApiRequestManager.m in Sources */,
+				E9D1B5041AC81178000C797E /* MRiseRankingRequest.m in Sources */,
+				D89221691ADDF5A90020A662 /* MNewsItem.m in Sources */,
+				D862ED191AE0B232009B6EC1 /* MFundShareHolderInfoResponse.m in Sources */,
+				E902EB221B0D918500DB33BA /* MOptionTRequest.m in Sources */,
+				E9D1B5221AC81178000C797E /* MStockShareChangeInfoRequest.m in Sources */,
+				E9D1B5051AC81178000C797E /* MChartRequest.m in Sources */,
+				E9024E7E1B15BC7F00D152B9 /* UIAlertView+MKNetworkKitAdditions.m in Sources */,
+				D862ED0D1AE0B232009B6EC1 /* MCategoryListResponse.m in Sources */,
+				E9D1B5211AC81178000C797E /* MStockReportRequest.m in Sources */,
+				E979EF101AC052210063210F /* MApiCache.m in Sources */,
+				D862ED251AE0B232009B6EC1 /* MSearchResponse.m in Sources */,
+				D89221561ADDF5A90020A662 /* MSectionRankingItem.m in Sources */,
+				D862ED331AE0B232009B6EC1 /* MTradeDetailInfoResponse.m in Sources */,
+				E9D1B50B1AC81178000C797E /* MFinancialInfoRequest.m in Sources */,
+				E9D1B4FF1AC81178000C797E /* MAuthRequest.m in Sources */,
+				E93091FB1B16C75E0044700F /* MMarketInfoResponse.m in Sources */,
+				D862ED1B1AE0B232009B6EC1 /* MLatestIndexResponse.m in Sources */,
+				E9D1B5081AC81178000C797E /* MCoreBusinessRequest.m in Sources */,
+				E95A82BC1AEB912800986AE4 /* MFallRankingRequest.m in Sources */,
+				D89221681ADDF5A90020A662 /* MNewsDetailItem.m in Sources */,
+				E9D1B5181AC81178000C797E /* MQuoteRequest.m in Sources */,
+				E9D1B50A1AC81178000C797E /* MExpireMonthRequest.m in Sources */,
+				E9D1B5121AC81178000C797E /* MLeaderPersonInfoRequest.m in Sources */,
+				E96C133E1B78F475007607E5 /* MCheckVersionResponse.m in Sources */,
+				E9024E7A1B15BC7F00D152B9 /* NSData+MKBase64.m in Sources */,
+				E9024E7C1B15BC7F00D152B9 /* NSDictionary+RequestEncoding.m in Sources */,
+				E93092011B16CCF10044700F /* MMarketInfo.m in Sources */,
+				D892216C1ADDF5A90020A662 /* MStockBulletinDetailItem.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E93092021B16D9A50044700F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E930920E1B16D9A50044700F /* AppDelegate.m in Sources */,
+				E92277A41B1EA972007F0BCE /* BackDoorViewController.m in Sources */,
+				E930920B1B16D9A50044700F /* main.m in Sources */,
+				E92277A61B1EA972007F0BCE /* ResponseViewController.m in Sources */,
+				E92277A51B1EA972007F0BCE /* MainViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E930922E1B16DADA0044700F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D8118BFC1AA2BD2D00910C76 /* MApi */;
+			targetProxy = E930922D1B16DADA0044700F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		E93092121B16D9A50044700F /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E93092131B16D9A50044700F /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		E93092171B16D9A50044700F /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E93092181B16D9A50044700F /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D8118C0F1AA2BD2D00910C76 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PREFIX_HEADER = "MApi/MApi-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		D8118C101AA2BD2D00910C76 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PREFIX_HEADER = "MApi/MApi-Prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		D8A9D6D71A7DDBE200D21726 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_STRICT_OBJC_MSGSEND = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		D8A9D6D81A7DDBE200D21726 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		E93092271B16D9A60044700F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = MApiSample/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-framework",
+					Security,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		E93092281B16D9A60044700F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = MApiSample/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-framework",
+					Security,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		E9A82E3D1B146C530011A2A4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		E9A82E3E1B146C530011A2A4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D8118C0E1AA2BD2D00910C76 /* Build configuration list for PBXNativeTarget "MApi" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D8118C0F1AA2BD2D00910C76 /* Debug */,
+				D8118C101AA2BD2D00910C76 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D8A9D6BD1A7DDBE200D21726 /* Build configuration list for PBXProject "MAPI" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D8A9D6D71A7DDBE200D21726 /* Debug */,
+				D8A9D6D81A7DDBE200D21726 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E93092261B16D9A60044700F /* Build configuration list for PBXNativeTarget "MApiSample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E93092271B16D9A60044700F /* Debug */,
+				E93092281B16D9A60044700F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E9A82E411B146C530011A2A4 /* Build configuration list for PBXAggregateTarget "Documentation" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E9A82E3D1B146C530011A2A4 /* Debug */,
+				E9A82E3E1B146C530011A2A4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D8A9D6BA1A7DDBE200D21726 /* Project object */;
+}

@@ -1,0 +1,9215 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<style>
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote {
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: "Helvetica Neue", Helvetica, "Hiragino Sans GB", Arial, sans-serif;
+    font-size: 13px;
+    line-height: 18px;
+    color: #737373;
+    background-color: white;
+    margin: 10px 13px 10px 13px;
+}
+table {
+	margin: 10px 0 15px 0;
+	border-collapse: collapse;
+}
+td,th {	
+	border: 1px solid #ddd;
+	padding: 3px 10px;
+}
+th {
+	padding: 5px 10px;	
+}
+
+a {
+    color: #0069d6;
+}
+a:hover {
+    color: #0050a3;
+    text-decoration: none;
+}
+a img {
+    border: none;
+}
+p {
+    margin-bottom: 9px;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: #404040;
+    line-height: 36px;
+}
+h1 {
+    margin-bottom: 18px;
+    font-size: 30px;
+}
+h2 {
+    font-size: 24px;
+}
+h3 {
+    font-size: 18px;
+}
+h4 {
+    font-size: 16px;
+}
+h5 {
+    font-size: 14px;
+}
+h6 {
+    font-size: 13px;
+}
+hr {
+    margin: 0 0 19px;
+    border: 0;
+    border-bottom: 1px solid #ccc;
+}
+blockquote {
+    padding: 13px 13px 21px 15px;
+    margin-bottom: 18px;
+    font-family:georgia,serif;
+    font-style: italic;
+}
+blockquote:before {
+    content:"\201C";
+    font-size:40px;
+    margin-left:-10px;
+    font-family:georgia,serif;
+    color:#eee;
+}
+blockquote p {
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 18px;
+    margin-bottom: 0;
+    font-style: italic;
+}
+code, pre {
+    font-family: Monaco, Andale Mono, Courier New, monospace;
+}
+code {
+    background-color: #fee9cc;
+    color: rgba(0, 0, 0, 0.75);
+    padding: 1px 3px;
+    font-size: 12px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+pre {
+    display: block;
+    padding: 14px;
+    margin: 0 0 18px;
+    line-height: 16px;
+    font-size: 11px;
+    border: 1px solid #d9d9d9;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+pre code {
+    background-color: #fff;
+    color:#737373;
+    font-size: 11px;
+    padding: 0;
+}
+sup {
+    font-size: 0.83em;
+    vertical-align: super;
+    line-height: 0;
+}
+* {
+	-webkit-print-color-adjust: exact;
+}
+@media screen and (min-width: 914px) {
+    body {
+        width: 854px;
+        margin:10px auto;
+    }
+}
+@media print {
+	body,code,pre code,h1,h2,h3,h4,h5,h6 {
+		color: black;
+	}
+	table, pre {
+		page-break-inside: avoid;
+	}
+}
+</style>
+<title><h1 id="top">移动行情客户端接口说明</h1>
+===========
+
+* [概述](#概述</title>
+
+</head>
+<body>
+<h1 id="top">移动行情客户端接口说明</h1>
+
+
+<hr />
+
+<ul>
+<li><p><a href="#%E6%A6%82%E8%BF%B0">概述</a></p>
+
+<ul>
+<li><a href="#%E7%9B%AE%E7%9A%84">目的</a></li>
+<li><a href="#%E5%BD%A2%E5%BC%8F%E8%AF%B4%E6%98%8E">形式说明</a></li>
+<li><a href="#%E8%B5%84%E6%BA%90%E7%B1%BB%E5%88%AB%E5%88%97%E8%A1%A8">资源类别列表</a>
+
+<ul>
+<li><a href="#%E8%AF%B7%E6%B1%82%E7%B1%BB%E5%88%AB%E5%88%97%E8%A1%A8">请求类别列表</a></li>
+<li><a href="#%E5%BA%94%E7%AD%94%E7%B1%BB%E5%88%AB%E5%88%97%E8%A1%A8">应答类别列表</a></li>
+<li><a href="#%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%88%97%E8%A1%A8">数据结构列表</a></li>
+<li><a href="#%E9%94%99%E8%AF%AF%E4%BB%A3%E7%A0%81%E5%88%97%E8%A1%A8">错误代码列表</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><a href="#%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E">使用说明</a></p>
+
+<ul>
+<li><a href="#MApi">应用程序接口</a>
+
+<ul>
+<li><a href="#InitExplain">说明</a></li>
+<li><a href="#InitSample">调用样例</a></li>
+</ul>
+</li>
+<li><a href="#LatestIndex">最新指标</a>
+
+<ul>
+<li><a href="#LatestIndexExplain">说明</a></li>
+<li><a href="#MLatestIndexRequest">请求类(MLatestIndexRequest)</a></li>
+<li><a href="#MLatestIndexResponse">应答类(MLatestIndexResponse)</a></li>
+<li><a href="#LatestIndexSample">调用样例</a></li>
+</ul>
+</li>
+<li><a href="#BigEventNotification">大事提醒</a>
+
+<ul>
+<li><a href="#BigEventNotificationExplain">说明</a></li>
+<li><a href="#MBigEventNotificationRequest">请求类(MBigEventNotificationRequest)</a></li>
+<li><a href="#MBigEventNotificationResponse">应答类(MBigEventNotificationResponse)</a></li>
+<li><a href="#BigEventNotificationSample">调用样例</a></li>
+</ul>
+</li>
+<li><a href="#BonusFinance">分红配送</a>
+
+<ul>
+<li><a href="#BonusFinanceExplain">说明</a></li>
+<li><a href="#MBonusFinanceRequest">请求类(MBonusFinanceRequest)</a></li>
+<li><a href="#MBonusFinanceResponse">应答类(MBonusFinanceResponse)</a></li>
+<li><a href="#BonusFinanceSample">调用样例</a></li>
+</ul>
+</li>
+<li><a href="#TradeDetailInfo">融资融券</a>
+
+<ul>
+<li><a href="#TradeDetailInfoExplain">说明</a></li>
+<li><a href="#MTradeDetailInfoRequest">请求类(MTradeDetailInfoRequest)</a></li>
+<li><a href="#MTradeDetailInfoResponse">应答类(MTradeDetailInfoResponse)</a></li>
+<li><a href="#TradeDetailInfoSample">调用样例</a></li>
+</ul>
+</li>
+<li><a href="#ForecastYear">机构预测</a>
+
+<ul>
+<li><a href="#ForecastYearExplain">说明</a></li>
+<li><a href="#MForecastYearRequest">请求类(MForecastYearRequest)</a></li>
+<li><a href="#MForecastYearResponse">应答类(MForecastYearResponse)</a></li>
+<li><a href="#ForecastYearSample">调用样例</a></li>
+</ul>
+</li>
+<li><a href="#ForecastRating">机构评等</a>
+
+<ul>
+<li><a href="#ForecastRatingExplain">说明</a></li>
+<li><a href="#MForecastRatingRequest">请求类(MForecastRatingRequest)</a></li>
+<li><a href="#MForecastRatingResponse">应答类(MForecastRatingResponse)</a></li>
+<li><a href="#ForecastYearSample">调用样例</a></li>
+</ul>
+</li>
+<li><a href="#BlockTradeInfo">大宗交易</a>
+
+<ul>
+<li><a href="#BlockTradeInfoExplain">说明</a></li>
+<li><a href="#MBlockTradeInfoRequest">请求类(MBlockTradeInfoRequest)</a></li>
+<li><a href="#MBlockTradeInfoResponse">应答类(MBlockTradeInfoResponse)</a></li>
+<li><a href="#BlockTradeInfoSample">调用样例</a></li>
+</ul>
+</li>
+<li><a href="#CompanyInfo">基本情况</a>
+
+<ul>
+<li><a href="#CompanyInfoExplain">说明</a></li>
+<li><a href="#MCompanyInfoRequest">请求类(MCompanyInfoRequest)</a></li>
+<li><a href="#MCompanyInfoResponse">应答类(MCompanyInfoResponse)</a></li>
+<li><a href="#CompanyInfoSample">调用样例</a></li>
+</ul>
+</li>
+<li><a href="#CoreBusiness">主要业务</a>
+
+<ul>
+<li><a href="#CoreBusinessExplain">说明</a></li>
+<li><a href="#MCoreBusinessRequest">请求类(MCoreBusinessRequest)</a></li>
+<li><a href="#MCoreBusinessResponse">应答类(MCoreBusinessResponse)</a></li>
+<li><a href="#CoreBusinessSample">调用样例</a></li>
+</ul>
+</li>
+<li><a href="#LeaderPersonInfo">管理层</a>
+
+<ul>
+<li><a href="#LeaderPersonInfoExplain">说明</a></li>
+<li><a href="#MLeaderPersonInfoRequest">请求类(MLeaderPersonInfoRequest)</a></li>
+<li><a href="#MLeaderPersonInfoResponse">应答类(MLeaderPersonInfoResponse)</a></li>
+<li><a href="#LeaderPersonInfoSample">调用样例</a></li>
+</ul>
+</li>
+<li><a href="#IPOInfo">发行上市</a>
+
+<ul>
+<li><a href="#IPOInfoExplain">说明</a></li>
+<li><a href="#MIPOInfoRequest">请求类(MIPOInfoRequest)</a></li>
+<li><a href="#MIPOInfoResponse">应答类(MIPOInfoResponse)</a></li>
+<li><a href="#IPOInfoSample">调用样例</a></li>
+</ul>
+</li>
+<li><a href="#FinancialSummary">财报指标</a>
+
+<ul>
+<li><a href="#FinancialSummaryExplain">说明</a></li>
+<li><a href="#MFinancialSummaryRequest">请求类(MFinancialSummaryRequest)</a></li>
+<li><a href="#MFinancialSummaryResponse">应答类(MFinancialSummaryResponse)</a></li>
+<li><a href="#FinancialSummarySample">调用样例</a></li>
+</ul>
+</li>
+<li><a href="#FinancialInfo">财务报表</a>
+
+<ul>
+<li><a href="#FinancialInfoExplain">说明</a></li>
+<li><a href="#MFinancialInfoRequest">请求类(MFinancialInfoRequest)</a></li>
+<li><a href="#MFinancialInfoResponse">应答类(MFinancialInfoResponse)</a></li>
+<li><a href="#FinancialInfoSample">调用样例</a></li>
+</ul>
+</li>
+<li><a href="#StockShareInfo">股本结构</a>
+
+<ul>
+<li><a href="#CategoryListExplain">说明</a></li>
+<li><a href="#MStockShareInfoRequest">请求类(MStockShareInfoRequest)</a></li>
+<li><a href="#MStockShareInfoResponse">应答类(MStockShareInfoResponse)</a></li>
+<li><a href="#StockShareInfoSample">调用样例</a></li>
+</ul>
+</li>
+<li><a href="#StockShareChangeInfo">股本变动</a>
+
+<ul>
+<li><a href="#StockShareChangeInfoExplain">说明</a></li>
+<li><a href="#MStockShareChangeInfoRequest">请求类(MStockShareChangeInfoRequest)</a></li>
+<li><a href="#MStockShareChangeInfoResponse">应答类(MStockShareChangeInfoResponse)</a></li>
+<li><a href="#StockShareChangeInfoSample">调用样例</a></li>
+</ul>
+</li>
+<li><a href="#ShareHolderHistoryInfo">股东变动</a>
+
+<ul>
+<li><a href="#ShareHolderHistoryInfoExplain">说明</a></li>
+<li><a href="#MShareHolderHistoryInfoRequest">请求类(MShareHolderHistoryInfoRequest)</a></li>
+<li><a href="#MShareHolderHistoryInfoResponse">应答类(MShareHolderHistoryInfoResponse)</a></li>
+<li><a href="#ShareHolderHistoryInfoSample">调用样例</a></li>
+</ul>
+</li>
+<li><a href="#TopLiquidShareHolder">最新十大流通股股东</a>
+
+<ul>
+<li><a href="#TopLiquidShareHolderExplain">说明</a></li>
+<li><a href="#MTopLiquidShareHolderRequest">请求类(MTopLiquidShareHolderRequest)</a></li>
+<li><a href="#MTopLiquidShareHolderResponse">应答类(MTopLiquidShareHolderResponse)</a></li>
+<li><a href="#TopLiquidShareHolderSample">调用样例</a></li>
+</ul>
+</li>
+<li><a href="#TopShareHolder">十大机构股东</a>
+
+<ul>
+<li><a href="#TopShareHolderExplain">说明</a></li>
+<li><a href="#MTopShareHolderRequest">请求类(MTopShareHolderRequest)</a></li>
+<li><a href="#MTopShareHolderResponse">应答类(MTopShareHolderResponse)</a></li>
+<li><a href="#TopShareHolderSample">调用样例</a></li>
+</ul>
+</li>
+<li><a href="#FundShareHolder">最新基金持股</a>
+
+<ul>
+<li><a href="#FundShareHolderExplain">说明</a></li>
+<li><a href="#MFundShareHolderInfoRequest">请求类(MFundShareHolderInfoRequest)</a></li>
+<li><a href="#MFundShareHolderInfoResponse">应答类(MFundShareHolderInfoResponse)</a></li>
+<li><a href="#FundShareHolderSample">调用样例</a></li>
+</ul>
+</li>
+<li><a href="#ControlingShareHolder">控股股东</a>
+
+<ul>
+<li><a href="#ControlingShareHolderExplain">说明</a></li>
+<li><a href="#MControlingShareHolderRequest">请求类(MControlingShareHolderRequest)</a></li>
+<li><a href="#MControlingShareHolderResponse">应答类(MControlingShareHolderResponse)</a></li>
+<li><a href="#ControlingShareHolderSample">调用样例</a></li>
+</ul>
+</li>
+<li><a href="#NewsList">财经资讯列表</a>
+
+<ul>
+<li><a href="#NewsListExplain">说明</a></li>
+<li><a href="#MNewsListRequest">请求类(MNewsListRequest)</a></li>
+<li><a href="#MNewsListResponse">应答类(MNewsListResponse)</a></li>
+<li><a href="#NewsListSample">调用样例</a></li>
+</ul>
+</li>
+<li><a href="#News">财经资讯明细</a>
+
+<ul>
+<li><a href="#NewsExplain">说明</a></li>
+<li><a href="#MNewsRequest">请求类(MNewsRequest)</a></li>
+<li><a href="#MNewsResponse">应答类(MNewsResponse)</a></li>
+<li><a href="#NewsSample">调用样例</a></li>
+</ul>
+</li>
+<li><a href="#StockBulletinList">个股公告列表</a>
+
+<ul>
+<li><a href="#StockBulletinListExplain">说明</a></li>
+<li><a href="#MStockBulletinListRequest">请求类(MStockBulletinListRequest)</a></li>
+<li><a href="#MStockBulletinListResponse">应答类(MStockBulletinListResponse)</a></li>
+<li><a href="#StockBulletinListSample">调用样例</a></li>
+</ul>
+</li>
+<li><a href="#StockBulletin">个股公告明细</a>
+
+<ul>
+<li><a href="#StockBulletinExplain">说明</a></li>
+<li><a href="#MStockBulletinRequest">请求类(MStockBulletinRequest)</a></li>
+<li><a href="#MStockBulletinResponse">应答类(MStockBulletinResponse)</a></li>
+<li><a href="#StockBulletinSample">调用样例</a></li>
+</ul>
+</li>
+<li><a href="#StockNewsList">个股新闻列表</a>
+
+<ul>
+<li><a href="#StockNewsListExplain">说明</a></li>
+<li><a href="#MStockNewsListRequest">请求类(MStockNewsListRequest)</a></li>
+<li><a href="#MStockNewsListResponse">应答类(MStockNewsListResponse)</a></li>
+<li><a href="#StockNewsListSample">调用样例</a></li>
+</ul>
+</li>
+<li><a href="#StockNews">个股新闻明细</a>
+
+<ul>
+<li><a href="#StockNewsExplain">说明</a></li>
+<li><a href="#MStockNewsRequest">请求类(MStockNewsRequest)</a></li>
+<li><a href="#MStockNewsResponse">应答类(MStockNewsResponse)</a></li>
+<li><a href="#StockNewsSample">调用样例</a></li>
+</ul>
+</li>
+<li><a href="#StockReportList">个股研报列表</a>
+
+<ul>
+<li><a href="#StockReportListExplain">说明</a></li>
+<li><a href="#MStockReportListRequest">请求类(MStockReportListRequest)</a></li>
+<li><a href="#MStockReportListResponse">应答类(MStockReportListResponse)</a></li>
+<li><a href="#StockReportListSample">调用样例</a></li>
+</ul>
+</li>
+<li><a href="#StockReport">个股研报明细</a>
+
+<ul>
+<li><a href="#StockReportExplain">说明</a></li>
+<li><a href="#MStockReportRequest">请求类(MStockReportRequest)</a></li>
+<li><a href="#MStockReportResponse">应答类(MStockReportResponse)</a></li>
+<li><a href="#StockReportSample">调用样例</a></li>
+</ul>
+</li>
+<li><a href="#MIPODate">新股上市日期信息</a>
+
+<ul>
+<li><a href="#MIPODateExplain">说明</a></li>
+<li><a href="#MIPODateRequest">请求类(MIPODateRequest)</a></li>
+<li><a href="#MIPODateResponse">应答类(MIPODateResponse)</a></li>
+<li><a href="#MIPODateSample">调用样例</a></li>
+</ul>
+</li>
+<li><a href="#MIPOCalendar">新股列表</a>
+
+<ul>
+<li><a href="#MIPOCalendarExplain">说明</a></li>
+<li><a href="#MIPOCalendarRequest">请求类(MIPOCalendarRequest)</a></li>
+<li><a href="#MIPOCalendarResponse">应答类(MIPOCalendarResponse)</a></li>
+<li><a href="#MIPOCalendarSample">调用样例</a></li>
+</ul>
+</li>
+<li><a href="#MIPOShareDetail">新股详情</a>
+
+<ul>
+<li><a href="#MIPOShareDetailExplain">说明</a></li>
+<li><a href="#MIPOShareDetailRequest">请求类(MIPOShareDetailRequest)</a></li>
+<li><a href="#MIPOShareDetailResponse">应答类(MIPOShareDetailResponse)</a></li>
+<li><a href="#MIPOShareDetailSample">调用样例</a></li>
+</ul>
+</li>
+<li><a href="#MFundValue">基金净值</a>
+
+<ul>
+<li><a href="#MFundValueExplain">说明</a></li>
+<li><a href="#MFundValueRequest">请求类(MFundValueRequest)</a></li>
+<li><a href="#MFundValueResponse">应答类(MFundValueResponse)</a></li>
+<li><a href="#MFundValueSample">调用样例</a></li>
+</ul>
+</li>
+<li><a href="#MFundBasicInfo">基金概况</a>
+
+<ul>
+<li><a href="#MFundBasicInfoExplain">说明</a></li>
+<li><a href="#MFundBasicInfoRequest">请求类(MFundBasicInfoRequest)</a></li>
+<li><a href="#MFundBasicInfoResponse">应答类(MFundBasicInfoResponse)</a></li>
+<li><a href="#MFundBasicInfoSample">调用样例</a></li>
+</ul>
+</li>
+<li><a href="#MFundNetValue">基金净值(5天)</a>
+
+<ul>
+<li><a href="#MFundNetValueExplain">说明</a></li>
+<li><a href="#MFundNetValueRequest">请求类(MFundNetValueRequest)</a></li>
+<li><a href="#MFundNetValueResponse">应答类(MFundNetValueResponse)</a></li>
+<li><a href="#MFundNetValueSample">调用样例</a></li>
+</ul>
+</li>
+<li><a href="#MFundAssetAllocation">资产配置</a>
+
+<ul>
+<li><a href="#MFundAssetAllocationExplain">说明</a></li>
+<li><a href="#MFundAssetAllocationRequest">请求类(MFundAssetAllocationRequest)</a></li>
+<li><a href="#MFundAssetAllocationResponse">应答类(MFundAssetAllocationResponse)</a></li>
+<li><a href="#MFundAssetAllocationSample">调用样例</a></li>
+</ul>
+</li>
+<li><a href="#MFundIndustryPortfolio">行业组合</a>
+
+<ul>
+<li><a href="#MFundIndustryPortfolioExplain">说明</a></li>
+<li><a href="#MFundIndustryPortfolioRequest">请求类(MFundIndustryPortfolioRequest)</a></li>
+<li><a href="#MFundIndustryPortfolioResponse">应答类(MFundIndustryPortfolioResponse)</a></li>
+<li><a href="#MFundIndustryPortfolioSample">调用样例</a></li>
+</ul>
+</li>
+<li><a href="#MFundStockPortfolio">股票组合</a>
+
+<ul>
+<li><a href="#MFundStockPortfolioExplain">说明</a></li>
+<li><a href="#MFundStockPortfolioRequest">请求类(MFundStockPortfolioRequest)</a></li>
+<li><a href="#MFundStockPortfolioResponse">应答类(MFundStockPortfolioResponse)</a></li>
+<li><a href="#MFundStockPortfolioSample">调用样例</a></li>
+</ul>
+</li>
+<li><a href="#MFundShareStruct">份额结构</a>
+
+<ul>
+<li><a href="#MFundShareStructExplain">说明</a></li>
+<li><a href="#MFundShareStructRequest">请求类(MFundShareStructRequest)</a></li>
+<li><a href="#MFundShareStructResponse">应答类(MFundShareStructResponse)</a></li>
+<li><a href="#MFundShareStructSample">调用样例</a></li>
+</ul>
+</li>
+<li><a href="#MFundFinance">基金财务</a>
+
+<ul>
+<li><a href="#MFundFinanceExplain">说明</a></li>
+<li><a href="#MFundFinanceRequest">请求类(MFundFinanceRequest)</a></li>
+<li><a href="#MFundFinanceResponse">应答类(MFundFinanceResponse)</a></li>
+<li><a href="#MFundFinanceSample">调用样例</a></li>
+</ul>
+</li>
+<li><a href="#MFundDividend">基金分红</a>
+
+<ul>
+<li><a href="#MFundDividendExplain">说明</a></li>
+<li><a href="#MFundDividendRequest">请求类(MFundDividendRequest)</a></li>
+<li><a href="#MFundDividendResponse">应答类(MFundDividendResponse)</a></li>
+<li><a href="#MFundDividendSample">调用样例</a></li>
+</ul>
+</li>
+<li><a href="#MBondBasicInfo">债券概况</a>
+
+<ul>
+<li><a href="#MBondBasicInfoExplain">说明</a></li>
+<li><a href="#MBondBasicInfoRequest">请求类(MBondBasicInfoRequest)</a></li>
+<li><a href="#MBondBasicInfoResponse">应答类(MBondBasicInfoResponse)</a></li>
+<li><a href="#MBondBasicInfoSample">调用样例</a></li>
+</ul>
+</li>
+<li><a href="#MBondInterestPay">付息情况</a>
+
+<ul>
+<li><a href="#MBondInterestPayExplain">说明</a></li>
+<li><a href="#MBondInterestPayRequest">请求类(MBondInterestPayRequest)</a></li>
+<li><a href="#MBondInterestPayResponse">应答类(MBondInterestPayResponse)</a></li>
+<li><a href="#MBondInterestPaySample">调用样例</a></li>
+</ul>
+</li>
+<li><a href="#MBondBuyBacks">债券回购</a>
+
+<ul>
+<li><a href="#MBondBuyBacksExplain">说明</a></li>
+<li><a href="#MBondBuyBacksRequest">请求类(MBondBuyBacksRequest)</a></li>
+<li><a href="#MBondBuyBacksResponse">应答类(MBondBuyBacksResponse)</a></li>
+<li><a href="#MBondBuyBacksSample">调用样例</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><a href="#%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84">数据结构</a></p>
+
+<ul>
+<li><a href="#%E4%B8%AA%E8%82%A1%E6%91%98%E8%A6%81">个股摘要</a>
+
+<ul>
+<li><a href="#MLatestIndex">最新指标</a></li>
+<li><a href="#MBigEventNotification">大事提醒</a></li>
+<li><a href="#MBonusFinanceInfo">分红配送</a></li>
+<li><a href="#MTradeDetailInfo">融资融券</a></li>
+<li><a href="#MBlockTradeInfo">大宗交易</a></li>
+</ul>
+</li>
+<li><a href="#%E4%B8%AA%E8%82%A1%E7%AE%80%E5%86%B5">个股简况</a>
+
+<ul>
+<li><a href="#MCompanyInfo">基本情况</a></li>
+<li><a href="#MCoreBusiness">主要业务</a></li>
+<li><a href="#MLeaderPersonInfo">管理层</a></li>
+<li><a href="#MIPOInfo">发行上市</a></li>
+</ul>
+</li>
+<li><a href="#%E8%B4%A2%E5%8A%A1%E5%88%86%E6%9E%90">财务分析</a>
+
+<ul>
+<li><a href="#MFinancialSummary">财报指标</a></li>
+<li><a href="#MFinancialInfo">财务报表</a></li>
+</ul>
+</li>
+<li><a href="#%E4%B8%AA%E8%82%A1%E8%82%A1%E4%B8%9C">个股股东</a>
+
+<ul>
+<li><a href="#MControlingShareHolder">控股股东</a></li>
+<li><a href="#MStockShareInfo">股本结构</a></li>
+<li><a href="#MStockShareChangeInfo">股本变动</a></li>
+<li><a href="#MShareHolderHistoryInfo">股东变动</a></li>
+<li><a href="#MShareHolderInfo">股东</a></li>
+<li><a href="#MFundShareHolderInfo">基金持股</a></li>
+</ul>
+</li>
+<li><a href="#%E4%B8%AA%E8%82%A1%E8%B5%84%E8%AE%AF">个股资讯</a>
+
+<ul>
+<li><a href="#MStockBulletinItem">个股公告(MStockBulletinItem)</a></li>
+<li><a href="#MStockBulletinDetailItem">个股公告内文(MStockBulletinDetailItem)</a></li>
+<li><a href="#MStockNewsItem">个股新闻(MStockNewsItem)</a></li>
+<li><a href="#MStockNewsDetailItem">个股新闻内文(MStockNewsDetailItem)</a></li>
+<li><a href="#MStockReportItem">个股研报(MStockReportItem)</a></li>
+<li><a href="#MStockReportDetailItem">个股研报内文(MStockReportDetailItem)</a></li>
+</ul>
+</li>
+<li><a href="#%E6%96%B0%E9%97%BB%E8%B5%84%E8%AE%AF">新闻资讯</a>
+
+<ul>
+<li><a href="#MFininfolist">财经资讯列表</a></li>
+<li><a href="#MFininfodetail">财经资讯明细</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>其他</p>
+
+<ul>
+<li><a href="#MNewsType">新闻列表请求类别(MNewsType)</a></li>
+<li><a href="#MF10DataSourceType">f10数据来源类型(MF10DataSourceType)</a></li>
+</ul>
+</li>
+</ul>
+
+
+<hr />
+
+<h2 id="概述">概述</h2>
+
+
+
+
+<h3 id="目的">目的</h3>
+
+
+<ul>
+<li>本文档面向的读者是项目开发人员，其中详细描述了iOS系统之请求应答类别名与上下行参数的属性名称及型态。</li>
+<li>如何通过行情客户端接口发送请求，进而获得行情数据，请至网页下载最新的<a href="http://example.net/">API Documentation</a>或下载<a href="http://example.net/">Demo</a>程式码。</li>
+<li>接口实现了通讯、数据结构与缓存机制，故开发UI人员可以大量减少处理数据的代码与时间。</li>
+</ul>
+
+
+<h3 id="形式说明">形式说明</h3>
+
+
+<ul>
+<li>接口中的类名、属性名及方法名皆以驼峰式命名法，类名首字母皆为大写，属性及方法名首字母皆为小写。</li>
+<li>由于iOS不支持命名空间，故类名皆冠上M来避免与工程上的其他类重复。</li>
+</ul>
+
+
+<h3 id="资源类别列表">资源类别列表</h3>
+
+
+
+
+<h4 id="辅助类别列表">辅助类别列表</h4>
+
+
+<table>
+<thead>
+<tr>
+<th> 说明           </th>
+<th> 类名 </th>
+<th> 备注               </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> 应用程序接口类 </td>
+<td> <a href="#MApi">MApi</a> </td>
+<td> 初始化、发送请求用 </td>
+</tr>
+</tbody>
+</table>
+
+
+<h4 id="请求类别列表">请求类别列表</h4>
+
+
+<table>
+<thead>
+<tr>
+<th> 说明               </th>
+<th> 类名                           </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> 最新指标           </td>
+<td> <a href="#MLatestIndexRequest">MLatestIndexRequest</a>            </td>
+<td>      </td>
+</tr>
+<tr>
+<td> 大事提醒           </td>
+<td> <a href="#MBigEventNotificationRequest">MBigEventNotificationRequest</a>   </td>
+<td>      </td>
+</tr>
+<tr>
+<td> 分红配送           </td>
+<td> <a href="#MBonusFinanceRequest">MBonusFinanceRequest</a>           </td>
+<td>      </td>
+</tr>
+<tr>
+<td> 融资融券           </td>
+<td> <a href="#MTradeDetailInfoRequest">MTradeDetailInfoRequest</a>        </td>
+<td>      </td>
+</tr>
+<tr>
+<td> 机构预测           </td>
+<td> <a href="#MForecastYearRequest">MForecastYearRequest</a>           </td>
+<td>      </td>
+</tr>
+<tr>
+<td> 机构评等           </td>
+<td> <a href="#MForecastRatingRequest">MForecastRatingRequest</a>         </td>
+<td>      </td>
+</tr>
+<tr>
+<td> 大宗交易           </td>
+<td> <a href="#MBlockTradeInfoRequest">MBlockTradeInfoRequest</a>         </td>
+<td>      </td>
+</tr>
+<tr>
+<td> 基本情况           </td>
+<td> <a href="#MCompanyInfoRequest">MCompanyInfoRequest</a>            </td>
+<td>      </td>
+</tr>
+<tr>
+<td> 主要业务           </td>
+<td> <a href="#MCoreBusinessRequest">MCoreBusinessRequest</a>           </td>
+<td>      </td>
+</tr>
+<tr>
+<td> 管理层             </td>
+<td> <a href="#MLeaderPersonInfoRequest">MLeaderPersonInfoRequest</a>       </td>
+<td>      </td>
+</tr>
+<tr>
+<td> 发行上市           </td>
+<td> <a href="#MIPOInfoRequest">MIPOInfoRequest</a>                </td>
+<td>      </td>
+</tr>
+<tr>
+<td> 财报指标           </td>
+<td> <a href="#MFinancialSummaryRequest">MFinancialSummaryRequest</a>       </td>
+<td>      </td>
+</tr>
+<tr>
+<td> 财务报表           </td>
+<td> <a href="#MFinancialInfoRequest">MFinancialInfoRequest</a>          </td>
+<td>      </td>
+</tr>
+<tr>
+<td> 控股股东           </td>
+<td> <a href="#MControlingShareHolderRequest">MControlingShareHolderRequest</a>  </td>
+<td>      </td>
+</tr>
+<tr>
+<td> 股本结构           </td>
+<td> <a href="#MStockShareInfoRequest">MStockShareInfoRequest</a>         </td>
+<td>      </td>
+</tr>
+<tr>
+<td> 股本变动           </td>
+<td> <a href="#MStockShareChangeInfoRequest">MStockShareChangeInfoRequest</a>   </td>
+<td>      </td>
+</tr>
+<tr>
+<td> 股东变动           </td>
+<td> <a href="#MShareHolderHistoryInfoRequest">MShareHolderHistoryInfoRequest</a> </td>
+<td>      </td>
+</tr>
+<tr>
+<td> 最新十大流通股股东 </td>
+<td> <a href="#MTopLiquidShareHolderRequest">MTopLiquidShareHolderRequest</a>   </td>
+<td>      </td>
+</tr>
+<tr>
+<td> 十大机构股东     </td>
+<td> <a href="#MTopShareHolderRequest">MTopShareHolderRequest</a>         </td>
+<td>      </td>
+</tr>
+<tr>
+<td> 最新基金持股       </td>
+<td> <a href="#MFundShareHolderInfoRequest">MFundShareHolderInfoRequest</a>    </td>
+<td>      </td>
+</tr>
+<tr>
+<td> 财经资讯列表       </td>
+<td> <a href="#MNewsListRequest">MNewsListRequest</a>               </td>
+<td>      </td>
+</tr>
+<tr>
+<td> 财经资讯明细       </td>
+<td> <a href="#MNewsRequest">MNewsRequest</a>                   </td>
+<td>      </td>
+</tr>
+<tr>
+<td> 个股公告列表       </td>
+<td> <a href="#MStockBulletinListRequest">MStockBulletinListRequest</a>      </td>
+<td>      </td>
+</tr>
+<tr>
+<td> 个股公告明细       </td>
+<td> <a href="#MStockBulletinRequest">MStockBulletinRequest</a>          </td>
+<td>      </td>
+</tr>
+<tr>
+<td> 个股研报列表       </td>
+<td> <a href="#MStockReportListRequest">MStockReportListRequest</a>        </td>
+<td>      </td>
+</tr>
+<tr>
+<td> 个股研报明细       </td>
+<td> <a href="#MStockReportRequest">MStockReportRequest</a>            </td>
+<td>      </td>
+</tr>
+<tr>
+<td> 基金概况       </td>
+<td> <a href="#MFundBasicInfoRequest">MFundBasicInfoRequest</a>            </td>
+<td>      </td>
+</tr>
+<tr>
+<td> 基金净值       </td>
+<td> <a href="#MFundNetValueRequest">MFundNetValueRequest</a>            </td>
+<td>      </td>
+</tr>
+<tr>
+<td> 资产配置       </td>
+<td> <a href="#MFundAssetAllocationRequest">MFundAssetAllocationRequest</a>            </td>
+<td>      </td>
+</tr>
+<tr>
+<td> 行业组合       </td>
+<td> <a href="#MFundIndustryPortfolioRequest">MFundIndustryPortfolioRequest</a>            </td>
+<td>      </td>
+</tr>
+<tr>
+<td> 股票组合       </td>
+<td> <a href="#MFundStockPortfolioRequest">MFundStockPortfolioRequest</a>            </td>
+<td>      </td>
+</tr>
+<tr>
+<td> 份额结构       </td>
+<td> <a href="#MFundShareStructRequest">MFundShareStructRequest</a>            </td>
+<td>      </td>
+</tr>
+<tr>
+<td> 基金财务       </td>
+<td> <a href="#MFundFinanceRequest">MFundFinanceRequest</a>            </td>
+<td>      </td>
+</tr>
+<tr>
+<td> 基金分红       </td>
+<td> <a href="#MFundDividendRequest">MFundDividendRequest</a>            </td>
+<td>      </td>
+</tr>
+<tr>
+<td> 债券概况       </td>
+<td> <a href="#MBondBasicInfoRequest">MBondBasicInfoRequest</a>            </td>
+<td>      </td>
+</tr>
+<tr>
+<td> 付息情况       </td>
+<td> <a href="#MBondInterestPayRequest">MBondInterestPayRequest</a>            </td>
+<td>      </td>
+</tr>
+<tr>
+<td> 债券回购       </td>
+<td> <a href="#MBondBuyBacksRequest">MBondBuyBacksRequest</a>            </td>
+<td>      </td>
+</tr>
+</tbody>
+</table>
+
+
+<p><a href="#top">top</a></p>
+
+<h4 id="应答类别列表">应答类别列表</h4>
+
+
+<table>
+<thead>
+<tr>
+<th> 说明               </th>
+<th> 类名                            </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> 最新指标           </td>
+<td> <a href="#MLatestIndexRequest">MLatestIndexRequest</a>             </td>
+<td>      </td>
+</tr>
+<tr>
+<td> 大事提醒           </td>
+<td> <a href="#MBigEventNotificationRequest">MBigEventNotificationRequest</a>    </td>
+<td>      </td>
+</tr>
+<tr>
+<td> 分红配送           </td>
+<td> <a href="#MBonusFinanceResponse">MBonusFinanceResponse</a>           </td>
+<td>      </td>
+</tr>
+<tr>
+<td> 融资融券           </td>
+<td> <a href="#MTradeDetailInfoResponse">MTradeDetailInfoResponse</a>        </td>
+<td>      </td>
+</tr>
+<tr>
+<td> 机构预测           </td>
+<td> <a href="#MForecastYearResponse">MForecastYearResponse</a>           </td>
+<td>      </td>
+</tr>
+<tr>
+<td> 机构评等           </td>
+<td> <a href="#MForecastRatingResponse">MForecastRatingResponse</a>         </td>
+<td>      </td>
+</tr>
+<tr>
+<td> 大宗交易           </td>
+<td> <a href="#MBlockTradeInfoResponse">MBlockTradeInfoResponse</a>         </td>
+<td>      </td>
+</tr>
+<tr>
+<td> 基本情况           </td>
+<td> <a href="#MCompanyInfoResponse">MCompanyInfoResponse</a>            </td>
+<td>      </td>
+</tr>
+<tr>
+<td> 主要业务           </td>
+<td> <a href="#MCoreBusinessResponse">MCoreBusinessResponse</a>           </td>
+<td>      </td>
+</tr>
+<tr>
+<td> 管理层             </td>
+<td> <a href="#MLeaderPersonInfoResponse">MLeaderPersonInfoResponse</a>       </td>
+<td>      </td>
+</tr>
+<tr>
+<td> 发行上市           </td>
+<td> <a href="#MIPOInfoResponse">MIPOInfoResponse</a>                </td>
+<td>      </td>
+</tr>
+<tr>
+<td> 财报指标           </td>
+<td> <a href="#MFinancialSummaryResponse">MFinancialSummaryResponse</a>       </td>
+<td>      </td>
+</tr>
+<tr>
+<td> 财务报表           </td>
+<td> <a href="#MFinancialInfoResponse">MFinancialInfoResponse</a>          </td>
+<td>      </td>
+</tr>
+<tr>
+<td> 控股股东           </td>
+<td> <a href="#MControlingShareHolderResponse">MControlingShareHolderResponse</a>  </td>
+<td>      </td>
+</tr>
+<tr>
+<td> 股本结构           </td>
+<td> <a href="#MStockShareInfoResponse">MStockShareInfoResponse</a>         </td>
+<td>      </td>
+</tr>
+<tr>
+<td> 股本变动           </td>
+<td> <a href="#MStockShareChangeInfoResponse">MStockShareChangeInfoResponse</a>   </td>
+<td>      </td>
+</tr>
+<tr>
+<td> 股东变动           </td>
+<td> <a href="#MShareHolderHistoryInfoResponse">MShareHolderHistoryInfoResponse</a> </td>
+<td>      </td>
+</tr>
+<tr>
+<td> 最新十大流通股股东 </td>
+<td> <a href="#MTopLiquidShareHolderResponse">MTopLiquidShareHolderResponse</a>   </td>
+<td>      </td>
+</tr>
+<tr>
+<td> 十大机构股东     </td>
+<td> <a href="#MTopShareHolderResponse">MTopShareHolderResponse</a>         </td>
+<td>      </td>
+</tr>
+<tr>
+<td> 最新基金持股       </td>
+<td> <a href="#MFundShareHolderInfoResponse">MFundShareHolderInfoResponse</a>    </td>
+<td>      </td>
+</tr>
+<tr>
+<td> 财经资讯列表       </td>
+<td> <a href="#MNewsListResponse">MNewsListResponse</a>               </td>
+<td>      </td>
+</tr>
+<tr>
+<td> 财经资讯明细       </td>
+<td> <a href="#MNewsResponse">MNewsResponse</a>                   </td>
+<td>      </td>
+</tr>
+<tr>
+<td> 个股公告列表       </td>
+<td> <a href="#MStockBulletinListResponse">MStockBulletinListResponse</a>      </td>
+<td>      </td>
+</tr>
+<tr>
+<td> 个股公告明细       </td>
+<td> <a href="#MStockBulletinResponse">MStockBulletinResponse</a>          </td>
+<td>      </td>
+</tr>
+<tr>
+<td> 个股研报列表       </td>
+<td> <a href="#MStockReportListResponse">MStockReportListResponse</a>        </td>
+<td>      </td>
+</tr>
+<tr>
+<td> 个股研报明细       </td>
+<td> <a href="#MStockReportResponse">MStockReportResponse</a>            </td>
+<td>      </td>
+</tr>
+<tr>
+<td> 基金概况       </td>
+<td> <a href="#MFundBasicInfoResponse">MFundBasicInfoResponse</a>            </td>
+<td>      </td>
+</tr>
+<tr>
+<td> 基金净值       </td>
+<td> <a href="#MFundNetValueResponse">MFundNetValueResponse</a>            </td>
+<td>      </td>
+</tr>
+<tr>
+<td> 资产配置       </td>
+<td> <a href="#MFundAssetAllocationResponse">MFundAssetAllocationResponse</a>            </td>
+<td>      </td>
+</tr>
+<tr>
+<td> 行业组合       </td>
+<td> <a href="#MFundIndustryPortfolioResponse">MFundIndustryPortfolioResponse</a>            </td>
+<td>      </td>
+</tr>
+<tr>
+<td> 股票组合       </td>
+<td> <a href="#MFundStockPortfolioResponse">MFundStockPortfolioResponse</a>            </td>
+<td>      </td>
+</tr>
+<tr>
+<td> 份额结构       </td>
+<td> <a href="#MFundShareStructResponse">MFundShareStructResponse</a>            </td>
+<td>      </td>
+</tr>
+<tr>
+<td> 基金财务       </td>
+<td> <a href="#MFundFinanceResponse">MFundFinanceResponse</a>            </td>
+<td>      </td>
+</tr>
+<tr>
+<td> 基金分红       </td>
+<td> <a href="#MFundDividendResponse">MFundDividendResponse</a>            </td>
+<td>      </td>
+</tr>
+<tr>
+<td> 债券概况       </td>
+<td> <a href="#MBondBasicInfoResponse">MBondBasicInfoResponse</a>            </td>
+<td>      </td>
+</tr>
+<tr>
+<td> 付息情况       </td>
+<td> <a href="#MBondInterestPayResponse">MBondInterestPayResponse</a>            </td>
+<td>      </td>
+</tr>
+<tr>
+<td> 债券回购       </td>
+<td> <a href="#MBondBuyBacksResponse">MBondBuyBacksResponse</a>            </td>
+<td>      </td>
+</tr>
+</tbody>
+</table>
+
+
+<p><a href="#top">top</a></p>
+
+<h4 id="数据结构列表">数据结构列表</h4>
+
+
+<table>
+<thead>
+<tr>
+<th> 说明         </th>
+<th> 类名                     </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> 最新指标     </td>
+<td> <a href="#MLatestIndex">MLatestIndex</a>             </td>
+<td>      </td>
+</tr>
+<tr>
+<td> 大事提醒     </td>
+<td> <a href="#MBigEventNotification">MBigEventNotification</a>    </td>
+<td>      </td>
+</tr>
+<tr>
+<td> 分红配送     </td>
+<td> <a href="#MBonusFinanceInfo">MBonusFinanceInfo</a>        </td>
+<td>      </td>
+</tr>
+<tr>
+<td> 融资融券     </td>
+<td> <a href="#MTradeDetailInfo">MTradeDetailInfo</a>         </td>
+<td>      </td>
+</tr>
+<tr>
+<td> 机构预测     </td>
+<td> <a href="#MForecastYear">MForecastYear</a>            </td>
+<td>      </td>
+</tr>
+<tr>
+<td> 机构评等     </td>
+<td> <a href="#MForecastRating">MForecastRating</a>          </td>
+<td>      </td>
+</tr>
+<tr>
+<td> 大宗交易     </td>
+<td> <a href="#MBlockTradeInfo">MBlockTradeInfo</a>          </td>
+<td>      </td>
+</tr>
+<tr>
+<td> 基本情况     </td>
+<td> <a href="#MCompanyInfo">MCompanyInfo</a>             </td>
+<td>      </td>
+</tr>
+<tr>
+<td> 主要业务     </td>
+<td> <a href="#MCoreBusiness">MCoreBusiness</a>            </td>
+<td>      </td>
+</tr>
+<tr>
+<td> 管理层       </td>
+<td> <a href="#MLeaderPersonInfo">MLeaderPersonInfo</a>        </td>
+<td>      </td>
+</tr>
+<tr>
+<td> 发行上市     </td>
+<td> <a href="#MIPOInfo">MIPOInfo</a>                 </td>
+<td>      </td>
+</tr>
+<tr>
+<td> 财报指标     </td>
+<td> <a href="#MFinancialSummary">MFinancialSummary</a>        </td>
+<td>      </td>
+</tr>
+<tr>
+<td> 财务报表     </td>
+<td> <a href="#MFinancialInfo">MFinancialInfo</a>           </td>
+<td>      </td>
+</tr>
+<tr>
+<td> 控股股东     </td>
+<td> <a href="#MControlingShareHolder">MControlingShareHolder</a>   </td>
+<td>      </td>
+</tr>
+<tr>
+<td> 股本结构     </td>
+<td> <a href="#MStockShareInfo">MStockShareInfo</a>          </td>
+<td>      </td>
+</tr>
+<tr>
+<td> 股本变动     </td>
+<td> <a href="#MStockShareChangeInfo">MStockShareChangeInfo</a>    </td>
+<td>      </td>
+</tr>
+<tr>
+<td> 股东变动     </td>
+<td> <a href="#MShareHolderHistoryInfo">MShareHolderHistoryInfo</a>  </td>
+<td>      </td>
+</tr>
+<tr>
+<td> 股东         </td>
+<td> <a href="#MShareHolderInfo">MShareHolderInfo</a>         </td>
+<td>      </td>
+</tr>
+<tr>
+<td> 基金持股     </td>
+<td> <a href="#MFundShareHolderInfo">MFundShareHolderInfo</a>     </td>
+<td>      </td>
+</tr>
+<tr>
+<td> 财经资讯     </td>
+<td> <a href="#MNewsItem">MNewsItem</a>                </td>
+<td>      </td>
+</tr>
+<tr>
+<td> 财经资讯明细 </td>
+<td> <a href="#MNewsDetailItem">MNewsDetailItem</a>          </td>
+<td>      </td>
+</tr>
+<tr>
+<td> 个股公告     </td>
+<td> <a href="#MStockBulletinItem">MStockBulletinItem</a>       </td>
+<td>      </td>
+</tr>
+<tr>
+<td> 个股公告内文 </td>
+<td> <a href="#MStockBulletinDetailItem">MStockBulletinDetailItem</a> </td>
+<td>      </td>
+</tr>
+<tr>
+<td> 个股新闻     </td>
+<td> <a href="#MStockNewsItem">MStockNewsItem</a>           </td>
+<td>      </td>
+</tr>
+<tr>
+<td> 个股新闻内文 </td>
+<td> <a href="#MStockNewsDetailItem">MStockNewsDetailItem</a>     </td>
+<td>      </td>
+</tr>
+<tr>
+<td> 个股研报     </td>
+<td> <a href="#MStockReportItem">MStockReportItem</a>         </td>
+<td>      </td>
+</tr>
+<tr>
+<td> 个股研报内文 </td>
+<td> <a href="#MStockReportDetailItem">MStockReportDetailItem</a>   </td>
+<td>      </td>
+</tr>
+</tbody>
+</table>
+
+
+<p><a href="#top">top</a></p>
+
+<h4 id="错误代码列表">错误代码列表</h4>
+
+
+<table>
+<thead>
+<tr>
+<th> 说明             </th>
+<th> 列举名                 </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> 请求成功        </td>
+<td> MResponseStatusSuccess </td>
+<td> 200 </td>
+</tr>
+<tr>
+<td> session失效    </td>
+<td> MResponseStatusSessionExpired </td>
+<td> 401 </td>
+</tr>
+<tr>
+<td> 请求失败        </td>
+<td> MResponseStatusNoData </td>
+<td> 404 </td>
+</tr>
+<tr>
+<td> 业务异常        </td>
+<td> MResponseStatusServerError </td>
+<td> 500 </td>
+</tr>
+<tr>
+<td> 网关错误        </td>
+<td> MResponseStatusParameterError </td>
+<td> 502 </td>
+</tr>
+<tr>
+<td> 请求逾时        </td>
+<td> MResponseStatusTimeout </td>
+<td> -1001 </td>
+</tr>
+<tr>
+<td> 无法连结到主机   </td>
+<td> MResponseStatusNotReachabled </td>
+<td> -1002 </td>
+</tr>
+<tr>
+<td> 应答信息处理失败  </td>
+<td> MResponseStatusDataParseError </td>
+<td> -1003 </td>
+</tr>
+<tr>
+<td> 服务器无应答信息  </td>
+<td> MResponseStatusDataNil </td>
+<td> -1004 </td>
+</tr>
+</tbody>
+</table>
+
+
+<p><a href="#top">top</a></p>
+
+<h2 id="使用说明">使用说明</h2>
+
+
+
+
+<h3 id="MApi">应用程序接口</h3>
+
+
+
+
+<h4 id="InitExplain">说明</h4>
+
+
+<ul>
+<li><p>初始化方法说明:</p>
+
+<p>  <code>+ (void)registerAPP:(NSString *)appkey completionHandler:(void (^)(NSError *error))handler;</code></p>
+
+<pre><code>  * MApi的成员函数，与服务器注册接口的使用许可。
+  * appkey: 许可键值。
+  * error: 注册失败错误对象。
+  * return: 成功返回YES，失败返回NO。
+</code></pre></li>
+<li><p>发送方法说明:</p>
+
+<p>  <code>+ (BOOL)sendRequest:(MRequest *)request completionHandler:(MApiCompletionHandler)handler;</code></p>
+
+<pre><code>  * 发送请求至行情服务器。
+  * request: 具体的发送对象。
+  * handler: 回调函式(返回回应内容对象)。
+  * return: 成功返回YES，失败返回NO。
+</code></pre></li>
+</ul>
+
+
+<h4 id="InitSample">调用样例</h4>
+
+
+<p></p>
+
+<pre><code>- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    //初始化接口
+    [MApi registerAPP:@"anAppKey"completionHandler:^(NSError *error) {
+        if(error) {
+            [self initialCompleted];
+        } else {
+            [Utility alertMessage:[error localizedDescription]];
+        }
+    }];
+    returnYES;
+}
+</code></pre>
+
+<p><a href="#top">top</a></p>
+
+<h3 id="LatestIndex">最新指标</h3>
+
+
+
+
+<h4 id="LatestIndexExplain">说明</h4>
+
+
+<ul>
+<li>查询个股最新指标</li>
+</ul>
+
+
+<h4 id="MLatestIndexRequest">请求类：MLatestIndexRequest</h4>
+
+
+<ul>
+<li>属性说明:</li>
+</ul>
+
+
+<table>
+<thead>
+<tr>
+<th> 属性名 </th>
+<th> 说明     </th>
+<th> 型态     </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> code   </td>
+<td> 股票代码 </td>
+<td> NSString </td>
+<td>      </td>
+</tr>
+<tr>
+<td> sourceType </td>
+<td> 来源 </td>
+<td> <a href="#MF10DataSourceType">MF10DataSourceType</a> </td>
+<td>   默认为MF10DataSourceGA   </td>
+</tr>
+</tbody>
+</table>
+
+
+<h4 id="MLatestIndexResponse">应答类：MLatestIndexResponse</h4>
+
+
+<ul>
+<li>属性说明</li>
+</ul>
+
+
+<table>
+<thead>
+<tr>
+<th> 属性名 </th>
+<th> 说明     </th>
+<th> 型态         </th>
+<th> 备注           </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> record </td>
+<td> 最新指标 </td>
+<td> NSDictionary </td>
+<td> <a href="#MLatestIndex">最新指标键值表</a> </td>
+</tr>
+</tbody>
+</table>
+
+
+<h4 id="LatestIndexSample">调用样例</h4>
+
+
+<pre><code>//请求个股最新指标
+MLatestIndexRequest *request = [[MLatestIndexRequest alloc] init];
+request.code = self.stockItem.ID; //填入股票代码
+
+//发送请求
+[MApi sendRequest:request completionHandler:^(MResponse *resp) {
+    if(resp.status == MResponseStatusSuccess) {
+        //应答无误，处理数据更新画面
+        MLatestIndexResponse *response = (MLatestIndexResponse *)resp;
+        self.record = response.record;
+        [self reloadData];
+    } else {
+        //应答错误，显示错误信息
+        [Utility alertMessage:resp.message];
+    }
+}];
+</code></pre>
+
+<p><a href="#top">top</a></p>
+
+<h3 id="BigEventNotification">大事提醒</h3>
+
+
+
+
+<h4 id="BigEventNotificationExplain">说明</h4>
+
+
+<ul>
+<li>查询个股大事提醒</li>
+</ul>
+
+
+<h4 id="MBigEventNotificationRequest">请求类：MBigEventNotificationRequest</h4>
+
+
+<ul>
+<li>属性说明:</li>
+</ul>
+
+
+<table>
+<thead>
+<tr>
+<th> 属性名 </th>
+<th> 说明     </th>
+<th> 型态     </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> code   </td>
+<td> 股票代码 </td>
+<td> NSString </td>
+<td>      </td>
+</tr>
+<tr>
+<td> sourceType </td>
+<td> 来源 </td>
+<td> <a href="#MF10DataSourceType">MF10DataSourceType</a> </td>
+<td>   默认为MF10DataSourceGA   </td>
+</tr>
+</tbody>
+</table>
+
+
+<h4 id="MBigEventNotificationResponse">应答类：MBigEventNotificationResponse</h4>
+
+
+<ul>
+<li>属性说明</li>
+</ul>
+
+
+<table>
+<thead>
+<tr>
+<th> 属性名 </th>
+<th> 说明     </th>
+<th> 型态         </th>
+<th> 备注           </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> record </td>
+<td> 大事提醒 </td>
+<td> NSDictionary </td>
+<td> <a href="#MBigEventNotification">大事提醒键值表</a> </td>
+</tr>
+</tbody>
+</table>
+
+
+<h4 id="BigEventNotificationSample">调用样例</h4>
+
+
+<pre><code>//请求个股大事提醒
+MBigEventNotificationRequest *request = [[MBigEventNotificationRequest alloc] init];
+request.code = self.stockItem.ID; //填入股票代码
+
+//发送请求
+[MApi sendRequest:request completionHandler:^(MResponse *resp) {
+    if(resp.status == MResponseStatusSuccess) {
+        //应答无误，处理数据更新画面
+        MBigEventNotificationResponse *response = (MBigEventNotificationResponse *)resp;
+        self.record = response.record;
+        [self reloadData];
+    } else {
+        //应答错误，显示错误信息
+        [Utility alertMessage:resp.message];
+    }
+}];
+</code></pre>
+
+<p><a href="#top">top</a></p>
+
+<h3 id="BonusFinance">分红配送</h3>
+
+
+
+
+<h4 id="BonusFinanceExplain">说明</h4>
+
+
+<ul>
+<li>查询个股分红配送资讯</li>
+</ul>
+
+
+<h4 id="MBonusFinanceRequest">请求类：MBonusFinanceRequest</h4>
+
+
+<ul>
+<li>属性说明:</li>
+</ul>
+
+
+<table>
+<thead>
+<tr>
+<th> 属性名 </th>
+<th> 说明     </th>
+<th> 型态     </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> code   </td>
+<td> 股票代码 </td>
+<td> NSString </td>
+<td>      </td>
+</tr>
+<tr>
+<td> sourceType </td>
+<td> 来源 </td>
+<td> <a href="#MF10DataSourceType">MF10DataSourceType</a> </td>
+<td>   默认为MF10DataSourceGA   </td>
+</tr>
+</tbody>
+</table>
+
+
+<h4 id="MBonusFinanceResponse">应答类：MBonusFinanceResponse</h4>
+
+
+<ul>
+<li>属性说明</li>
+</ul>
+
+
+<table>
+<thead>
+<tr>
+<th> 属性名  </th>
+<th> 说明         </th>
+<th> 型态    </th>
+<th> 备注           </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> records </td>
+<td> 分红配送列表 </td>
+<td> NSArray </td>
+<td> <a href="#MBonusFinanceInfo">分红配送键值表</a> </td>
+</tr>
+</tbody>
+</table>
+
+
+<h4 id="BonusFinanceSample">调用样例</h4>
+
+
+<pre><code>//请求个股分红配送资讯
+MBonusFinanceRequest *request = [[MBonusFinanceRequest alloc] init];
+request.code = self.stockItem.ID; //填入股票代码
+
+//发送请求
+[MApi sendRequest:request completionHandler:^(MResponse *resp) {
+    if(resp.status == MResponseStatusSuccess) {
+        //应答无误，处理数据更新画面
+        MBonusFinanceResponse *response = (MBonusFinanceResponse *)resp;
+        self.records = response.records;
+        [self reloadData];
+    } else {
+        //应答错误，显示错误信息
+        [Utility alertMessage:resp.message];
+    }
+}];
+</code></pre>
+
+<p><a href="#top">top</a></p>
+
+<h3 id="TradeDetailInfo">融资融券</h3>
+
+
+
+
+<h4 id="TradeDetailInfoExplain">说明</h4>
+
+
+<ul>
+<li>查询个股融资融券资讯</li>
+</ul>
+
+
+<h4 id="MTradeDetailInfoRequest">请求类：MTradeDetailInfoRequest</h4>
+
+
+<ul>
+<li>属性说明:</li>
+</ul>
+
+
+<table>
+<thead>
+<tr>
+<th> 属性名 </th>
+<th> 说明     </th>
+<th> 型态     </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> code   </td>
+<td> 股票代码 </td>
+<td> NSString </td>
+<td>      </td>
+</tr>
+<tr>
+<td> sourceType </td>
+<td> 来源 </td>
+<td> <a href="#MF10DataSourceType">MF10DataSourceType</a> </td>
+<td>   默认为MF10DataSourceGA   </td>
+</tr>
+</tbody>
+</table>
+
+
+<h4 id="MTradeDetailInfoResponse">应答类：MTradeDetailInfoResponse</h4>
+
+
+<ul>
+<li>属性说明</li>
+</ul>
+
+
+<table>
+<thead>
+<tr>
+<th> 属性名 </th>
+<th> 说明     </th>
+<th> 型态         </th>
+<th> 备注           </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> record </td>
+<td> 融资融券 </td>
+<td> NSDictionary </td>
+<td> <a href="#MTradeDetailInfo">融资融券键值表</a> </td>
+</tr>
+</tbody>
+</table>
+
+
+<h4 id="TradeDetailInfoSample">调用样例</h4>
+
+
+<p></p>
+
+<pre><code>//请求个股融资融券资讯
+MTradeDetailInfoRequest *request = [[MTradeDetailInfoRequest alloc] init];
+request.code = self.stockItem.ID; //填入股票代码
+
+//发送请求
+[MApi sendRequest:request completionHandler:^(MResponse *resp) {
+    if(resp.status == MResponseStatusSuccess) {
+        //应答无误，处理数据更新画面
+        MTradeDetailInfoResponse *response = (MTradeDetailInfoResponse *)resp;
+        self.record = response.record;
+        [self reloadData];
+    } else {
+        //应答错误，显示错误信息
+        [Utility alertMessage:resp.message];
+    }
+}];
+</code></pre>
+
+<p><a href="#top">top</a></p>
+
+<h3 id="ForecastYear">机构预测</h3>
+
+
+
+
+<h4 id="ForecastYearExplain">说明</h4>
+
+
+<ul>
+<li>查询个股机构预测资讯</li>
+</ul>
+
+
+<h4 id="MForecastYearRequest">请求类：MForecastYearRequest</h4>
+
+
+<ul>
+<li>属性说明:</li>
+</ul>
+
+
+<table>
+<thead>
+<tr>
+<th> 属性名 </th>
+<th> 说明     </th>
+<th> 型态     </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> code   </td>
+<td> 股票代码 </td>
+<td> NSString </td>
+<td>      </td>
+</tr>
+<tr>
+<td> sourceType </td>
+<td> 来源 </td>
+<td> <a href="#MF10DataSourceType">MF10DataSourceType</a> </td>
+<td>   默认为MF10DataSourceGA   </td>
+</tr>
+</tbody>
+</table>
+
+
+<h4 id="MForecastYearResponse">应答类：MForecastYearResponse</h4>
+
+
+<ul>
+<li>属性说明</li>
+</ul>
+
+
+<table>
+<thead>
+<tr>
+<th> 属性名 </th>
+<th> 说明     </th>
+<th> 型态         </th>
+<th> 备注           </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> record </td>
+<td> 机构预测 </td>
+<td> NSDictionary </td>
+<td> <a href="#MForecastYear">机构预测键值表</a> </td>
+</tr>
+</tbody>
+</table>
+
+
+<h4 id="ForecastYearSample">调用样例</h4>
+
+
+<p></p>
+
+<pre><code>//请求个股机构预测资讯
+MForecastYearRequest *request = [[MForecastYearRequest alloc] init];
+request.code = self.stockItem.ID; //填入股票代码
+
+//发送请求
+[MApi sendRequest:request completionHandler:^(MResponse *resp) {
+    if(resp.status == MResponseStatusSuccess) {
+        //应答无误，处理数据更新画面
+        MForecastYearResponse *response = (MForecastYearResponse *)resp;
+        self.record = response.record;
+        [self reloadData];
+    } else {
+        //应答错误，显示错误信息
+        [Utility alertMessage:resp.message];
+    }
+}];
+</code></pre>
+
+<p><a href="#top">top</a></p>
+
+<h3 id="ForecastRating">机构评等</h3>
+
+
+
+
+<h4 id="ForecastRatingExplain">说明</h4>
+
+
+<ul>
+<li>查询个股机构评等资讯</li>
+</ul>
+
+
+<h4 id="MForecastRatingRequest">请求类：MForecastRatingRequest</h4>
+
+
+<ul>
+<li>属性说明:</li>
+</ul>
+
+
+<table>
+<thead>
+<tr>
+<th> 属性名 </th>
+<th> 说明     </th>
+<th> 型态     </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> code   </td>
+<td> 股票代码 </td>
+<td> NSString </td>
+<td>      </td>
+</tr>
+<tr>
+<td> sourceType </td>
+<td> 来源 </td>
+<td> <a href="#MF10DataSourceType">MF10DataSourceType</a> </td>
+<td>   默认为MF10DataSourceGA   </td>
+</tr>
+</tbody>
+</table>
+
+
+<h4 id="MForecastRatingResponse">应答类：MForecastRatingResponse</h4>
+
+
+<ul>
+<li>属性说明</li>
+</ul>
+
+
+<table>
+<thead>
+<tr>
+<th> 属性名 </th>
+<th> 说明     </th>
+<th> 型态         </th>
+<th> 备注           </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> record </td>
+<td> 机构评等 </td>
+<td> NSDictionary </td>
+<td> <a href="#MForecastRating">机构评等键值表</a> </td>
+</tr>
+</tbody>
+</table>
+
+
+<h4 id="ForecastRatingSample">调用样例</h4>
+
+
+<p></p>
+
+<pre><code>//请求个股机构评等资讯
+MForecastRatingRequest *request = [[MForecastRatingRequest alloc] init];
+request.code = self.stockItem.ID; //填入股票代码
+
+//发送请求
+[MApi sendRequest:request completionHandler:^(MResponse *resp) {
+    if(resp.status == MResponseStatusSuccess) {
+        //应答无误，处理数据更新画面
+        MForecastRatingResponse *response = (MForecastRatingResponse *)resp;
+        self.record = response.record;
+        [self reloadData];
+    } else {
+        //应答错误，显示错误信息
+        [Utility alertMessage:resp.message];
+    }
+}];
+</code></pre>
+
+<p><a href="#top">top</a></p>
+
+<h3 id="BlockTradeInfo">大宗交易</h3>
+
+
+
+
+<h4 id="BlockTradeInfoExplain">说明</h4>
+
+
+<ul>
+<li>查询个股大宗交易资讯</li>
+</ul>
+
+
+<h4 id="MBlockTradeInfoRequest">请求类：MBlockTradeInfoRequest</h4>
+
+
+<ul>
+<li>属性说明:</li>
+</ul>
+
+
+<table>
+<thead>
+<tr>
+<th> 属性名 </th>
+<th> 说明     </th>
+<th> 型态     </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> code   </td>
+<td> 股票代码 </td>
+<td> NSString </td>
+<td>      </td>
+</tr>
+<tr>
+<td> sourceType </td>
+<td> 来源 </td>
+<td> <a href="#MF10DataSourceType">MF10DataSourceType</a> </td>
+<td>   默认为MF10DataSourceGA   </td>
+</tr>
+</tbody>
+</table>
+
+
+<h4 id="MBlockTradeInfoResponse">应答类：MBlockTradeInfoResponse</h4>
+
+
+<ul>
+<li>属性说明</li>
+</ul>
+
+
+<table>
+<thead>
+<tr>
+<th> 属性名  </th>
+<th> 说明         </th>
+<th> 型态    </th>
+<th> 备注           </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> records </td>
+<td> 大宗交易列表 </td>
+<td> NSArray </td>
+<td> <a href="#MBlockTradeInfo">大宗交易键值表</a> </td>
+</tr>
+</tbody>
+</table>
+
+
+<h4 id="BlockTradeInfoSample">调用样例</h4>
+
+
+<p></p>
+
+<pre><code>//请求个股大宗交易资讯
+MBlockTradeInfoRequest *request = [[MBlockTradeInfoRequest alloc] init];
+request.code = self.stockItem.ID; //填入股票代码
+
+//发送请求
+[MApi sendRequest:request completionHandler:^(MResponse *resp) {
+    if(resp.status == MResponseStatusSuccess) {
+        //应答无误，处理数据更新画面
+        MBlockTradeInfoResponse *response = (MBlockTradeInfoResponse *)resp;
+        self.records = response.records;
+        [self reloadData];
+    } else {
+        //应答错误，显示错误信息
+        [Utility alertMessage:resp.message];
+    }
+}];
+</code></pre>
+
+<p><a href="#top">top</a></p>
+
+<h3 id="CompanyInfo">基本情况</h3>
+
+
+
+
+<h4 id="CompanyInfoExplain">说明</h4>
+
+
+<ul>
+<li>查询个股基本情况</li>
+</ul>
+
+
+<h4 id="MCompanyInfoRequest">请求类：MCompanyInfoRequest</h4>
+
+
+<ul>
+<li>属性说明:</li>
+</ul>
+
+
+<table>
+<thead>
+<tr>
+<th> 属性名 </th>
+<th> 说明     </th>
+<th> 型态     </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> code   </td>
+<td> 股票代码 </td>
+<td> NSString </td>
+<td>      </td>
+</tr>
+<tr>
+<td> sourceType </td>
+<td> 来源 </td>
+<td> <a href="#MF10DataSourceType">MF10DataSourceType</a> </td>
+<td>   默认为MF10DataSourceGA   </td>
+</tr>
+</tbody>
+</table>
+
+
+<h4 id="MCompanyInfoResponse">应答类：MCompanyInfoResponse</h4>
+
+
+<ul>
+<li>属性说明</li>
+</ul>
+
+
+<table>
+<thead>
+<tr>
+<th> 属性名 </th>
+<th> 说明         </th>
+<th> 型态         </th>
+<th> 备注           </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> record </td>
+<td> 基本情况列表 </td>
+<td> NSDictionary </td>
+<td> <a href="#MCompanyInfo">基本情况键值表</a> </td>
+</tr>
+</tbody>
+</table>
+
+
+<h4 id="CompanyInfoSample">调用样例</h4>
+
+
+<pre><code>//请求个股基本情况
+MCompanyInfoRequest *request = [[MCompanyInfoRequest alloc] init];
+request.code = self.stockItem.ID; //填入股票代码
+
+//发送请求
+[MApi sendRequest:request completionHandler:^(MResponse *resp) {
+    if(resp.status == MResponseStatusSuccess) {
+        //应答无误，处理数据更新画面
+        MCompanyInfoResponse *response = (MCompanyInfoResponse *)resp;
+        self.record = response.record;
+        [self reloadData];
+    } else {
+        //应答错误，显示错误信息
+        [Utility alertMessage:resp.message];
+    }
+}];
+</code></pre>
+
+<p><a href="#top">top</a></p>
+
+<h3 id="CoreBusiness">主要业务</h3>
+
+
+
+
+<h4 id="CoreBusinessExplain">说明</h4>
+
+
+<ul>
+<li>查询个股主要业务</li>
+</ul>
+
+
+<h4 id="MCoreBusinessRequest">请求类：MCoreBusinessRequest</h4>
+
+
+<ul>
+<li>属性说明:</li>
+</ul>
+
+
+<table>
+<thead>
+<tr>
+<th> 属性名 </th>
+<th> 说明     </th>
+<th> 型态     </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> code   </td>
+<td> 股票代码 </td>
+<td> NSString </td>
+<td>      </td>
+</tr>
+<tr>
+<td> sourceType </td>
+<td> 来源 </td>
+<td> <a href="#MF10DataSourceType">MF10DataSourceType</a> </td>
+<td>   默认为MF10DataSourceGA   </td>
+</tr>
+</tbody>
+</table>
+
+
+<h4 id="MCoreBusinessResponse">应答类：MCoreBusinessResponse</h4>
+
+
+<ul>
+<li>属性说明</li>
+</ul>
+
+
+<table>
+<thead>
+<tr>
+<th> 属性名  </th>
+<th> 说明         </th>
+<th> 型态    </th>
+<th> 备注           </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> records </td>
+<td> 主要业务列表 </td>
+<td> NSArray </td>
+<td> <a href="#MCoreBusiness">主要业务键值表</a> </td>
+</tr>
+</tbody>
+</table>
+
+
+<h4 id="CoreBusinessSample">调用样例</h4>
+
+
+<pre><code>//请求个股主要业务
+MCoreBusinessRequest *request = [[MCoreBusinessRequest alloc] init];
+request.code = self.stockItem.ID; //填入股票代码
+
+//发送请求
+[MApi sendRequest:request completionHandler:^(MResponse *resp) {
+    if(resp.status == MResponseStatusSuccess) {
+        //应答无误，处理数据更新画面
+        MCoreBusinessResponse *response = (MCoreBusinessResponse *)resp;
+        self.records = response.records;
+        [self reloadData];
+    } else {
+        //应答错误，显示错误信息
+        [Utility alertMessage:resp.message];
+    }
+}];
+</code></pre>
+
+<p><a href="#top">top</a></p>
+
+<h3 id="LeaderPersonInfo">管理层</h3>
+
+
+
+
+<h4 id="LeaderPersonInfoExplain">说明</h4>
+
+
+<ul>
+<li>查询个股管理层资讯</li>
+</ul>
+
+
+<h4 id="MLeaderPersonInfoRequest">请求类：MLeaderPersonInfoRequest</h4>
+
+
+<ul>
+<li>属性说明:</li>
+</ul>
+
+
+<table>
+<thead>
+<tr>
+<th> 属性名 </th>
+<th> 说明     </th>
+<th> 型态     </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> code   </td>
+<td> 股票代码 </td>
+<td> NSString </td>
+<td>      </td>
+</tr>
+<tr>
+<td> sourceType </td>
+<td> 来源 </td>
+<td> <a href="#MF10DataSourceType">MF10DataSourceType</a> </td>
+<td>   默认为MF10DataSourceGA   </td>
+</tr>
+</tbody>
+</table>
+
+
+<h4 id="MLeaderPersonInfoResponse">应答类：MLeaderPersonInfoResponse</h4>
+
+
+<ul>
+<li>属性说明</li>
+</ul>
+
+
+<table>
+<thead>
+<tr>
+<th> 属性名  </th>
+<th> 说明       </th>
+<th> 型态    </th>
+<th> 备注         </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> records </td>
+<td> 管理层列表 </td>
+<td> NSArray </td>
+<td> <a href="#MLeaderPersonInfo">管理层键值表</a> </td>
+</tr>
+</tbody>
+</table>
+
+
+<h4 id="LeaderPersonInfoSample">调用样例</h4>
+
+
+<p></p>
+
+<pre><code>//请求个股管理层资讯
+MLeaderPersonInfoRequest *request = [[MLeaderPersonInfoRequest alloc] init];
+request.code = self.stockItem.ID; //填入股票代码
+
+//发送请求
+[MApi sendRequest:request completionHandler:^(MResponse *resp) {
+    if(resp.status == MResponseStatusSuccess) {
+        //应答无误，处理数据更新画面
+        MLeaderPersonInfoResponse *response = (MLeaderPersonInfoResponse *)resp;
+        self.records = response.records;
+        [self reloadData];
+    } else {
+        //应答错误，显示错误信息
+        [Utility alertMessage:resp.message];
+    }
+}];    
+</code></pre>
+
+<p><a href="#top">top</a></p>
+
+<h3 id="IPOInfo">发行上市</h3>
+
+
+
+
+<h4 id="IPOInfoExplain">说明</h4>
+
+
+<ul>
+<li>查询个股发行上市资讯</li>
+</ul>
+
+
+<h4 id="MIPOInfoRequest">请求类：MIPOInfoRequest</h4>
+
+
+<ul>
+<li>属性说明:</li>
+</ul>
+
+
+<table>
+<thead>
+<tr>
+<th> 属性名 </th>
+<th> 说明     </th>
+<th> 型态     </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> code   </td>
+<td> 股票代码 </td>
+<td> NSString </td>
+<td>      </td>
+</tr>
+<tr>
+<td> sourceType </td>
+<td> 来源 </td>
+<td> <a href="#MF10DataSourceType">MF10DataSourceType</a> </td>
+<td>   默认为MF10DataSourceGA   </td>
+</tr>
+</tbody>
+</table>
+
+
+<h4 id="MIPOInfoResponse">应答类：MIPOInfoResponse</h4>
+
+
+<ul>
+<li>属性说明</li>
+</ul>
+
+
+<table>
+<thead>
+<tr>
+<th> 属性名 </th>
+<th> 说明     </th>
+<th> 型态         </th>
+<th> 备注           </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> record </td>
+<td> 发行上市 </td>
+<td> NSDictionary </td>
+<td> <a href="#MIPOInfo">发行上市键值表</a> </td>
+</tr>
+</tbody>
+</table>
+
+
+<h4 id="IPOInfoSample">调用样例</h4>
+
+
+<p></p>
+
+<pre><code>//请求个股发行上市资讯
+MIPOInfoRequest *request = [[MIPOInfoRequest alloc] init];
+request.code = self.stockItem.ID; //填入股票代码
+
+//发送请求
+[MApi sendRequest:request completionHandler:^(MResponse *resp) {
+    if(resp.status == MResponseStatusSuccess) {
+        //应答无误，处理数据更新画面
+        MIPOInfoResponse *response = (MIPOInfoResponse *)resp;
+        self.record = response.record;
+        [self reloadData];
+    } else {
+        //应答错误，显示错误信息
+        [Utility alertMessage:resp.message];
+    }
+}];
+</code></pre>
+
+<p><a href="#top">top</a></p>
+
+<h3 id="FinancialSummary">财务指标</h3>
+
+
+
+
+<h4 id="FinancialSummaryExplain">说明</h4>
+
+
+<ul>
+<li>查询个股财务指标</li>
+</ul>
+
+
+<h4 id="MFinancialSummaryRequest">请求类：MFinancialSummaryRequest</h4>
+
+
+<ul>
+<li>属性说明:</li>
+</ul>
+
+
+<table>
+<thead>
+<tr>
+<th> 属性名 </th>
+<th> 说明     </th>
+<th> 型态     </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> code   </td>
+<td> 股票代码 </td>
+<td> NSString </td>
+<td>      </td>
+</tr>
+<tr>
+<td> sourceType </td>
+<td> 来源 </td>
+<td> <a href="#MF10DataSourceType">MF10DataSourceType</a> </td>
+<td>   默认为MF10DataSourceGA   </td>
+</tr>
+</tbody>
+</table>
+
+
+<h4 id="MFinancialSummaryResponse">应答类：MFinancialSummaryResponse</h4>
+
+
+<ul>
+<li>属性说明</li>
+</ul>
+
+
+<table>
+<thead>
+<tr>
+<th> 属性名  </th>
+<th> 说明         </th>
+<th> 型态    </th>
+<th> 备注           </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> records </td>
+<td> 财务指标列表 </td>
+<td> NSArray </td>
+<td> <a href="#MFinancialSummary">财务指标键值表</a> </td>
+</tr>
+</tbody>
+</table>
+
+
+<h4 id="FinancialSummarySample">调用样例</h4>
+
+
+<pre><code>//请求个股务报指标
+MFinancialSummaryRequest *request = [[MFinancialSummaryRequest alloc] init];
+request.code = self.stockItem.ID; //填入股票代码
+
+//发送请求
+[MApi sendRequest:request completionHandler:^(MResponse *resp) {
+    if(resp.status == MResponseStatusSuccess) {
+        //应答无误，处理数据更新画面
+        MFinancialSummaryResponse *response = (MFinancialSummaryResponse *)resp;
+        self.records = response.records;
+        [self reloadData];
+    } else {
+        //应答错误，显示错误信息
+        [Utility alertMessage:resp.message];
+    }
+}];
+</code></pre>
+
+<p><a href="#top">top</a></p>
+
+<h3 id="FinancialInfo">财务报表</h3>
+
+
+
+
+<h4 id="FinancialInfoExplain">说明</h4>
+
+
+<ul>
+<li>查询个股财务报表</li>
+</ul>
+
+
+<h4 id="MFinancialInfoRequest">请求类：MFinancialInfoRequest</h4>
+
+
+<ul>
+<li>属性说明:</li>
+</ul>
+
+
+<table>
+<thead>
+<tr>
+<th> 属性名 </th>
+<th> 说明     </th>
+<th> 型态     </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> code   </td>
+<td> 股票代码 </td>
+<td> NSString </td>
+<td>      </td>
+</tr>
+<tr>
+<td> sourceType </td>
+<td> 来源 </td>
+<td> <a href="#MF10DataSourceType">MF10DataSourceType</a> </td>
+<td>   默认为MF10DataSourceGA   </td>
+</tr>
+</tbody>
+</table>
+
+
+<h4 id="MFinancialInfoResponse">应答类：MFinancialInfoResponse</h4>
+
+
+<ul>
+<li>属性说明</li>
+</ul>
+
+
+<table>
+<thead>
+<tr>
+<th> 属性名  </th>
+<th> 说明         </th>
+<th> 型态    </th>
+<th> 备注           </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> records </td>
+<td> 财务报表列表 </td>
+<td> NSArray </td>
+<td> <a href="#MFinancialInfo">财务报表键值表</a> </td>
+</tr>
+</tbody>
+</table>
+
+
+<h4 id="FinancialInfoSample">调用样例</h4>
+
+
+<pre><code>//请求个股财务报表
+MFinancialInfoRequest *request = [[MFinancialInfoRequest alloc] init];
+request.code = self.stockItem.ID; //填入股票代码
+
+//发送请求
+[MApi sendRequest:request completionHandler:^(MResponse *resp) {
+    if(resp.status == MResponseStatusSuccess) {
+        //应答无误，处理数据更新画面
+        MFinancialInfoResponse *response = (MFinancialInfoResponse *)resp;
+        self.records = response.records;
+        [self reloadData];
+    } else {
+        //应答错误，显示错误信息
+        [Utility alertMessage:resp.message];
+    }
+}];
+</code></pre>
+
+<p><a href="#top">top</a></p>
+
+<h3 id="ControlingShareHolder">控股股东</h3>
+
+
+
+
+<h4 id="ControlingShareHolderExplain">说明</h4>
+
+
+<ul>
+<li>查询个股控股股东资讯</li>
+</ul>
+
+
+<h4 id="MControlingShareHolderRequest">请求类：MControlingShareHolderRequest</h4>
+
+
+<ul>
+<li>属性说明:</li>
+</ul>
+
+
+<table>
+<thead>
+<tr>
+<th> 属性名 </th>
+<th> 说明     </th>
+<th> 型态     </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> code   </td>
+<td> 股票代码 </td>
+<td> NSString </td>
+<td>      </td>
+</tr>
+<tr>
+<td> sourceType </td>
+<td> 来源 </td>
+<td> <a href="#MF10DataSourceType">MF10DataSourceType</a> </td>
+<td>   默认为MF10DataSourceGA   </td>
+</tr>
+</tbody>
+</table>
+
+
+<h4 id="MControlingShareHolderResponse">应答类：MControlingShareHolderResponse</h4>
+
+
+<ul>
+<li>属性说明</li>
+</ul>
+
+
+<table>
+<thead>
+<tr>
+<th> 属性名  </th>
+<th> 说明         </th>
+<th> 型态    </th>
+<th> 备注           </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> records </td>
+<td> 控股股东列表 </td>
+<td> NSArray </td>
+<td> <a href="#MControlingShareHolder">控股股东键值表</a> </td>
+</tr>
+</tbody>
+</table>
+
+
+<h4 id="ControlingShareHolderSample">调用样例</h4>
+
+
+<pre><code>//请求个股控股股东资讯
+MControlingShareHolderRequest *request = [[MControlingShareHolderRequest alloc] init];
+request.code = self.stockItem.ID; //填入股票代码
+
+//发送请求
+[MApi sendRequest:request completionHandler:^(MResponse *resp) {
+    if(resp.status == MResponseStatusSuccess) {
+        //应答无误，处理数据更新画面
+        MControlingShareHolderResponse *response = (MControlingShareHolderResponse *)resp;
+        self.records = response.records;
+        [self reloadData];
+    } else {
+        //应答错误，显示错误信息
+        [Utility alertMessage:resp.message];
+    }
+}]; 
+</code></pre>
+
+<p><a href="#top">top</a></p>
+
+<h3 id="StockShareInfo">股本结构</h3>
+
+
+
+
+<h4 id="StockShareInfoExplain">说明</h4>
+
+
+<ul>
+<li>查询个股股本结构资讯</li>
+</ul>
+
+
+<h4 id="MStockShareInfoRequest">请求类：MStockShareInfoRequest</h4>
+
+
+<ul>
+<li>属性说明:</li>
+</ul>
+
+
+<table>
+<thead>
+<tr>
+<th> 属性名 </th>
+<th> 说明     </th>
+<th> 型态     </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> code   </td>
+<td> 股票代码 </td>
+<td> NSString </td>
+<td>      </td>
+</tr>
+<tr>
+<td> sourceType </td>
+<td> 来源 </td>
+<td> <a href="#MF10DataSourceType">MF10DataSourceType</a> </td>
+<td>   默认为MF10DataSourceGA   </td>
+</tr>
+</tbody>
+</table>
+
+
+<h4 id="MStockShareInfoResponse">应答类：MStockShareInfoResponse</h4>
+
+
+<ul>
+<li>属性说明</li>
+</ul>
+
+
+<table>
+<thead>
+<tr>
+<th> 属性名 </th>
+<th> 说明         </th>
+<th> 型态         </th>
+<th> 备注           </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> record </td>
+<td> 股本结构列表 </td>
+<td> NSDictionary </td>
+<td> <a href="#MStockShareInfo">股本结构键值表</a> </td>
+</tr>
+</tbody>
+</table>
+
+
+<h4 id="StockShareInfoSample">调用样例</h4>
+
+
+<pre><code>//请求个股股本结构资讯
+MStockShareInfoRequest *request = [[MStockShareInfoRequest alloc] init];
+request.code = self.stockItem.ID; //填入股票代码
+
+//发送请求
+[MApi sendRequest:request completionHandler:^(MResponse *resp) {
+    if(resp.status == MResponseStatusSuccess) {
+        //应答无误，处理数据更新画面
+        MStockShareInfoResponse *response = (MStockShareInfoResponse *)resp;
+        self.record = response.record;
+        [self reloadData];
+    } else {
+        //应答错误，显示错误信息
+        [Utility alertMessage:resp.message];
+    }
+}]; 
+</code></pre>
+
+<p><a href="#top">top</a></p>
+
+<h3 id="StockShareChangeInfo">股本变动</h3>
+
+
+
+
+<h4 id="StockShareChangeInfoExplain">说明</h4>
+
+
+<ul>
+<li>查询个股股本变动资讯</li>
+</ul>
+
+
+<h4 id="MStockShareChangeInfoRequest">请求类：MStockShareChangeInfoRequest</h4>
+
+
+<ul>
+<li>属性说明:</li>
+</ul>
+
+
+<table>
+<thead>
+<tr>
+<th> 属性名 </th>
+<th> 说明     </th>
+<th> 型态     </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> code   </td>
+<td> 股票代码 </td>
+<td> NSString </td>
+<td>      </td>
+</tr>
+<tr>
+<td> sourceType </td>
+<td> 来源 </td>
+<td> <a href="#MF10DataSourceType">MF10DataSourceType</a> </td>
+<td>   默认为MF10DataSourceGA   </td>
+</tr>
+</tbody>
+</table>
+
+
+<h4 id="MStockShareChangeInfoResponse">应答类：MStockShareChangeInfoResponse</h4>
+
+
+<ul>
+<li>属性说明</li>
+</ul>
+
+
+<table>
+<thead>
+<tr>
+<th> 属性名  </th>
+<th> 说明         </th>
+<th> 型态    </th>
+<th> 备注           </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> records </td>
+<td> 股本变动列表 </td>
+<td> NSArray </td>
+<td> <a href="#MStockShareChangeInfo">股本变动键值表</a> </td>
+</tr>
+</tbody>
+</table>
+
+
+<h4 id="StockShareChangeInfoSample">调用样例</h4>
+
+
+<p></p>
+
+<pre><code>//请求个股股本变动资讯
+MStockShareChangeInfoRequest *request = [[MStockShareChangeInfoRequest alloc] init];
+request.code = self.stockItem.ID; //填入股票代码
+
+//发送请求
+[MApi sendRequest:request completionHandler:^(MResponse *resp) {
+    if(resp.status == MResponseStatusSuccess) {
+        //应答无误，处理数据更新画面
+        MStockShareChangeInfoResponse *response = (MStockShareChangeInfoResponse *)resp;
+        self.records = response.records;
+        [self reloadData];
+    } else {
+        //应答错误，显示错误信息
+        [Utility alertMessage:resp.message];
+    }
+}];
+</code></pre>
+
+<p><a href="#top">top</a></p>
+
+<h3 id="ShareHolderHistoryInfo">股东变动</h3>
+
+
+
+
+<h4 id="ShareHolderHistoryInfoExplain">说明</h4>
+
+
+<ul>
+<li>查询个股股东变动资讯</li>
+</ul>
+
+
+<h4 id="MShareHolderHistoryInfoRequest">请求类：MShareHolderHistoryInfoRequest</h4>
+
+
+<ul>
+<li>属性说明:</li>
+</ul>
+
+
+<table>
+<thead>
+<tr>
+<th> 属性名 </th>
+<th> 说明     </th>
+<th> 型态     </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> code   </td>
+<td> 股票代码 </td>
+<td> NSString </td>
+<td>      </td>
+</tr>
+<tr>
+<td> sourceType </td>
+<td> 来源 </td>
+<td> <a href="#MF10DataSourceType">MF10DataSourceType</a> </td>
+<td>   默认为MF10DataSourceGA   </td>
+</tr>
+</tbody>
+</table>
+
+
+<h4 id="MShareHolderHistoryInfoResponse">应答类：MShareHolderHistoryInfoResponse</h4>
+
+
+<ul>
+<li>属性说明</li>
+</ul>
+
+
+<table>
+<thead>
+<tr>
+<th> 属性名  </th>
+<th> 说明         </th>
+<th> 型态    </th>
+<th> 备注           </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> records </td>
+<td> 股东变动列表 </td>
+<td> NSArray </td>
+<td> <a href="#MShareHolderHistoryInfo">股东变动键值表</a> </td>
+</tr>
+</tbody>
+</table>
+
+
+<h4 id="ShareHolderHistoryInfoSample">调用样例</h4>
+
+
+<p></p>
+
+<pre><code>//请求个股股东变动资讯
+MShareHolderHistoryInfoRequest *request = [[MShareHolderHistoryInfoRequest alloc] init];
+request.code = self.stockItem.ID; //填入股票代码
+
+//发送请求
+[MApi sendRequest:request completionHandler:^(MResponse *resp) {
+    if(resp.status == MResponseStatusSuccess) {
+        //应答无误，处理数据更新画面
+        MShareHolderHistoryInfoResponse *response = (MShareHolderHistoryInfoResponse *)resp;
+        self.records = response.records;
+        [self reloadData];
+    } else {
+        //应答错误，显示错误信息
+        [Utility alertMessage:resp.message];
+    }
+}];
+</code></pre>
+
+<p><a href="#top">top</a></p>
+
+<h3 id="TopLiquidShareHolder">最新十大流通股股东</h3>
+
+
+
+
+<h4 id="TopLiquidShareHolderExplain">说明</h4>
+
+
+<ul>
+<li>查询个股最新十大流通股股东</li>
+</ul>
+
+
+<h4 id="MTopLiquidShareHolderRequest">请求类：MTopLiquidShareHolderRequest</h4>
+
+
+<ul>
+<li>属性说明:</li>
+</ul>
+
+
+<table>
+<thead>
+<tr>
+<th> 属性名 </th>
+<th> 说明     </th>
+<th> 型态     </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> code   </td>
+<td> 股票代码 </td>
+<td> NSString </td>
+<td>      </td>
+</tr>
+<tr>
+<td> sourceType </td>
+<td> 来源 </td>
+<td> <a href="#MF10DataSourceType">MF10DataSourceType</a> </td>
+<td>   默认为MF10DataSourceGA   </td>
+</tr>
+</tbody>
+</table>
+
+
+<h4 id="MTopLiquidShareHolderResponse">应答类：MTopLiquidShareHolderResponse</h4>
+
+
+<ul>
+<li>属性说明</li>
+</ul>
+
+
+<table>
+<thead>
+<tr>
+<th> 属性名  </th>
+<th> 说明     </th>
+<th> 型态    </th>
+<th> 备注       </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> records </td>
+<td> 股东列表 </td>
+<td> NSArray </td>
+<td> <a href="#MTopLiquidShareHolder">股东键值表</a> </td>
+</tr>
+</tbody>
+</table>
+
+
+<h4 id="TopLiquidShareHolderSample">调用样例</h4>
+
+
+<p></p>
+
+<pre><code>//请求个股最新十大流通股股东
+MTopLiquidShareHolderRequest *request = [[MTopLiquidShareHolderRequest alloc] init];
+request.code = self.stockItem.ID; //填入股票代码
+
+//发送请求
+[MApi sendRequest:request completionHandler:^(MResponse *resp) {
+    if(resp.status == MResponseStatusSuccess) {
+        //应答无误，处理数据更新画面
+        MTopLiquidShareHolderResponse *response = (MTopLiquidShareHolderResponse *)resp;
+        self.records = response.records;
+        [self reloadData];
+    } else {
+        //应答错误，显示错误信息
+        [Utility alertMessage:resp.message];
+    }
+}];
+</code></pre>
+
+<p><a href="#top">top</a></p>
+
+<h3 id="TopShareHolder">十大机构股东</h3>
+
+
+
+
+<h4 id="TopShareHolderExplain">说明</h4>
+
+
+<ul>
+<li>查询个股十大机构股东</li>
+</ul>
+
+
+<h4 id="MTopShareHolderRequest">请求类：MTopShareHolderRequest</h4>
+
+
+<ul>
+<li>属性说明:</li>
+</ul>
+
+
+<table>
+<thead>
+<tr>
+<th> 属性名 </th>
+<th> 说明     </th>
+<th> 型态     </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> code   </td>
+<td> 股票代码 </td>
+<td> NSString </td>
+<td>      </td>
+</tr>
+<tr>
+<td> sourceType </td>
+<td> 来源 </td>
+<td> <a href="#MF10DataSourceType">MF10DataSourceType</a> </td>
+<td>   默认为MF10DataSourceGA   </td>
+</tr>
+</tbody>
+</table>
+
+
+<h4 id="MTopShareHolderResponse">应答类：MTopShareHolderResponse</h4>
+
+
+<ul>
+<li>属性说明</li>
+</ul>
+
+
+<table>
+<thead>
+<tr>
+<th> 属性名  </th>
+<th> 说明     </th>
+<th> 型态    </th>
+<th> 备注       </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> records </td>
+<td> 股东列表 </td>
+<td> NSArray </td>
+<td> <a href="#MTopShareHolder">股东键值表</a> </td>
+</tr>
+</tbody>
+</table>
+
+
+<h4 id="TopShareHolderSample">调用样例</h4>
+
+
+<pre><code>//请求个股十大机构股东
+MTopShareHolderRequest *request = [[MTopShareHolderRequest alloc] init];
+request.code = self.stockItem.ID; //填入股票代码
+
+//发送请求
+[MApi sendRequest:request completionHandler:^(MResponse *resp) {
+    if(resp.status == MResponseStatusSuccess) {
+        //应答无误，处理数据更新画面
+        MTopShareHolderResponse *response = (MTopShareHolderResponse *)resp;
+        self.records = response.records;
+        [self reloadData];
+    } else {
+        //应答错误，显示错误信息
+        [Utility alertMessage:resp.message];
+    }
+}];
+</code></pre>
+
+<p><a href="#top">top</a></p>
+
+<h3 id="FundShareHolderInfo">最新基金持股</h3>
+
+
+
+
+<h4 id="FundShareHolderInfoExplain">说明</h4>
+
+
+<ul>
+<li>查询个股最新基金持股</li>
+</ul>
+
+
+<h4 id="MFundShareHolderInfoRequest">请求类：MFundShareHolderInfoRequest</h4>
+
+
+<ul>
+<li>属性说明:</li>
+</ul>
+
+
+<table>
+<thead>
+<tr>
+<th> 属性名 </th>
+<th> 说明     </th>
+<th> 型态     </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> code   </td>
+<td> 股票代码 </td>
+<td> NSString </td>
+<td>      </td>
+</tr>
+<tr>
+<td> sourceType </td>
+<td> 来源 </td>
+<td> <a href="#MF10DataSourceType">MF10DataSourceType</a> </td>
+<td>   默认为MF10DataSourceGA   </td>
+</tr>
+</tbody>
+</table>
+
+
+<h4 id="MFundShareHolderInfoResponse">应答类：MFundShareHolderInfoResponse</h4>
+
+
+<ul>
+<li>属性说明</li>
+</ul>
+
+
+<table>
+<thead>
+<tr>
+<th> 属性名  </th>
+<th> 说明         </th>
+<th> 型态    </th>
+<th> 备注           </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> records </td>
+<td> 基金持股列表 </td>
+<td> NSArray </td>
+<td> <a href="#MFundshareholding">基金持股键值表</a> </td>
+</tr>
+</tbody>
+</table>
+
+
+<h4 id="FundShareHolderInfoSample">调用样例</h4>
+
+
+<p></p>
+
+<pre><code>//请求个股最新基金持股
+MFundShareHolderInfoRequest *request = [[MFundShareHolderInfoRequest alloc] init];
+request.code = self.stockItem.ID; //填入股票代码
+
+//发送请求
+[MApi sendRequest:request completionHandler:^(MResponse *resp) {
+    if(resp.status == MResponseStatusSuccess) {
+        //应答无误，处理数据更新画面
+        MFundShareHolderInfoResponse *response = (MFundShareHolderInfoResponse *)resp;
+        self.records = response.records;
+        [self reloadData];
+    } else {
+        //应答错误，显示错误信息
+        [Utility alertMessage:resp.message];
+    }
+}];
+</code></pre>
+
+<p><a href="#top">top</a></p>
+
+<h3 id="NewsList">财经资讯列表</h3>
+
+
+
+
+<h4 id="NewsListExplain">说明</h4>
+
+
+<ul>
+<li>查询财经资讯列表</li>
+</ul>
+
+
+<h4 id="MNewsListRequest">请求类：MNewsListRequest</h4>
+
+
+<ul>
+<li>属性说明:</li>
+</ul>
+
+
+<table>
+<thead>
+<tr>
+<th> 属性名    </th>
+<th> 说明     </th>
+<th> 型态      </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> newsType  </td>
+<td> 新闻类别 </td>
+<td> <a href="#MNewsType">MNewsType</a> </td>
+<td>      </td>
+</tr>
+<tr>
+<td> pageIndex </td>
+<td> 页次     </td>
+<td> NSInteger </td>
+<td>      </td>
+</tr>
+<tr>
+<td> sourceType </td>
+<td> 来源 </td>
+<td> <a href="#MF10DataSourceType">MF10DataSourceType</a> </td>
+<td>   默认为MF10DataSourceGA   </td>
+</tr>
+</tbody>
+</table>
+
+
+<h4 id="MNewsListResponse">应答类：MNewsListResponse</h4>
+
+
+<ul>
+<li>属性说明</li>
+</ul>
+
+
+<table>
+<thead>
+<tr>
+<th> 属性名    </th>
+<th> 说明         </th>
+<th> 型态    </th>
+<th> 备注                                </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> newsItems </td>
+<td> 财经资讯列表 </td>
+<td> NSArray </td>
+<td> 财经资讯列表中的对象请参考<a href="#MNewsItem">MNewsItem</a> </td>
+</tr>
+</tbody>
+</table>
+
+
+<h4 id="NewsListSample">调用样例</h4>
+
+
+<pre><code>//查询新闻
+MNewsListRequest *request = [[MNewsListRequest alloc] init];
+request.newsType = self.newsType;
+request.pageIndex = 0;
+
+//发送请求
+[MApi sendRequest:request completionHandler:^(MResponse *resp) {
+    if(resp.status == MResponseStatusSuccess) {
+        //应答无误，处理数据更新画面
+        MNewsListResponse *response = (MNewsListResponse *)resp;
+        self.newsItems = response.newsItems;
+        [self reloadData];
+    } else {
+        //应答错误，显示错误信息
+        [Utility alertMessage:resp.message];
+    }
+}];
+</code></pre>
+
+<p><a href="#top">top</a></p>
+
+<h3 id="News">财经资讯明细</h3>
+
+
+
+
+<h4 id="NewsExplain">说明</h4>
+
+
+<ul>
+<li>查询财经资讯明细</li>
+</ul>
+
+
+<h4 id="MNewsRequest">请求类：MNewsRequest</h4>
+
+
+<ul>
+<li>属性说明:</li>
+</ul>
+
+
+<table>
+<thead>
+<tr>
+<th> 属性名 </th>
+<th> 说明         </th>
+<th> 型态     </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> newsID </td>
+<td> 财经资讯序号 </td>
+<td> NSString </td>
+<td>      </td>
+</tr>
+<tr>
+<td> sourceType </td>
+<td> 来源 </td>
+<td> <a href="#MF10DataSourceType">MF10DataSourceType</a> </td>
+<td>   默认为MF10DataSourceGA   </td>
+</tr>
+</tbody>
+</table>
+
+
+<h4 id="MNewsResponse">应答类：MNewsResponse</h4>
+
+
+<ul>
+<li>属性说明</li>
+</ul>
+
+
+<table>
+<thead>
+<tr>
+<th> 属性名         </th>
+<th> 说明         </th>
+<th> 型态            </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> newsDetailItem </td>
+<td> 财经资讯明细 </td>
+<td> <a href="#MNewsDetailItem">MNewsDetailItem</a> </td>
+<td>      </td>
+</tr>
+</tbody>
+</table>
+
+
+<h4 id="NewsSample">调用样例</h4>
+
+
+<pre><code>//请求财经资讯明细
+MNewsRequest *request = [[MNewsRequest alloc] init];
+request.newsID = self.newsItem.ID; //填入新闻序号
+
+//发送请求
+[MApi sendRequest:request completionHandler:^(MResponse *resp) {
+    if(resp.status == MResponseStatusSuccess) {
+        //应答无误，处理数据更新画面
+        MNewsResponse *response = (MNewsResponse *)resp;
+        self.newsDetailItem = response.newsDetailItem;
+        [self reloadData];
+    } else {
+        //应答错误，显示错误信息
+        [Utility alertMessage:resp.message];
+    }
+}];
+</code></pre>
+
+<p><a href="#top">top</a></p>
+
+<h3 id="StockBulletinList">个股公告列表</h3>
+
+
+
+
+<h4 id="StockBulletinListExplain">说明</h4>
+
+
+<ul>
+<li>查询个股公告列表</li>
+</ul>
+
+
+<h4 id="MStockBulletinListRequest">请求类：MStockBulletinListRequest</h4>
+
+
+<ul>
+<li>属性说明:</li>
+</ul>
+
+
+<table>
+<thead>
+<tr>
+<th> 属性名 </th>
+<th> 说明     </th>
+<th> 型态     </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> code   </td>
+<td> 股票代码 </td>
+<td> NSString </td>
+<td>      </td>
+</tr>
+<tr>
+<td> pageIndex   </td>
+<td> 页次 </td>
+<td> NSString </td>
+<td>      </td>
+</tr>
+<tr>
+<td> sourceType </td>
+<td> 来源 </td>
+<td> <a href="#MF10DataSourceType">MF10DataSourceType</a> </td>
+<td>   默认为MF10DataSourceGA   </td>
+</tr>
+</tbody>
+</table>
+
+
+<h4 id="MStockBulletinListResponse">应答类：MStockBulletinListResponse</h4>
+
+
+<ul>
+<li>属性说明</li>
+</ul>
+
+
+<table>
+<thead>
+<tr>
+<th> 属性名             </th>
+<th> 说明         </th>
+<th> 型态    </th>
+<th> 备注                                         </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> stockBulletinItems </td>
+<td> 个股公告列表 </td>
+<td> NSArray </td>
+<td> 个股公告列表中的对象请参考<a href="#MStockBulletinItem">MStockBulletinItem</a> </td>
+</tr>
+</tbody>
+</table>
+
+
+<h4 id="StockBulletinListSample">调用样例</h4>
+
+
+<pre><code>//查询个股公告
+MStockBulletinListRequest *request = [[MStockBulletinListRequest alloc] init];
+request.code = self.stockItem.ID;
+
+//发送请求
+[MApi sendRequest:request completionHandler:^(MResponse *resp) {
+    if(resp.status == MResponseStatusSuccess) {
+        //应答无误，处理数据更新画面
+        MStockBulletinListResponse *response = (MStockBulletinListResponse *)resp;
+        self.items = response.stockBulletinItems;
+        [self reloadData];
+    } else {
+        //应答错误，显示错误信息
+        [Utility alertMessage:resp.message];
+    }
+}];
+</code></pre>
+
+<p><a href="#top">top</a></p>
+
+<h3 id="StockBulletin">个股公告明细</h3>
+
+
+
+
+<h4 id="StockBulletinExplain">说明</h4>
+
+
+<ul>
+<li>查询个股公告明细</li>
+</ul>
+
+
+<h4 id="MStockBulletinRequest">请求类：MStockBulletinRequest</h4>
+
+
+<ul>
+<li>属性说明:</li>
+</ul>
+
+
+<table>
+<thead>
+<tr>
+<th> 属性名     </th>
+<th> 说明         </th>
+<th> 型态     </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> bulletinID </td>
+<td> 个股公告序号 </td>
+<td> NSString </td>
+<td>      </td>
+</tr>
+<tr>
+<td> sourceType </td>
+<td> 来源 </td>
+<td> <a href="#MF10DataSourceType">MF10DataSourceType</a> </td>
+<td>   默认为MF10DataSourceGA   </td>
+</tr>
+</tbody>
+</table>
+
+
+<h4 id="MStockBulletinResponse">应答类：MStockBulletinResponse</h4>
+
+
+<ul>
+<li>属性说明</li>
+</ul>
+
+
+<table>
+<thead>
+<tr>
+<th> 属性名                  </th>
+<th> 说明         </th>
+<th> 型态                     </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> stockBulletinDetailItem </td>
+<td> 个股公告明细 </td>
+<td> <a href="#MStockBulletinDetailItem">MStockBulletinDetailItem</a> </td>
+<td>      </td>
+</tr>
+</tbody>
+</table>
+
+
+<h4 id="StockBulletinSample">调用样例</h4>
+
+
+<pre><code>//请求公告明细
+MStockBulletinRequest *request = [[MStockBulletinRequest alloc] init];
+request.stockBulletinID = self.stockBulletinItem.ID; //填入公告序号
+
+//发送请求
+[MApi sendRequest:request completionHandler:^(MResponse *resp) {
+    if(resp.status == MResponseStatusSuccess) {
+        //应答无误，处理数据更新画面
+        MStockBulletinResponse *response = (MStockBulletinResponse *)resp;
+        self.stockBulletinDetailItem = response.stockBulletinDetailItem;
+        [self reloadData];
+    } else {
+        //应答错误，显示错误信息
+        [Utility alertMessage:resp.message];
+    }
+}];
+</code></pre>
+
+<p><a href="#top">top</a></p>
+
+<h3 id="StockNewsList">个股新闻列表</h3>
+
+
+
+
+<h4 id="StockNewsListExplain">说明</h4>
+
+
+<ul>
+<li>查询个股新闻列表</li>
+</ul>
+
+
+<h4 id="MStockNewsListRequest">请求类：MStockNewsListRequest</h4>
+
+
+<ul>
+<li>属性说明:</li>
+</ul>
+
+
+<table>
+<thead>
+<tr>
+<th> 属性名 </th>
+<th> 说明     </th>
+<th> 型态     </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> code   </td>
+<td> 股票代码 </td>
+<td> NSString </td>
+<td>      </td>
+</tr>
+<tr>
+<td> pageIndex   </td>
+<td> 页次 </td>
+<td> NSString </td>
+<td>      </td>
+</tr>
+<tr>
+<td> sourceType </td>
+<td> 来源 </td>
+<td> <a href="#MF10DataSourceType">MF10DataSourceType</a> </td>
+<td>   默认为MF10DataSourceGA   </td>
+</tr>
+</tbody>
+</table>
+
+
+<h4 id="MStockNewsListResponse">应答类：MStockNewsListResponse</h4>
+
+
+<ul>
+<li>属性说明</li>
+</ul>
+
+
+<table>
+<thead>
+<tr>
+<th> 属性名         </th>
+<th> 说明         </th>
+<th> 型态    </th>
+<th> 备注                                     </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> stockNewsItems </td>
+<td> 个股新闻列表 </td>
+<td> NSArray </td>
+<td> 个股新闻列表中的对象请参考<a href="#MStockNewsItem">MStockNewsItem</a> </td>
+</tr>
+</tbody>
+</table>
+
+
+<h4 id="StockNewsListSample">调用样例</h4>
+
+
+<pre><code>//查询个股新闻
+MStockNewsListRequest *request = [[MStockNewsListRequest alloc] init];
+request.code = self.stockItem.ID;
+
+//发送请求
+[MApi sendRequest:request completionHandler:^(MResponse *resp) {
+    if(resp.status == MResponseStatusSuccess) {
+        //应答无误，处理数据更新画面
+        MStockNewsListResponse *response = (MStockNewsListResponse *)resp;
+        self.items = response.stockNewsItems;
+        [self reloadData];
+    } else {
+        //应答错误，显示错误信息
+        [Utility alertMessage:resp.message];
+    }
+}];
+</code></pre>
+
+<p><a href="#top">top</a></p>
+
+<h3 id="StockNews">个股新闻明细</h3>
+
+
+
+
+<h4 id="StockNewsExplain">说明</h4>
+
+
+<ul>
+<li>查询个股新闻明细</li>
+</ul>
+
+
+<h4 id="MStockNewsRequest">请求类：MStockNewsRequest</h4>
+
+
+<ul>
+<li>属性说明:</li>
+</ul>
+
+
+<table>
+<thead>
+<tr>
+<th> 属性名      </th>
+<th> 说明         </th>
+<th> 型态     </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> stockNewsID </td>
+<td> 个股新闻序号 </td>
+<td> NSString </td>
+<td>      </td>
+</tr>
+<tr>
+<td> sourceType </td>
+<td> 来源 </td>
+<td> <a href="#MF10DataSourceType">MF10DataSourceType</a> </td>
+<td>   默认为MF10DataSourceGA   </td>
+</tr>
+</tbody>
+</table>
+
+
+<h4 id="MStockNewsResponse">应答类：MStockNewsResponse</h4>
+
+
+<ul>
+<li>属性说明</li>
+</ul>
+
+
+<table>
+<thead>
+<tr>
+<th> 属性名              </th>
+<th> 说明         </th>
+<th> 型态                 </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> stockNewsDetailItem </td>
+<td> 个股新闻明细 </td>
+<td> <a href="#MStockNewsDetailItem">MStockNewsDetailItem</a> </td>
+<td>      </td>
+</tr>
+</tbody>
+</table>
+
+
+<h4 id="StockNewsSample">调用样例</h4>
+
+
+<pre><code>//请求个股新闻明细
+MStockNewsRequest *request = [[MStockNewsRequest alloc] init];
+request.stockNewsID = self.stockNewsItem.ID; //填入公告序号
+
+//发送请求
+[MApi sendRequest:request completionHandler:^(MResponse *resp) {
+    if(resp.status == MResponseStatusSuccess) {
+        //应答无误，处理数据更新画面
+        MStockNewsResponse *response = (MStockNewsResponse *)resp;
+        self.stockNewsDetailItem = response.stockNewsDetailItem;
+        [self reloadData];
+    } else {
+        //应答错误，显示错误信息
+        [Utility alertMessage:resp.message];
+    }
+}];
+</code></pre>
+
+<p><a href="#top">top</a></p>
+
+<h3 id="StockReportList">个股研报列表</h3>
+
+
+
+
+<h4 id="StockReportListExplain">说明</h4>
+
+
+<ul>
+<li>查询个股研报列表</li>
+</ul>
+
+
+<h4 id="MStockReportListRequest">请求类：MStockReportListRequest</h4>
+
+
+<ul>
+<li>属性说明:</li>
+</ul>
+
+
+<table>
+<thead>
+<tr>
+<th> 属性名 </th>
+<th> 说明     </th>
+<th> 型态     </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> code   </td>
+<td> 股票代码 </td>
+<td> NSString </td>
+<td>      </td>
+</tr>
+<tr>
+<td> pageIndex   </td>
+<td> 页次 </td>
+<td> NSString </td>
+<td>      </td>
+</tr>
+<tr>
+<td> sourceType </td>
+<td> 来源 </td>
+<td> <a href="#MF10DataSourceType">MF10DataSourceType</a> </td>
+<td>   默认为MF10DataSourceGA   </td>
+</tr>
+</tbody>
+</table>
+
+
+<h4 id="MStockReportListResponse">应答类：MStockReportListResponse</h4>
+
+
+<ul>
+<li>属性说明</li>
+</ul>
+
+
+<table>
+<thead>
+<tr>
+<th> 属性名           </th>
+<th> 说明         </th>
+<th> 型态    </th>
+<th> 备注                                       </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> stockReportItems </td>
+<td> 个股研报列表 </td>
+<td> NSArray </td>
+<td> 个股研报列表中的对象请参考<a href="#MStockReportItem">MStockReportItem</a> </td>
+</tr>
+</tbody>
+</table>
+
+
+<h4 id="StockReportListSample">调用样例</h4>
+
+
+<pre><code>//查询个股研报
+MStockReportListRequest *request = [[MStockReportListRequest alloc] init];
+request.code = self.stockItem.ID;
+
+//发送请求
+[MApi sendRequest:request completionHandler:^(MResponse *resp) {
+    if(resp.status == MResponseStatusSuccess) {
+        //应答无误，处理数据更新画面
+        MStockReportListResponse *response = (MStockReportListResponse *)resp;
+        self.items = response.stockReportItems;
+        [self reloadData];
+    } else {
+        //应答错误，显示错误信息
+        [Utility alertMessage:resp.message];
+    }
+}];
+</code></pre>
+
+<p><a href="#top">top</a></p>
+
+<h3 id="StockReport">个股研报明细</h3>
+
+
+
+
+<h4 id="StockReportExplain">说明</h4>
+
+
+<ul>
+<li>查询个股研报明细</li>
+</ul>
+
+
+<h4 id="MStockReportRequest">请求类：MStockReportRequest</h4>
+
+
+<ul>
+<li>属性说明:</li>
+</ul>
+
+
+<table>
+<thead>
+<tr>
+<th> 属性名        </th>
+<th> 说明         </th>
+<th> 型态     </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> stockReportID </td>
+<td> 个股研报序号 </td>
+<td> NSString </td>
+<td>      </td>
+</tr>
+<tr>
+<td> sourceType </td>
+<td> 来源 </td>
+<td> <a href="#MF10DataSourceType">MF10DataSourceType</a> </td>
+<td>   默认为MF10DataSourceGA   </td>
+</tr>
+</tbody>
+</table>
+
+
+<h4 id="MStockReportRespone">应答类：MStockReportRespone</h4>
+
+
+<ul>
+<li>属性说明</li>
+</ul>
+
+
+<table>
+<thead>
+<tr>
+<th> 属性名                </th>
+<th> 说明         </th>
+<th> 型态                   </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> stockReportDetailItem </td>
+<td> 个股研报明细 </td>
+<td> <a href="#MStockReportDetailItem">MStockReportDetailItem</a> </td>
+<td>      </td>
+</tr>
+</tbody>
+</table>
+
+
+<h4 id="StockReportSample">调用样例</h4>
+
+
+<pre><code>//请求个股研报明细
+MStockReportRequest *request = [[MStockReportRequest alloc] init];
+request.stockReportID = self.stockReportItem.ID; //填入公告序号
+
+//发送请求
+[MApi sendRequest:request completionHandler:^(MResponse *resp) {
+    if(resp.status == MResponseStatusSuccess) {
+        //应答无误，处理数据更新画面
+        MStockReportRespone *response = (MStockReportRespone *)resp;
+        self.stockReportDetailItem = response.stockReportDetailItem;
+        [self reloadData];
+    } else {
+        //应答错误，显示错误信息
+        [Utility alertMessage:resp.message];
+    }
+}];
+</code></pre>
+
+<p><a href="#top">top</a></p>
+
+<h3 id="MIPODate">新股上市日期信息</h3>
+
+
+
+
+<h4 id="MIPODateExplain">说明</h4>
+
+
+<ul>
+<li>查询新股上市日期信息</li>
+</ul>
+
+
+<h4 id="MIPODateRequest">请求类：MIPODateRequest</h4>
+
+
+<ul>
+<li>属性说明:</li>
+</ul>
+
+
+<table>
+<thead>
+<tr>
+<th> 属性名 </th>
+<th> 说明     </th>
+<th> 型态     </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> sourceType </td>
+<td> 来源 </td>
+<td> <a href="#MF10DataSourceType">MF10DataSourceType</a> </td>
+<td>   默认为MF10DataSourceGA   </td>
+</tr>
+</tbody>
+</table>
+
+
+<h4 id="MIPODateRespone">应答类：MIPODateRespone</h4>
+
+
+<ul>
+<li>属性说明</li>
+</ul>
+
+
+<table>
+<thead>
+<tr>
+<th> 属性名                </th>
+<th> 说明         </th>
+<th> 型态                   </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> infos </td>
+<td> 新股日期及上市个数数组 </td>
+<td>   </td>
+<td>   JSONObject   </td>
+</tr>
+</tbody>
+</table>
+
+
+<ul>
+<li>JSONObject</li>
+</ul>
+
+
+<table>
+<thead>
+<tr>
+<th> 属性名                </th>
+<th> 说明         </th>
+<th> 型态                   </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> sg </td>
+<td> 今日申购个数 </td>
+<td>  NSString </td>
+<td>      </td>
+</tr>
+<tr>
+<td> zq </td>
+<td> 今日中签个数 </td>
+<td>  NSString </td>
+<td>      </td>
+</tr>
+<tr>
+<td> ss </td>
+<td> 今日上市个数 </td>
+<td>  NSString </td>
+<td>      </td>
+</tr>
+<tr>
+<td> jjfx </td>
+<td> 今日即将发行个数 </td>
+<td>  NSString </td>
+<td>      </td>
+</tr>
+<tr>
+<td> wss </td>
+<td> 今日未上市个数 </td>
+<td>  NSString </td>
+<td>      </td>
+</tr>
+<tr>
+<td> NORMALDAY </td>
+<td> 日期 </td>
+<td>  NSString </td>
+<td>      </td>
+</tr>
+</tbody>
+</table>
+
+
+<h4 id="MIPODateSample">调用样例</h4>
+
+
+<pre><code>//请求新股上市日期信息
+MIPODateRequest *request = [[MIPODateRequest alloc] init];
+
+//发送请求
+[MApi sendRequest:request completionHandler:^(MResponse *resp) {
+    if(resp.status == MResponseStatusSuccess) {
+        //应答无误，处理数据更新画面
+        MIPODateRespone *response = (MIPODateRespone *)resp;
+
+        [self reloadData];
+    } else {
+        //应答错误，显示错误信息
+        [Utility alertMessage:resp.message];
+    }
+}];
+</code></pre>
+
+<p><a href="#top">top</a></p>
+
+<h3 id="MIPOCalendar">新股列表</h3>
+
+
+
+
+<h4 id="MIPOCalendarExplain">说明</h4>
+
+
+<ul>
+<li>查询新股列表，某日的所有新股信息</li>
+</ul>
+
+
+<h4 id="MIPOCalendarRequest">请求类：MIPOCalendarRequest</h4>
+
+
+<ul>
+<li>属性说明:</li>
+</ul>
+
+
+<table>
+<thead>
+<tr>
+<th> 属性名        </th>
+<th> 说明         </th>
+<th> 型态     </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> date </td>
+<td> 日期 </td>
+<td> NSString </td>
+<td>  YYYY-MM-DD    </td>
+</tr>
+<tr>
+<td> sourceType </td>
+<td> 来源 </td>
+<td> <a href="#MF10DataSourceType">MF10DataSourceType</a> </td>
+<td>   默认为MF10DataSourceGA   </td>
+</tr>
+</tbody>
+</table>
+
+
+<h4 id="MIPOCalendarRespone">应答类：MIPOCalendarRespone</h4>
+
+
+<ul>
+<li>属性说明</li>
+</ul>
+
+
+<table>
+<thead>
+<tr>
+<th> 属性名                </th>
+<th> 说明         </th>
+<th> 型态                   </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> info </td>
+<td> 新股列表 </td>
+<td>  </td>
+<td>   JSONObject   </td>
+</tr>
+</tbody>
+</table>
+
+
+<ul>
+<li>JSONObject</li>
+</ul>
+
+
+<table>
+<thead>
+<tr>
+<th> 属性名                </th>
+<th> 说明         </th>
+<th> 型态                   </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> sglist </td>
+<td> 今日申购 </td>
+<td>  NSArray </td>
+<td>      </td>
+</tr>
+<tr>
+<td> zqlist </td>
+<td> 今日中签 </td>
+<td>  NSArray </td>
+<td>      </td>
+</tr>
+<tr>
+<td> sslist </td>
+<td> 今日上市 </td>
+<td>  NSArray </td>
+<td>      </td>
+</tr>
+<tr>
+<td> jjfxlist </td>
+<td> 即将发行 </td>
+<td>  NSArray </td>
+<td>      </td>
+</tr>
+<tr>
+<td> wsslist </td>
+<td> 未上市 </td>
+<td>  NSArray </td>
+<td>      </td>
+</tr>
+<tr>
+<td> APPLYCODE </td>
+<td> 申购代码 </td>
+<td>  NSString </td>
+<td>      </td>
+</tr>
+<tr>
+<td> SECUABBR </td>
+<td> 股票简称 </td>
+<td>  NSString </td>
+<td>      </td>
+</tr>
+<tr>
+<td> TRADINGCODE </td>
+<td> 交易代码 </td>
+<td>  NSString </td>
+<td>      </td>
+</tr>
+<tr>
+<td> ISSUEPRICE </td>
+<td> 发行价格 </td>
+<td>  NSString </td>
+<td>      </td>
+</tr>
+<tr>
+<td> PEAISSUE </td>
+<td> 发行市盈率 </td>
+<td>  NSString </td>
+<td>      </td>
+</tr>
+<tr>
+<td> SUCCRESULTNOTICEDATE </td>
+<td> 中签公告日 </td>
+<td>  NSString </td>
+<td>      </td>
+</tr>
+<tr>
+<td> CAPPLYSHARE </td>
+<td> 申购上限 </td>
+<td>  NSString </td>
+<td>      </td>
+</tr>
+<tr>
+<td> ALLOTRATEON </td>
+<td> 中签率 </td>
+<td>  NSString </td>
+<td>      </td>
+</tr>
+<tr>
+<td> LISTINGDATE </td>
+<td> 上市日期 </td>
+<td>  NSString </td>
+<td>      </td>
+</tr>
+<tr>
+<td> BOOKSTARTDATEON </td>
+<td> 申购日期 </td>
+<td>  NSString </td>
+<td>      </td>
+</tr>
+<tr>
+<td> ISSUESHARE </td>
+<td> 发行总量 </td>
+<td>  NSString </td>
+<td>      </td>
+</tr>
+<tr>
+<td> ISSUESHAREON </td>
+<td> 网上发行数量 </td>
+<td>  NSString </td>
+<td>      </td>
+</tr>
+<tr>
+<td> CAPPLYPRICE </td>
+<td> 网上申购所需资金 </td>
+<td>  NSString </td>
+<td>      </td>
+</tr>
+</tbody>
+</table>
+
+
+<h4 id="MIPOCalendarSample">调用样例</h4>
+
+
+<pre><code>//请求新股列表
+MIPOCalendarRequest *request = [[MIPOCalendarRequest alloc] init];
+request.date = @"2016-01-01"; 
+
+//发送请求
+[MApi sendRequest:request completionHandler:^(MResponse *resp) {
+    if(resp.status == MResponseStatusSuccess) {
+        //应答无误，处理数据更新画面
+        MIPOCalendarRespone *response = (MIPOCalendarRespone *)resp;
+        [self reloadData];
+    } else {
+        //应答错误，显示错误信息
+        [Utility alertMessage:resp.message];
+    }
+}];
+</code></pre>
+
+<p><a href="#top">top</a></p>
+
+<h3 id="MIPOShareDetail">新股详情</h3>
+
+
+
+
+<h4 id="MIPOShareDetailExplain">说明</h4>
+
+
+<ul>
+<li>依据股号查询新股详情</li>
+</ul>
+
+
+<h4 id="MIPOShareDetailRequest">请求类：MIPOShareDetailRequest</h4>
+
+
+<ul>
+<li>属性说明:</li>
+</ul>
+
+
+<table>
+<thead>
+<tr>
+<th> 属性名        </th>
+<th> 说明         </th>
+<th> 型态     </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> code </td>
+<td> 股号 </td>
+<td> NSString </td>
+<td>       </td>
+</tr>
+<tr>
+<td> sourceType </td>
+<td> 来源 </td>
+<td> <a href="#MF10DataSourceType">MF10DataSourceType</a> </td>
+<td>   默认为MF10DataSourceGA   </td>
+</tr>
+</tbody>
+</table>
+
+
+<h4 id="MIPOShareDetailRespone">应答类：MIPOShareDetailRespone</h4>
+
+
+<ul>
+<li>属性说明</li>
+</ul>
+
+
+<table>
+<thead>
+<tr>
+<th> 属性名                </th>
+<th> 说明         </th>
+<th> 型态                   </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> info </td>
+<td> 新股列表 </td>
+<td>  </td>
+<td>   JSONObject   </td>
+</tr>
+</tbody>
+</table>
+
+
+<ul>
+<li>JSONObject</li>
+</ul>
+
+
+<table>
+<thead>
+<tr>
+<th> 属性名                </th>
+<th> 说明         </th>
+<th> 型态                   </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> APPLYCODE </td>
+<td> 申购代码 </td>
+<td>  NSString </td>
+<td>      </td>
+</tr>
+<tr>
+<td> SECUABBR </td>
+<td> 股票简称 </td>
+<td>  NSString </td>
+<td>      </td>
+</tr>
+<tr>
+<td> TRADINGCODE </td>
+<td> 交易代码 </td>
+<td>  NSString </td>
+<td>      </td>
+</tr>
+<tr>
+<td> ISSUEPRICE </td>
+<td> 发行价格 </td>
+<td>  NSString </td>
+<td>      </td>
+</tr>
+<tr>
+<td> PEAISSUE </td>
+<td> 发行市盈率 </td>
+<td>  NSString </td>
+<td>      </td>
+</tr>
+<tr>
+<td> SUCCRESULTNOTICEDATE </td>
+<td> 中签公告日 </td>
+<td>  NSString </td>
+<td>      </td>
+</tr>
+<tr>
+<td> CAPPLYSHARE </td>
+<td> 申购上限 </td>
+<td>  NSString </td>
+<td>      </td>
+</tr>
+<tr>
+<td> ALLOTRATEON </td>
+<td> 中签率 </td>
+<td>  NSString </td>
+<td>      </td>
+</tr>
+<tr>
+<td> LISTINGDATE </td>
+<td> 上市日期 </td>
+<td>  NSString </td>
+<td>      </td>
+</tr>
+<tr>
+<td> BOOKSTARTDATEON </td>
+<td> 申购日期 </td>
+<td>  NSString </td>
+<td>      </td>
+</tr>
+<tr>
+<td> ISSUESHARE </td>
+<td> 发行总量 </td>
+<td>  NSString </td>
+<td>      </td>
+</tr>
+<tr>
+<td> ISSUESHAREON </td>
+<td> 网上发行数量 </td>
+<td>  NSString </td>
+<td>      </td>
+</tr>
+<tr>
+<td> CAPPLYPRICE </td>
+<td> 网上申购所需资金 </td>
+<td>  NSString </td>
+<td>      </td>
+</tr>
+<tr>
+<td> BOARDNAME </td>
+<td> 所属板块 </td>
+<td>  NSString </td>
+<td>      </td>
+</tr>
+<tr>
+<td> COMPROFILE </td>
+<td> 公司简介 </td>
+<td>  NSString </td>
+<td>      </td>
+</tr>
+<tr>
+<td> BUSINESSSCOPE </td>
+<td> 经营范围 </td>
+<td>  NSString </td>
+<td>      </td>
+</tr>
+<tr>
+<td> ISSUEALLOTNOON </td>
+<td> 中签号 </td>
+<td>  NSString </td>
+<td>      </td>
+</tr>
+<tr>
+<td> REFUNDDATEON </td>
+<td> 网上申购资金解冻日期 </td>
+<td>  NSString </td>
+<td>      </td>
+</tr>
+<tr>
+<td> LEADUNDERWRITER </td>
+<td> 主承销商 </td>
+<td>  NSString </td>
+<td>      </td>
+</tr>
+</tbody>
+</table>
+
+
+<h4 id="MIPOShareDetailSample">调用样例</h4>
+
+
+<pre><code>//请求新股列表
+MIPOCalendarRequest *request = [[MIPOCalendarRequest alloc] init];
+request.date = @"2016-01-01"; 
+
+//发送请求
+[MApi sendRequest:request completionHandler:^(MResponse *resp) {
+    if(resp.status == MResponseStatusSuccess) {
+        //应答无误，处理数据更新画面
+        MIPOCalendarRespone *response = (MIPOCalendarRespone *)resp;
+        [self reloadData];
+    } else {
+        //应答错误，显示错误信息
+        [Utility alertMessage:resp.message];
+    }
+}];
+</code></pre>
+
+<p><a href="#top">top</a></p>
+
+<h3 id="MFundValue">基金净值</h3>
+
+
+
+
+<h4 id="MFundValueExplain">说明</h4>
+
+
+<ul>
+<li>依据股号查询基金净值</li>
+</ul>
+
+
+<h4 id="MFundValueRequest">请求类：MFundValueRequest</h4>
+
+
+<ul>
+<li>属性说明:</li>
+</ul>
+
+
+<table>
+<thead>
+<tr>
+<th> 属性名        </th>
+<th> 说明         </th>
+<th> 型态     </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> code </td>
+<td> 股号 </td>
+<td> NSString </td>
+<td>       </td>
+</tr>
+<tr>
+<td> type </td>
+<td> 基金周期 </td>
+<td> NSString </td>
+<td>最多12个月       </td>
+</tr>
+</tbody>
+</table>
+
+
+<h4 id="MFundValueResponse">应答类：MFundValueResponse</h4>
+
+
+<ul>
+<li>属性说明</li>
+</ul>
+
+
+<table>
+<thead>
+<tr>
+<th> 属性名                </th>
+<th> 说明         </th>
+<th> 型态                   </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> items  </td>
+<td> 基金净值数组 </td>
+<td> NSArray </td>
+<td>   JSONObject   </td>
+</tr>
+</tbody>
+</table>
+
+
+<ul>
+<li>JSONObject</li>
+</ul>
+
+
+<table>
+<thead>
+<tr>
+<th> 属性名                </th>
+<th> 说明         </th>
+<th> 型态                   </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> UnitNAV </td>
+<td> 每日净值 </td>
+<td>  NSString </td>
+<td>      </td>
+</tr>
+<tr>
+<td> ENDDATE </td>
+<td> 日期 </td>
+<td>  NSString </td>
+<td>      </td>
+</tr>
+</tbody>
+</table>
+
+
+<h4 id="MFundValueSample">调用样例</h4>
+
+
+<pre><code>//请求新股列表
+MFundValueRequest *request = [[MFundValueRequest alloc] init];
+request.code = @"502002.sh"; 
+request.type = @"12";
+
+//发送请求
+[MApi sendRequest:request completionHandler:^(MResponse *resp) {
+    if(resp.status == MResponseStatusSuccess) {
+        //应答无误，处理数据更新画面
+        MIPOCalendarRespone *response = (MIPOCalendarRespone *)resp;
+        [self reloadData];
+    } else {
+        //应答错误，显示错误信息
+        [Utility alertMessage:resp.message];
+    }
+}];
+</code></pre>
+
+<p><a href="#top">top</a></p>
+
+<h3 id="MFundBasicInfo">基金概况</h3>
+
+
+
+
+<h4 id="MFundBasicInfoExplain">说明</h4>
+
+
+<ul>
+<li>依据股号查询基金概况</li>
+</ul>
+
+
+<h4 id="MFundBasicInfoRequest">请求类：MFundBasicInfoRequest</h4>
+
+
+<ul>
+<li>属性说明:</li>
+</ul>
+
+
+<table>
+<thead>
+<tr>
+<th> 属性名        </th>
+<th> 说明         </th>
+<th> 型态     </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> code </td>
+<td> 股号 </td>
+<td> NSString </td>
+<td>       </td>
+</tr>
+<tr>
+<td> type </td>
+<td> 来源 </td>
+<td> <a href="#MF10DataSourceType">MF10DataSourceType</a> </td>
+<td>   默认为MF10DataSourceGA   </td>
+</tr>
+</tbody>
+</table>
+
+
+<h4 id="MFundBasicInfoResponse">应答类：MFundBasicInfoResponse</h4>
+
+
+<ul>
+<li>属性说明</li>
+</ul>
+
+
+<table>
+<thead>
+<tr>
+<th> 属性名                </th>
+<th> 说明         </th>
+<th> 型态                   </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> record </td>
+<td> 基金概况 </td>
+<td> NSDictionary </td>
+<td> <a href="#MFundBasicInfoKeyValue">基金概况键值表</a> </td>
+</tr>
+</tbody>
+</table>
+
+
+<h4 id="MFundBasicInfoSample">调用样例</h4>
+
+
+<pre><code>MFundBasicInfoRequest *request = [[MFundBasicInfoRequest alloc] init];
+request.code = @"500058.sh"; 
+request.type = MF10DataSourceCH;
+
+//发送请求
+[MApi sendRequest:request completionHandler:^(MResponse *resp) {
+    if(resp.status == MResponseStatusSuccess) {
+        //应答无误，处理数据更新画面
+        MFundBasicInfoRespone *response = (MFundBasicInfoRespone *)resp;
+    } else {
+        //应答错误，显示错误信息
+        [Utility alertMessage:resp.message];
+    }
+}];
+</code></pre>
+
+<p><a href="#top">top</a></p>
+
+<h3 id="MFundNetValue">基金净值</h3>
+
+
+
+
+<h4 id="MFundNetValueExplain">说明</h4>
+
+
+<ul>
+<li>依据股号查询基金净值</li>
+</ul>
+
+
+<h4 id="MFundNetValueRequest">请求类：MFundNetValueRequest</h4>
+
+
+<ul>
+<li>属性说明:</li>
+</ul>
+
+
+<table>
+<thead>
+<tr>
+<th> 属性名        </th>
+<th> 说明         </th>
+<th> 型态     </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> code </td>
+<td> 股号 </td>
+<td> NSString </td>
+<td>       </td>
+</tr>
+<tr>
+<td> type </td>
+<td> 来源 </td>
+<td> <a href="#MF10DataSourceType">MF10DataSourceType</a> </td>
+<td>   默认为MF10DataSourceGA   </td>
+</tr>
+</tbody>
+</table>
+
+
+<h4 id="MFundNetValueResponse">应答类：MFundNetValueResponse</h4>
+
+
+<ul>
+<li>属性说明</li>
+</ul>
+
+
+<table>
+<thead>
+<tr>
+<th> 属性名                </th>
+<th> 说明         </th>
+<th> 型态                   </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> records </td>
+<td> 基金净值 </td>
+<td> NSArray </td>
+<td> <a href="#MFundNetValueKeyValue">基金净值键值表</a> </td>
+</tr>
+</tbody>
+</table>
+
+
+<h4 id="MFundNetValueSample">调用样例</h4>
+
+
+<pre><code>MFundNetValueRequest *request = [[MFundNetValueRequest alloc] init];
+request.code = @"500058.sh"; 
+request.type = MF10DataSourceCH;
+
+//发送请求
+[MApi sendRequest:request completionHandler:^(MResponse *resp) {
+    if(resp.status == MResponseStatusSuccess) {
+        //应答无误，处理数据更新画面
+        MFundNetValueRespone *response = (MFundNetValueRespone *)resp;
+    } else {
+        //应答错误，显示错误信息
+        [Utility alertMessage:resp.message];
+    }
+}];
+</code></pre>
+
+<p><a href="#top">top</a></p>
+
+<h3 id="MFundAssetAllocation">资产配置</h3>
+
+
+
+
+<h4 id="MFundAssetAllocationExplain">说明</h4>
+
+
+<ul>
+<li>依据股号查询资产配置</li>
+</ul>
+
+
+<h4 id="MFundAssetAllocationRequest">请求类：MFundAssetAllocationRequest</h4>
+
+
+<ul>
+<li>属性说明:</li>
+</ul>
+
+
+<table>
+<thead>
+<tr>
+<th> 属性名        </th>
+<th> 说明         </th>
+<th> 型态     </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> code </td>
+<td> 股号 </td>
+<td> NSString </td>
+<td>       </td>
+</tr>
+<tr>
+<td> type </td>
+<td> 来源 </td>
+<td> <a href="#MF10DataSourceType">MF10DataSourceType</a> </td>
+<td>   默认为MF10DataSourceGA   </td>
+</tr>
+</tbody>
+</table>
+
+
+<h4 id="MFundAssetAllocationResponse">应答类：MFundAssetAllocationResponse</h4>
+
+
+<ul>
+<li>属性说明</li>
+</ul>
+
+
+<table>
+<thead>
+<tr>
+<th> 属性名                </th>
+<th> 说明         </th>
+<th> 型态                   </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> record </td>
+<td> 资产配置 </td>
+<td> NSDictionary </td>
+<td> <a href="#MFundAssetAllocationKeyValue">资产配置键值表</a> </td>
+</tr>
+</tbody>
+</table>
+
+
+<h4 id="MFundAssetAllocationSample">调用样例</h4>
+
+
+<pre><code>MFundAssetAllocationRequest *request = [[MFundAssetAllocationRequest alloc] init];
+request.code = @"500058.sh"; 
+request.type = MF10DataSourceCH;
+
+//发送请求
+[MApi sendRequest:request completionHandler:^(MResponse *resp) {
+    if(resp.status == MResponseStatusSuccess) {
+        //应答无误，处理数据更新画面
+        MFundAssetAllocationRespone *response = (MFundAssetAllocationRespone *)resp;
+    } else {
+        //应答错误，显示错误信息
+        [Utility alertMessage:resp.message];
+    }
+}];
+</code></pre>
+
+<p><a href="#top">top</a></p>
+
+<h3 id="MFundIndustryPortfolio">行业组合</h3>
+
+
+
+
+<h4 id="MFundIndustryPortfolioExplain">说明</h4>
+
+
+<ul>
+<li>依据股号查询行业组合</li>
+</ul>
+
+
+<h4 id="MFundIndustryPortfolioRequest">请求类：MFundIndustryPortfolioRequest</h4>
+
+
+<ul>
+<li>属性说明:</li>
+</ul>
+
+
+<table>
+<thead>
+<tr>
+<th> 属性名        </th>
+<th> 说明         </th>
+<th> 型态     </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> code </td>
+<td> 股号 </td>
+<td> NSString </td>
+<td>       </td>
+</tr>
+<tr>
+<td> type </td>
+<td> 来源 </td>
+<td> <a href="#MF10DataSourceType">MF10DataSourceType</a> </td>
+<td>   默认为MF10DataSourceGA   </td>
+</tr>
+</tbody>
+</table>
+
+
+<h4 id="MFundIndustryPortfolioResponse">应答类：MFundIndustryPortfolioResponse</h4>
+
+
+<ul>
+<li>属性说明</li>
+</ul>
+
+
+<table>
+<thead>
+<tr>
+<th> 属性名                </th>
+<th> 说明         </th>
+<th> 型态                   </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> record </td>
+<td> 行业组合 </td>
+<td> NSDictionary </td>
+<td> <a href="#MFundIndustryPortfolioKeyValue">行业组合键值表</a> </td>
+</tr>
+</tbody>
+</table>
+
+
+<h4 id="MFundIndustryPortfolioSample">调用样例</h4>
+
+
+<pre><code>MFundIndustryPortfolioRequest *request = [[MFundIndustryPortfolioRequest alloc] init];
+request.code = @"500058.sh"; 
+request.type = MF10DataSourceCH;
+
+//发送请求
+[MApi sendRequest:request completionHandler:^(MResponse *resp) {
+    if(resp.status == MResponseStatusSuccess) {
+        //应答无误，处理数据更新画面
+        MFundIndustryPortfolioRespone *response = (MFundIndustryPortfolioRespone *)resp;
+    } else {
+        //应答错误，显示错误信息
+        [Utility alertMessage:resp.message];
+    }
+}];
+</code></pre>
+
+<p><a href="#top">top</a></p>
+
+<h3 id="MFundStockPortfolio">股票组合</h3>
+
+
+
+
+<h4 id="MFundStockPortfolioExplain">说明</h4>
+
+
+<ul>
+<li>依据股号查询股票组合</li>
+</ul>
+
+
+<h4 id="MFundStockPortfolioRequest">请求类：MFundStockPortfolioRequest</h4>
+
+
+<ul>
+<li>属性说明:</li>
+</ul>
+
+
+<table>
+<thead>
+<tr>
+<th> 属性名        </th>
+<th> 说明         </th>
+<th> 型态     </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> code </td>
+<td> 股号 </td>
+<td> NSString </td>
+<td>       </td>
+</tr>
+<tr>
+<td> type </td>
+<td> 来源 </td>
+<td> <a href="#MF10DataSourceType">MF10DataSourceType</a> </td>
+<td>   默认为MF10DataSourceGA   </td>
+</tr>
+</tbody>
+</table>
+
+
+<h4 id="MFundStockPortfolioResponse">应答类：MFundStockPortfolioResponse</h4>
+
+
+<ul>
+<li>属性说明</li>
+</ul>
+
+
+<table>
+<thead>
+<tr>
+<th> 属性名                </th>
+<th> 说明         </th>
+<th> 型态                   </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> record </td>
+<td> 股票组合 </td>
+<td> NSDictionary </td>
+<td> <a href="#MFundStockPortfolioKeyValue">股票组合键值表</a> </td>
+</tr>
+</tbody>
+</table>
+
+
+<h4 id="MFundStockPortfolioSample">调用样例</h4>
+
+
+<pre><code>MFundStockPortfolioRequest *request = [[MFundStockPortfolioRequest alloc] init];
+request.code = @"500058.sh"; 
+request.type = MF10DataSourceCH;
+
+//发送请求
+[MApi sendRequest:request completionHandler:^(MResponse *resp) {
+    if(resp.status == MResponseStatusSuccess) {
+        //应答无误，处理数据更新画面
+        MFundStockPortfolioRespone *response = (MFundStockPortfolioRespone *)resp;
+    } else {
+        //应答错误，显示错误信息
+        [Utility alertMessage:resp.message];
+    }
+}];
+</code></pre>
+
+<p><a href="#top">top</a></p>
+
+<h3 id="MFundShareStruct">份额结构</h3>
+
+
+
+
+<h4 id="MFundShareStructExplain">说明</h4>
+
+
+<ul>
+<li>依据股号查询份额结构</li>
+</ul>
+
+
+<h4 id="MFundShareStructRequest">请求类：MFundShareStructRequest</h4>
+
+
+<ul>
+<li>属性说明:</li>
+</ul>
+
+
+<table>
+<thead>
+<tr>
+<th> 属性名        </th>
+<th> 说明         </th>
+<th> 型态     </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> code </td>
+<td> 股号 </td>
+<td> NSString </td>
+<td>       </td>
+</tr>
+<tr>
+<td> type </td>
+<td> 来源 </td>
+<td> <a href="#MF10DataSourceType">MF10DataSourceType</a> </td>
+<td>   默认为MF10DataSourceGA   </td>
+</tr>
+</tbody>
+</table>
+
+
+<h4 id="MFundShareStructResponse">应答类：MFundShareStructResponse</h4>
+
+
+<ul>
+<li>属性说明</li>
+</ul>
+
+
+<table>
+<thead>
+<tr>
+<th> 属性名                </th>
+<th> 说明         </th>
+<th> 型态                   </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> record </td>
+<td> 份额结构 </td>
+<td> NSDictionary </td>
+<td> <a href="#MFundShareStructKeyValue">份额结构键值表</a> </td>
+</tr>
+</tbody>
+</table>
+
+
+<h4 id="MFundShareStructSample">调用样例</h4>
+
+
+<pre><code>MFundShareStructRequest *request = [[MFundShareStructRequest alloc] init];
+request.code = @"500058.sh"; 
+request.type = MF10DataSourceCH;
+
+//发送请求
+[MApi sendRequest:request completionHandler:^(MResponse *resp) {
+    if(resp.status == MResponseStatusSuccess) {
+        //应答无误，处理数据更新画面
+        MFundShareStructRespone *response = (MFundShareStructRespone *)resp;
+    } else {
+        //应答错误，显示错误信息
+        [Utility alertMessage:resp.message];
+    }
+}];
+</code></pre>
+
+<p><a href="#top">top</a></p>
+
+<h3 id="MFundFinance">基金财务</h3>
+
+
+
+
+<h4 id="MFundFinanceExplain">说明</h4>
+
+
+<ul>
+<li>依据股号查询基金财务</li>
+</ul>
+
+
+<h4 id="MFundFinanceRequest">请求类：MFundFinanceRequest</h4>
+
+
+<ul>
+<li>属性说明:</li>
+</ul>
+
+
+<table>
+<thead>
+<tr>
+<th> 属性名        </th>
+<th> 说明         </th>
+<th> 型态     </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> code </td>
+<td> 股号 </td>
+<td> NSString </td>
+<td>       </td>
+</tr>
+<tr>
+<td> type </td>
+<td> 来源 </td>
+<td> <a href="#MF10DataSourceType">MF10DataSourceType</a> </td>
+<td>   默认为MF10DataSourceGA   </td>
+</tr>
+</tbody>
+</table>
+
+
+<h4 id="MFundFinanceResponse">应答类：MFundFinanceResponse</h4>
+
+
+<ul>
+<li>属性说明</li>
+</ul>
+
+
+<table>
+<thead>
+<tr>
+<th> 属性名                </th>
+<th> 说明         </th>
+<th> 型态                   </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> record </td>
+<td> 基金财务 </td>
+<td> NSDictionary </td>
+<td> <a href="#MFundFinanceKeyValue">基金财务键值表</a> </td>
+</tr>
+</tbody>
+</table>
+
+
+<h4 id="MFundFinanceSample">调用样例</h4>
+
+
+<pre><code>MFundFinanceRequest *request = [[MFundFinanceRequest alloc] init];
+request.code = @"500058.sh"; 
+request.type = MF10DataSourceCH;
+
+//发送请求
+[MApi sendRequest:request completionHandler:^(MResponse *resp) {
+    if(resp.status == MResponseStatusSuccess) {
+        //应答无误，处理数据更新画面
+        MFundFinanceRespone *response = (MFundFinanceRespone *)resp;
+    } else {
+        //应答错误，显示错误信息
+        [Utility alertMessage:resp.message];
+    }
+}];
+</code></pre>
+
+<p><a href="#top">top</a></p>
+
+<h3 id="MFundDividend">基金分红</h3>
+
+
+
+
+<h4 id="MFundDividendExplain">说明</h4>
+
+
+<ul>
+<li>依据股号查询基金分红</li>
+</ul>
+
+
+<h4 id="MFundDividendRequest">请求类：MFundDividendRequest</h4>
+
+
+<ul>
+<li>属性说明:</li>
+</ul>
+
+
+<table>
+<thead>
+<tr>
+<th> 属性名        </th>
+<th> 说明         </th>
+<th> 型态     </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> code </td>
+<td> 股号 </td>
+<td> NSString </td>
+<td>       </td>
+</tr>
+<tr>
+<td> type </td>
+<td> 来源 </td>
+<td> <a href="#MF10DataSourceType">MF10DataSourceType</a> </td>
+<td>   默认为MF10DataSourceGA   </td>
+</tr>
+</tbody>
+</table>
+
+
+<h4 id="MFundDividendResponse">应答类：MFundDividendResponse</h4>
+
+
+<ul>
+<li>属性说明</li>
+</ul>
+
+
+<table>
+<thead>
+<tr>
+<th> 属性名                </th>
+<th> 说明         </th>
+<th> 型态                   </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> record </td>
+<td> 基金分红 </td>
+<td> NSDictionary </td>
+<td> <a href="#MFundDividendKeyValue">基金分红键值表</a> </td>
+</tr>
+</tbody>
+</table>
+
+
+<h4 id="MFundDividendSample">调用样例</h4>
+
+
+<pre><code>MFundDividendRequest *request = [[MFundDividendRequest alloc] init];
+request.code = @"500058.sh"; 
+request.type = MF10DataSourceCH;
+
+//发送请求
+[MApi sendRequest:request completionHandler:^(MResponse *resp) {
+    if(resp.status == MResponseStatusSuccess) {
+        //应答无误，处理数据更新画面
+        MFundDividendRespone *response = (MFundDividendRespone *)resp;
+    } else {
+        //应答错误，显示错误信息
+        [Utility alertMessage:resp.message];
+    }
+}];
+</code></pre>
+
+<p><a href="#top">top</a></p>
+
+<h3 id="MBondBasicInfo">债券概况</h3>
+
+
+
+
+<h4 id="MBondBasicInfoExplain">说明</h4>
+
+
+<ul>
+<li>依据股号查询债券概况</li>
+</ul>
+
+
+<h4 id="MBondBasicInfoRequest">请求类：MBondBasicInfoRequest</h4>
+
+
+<ul>
+<li>属性说明:</li>
+</ul>
+
+
+<table>
+<thead>
+<tr>
+<th> 属性名        </th>
+<th> 说明         </th>
+<th> 型态     </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> code </td>
+<td> 股号 </td>
+<td> NSString </td>
+<td>       </td>
+</tr>
+<tr>
+<td> type </td>
+<td> 来源 </td>
+<td> <a href="#MF10DataSourceType">MF10DataSourceType</a> </td>
+<td>   默认为MF10DataSourceGA   </td>
+</tr>
+</tbody>
+</table>
+
+
+<h4 id="MBondBasicInfoResponse">应答类：MBondBasicInfoResponse</h4>
+
+
+<ul>
+<li>属性说明</li>
+</ul>
+
+
+<table>
+<thead>
+<tr>
+<th> 属性名                </th>
+<th> 说明         </th>
+<th> 型态                   </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> record </td>
+<td> 债券概况 </td>
+<td> NSDictionary </td>
+<td> <a href="#MBondBasicInfoKeyValue">债券概况键值表</a> </td>
+</tr>
+</tbody>
+</table>
+
+
+<h4 id="MBondBasicInfoSample">调用样例</h4>
+
+
+<pre><code>MBondBasicInfoRequest *request = [[MBondBasicInfoRequest alloc] init];
+request.code = @“010619.sh"; 
+request.type = MF10DataSourceCH;
+
+//发送请求
+[MApi sendRequest:request completionHandler:^(MResponse *resp) {
+    if(resp.status == MResponseStatusSuccess) {
+        //应答无误，处理数据更新画面
+        MBondBasicInfoRespone *response = (MBondBasicInfoRespone *)resp;
+    } else {
+        //应答错误，显示错误信息
+        [Utility alertMessage:resp.message];
+    }
+}];
+</code></pre>
+
+<p><a href="#top">top</a></p>
+
+<h3 id="MBondInterestPay">付息情况</h3>
+
+
+
+
+<h4 id="MBondInterestPayExplain">说明</h4>
+
+
+<ul>
+<li>依据股号查询付息情况</li>
+</ul>
+
+
+<h4 id="MBondInterestPayRequest">请求类：MBondInterestPayRequest</h4>
+
+
+<ul>
+<li>属性说明:</li>
+</ul>
+
+
+<table>
+<thead>
+<tr>
+<th> 属性名        </th>
+<th> 说明         </th>
+<th> 型态     </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> code </td>
+<td> 股号 </td>
+<td> NSString </td>
+<td>       </td>
+</tr>
+<tr>
+<td> type </td>
+<td> 来源 </td>
+<td> <a href="#MF10DataSourceType">MF10DataSourceType</a> </td>
+<td>   默认为MF10DataSourceGA   </td>
+</tr>
+</tbody>
+</table>
+
+
+<h4 id="MBondInterestPayResponse">应答类：MBondInterestPayResponse</h4>
+
+
+<ul>
+<li>属性说明</li>
+</ul>
+
+
+<table>
+<thead>
+<tr>
+<th> 属性名                </th>
+<th> 说明         </th>
+<th> 型态                   </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> record </td>
+<td> 付息情况 </td>
+<td> NSDictionary </td>
+<td> <a href="#MBondInterestPayKeyValue">付息情况键值表</a> </td>
+</tr>
+</tbody>
+</table>
+
+
+<h4 id="MBondInterestPaySample">调用样例</h4>
+
+
+<pre><code>MBondInterestPayRequest *request = [[MBondInterestPayRequest alloc] init];
+request.code = @"010619.sh"; 
+request.type = MF10DataSourceCH;
+
+//发送请求
+[MApi sendRequest:request completionHandler:^(MResponse *resp) {
+    if(resp.status == MResponseStatusSuccess) {
+        //应答无误，处理数据更新画面
+        MBondInterestPayRespone *response = (MBondInterestPayRespone *)resp;
+    } else {
+        //应答错误，显示错误信息
+        [Utility alertMessage:resp.message];
+    }
+}];
+</code></pre>
+
+<p><a href="#top">top</a></p>
+
+<h3 id="MBondBuyBacks">债券回购</h3>
+
+
+
+
+<h4 id="MBondBuyBacksExplain">说明</h4>
+
+
+<ul>
+<li>依据股号查询债券回购</li>
+</ul>
+
+
+<h4 id="MBondBuyBacksRequest">请求类：MBondBuyBacksRequest</h4>
+
+
+<ul>
+<li>属性说明:</li>
+</ul>
+
+
+<table>
+<thead>
+<tr>
+<th> 属性名        </th>
+<th> 说明         </th>
+<th> 型态     </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> code </td>
+<td> 股号 </td>
+<td> NSString </td>
+<td>       </td>
+</tr>
+<tr>
+<td> type </td>
+<td> 来源 </td>
+<td> <a href="#MF10DataSourceType">MF10DataSourceType</a> </td>
+<td>   默认为MF10DataSourceGA   </td>
+</tr>
+</tbody>
+</table>
+
+
+<h4 id="MBondBuyBacksResponse">应答类：MBondBuyBacksResponse</h4>
+
+
+<ul>
+<li>属性说明</li>
+</ul>
+
+
+<table>
+<thead>
+<tr>
+<th> 属性名                </th>
+<th> 说明         </th>
+<th> 型态                   </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> record </td>
+<td> 债券回购 </td>
+<td> NSDictionary </td>
+<td> <a href="#MBondBuyBacksKeyValue">债券回购键值表</a> </td>
+</tr>
+</tbody>
+</table>
+
+
+<h4 id="MBondBuyBacksSample">调用样例</h4>
+
+
+<pre><code>MBondBuyBacksRequest *request = [[MBondBuyBacksRequest alloc] init];
+request.code = @"010619.sh"; 
+request.type = MF10DataSourceCH;
+
+//发送请求
+[MApi sendRequest:request completionHandler:^(MResponse *resp) {
+    if(resp.status == MResponseStatusSuccess) {
+        //应答无误，处理数据更新画面
+        MBondBuyBacksRespone *response = (MBondBuyBacksRespone *)resp;
+    } else {
+        //应答错误，显示错误信息
+        [Utility alertMessage:resp.message];
+    }
+}];
+</code></pre>
+
+<p><a href="#top">top</a></p>
+
+<h2 id="数据结构">数据结构</h2>
+
+
+
+
+<h3 id="个股摘要">个股摘要</h3>
+
+
+
+
+<h4 id="MLatestIndex">最新指标</h4>
+
+
+<ul>
+<li>港澳数据</li>
+</ul>
+
+
+<table>
+<thead>
+<tr>
+<th> 键                       </th>
+<th> 说明             </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> NETPROFITCUTPARENTCOMYOY </td>
+<td> 扣非净利润同比增 </td>
+</tr>
+<tr>
+<td> NETPROFITCUTPARENTCOM    </td>
+<td> 扣非净利润       </td>
+</tr>
+<tr>
+<td> CUTBASICEPS              </td>
+<td> 扣非每股收益     </td>
+</tr>
+<tr>
+<td> ANNUROE                  </td>
+<td> 净资产收益率     </td>
+</tr>
+<tr>
+<td> NETPROFITPARENTCOM       </td>
+<td> 净利润           </td>
+</tr>
+<tr>
+<td> BASICEPS                 </td>
+<td> 基本每股收益     </td>
+</tr>
+<tr>
+<td> TOTALSHARE               </td>
+<td> 总股本           </td>
+</tr>
+<tr>
+<td> BVPS                     </td>
+<td> 每股净资产       </td>
+</tr>
+<tr>
+<td> TOTALSHAREL              </td>
+<td> 流通股份合计     </td>
+</tr>
+<tr>
+<td> REPTITLE                 </td>
+<td> 标题             </td>
+</tr>
+<tr>
+<td> NETCASHFLOWOPERPS        </td>
+<td> 每股经营性现金流 </td>
+</tr>
+<tr>
+<td> GROSSPROFITMARGIN        </td>
+<td> 毛利率（%）      </td>
+</tr>
+<tr>
+<td> RESERVEPS                </td>
+<td> 每股资本公积金   </td>
+</tr>
+<tr>
+<td> NETPROFITPARENTCOMYOY    </td>
+<td> 净利润同比增     </td>
+</tr>
+<tr>
+<td> RETAINEDEARNINGPS        </td>
+<td> 每股未分配利润   </td>
+</tr>
+<tr>
+<td> OPERREVENUEYOY           </td>
+<td> 营收同比增       </td>
+</tr>
+<tr>
+<td> OPERREVENUE              </td>
+<td> 营业收入         </td>
+</tr>
+</tbody>
+</table>
+
+
+<ul>
+<li>财汇数据</li>
+</ul>
+
+
+<table>
+<thead>
+<tr>
+<th> 键                       </th>
+<th> 说明             </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> NETPROFITCUTPARENTCOMYOY </td>
+<td> 扣非净利润同比增 </td>
+</tr>
+<tr>
+<td> NETPROFITCUTPARENTCOM    </td>
+<td> 扣非净利润       </td>
+</tr>
+<tr>
+<td> CUTBASICEPS              </td>
+<td> 扣非每股收益     </td>
+</tr>
+<tr>
+<td> ANNUROE                  </td>
+<td> 净资产收益率     </td>
+</tr>
+<tr>
+<td> NETPROFITPARENTCOM       </td>
+<td> 净利润           </td>
+</tr>
+<tr>
+<td> BASICEPS                 </td>
+<td> 基本每股收益     </td>
+</tr>
+<tr>
+<td> TOTALSHARE               </td>
+<td> 总股本           </td>
+</tr>
+<tr>
+<td> BVPS                     </td>
+<td> 每股净资产       </td>
+</tr>
+<tr>
+<td> REPTITLE                 </td>
+<td> 标题             </td>
+</tr>
+<tr>
+<td> NETCASHFLOWOPERPS        </td>
+<td> 每股经营性现金流 </td>
+</tr>
+<tr>
+<td> GROSSPROFITMARGIN        </td>
+<td> 毛利率（%）      </td>
+</tr>
+<tr>
+<td> NETPROFITPARENTCOMYOY    </td>
+<td> 净利润同比增     </td>
+</tr>
+<tr>
+<td> OPERREVENUEYOY           </td>
+<td> 营收同比增       </td>
+</tr>
+<tr>
+<td> OPERREVENUE              </td>
+<td> 营业收入         </td>
+</tr>
+</tbody>
+</table>
+
+
+<p><a href="#top">top</a></p>
+
+<h4 id="MBigEventNotification">大事提醒</h4>
+
+
+<table>
+<thead>
+<tr>
+<th> 键         </th>
+<th> 说明 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> PUBDATE    </td>
+<td> 日期 </td>
+</tr>
+<tr>
+<td> DiviScheme </td>
+<td> 说明 </td>
+</tr>
+</tbody>
+</table>
+
+
+<p><a href="#top">top</a></p>
+
+<h4 id="MBonusFinanceInfo">分红配送</h4>
+
+
+<ul>
+<li>港澳数据</li>
+</ul>
+
+
+<table>
+<thead>
+<tr>
+<th> 键         </th>
+<th> 说明         </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> EXDIVIDATE </td>
+<td> 除权息日     </td>
+</tr>
+<tr>
+<td> DIVISCHEME </td>
+<td> 分红扩股方案 </td>
+</tr>
+<tr>
+<td> NOTICEDATE </td>
+<td> 公布日期     </td>
+</tr>
+</tbody>
+</table>
+
+
+<ul>
+<li>财汇数据</li>
+</ul>
+
+
+<table>
+<thead>
+<tr>
+<th> 键         </th>
+<th> 说明         </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> EXDIVIDATE </td>
+<td> 除权息日     </td>
+</tr>
+<tr>
+<td> DIVISCHEME </td>
+<td> 分红扩股方案 </td>
+</tr>
+<tr>
+<td> NOTICEDATE </td>
+<td> 公布日期     </td>
+</tr>
+</tbody>
+</table>
+
+
+<p><a href="#top">top</a></p>
+
+<h4 id="MTradeDetailInfo">融资融券</h4>
+
+
+<table>
+<thead>
+<tr>
+<th> 键            </th>
+<th> 说明           </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> PAYVOLSTOCK   </td>
+<td> 融券偿还量(股) </td>
+</tr>
+<tr>
+<td> AMOUNTFINA    </td>
+<td> 融资余额(元)   </td>
+</tr>
+<tr>
+<td> PAYAMOUNTFINA </td>
+<td> 融资偿还额(元) </td>
+</tr>
+<tr>
+<td> BUYAMOUNTFINA </td>
+<td> 融资买入额(元) </td>
+</tr>
+<tr>
+<td> SELLVOLSTOCK  </td>
+<td> 融券卖出量(股) </td>
+</tr>
+<tr>
+<td> AMOUNTSTOCK   </td>
+<td> 融资余额(元)   </td>
+</tr>
+<tr>
+<td> TRADINGDAY    </td>
+<td> 交易日期       </td>
+</tr>
+</tbody>
+</table>
+
+
+<p><a href="#top">top</a></p>
+
+<h4 id="MForecastYear">机构预测</h4>
+
+
+<table>
+<thead>
+<tr>
+<th> 键             </th>
+<th> 说明     </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> NETEPS         </td>
+<td> 每股收益 </td>
+</tr>
+<tr>
+<td> AVGCOREREVENUE </td>
+<td> 主营收入 </td>
+</tr>
+<tr>
+<td> FORECASTYEAR   </td>
+<td> 预测年度 </td>
+</tr>
+<tr>
+<td> STATISTICDATE  </td>
+<td> 更新日期 </td>
+</tr>
+<tr>
+<td> AVGPROFIT      </td>
+<td> 净利润   </td>
+</tr>
+<tr>
+<td> ForecastYYYY   </td>
+<td> 年份     </td>
+</tr>
+<tr>
+<td> FORECASTCOUNT  </td>
+<td> 家數     </td>
+</tr>
+</tbody>
+</table>
+
+
+<p><a href="#top">top</a></p>
+
+<h4 id="MForecastRating">机构评等</h4>
+
+
+<table>
+<thead>
+<tr>
+<th> 键                 </th>
+<th> 说明     </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> RatingFlag         </td>
+<td> 评级     </td>
+</tr>
+<tr>
+<td> RatingDec          </td>
+<td> 评级敘述 </td>
+</tr>
+<tr>
+<td> DATETITLE          </td>
+<td> 更新日期 </td>
+</tr>
+<tr>
+<td> WRITINGDATE        </td>
+<td> 评级时间 </td>
+</tr>
+<tr>
+<td> CHINAMEABBR        </td>
+<td> 研究机构 </td>
+</tr>
+<tr>
+<td> INVRATINGDESC      </td>
+<td> 最新评级 </td>
+</tr>
+<tr>
+<td> LAST_INVRATINGDESC </td>
+<td> 上次评级 </td>
+</tr>
+</tbody>
+</table>
+
+
+<p><a href="#top">top</a></p>
+
+<h4 id="MBlockTradeInfo">大宗交易</h4>
+
+
+<table>
+<thead>
+<tr>
+<th> 键          </th>
+<th> 说明           </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> TRADINGDAY  </td>
+<td> 交易日期       </td>
+</tr>
+<tr>
+<td> STRIKEPRICE </td>
+<td> 成交价格（元） </td>
+</tr>
+<tr>
+<td> TURNOVERVOL </td>
+<td> 成交量（股）   </td>
+</tr>
+<tr>
+<td> TURNOVERVAL </td>
+<td> 成交金额（元） </td>
+</tr>
+<tr>
+<td> BUYERNAME   </td>
+<td> 买方营业部名称 </td>
+</tr>
+<tr>
+<td> SELLERNAME  </td>
+<td> 卖方营业部名称 </td>
+</tr>
+</tbody>
+</table>
+
+
+<h3 id="个股简况">个股简况</h3>
+
+
+
+
+<h4 id="MCompanyInfo">基本情况</h4>
+
+
+<ul>
+<li>港澳数据</li>
+</ul>
+
+
+<table>
+<thead>
+<tr>
+<th> 键            </th>
+<th> 说明     </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> LEGALREPR     </td>
+<td> 法人代表 </td>
+</tr>
+<tr>
+<td> COREBUSINESS  </td>
+<td> 主营业务 </td>
+</tr>
+<tr>
+<td> PROVINCENAME  </td>
+<td> 地域     </td>
+</tr>
+<tr>
+<td> LISTINGDATE   </td>
+<td> 上市时间 </td>
+</tr>
+<tr>
+<td> BUSINESSSCOPE </td>
+<td> 经营范围 </td>
+</tr>
+<tr>
+<td> INDUNAMESW    </td>
+<td> 当前行业 </td>
+</tr>
+<tr>
+<td> REGCAPITAL    </td>
+<td> 注册资本 </td>
+</tr>
+<tr>
+<td> CHINAME       </td>
+<td> 公司名称 </td>
+</tr>
+<tr>
+<td> REGADDRESS    </td>
+<td> 注册地址 </td>
+</tr>
+</tbody>
+</table>
+
+
+<ul>
+<li>财汇数据</li>
+</ul>
+
+
+<table>
+<thead>
+<tr>
+<th> 键            </th>
+<th> 说明     </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> CHINAME     </td>
+<td> 公司名称 </td>
+</tr>
+<tr>
+<td> SEENGNAME  </td>
+<td> 英文简称 </td>
+</tr>
+<tr>
+<td> AUTHCAPSK  </td>
+<td> 法定股本 </td>
+</tr>
+<tr>
+<td> LISTINGDATE   </td>
+<td> 上市时间 </td>
+</tr>
+<tr>
+<td> ISSUECAPSK </td>
+<td> 发行股本 </td>
+</tr>
+<tr>
+<td> CURNAME    </td>
+<td> 交易币别 </td>
+</tr>
+<tr>
+<td> PARVALUE    </td>
+<td> 面值 </td>
+</tr>
+<tr>
+<td> DEBTBOARDLOT       </td>
+<td> 买卖单位 </td>
+</tr>
+</tbody>
+</table>
+
+
+<p><a href="#top">top</a></p>
+
+<h4 id="MCoreBusiness">主要业务</h4>
+
+
+<table>
+<thead>
+<tr>
+<th> 键               </th>
+<th> 说明             </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> BUSSINESSNATURE  </td>
+<td> 产品名称         </td>
+</tr>
+<tr>
+<td> OperCost         </td>
+<td> 营业成本（元）   </td>
+</tr>
+<tr>
+<td> OPERREVENUETOTOR </td>
+<td> 占总营业收入比例 </td>
+</tr>
+<tr>
+<td> OperProfit       </td>
+<td> 营业利润（元）   </td>
+</tr>
+<tr>
+<td> OperRevenue      </td>
+<td> 营业收入         </td>
+</tr>
+<tr>
+<td> ENDDATE          </td>
+<td> 日期             </td>
+</tr>
+</tbody>
+</table>
+
+
+<p><a href="#top">top</a></p>
+
+<h4 id="MLeaderPersonInfo">管理层</h4>
+
+
+<ul>
+<li>港澳数据</li>
+</ul>
+
+
+<table>
+<thead>
+<tr>
+<th> 键           </th>
+<th> 说明     </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> POSITIONNAME </td>
+<td> 公司职务 </td>
+</tr>
+<tr>
+<td> LEADERNAME   </td>
+<td> 姓名     </td>
+</tr>
+<tr>
+<td> AGE          </td>
+<td> 年龄     </td>
+</tr>
+<tr>
+<td> GENDER       </td>
+<td> 性别     </td>
+</tr>
+<tr>
+<td> EDUCATION    </td>
+<td> 学历     </td>
+</tr>
+</tbody>
+</table>
+
+
+<ul>
+<li>财汇数据</li>
+</ul>
+
+
+<table>
+<thead>
+<tr>
+<th> 键           </th>
+<th> 说明     </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> LEADERNAME   </td>
+<td> 姓名     </td>
+</tr>
+<tr>
+<td> DUTY          </td>
+<td> 公司职务     </td>
+</tr>
+<tr>
+<td> DUTYTYPE       </td>
+<td> 职务类型     </td>
+</tr>
+<tr>
+<td> BEGINDATE    </td>
+<td> 就职日期     </td>
+</tr>
+</tbody>
+</table>
+
+
+<p><a href="#top">top</a></p>
+
+<h4 id="MIPOInfo">发行上市</h4>
+
+
+<table>
+<thead>
+<tr>
+<th> 键              </th>
+<th> 说明               </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> BOOKSTARTDATEON </td>
+<td> 网上发行日期       </td>
+</tr>
+<tr>
+<td> LISTINGDATE     </td>
+<td> 上市日期           </td>
+</tr>
+<tr>
+<td> PARVAL          </td>
+<td> 每股面值(元)       </td>
+</tr>
+<tr>
+<td> ISSUESHARE      </td>
+<td> 发行量(万股)       </td>
+</tr>
+<tr>
+<td> ISSUEPRICE      </td>
+<td> 每股发行价(元)     </td>
+</tr>
+<tr>
+<td> ISSUECOST       </td>
+<td> 发行费用(万元)     </td>
+</tr>
+<tr>
+<td> RAISENETFUND    </td>
+<td> 募集资金净额(万元) </td>
+</tr>
+<tr>
+<td> LEADUNDERWRITER </td>
+<td> 主承销商           </td>
+</tr>
+</tbody>
+</table>
+
+
+<h3 id="个股财务">个股财务</h3>
+
+
+
+
+<h4 id="MFinancialSummary">财务指标</h4>
+
+
+<ul>
+<li>港澳数据</li>
+</ul>
+
+
+<h5 id="MFinancialSummary">主要指标（同花顺版)</h5>
+
+
+<table>
+<thead>
+<tr>
+<th> 键                  </th>
+<th> 说明             </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> BasicEPS            </td>
+<td> 每股收益         </td>
+</tr>
+<tr>
+<td> BVPS                </td>
+<td> 每股净资产       </td>
+</tr>
+<tr>
+<td> NetCashFlowOperPS   </td>
+<td> 每股经营性现金流 </td>
+</tr>
+<tr>
+<td> WEIGHTEDROE         </td>
+<td> 净资产收益率     </td>
+</tr>
+<tr>
+<td> ROA                 </td>
+<td> 总资产报酬率     </td>
+</tr>
+</tbody>
+</table>
+
+
+<p><a href="#top">top</a></p>
+
+<h5 id="MFinancialSummary">利润表（同花顺版)</h5>
+
+
+<table>
+<thead>
+<tr>
+<th> 键                  </th>
+<th> 说明             </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> TotalOperRevenue </td>
+<td> 营业收入     </td>
+</tr>
+<tr>
+<td> ROA_EBIT         </td>
+<td> 总资产报酬率 </td>
+</tr>
+<tr>
+<td> OperProfit       </td>
+<td> 营业利润     </td>
+</tr>
+<tr>
+<td> NetProfit        </td>
+<td> 净利润       </td>
+</tr>
+</tbody>
+</table>
+
+
+<p><a href="#top">top</a></p>
+
+<h5 id="MFinancialSummary">资产负债表（同花顺版)</h5>
+
+
+<table>
+<thead>
+<tr>
+<th> 键                  </th>
+<th> 说明             </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> TotalAsset    </td>
+<td> 资产合计       </td>
+</tr>
+<tr>
+<td> TotalLiab     </td>
+<td> 负债合计   </td>
+</tr>
+<tr>
+<td> TotalSHEquity </td>
+<td> 所有者权益合计 </td>
+</tr>
+</tbody>
+</table>
+
+
+<h5 id="MFinancialSummary">成长能力（同花顺版)</h5>
+
+
+<table>
+<thead>
+<tr>
+<th> 键                  </th>
+<th> 说明             </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> NetCashFlowOper </td>
+<td> 经营现金流量净额     </td>
+</tr>
+<tr>
+<td> NetCashFlowInv  </td>
+<td> 投资现金流量净额     </td>
+</tr>
+<tr>
+<td> NetCashFlowFina </td>
+<td> 筹资现金流量净额     </td>
+</tr>
+<tr>
+<td> CashEquiNetIncr </td>
+<td> 现金及现金等价净增额 </td>
+</tr>
+</tbody>
+</table>
+
+
+<ul>
+<li>财汇数据</li>
+</ul>
+
+
+<table>
+<thead>
+<tr>
+<th> 键                  </th>
+<th> 说明             </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> BASICEPS          </td>
+<td> 每股收益      </td>
+</tr>
+<tr>
+<td> BVPS          </td>
+<td> 每股净资产       </td>
+</tr>
+<tr>
+<td> TOTALOPERINCOMEPS </td>
+<td> 每股营业收入        </td>
+</tr>
+<tr>
+<td> EBITPS        </td>
+<td> 每股息税前利润     </td>
+</tr>
+<tr>
+<td> RETAINEDEARNINGPS </td>
+<td> 每股未分配利润     </td>
+</tr>
+<tr>
+<td> NETCASHFLOWOPERPS </td>
+<td> 每股经营性现金流      </td>
+</tr>
+<tr>
+<td> NETCASHFLOWPS     </td>
+<td> 每股经营性现金流量净额 </td>
+</tr>
+<tr>
+<td> WEIGHTEDROE       </td>
+<td> 净资产利益率        </td>
+</tr>
+<tr>
+<td> ROA_EBIT      </td>
+<td> 总资产报酬率        </td>
+</tr>
+<tr>
+<td> GROSSPROFITMARGIN </td>
+<td> 销售毛利率       </td>
+</tr>
+<tr>
+<td> PROFITMARGIN      </td>
+<td> 销售净利率       </td>
+</tr>
+<tr>
+<td> TLTOTA        </td>
+<td> 资产负债率       </td>
+</tr>
+<tr>
+<td> TATOSHE       </td>
+<td> 权益乘数      </td>
+</tr>
+<tr>
+<td> CURRENTRATIO      </td>
+<td> 流动比率      </td>
+</tr>
+<tr>
+<td> QUICKRATIO        </td>
+<td> 速冻比率      </td>
+</tr>
+<tr>
+<td> EBITTOIE      </td>
+<td> 利息保障倍数        </td>
+</tr>
+<tr>
+<td> INVENTORYTURNOVER </td>
+<td> 存货周期率       </td>
+</tr>
+<tr>
+<td> ACCOUNTRECTURNOVER    </td>
+<td> 应收帐款周转率     </td>
+</tr>
+<tr>
+<td> FIXEDASSETTURNOVER    </td>
+<td> 固定资产周转率     </td>
+</tr>
+<tr>
+<td> TOTALASSETTURNOVER    </td>
+<td> 总资产周转率        </td>
+</tr>
+<tr>
+<td> OPERREVENUEYOY    </td>
+<td> 营业收入同比增长      </td>
+</tr>
+<tr>
+<td> OPERPROFITYOY     </td>
+<td> 营业利润同比增长      </td>
+</tr>
+<tr>
+<td> NETPROFITPARENTCOMYOY </td>
+<td> 净利润同比增长     </td>
+</tr>
+<tr>
+<td> NETCASHFLOWOPERYOY    </td>
+<td> 经营活动现金流量净额同比增长</td>
+</tr>
+<tr>
+<td> ROEYOY        </td>
+<td> 净资产收益(摊薄)同比增长   </td>
+</tr>
+<tr>
+<td> NETASSETYOY       </td>
+<td> 净资产同比增长     </td>
+</tr>
+<tr>
+<td> TOTALASSETYOY     </td>
+<td> 总资产同比增长     </td>
+</tr>
+<tr>
+<td> REPORTTITLE       </td>
+<td> 标题            </td>
+</tr>
+</tbody>
+</table>
+
+
+<p><a href="#top">top</a></p>
+
+<h4 id="MFinancialInfo">财务报表</h4>
+
+
+<ul>
+<li>港澳数据</li>
+</ul>
+
+
+<h5 id="MFinancialInfo">每股指标（同花顺版)</h5>
+
+
+<table>
+<thead>
+<tr>
+<th> 键                  </th>
+<th> 说明             </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> BasicEPS          </td>
+<td> 每股收益               </td>
+</tr>
+<tr>
+<td> RESERVEPS         </td>
+<td> 每股公积金             </td>
+</tr>
+<tr>
+<td> BVPS              </td>
+<td> 每股净资产             </td>
+</tr>
+<tr>
+<td> TotalOperIncomePS </td>
+<td> 每股营业收入           </td>
+</tr>
+<tr>
+<td> EBITPS            </td>
+<td> 每股息税前利润         </td>
+</tr>
+<tr>
+<td> RetainedEarningPS </td>
+<td> 每股未分配利润         </td>
+</tr>
+<tr>
+<td> NetCashFlowOperPS </td>
+<td> 每股经营性现金流量净额 </td>
+</tr>
+</tbody>
+</table>
+
+
+<p><a href="#top">top</a></p>
+
+<h5 id="MFinancialInfo">盈利能力（同花顺版)</h5>
+
+
+<table>
+<thead>
+<tr>
+<th> 键                  </th>
+<th> 说明             </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> WEIGHTEDROE       </td>
+<td> 净资产收益率 </td>
+</tr>
+<tr>
+<td> ROA_EBIT          </td>
+<td> 总资产报酬率 </td>
+</tr>
+<tr>
+<td> GROSSPROFITMARGIN </td>
+<td> 销售毛利率   </td>
+</tr>
+<tr>
+<td> PROFITMARGIN      </td>
+<td> 销售净利率   </td>
+</tr>
+</tbody>
+</table>
+
+
+<p><a href="#top">top</a></p>
+
+<h5 id="MFinancialInfo">资本结构（同花顺版)</h5>
+
+
+<table>
+<thead>
+<tr>
+<th> 键                  </th>
+<th> 说明             </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> TLToTA  </td>
+<td> 资产负债率 </td>
+</tr>
+<tr>
+<td> TAToSHE </td>
+<td> 权益乘数   </td>
+</tr>
+</tbody>
+</table>
+
+
+<p><a href="#top">top</a></p>
+
+<h5 id="MFinancialInfo">偿债能力（同花顺版)</h5>
+
+
+<table>
+<thead>
+<tr>
+<th> 键                  </th>
+<th> 说明             </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> CurrentRatio </td>
+<td> 流动比率     </td>
+</tr>
+<tr>
+<td> QuickRatio   </td>
+<td> 速动比率     </td>
+</tr>
+<tr>
+<td> EBITToIE     </td>
+<td> 利息保障倍数 </td>
+</tr>
+</tbody>
+</table>
+
+
+<p><a href="#top">top</a></p>
+
+<h5 id="MFinancialInfo">营运能力（同花顺版)</h5>
+
+
+<table>
+<thead>
+<tr>
+<th> 键                  </th>
+<th> 说明             </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> InventoryTurnover  </td>
+<td> 存货周转率     </td>
+</tr>
+<tr>
+<td> ACCOUNTRECTURNOVER </td>
+<td> 应收帐款周转率 </td>
+</tr>
+<tr>
+<td> FixedAssetTurnover </td>
+<td> 固定资产周转率 </td>
+</tr>
+<tr>
+<td> TotalAssetTurnover </td>
+<td> 总资产周转率   </td>
+</tr>
+</tbody>
+</table>
+
+
+<p><a href="#top">top</a></p>
+
+<h5 id="MFinancialInfo">成长能力（同花顺版)</h5>
+
+
+<table>
+<thead>
+<tr>
+<th> 键                  </th>
+<th> 说明             </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> OperRevenueYOY        </td>
+<td> 营业收入同比增长             </td>
+</tr>
+<tr>
+<td> OperProfitYOY         </td>
+<td> 营业利润同比增长             </td>
+</tr>
+<tr>
+<td> NETPROFITPARENTCOMYOY </td>
+<td> 净利润同比增长               </td>
+</tr>
+<tr>
+<td> NetCashFlowOperYOY    </td>
+<td> 经营活动现金流量净额同比增长 </td>
+</tr>
+<tr>
+<td> ROEYOY                </td>
+<td> 净资产收益(摊薄)同比增长     </td>
+</tr>
+<tr>
+<td> NetAssetYOY           </td>
+<td> 净资产同比增长               </td>
+</tr>
+<tr>
+<td> TotalAssetYOY         </td>
+<td> 总资产同比增长               </td>
+</tr>
+</tbody>
+</table>
+
+
+<ul>
+<li>财汇数据</li>
+</ul>
+
+
+<table>
+<thead>
+<tr>
+<th> 键                  </th>
+<th> 说明             </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> BASICEPS      </td>
+<td> 基本每股收益    </td>
+</tr>
+<tr>
+<td> BVPS          </td>
+<td> 每股净资产   </td>
+</tr>
+<tr>
+<td> NETCASHFLOWOPERPS </td>
+<td> 每股现金流   </td>
+</tr>
+<tr>
+<td> WEIGHTEDROE       </td>
+<td> 净资产收益率    </td>
+</tr>
+<tr>
+<td> ROA           </td>
+<td> 总资产报酬率    </td>
+</tr>
+<tr>
+<td> TOTALOPERREVENUE  </td>
+<td> 营业收入  </td>
+</tr>
+<tr>
+<td> OPERPROFIT        </td>
+<td> 营业利润  </td>
+</tr>
+<tr>
+<td> NETPROFIT     </td>
+<td> 净利润     </td>
+</tr>
+<tr>
+<td> TOTALASSET        </td>
+<td> 资产合计  </td>
+</tr>
+<tr>
+<td> TOTALLIAB     </td>
+<td> 负债合计  </td>
+</tr>
+<tr>
+<td> TOTALSHEQUITY     </td>
+<td> 所有者权益合计 </td>
+</tr>
+<tr>
+<td> NETCASHFLOWOPER   </td>
+<td> 经营现金流量净额  </td>
+</tr>
+<tr>
+<td> NETCASHFLOWINV    </td>
+<td> 投资现金流量净额  </td>
+</tr>
+<tr>
+<td> NETCASHFLOWFINA   </td>
+<td> 筹资现金流量金额  </td>
+</tr>
+<tr>
+<td> CASHEQUINETINCR   </td>
+<td> 现金及现金等价净增额</td>
+</tr>
+<tr>
+<td> REPORTTITLE       </td>
+<td> 标题        </td>
+</tr>
+</tbody>
+</table>
+
+
+<p><a href="#top">top</a></p>
+
+<h4 id="MStockShareInfo">股本结构</h4>
+
+
+<table>
+<thead>
+<tr>
+<th> 键           </th>
+<th> 说明               </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> TotalShareUL </td>
+<td> 未流通股份         </td>
+</tr>
+<tr>
+<td> HRatio       </td>
+<td> 境外上市流通股占比 </td>
+</tr>
+<tr>
+<td> ARatio       </td>
+<td> 已上市流通A股占比  </td>
+</tr>
+<tr>
+<td> URRatio      </td>
+<td> 无限售流通股份占比 </td>
+</tr>
+<tr>
+<td> TotalShareUR </td>
+<td> 无限售流通股份     </td>
+</tr>
+<tr>
+<td> AListedShare </td>
+<td> 已上市流通A股      </td>
+</tr>
+<tr>
+<td> BListedShare </td>
+<td> 已上市流通B股      </td>
+</tr>
+<tr>
+<td> BRatio       </td>
+<td> 已上市流通B股占比  </td>
+</tr>
+<tr>
+<td> TotalShare   </td>
+<td> 总股本             </td>
+</tr>
+<tr>
+<td> TotalShareL  </td>
+<td> 流通股份合计       </td>
+</tr>
+<tr>
+<td> TotalShareR  </td>
+<td> 限售流通股份       </td>
+</tr>
+<tr>
+<td> LRatio       </td>
+<td> 已上市流通股份占比 </td>
+</tr>
+<tr>
+<td> RRatio       </td>
+<td> 限售流通股份占比   </td>
+</tr>
+<tr>
+<td> ULRatio      </td>
+<td> 未流通股份占比     </td>
+</tr>
+<tr>
+<td> HTotalShare  </td>
+<td> 境外上市流通股     </td>
+</tr>
+</tbody>
+</table>
+
+
+<p><a href="#top">top</a></p>
+
+<h4 id="MStockShareChangeInfo">股本变动</h4>
+
+
+<ul>
+<li>港澳数据</li>
+</ul>
+
+
+<table>
+<thead>
+<tr>
+<th> 键             </th>
+<th> 说明     </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> TotalShare     </td>
+<td> 总股本   </td>
+</tr>
+<tr>
+<td> CONSTDESC      </td>
+<td> 变动说明 </td>
+</tr>
+<tr>
+<td> AListedShare   </td>
+<td> 流通A股  </td>
+</tr>
+<tr>
+<td> LastChangeDate </td>
+<td> 日期     </td>
+</tr>
+</tbody>
+</table>
+
+
+<ul>
+<li>财汇数据</li>
+</ul>
+
+
+<table>
+<thead>
+<tr>
+<th> 键             </th>
+<th> 说明     </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> CHANGEAMT     </td>
+<td> 变动数量（股）   </td>
+</tr>
+<tr>
+<td> CONSTDESC      </td>
+<td> 变动原因 </td>
+</tr>
+<tr>
+<td> CHANGEDIRE   </td>
+<td> 变动方向  </td>
+</tr>
+<tr>
+<td> LASTCHANGEDATE </td>
+<td> 时间     </td>
+</tr>
+<tr>
+<td> TOTALSHARE </td>
+<td> 股本数量（股）     </td>
+</tr>
+</tbody>
+</table>
+
+
+<p><a href="#top">top</a></p>
+
+<h4 id="MShareHolderHistoryInfo">股东变动</h4>
+
+
+<ul>
+<li>港澳数据</li>
+</ul>
+
+
+<table>
+<thead>
+<tr>
+<th> 键           </th>
+<th> 说明                     </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> AVGSHAREM    </td>
+<td> 股东人数                 </td>
+</tr>
+<tr>
+<td> CLOSINGPRICE </td>
+<td> 较上期变化               </td>
+</tr>
+<tr>
+<td> AVGSHARE     </td>
+<td> 流通股户均持股数         </td>
+</tr>
+<tr>
+<td> PCTOFTOTALSH </td>
+<td> 股东总数较上一报告期变化 </td>
+</tr>
+<tr>
+<td> TOTALSH      </td>
+<td> 股东总数                 </td>
+</tr>
+<tr>
+<td> ENDDATE      </td>
+<td> 截止日期                 </td>
+</tr>
+</tbody>
+</table>
+
+
+<ul>
+<li>财汇数据</li>
+</ul>
+
+
+<table>
+<thead>
+<tr>
+<th> 键           </th>
+<th> 说明                     </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> CLOSINGPRICE </td>
+<td> 较上期变化               </td>
+</tr>
+<tr>
+<td> PCTOFTOTALSH </td>
+<td> 股东总数较上一报告期变化 </td>
+</tr>
+<tr>
+<td> TOTALSH      </td>
+<td> 股东总数                 </td>
+</tr>
+<tr>
+<td> ENDDATE      </td>
+<td> 截止日期                 </td>
+</tr>
+</tbody>
+</table>
+
+
+<p><a href="#top">top</a></p>
+
+<h4 id="MTopLiquidShareHolder">最新十大流通股股东</h4>
+
+
+<ul>
+<li>港澳数据</li>
+</ul>
+
+
+<table>
+<thead>
+<tr>
+<th> 键              </th>
+<th> 说明         </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> SHNO            </td>
+<td> 排名         </td>
+</tr>
+<tr>
+<td> SHNAME          </td>
+<td> 股东名称     </td>
+</tr>
+<tr>
+<td> SHCODE          </td>
+<td> 股东编号     </td>
+</tr>
+<tr>
+<td> PCTTOTALSHAREUR </td>
+<td> 占流通股比例 </td>
+</tr>
+<tr>
+<td> HOLDASHAREUR    </td>
+<td> 持股数       </td>
+</tr>
+<tr>
+<td> ENDDATE         </td>
+<td> 日期         </td>
+</tr>
+</tbody>
+</table>
+
+
+<ul>
+<li>财汇数据</li>
+</ul>
+
+
+<table>
+<thead>
+<tr>
+<th> 键              </th>
+<th> 说明         </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> SHNAME          </td>
+<td> 股东名称     </td>
+</tr>
+<tr>
+<td> SHCODE          </td>
+<td> 股东编号     </td>
+</tr>
+<tr>
+<td> PCTTOTALSHAREUR </td>
+<td> 占流通股比例 </td>
+</tr>
+<tr>
+<td> DIFF            </td>
+<td> 增减         </td>
+</tr>
+<tr>
+<td> HOLDASHAREUR    </td>
+<td> 持股数       </td>
+</tr>
+<tr>
+<td> ENDDATE         </td>
+<td> 日期         </td>
+</tr>
+</tbody>
+</table>
+
+
+<p><a href="#top">top</a></p>
+
+<h4 id="MTopShareHolder">最新十大机构股东</h4>
+
+
+<ul>
+<li>港澳数据</li>
+</ul>
+
+
+<table>
+<thead>
+<tr>
+<th> 键              </th>
+<th> 说明         </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> SHNO            </td>
+<td> 排名         </td>
+</tr>
+<tr>
+<td> SHNAME          </td>
+<td> 股东名称     </td>
+</tr>
+<tr>
+<td> SHCODE          </td>
+<td> 股东编号     </td>
+</tr>
+<tr>
+<td> PCTTOTALSHAREUR </td>
+<td> 占流通股比例 </td>
+</tr>
+<tr>
+<td> DIFF            </td>
+<td> 增减         </td>
+</tr>
+<tr>
+<td> HOLDASHAREUR    </td>
+<td> 持股数       </td>
+</tr>
+<tr>
+<td> ENDDATE         </td>
+<td> 日期         </td>
+</tr>
+</tbody>
+</table>
+
+
+<ul>
+<li>财汇数据</li>
+</ul>
+
+
+<table>
+<thead>
+<tr>
+<th> 键              </th>
+<th> 说明         </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> SHNAME          </td>
+<td> 股东名称     </td>
+</tr>
+<tr>
+<td> SHCODE          </td>
+<td> 股东编号     </td>
+</tr>
+<tr>
+<td> PCTTOTALSHAREUR </td>
+<td> 占流通股比例 </td>
+</tr>
+<tr>
+<td> DIFF            </td>
+<td> 增减         </td>
+</tr>
+<tr>
+<td> HOLDASHAREUR    </td>
+<td> 持股数       </td>
+</tr>
+<tr>
+<td> ENDDATE         </td>
+<td> 日期         </td>
+</tr>
+</tbody>
+</table>
+
+
+<p><a href="#top">top</a></p>
+
+<h4 id="MFundshareholding">最新基金持股</h4>
+
+
+<table>
+<thead>
+<tr>
+<th> 键              </th>
+<th> 说明                </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> COUNT           </td>
+<td> 最新基金持股共xxx家 </td>
+</tr>
+<tr>
+<td> ENDDATE         </td>
+<td> 日期                </td>
+</tr>
+<tr>
+<td> CHINAMEABBR     </td>
+<td> 股东名称            </td>
+</tr>
+<tr>
+<td> PCTTOTALSHAREUR </td>
+<td> 占流通股比例        </td>
+</tr>
+<tr>
+<td> HOLDINGVOL      </td>
+<td> 持股数              </td>
+</tr>
+</tbody>
+</table>
+
+
+<p><a href="#top">top</a></p>
+
+<h4 id="MControllingsh">控股股东-OPTION</h4>
+
+
+<table>
+<thead>
+<tr>
+<th> 键            </th>
+<th> 说明     </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> SHNAME        </td>
+<td> 股东名称 </td>
+</tr>
+<tr>
+<td> PCTTOTALSHARE </td>
+<td> 持股比例 </td>
+</tr>
+</tbody>
+</table>
+
+
+<p><a href="#top">top</a></p>
+
+<h3 id="个股资讯">个股资讯</h3>
+
+
+
+
+<h4 id="MStockbulletinlist">个股/自选公告</h4>
+
+
+<ul>
+<li>港澳数据</li>
+</ul>
+
+
+<table>
+<thead>
+<tr>
+<th> 键        </th>
+<th> 说明                                                    </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> PUBDATE   </td>
+<td> 日期                                                    </td>
+</tr>
+<tr>
+<td> ID        </td>
+<td> 序号                                                    </td>
+</tr>
+<tr>
+<td> TITLE     </td>
+<td> 标题                                                    </td>
+</tr>
+<tr>
+<td> STOCKNAME </td>
+<td> 个股名称 {page_index} 每页预设笔数30笔, 系统由第0页开始 </td>
+</tr>
+</tbody>
+</table>
+
+
+<ul>
+<li>财汇数据</li>
+</ul>
+
+
+<table>
+<thead>
+<tr>
+<th> 键        </th>
+<th> 说明                                                    </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> PUBDATE   </td>
+<td> 日期                                                    </td>
+</tr>
+<tr>
+<td> ID        </td>
+<td> 序号                                                    </td>
+</tr>
+<tr>
+<td> TITLE     </td>
+<td> 标题                                                    </td>
+</tr>
+<tr>
+<td> STOCKNAME </td>
+<td> 个股名称 {page_index} 每页预设笔数30笔, 系统由第0页开始 </td>
+</tr>
+</tbody>
+</table>
+
+
+<p><a href="#top">top</a></p>
+
+<h4 id="MStockbulletin">个股公告内文</h4>
+
+
+<ul>
+<li>港澳数据</li>
+</ul>
+
+
+<table>
+<thead>
+<tr>
+<th> 键            </th>
+<th> 说明 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> PUBDATE       </td>
+<td> 日期 </td>
+</tr>
+<tr>
+<td> ID            </td>
+<td> 序号 </td>
+</tr>
+<tr>
+<td> Content       </td>
+<td> 内文 </td>
+</tr>
+<tr>
+<td> CONTENTFORMAT </td>
+<td> 格式 </td>
+</tr>
+</tbody>
+</table>
+
+
+<ul>
+<li>财汇数据</li>
+</ul>
+
+
+<table>
+<thead>
+<tr>
+<th> 键            </th>
+<th> 说明 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> PUBDATE       </td>
+<td> 日期 </td>
+</tr>
+<tr>
+<td> ID            </td>
+<td> 序号 </td>
+</tr>
+<tr>
+<td> CONTENT       </td>
+<td> 内文 </td>
+</tr>
+</tbody>
+</table>
+
+
+<p><a href="#top">top</a></p>
+
+<h4 id="MStocknewslist">个股/自选新闻</h4>
+
+
+<table>
+<thead>
+<tr>
+<th> 键          </th>
+<th> 说明                                                    </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> INIPUBDATE  </td>
+<td> 日期                                                    </td>
+</tr>
+<tr>
+<td> ID          </td>
+<td> 序号                                                    </td>
+</tr>
+<tr>
+<td> REPORTTITLE </td>
+<td> 标题                                                    </td>
+</tr>
+<tr>
+<td> REPORTLEVEL </td>
+<td> 报告级别                                                </td>
+</tr>
+<tr>
+<td> MEDIANAME   </td>
+<td> 来源                                                    </td>
+</tr>
+<tr>
+<td> STOCKNAME   </td>
+<td> 个股名称 {page_index} 每页预设笔数30笔, 系统由第0页开始 </td>
+</tr>
+</tbody>
+</table>
+
+
+<p><a href="#top">top</a></p>
+
+<h4 id="MStocknews">个股新闻内文</h4>
+
+
+<table>
+<thead>
+<tr>
+<th> 键             </th>
+<th> 说明 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> INIPUBDATE     </td>
+<td> 日期 </td>
+</tr>
+<tr>
+<td> ID             </td>
+<td> 序号 </td>
+</tr>
+<tr>
+<td> ABSTRACT       </td>
+<td> 内文 </td>
+</tr>
+<tr>
+<td> ABSTRACTFORMAT </td>
+<td> 格式 </td>
+</tr>
+<tr>
+<td> MEDIANAME      </td>
+<td> 来源 </td>
+</tr>
+</tbody>
+</table>
+
+
+<p><a href="#top">top</a></p>
+
+<h4 id="MStockreportlist">个股/自选研报</h4>
+
+
+<table>
+<thead>
+<tr>
+<th> 键          </th>
+<th> 说明                                                    </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> PUBDATE     </td>
+<td> 日期                                                    </td>
+</tr>
+<tr>
+<td> ID          </td>
+<td> 序号                                                    </td>
+</tr>
+<tr>
+<td> ReportTitle </td>
+<td> 标题                                                    </td>
+</tr>
+<tr>
+<td> REPORTLEVEL </td>
+<td> 报告级别                                                </td>
+</tr>
+<tr>
+<td> ComName     </td>
+<td> 来源                                                    </td>
+</tr>
+<tr>
+<td> STOCKNAME   </td>
+<td> 个股名称 {page_index} 每页预设笔数30笔, 系统由第0页开始 </td>
+</tr>
+</tbody>
+</table>
+
+
+<p><a href="#top">top</a></p>
+
+<h4 id="MStockreport">个股研报内文</h4>
+
+
+<table>
+<thead>
+<tr>
+<th> 键             </th>
+<th> 说明 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> PUBDATE        </td>
+<td> 日期 </td>
+</tr>
+<tr>
+<td> ID             </td>
+<td> 序号 </td>
+</tr>
+<tr>
+<td> ABSTRACT       </td>
+<td> 内文 </td>
+</tr>
+<tr>
+<td> ABSTRACTFORMAT </td>
+<td> 格式 </td>
+</tr>
+<tr>
+<td> ComName        </td>
+<td> 来源 </td>
+</tr>
+</tbody>
+</table>
+
+
+<p><a href="#top">top</a></p>
+
+<h3 id="新闻资讯">新闻资讯</h3>
+
+
+
+
+<h4 id="MNewsItem">财经资讯(MNewsItem)</h4>
+
+
+<table>
+<thead>
+<tr>
+<th> 属性名   </th>
+<th> 说明             </th>
+<th> 型态     </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> ID       </td>
+<td> 识别号           </td>
+<td> NSString </td>
+<td>      </td>
+</tr>
+<tr>
+<td> datetime </td>
+<td> 首次发布日期     </td>
+<td> NSString </td>
+<td>      </td>
+</tr>
+<tr>
+<td> title    </td>
+<td> 标题             </td>
+<td> NSString </td>
+<td>      </td>
+</tr>
+<tr>
+<td> source   </td>
+<td> 媒体出处(Option) </td>
+<td> NSString </td>
+<td>      </td>
+</tr>
+<tr>
+<td> format   </td>
+<td> 内容格式         </td>
+<td> NSString </td>
+<td>      </td>
+</tr>
+</tbody>
+</table>
+
+
+<p><a href="#top">top</a></p>
+
+<h4 id="MNewsDetailItem">财经资讯明细(MNewsDetailItem)</h4>
+
+
+<table>
+<thead>
+<tr>
+<th> 属性名   </th>
+<th> 说明             </th>
+<th> 型态     </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> content  </td>
+<td> 内容             </td>
+<td> NSString </td>
+<td>      </td>
+</tr>
+<tr>
+<td> dateTime </td>
+<td> 首次发布日期     </td>
+<td> NSString </td>
+<td>      </td>
+</tr>
+<tr>
+<td> source   </td>
+<td> 媒体出处(Option) </td>
+<td> NSString </td>
+<td>      </td>
+</tr>
+<tr>
+<td> format   </td>
+<td> 内容格式         </td>
+<td> NSString </td>
+<td>      </td>
+</tr>
+</tbody>
+</table>
+
+
+<p><a href="#top">top</a></p>
+
+<h4 id="MStockBulletinItem">个股公告(MStockBulletinItem)</h4>
+
+
+<table>
+<thead>
+<tr>
+<th> 属性名   </th>
+<th> 说明 </th>
+<th> 型态     </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> datetime </td>
+<td> 日期 </td>
+<td> NSString </td>
+<td>      </td>
+</tr>
+<tr>
+<td> ID       </td>
+<td> 序号 </td>
+<td> NSString </td>
+<td>      </td>
+</tr>
+<tr>
+<td> title    </td>
+<td> 标题 </td>
+<td> NSString </td>
+<td>      </td>
+</tr>
+</tbody>
+</table>
+
+
+<p><a href="#top">top</a></p>
+
+<h4 id="MStockBulletinDetailItem">个股公告内文(MStockBulletinDetailItem)</h4>
+
+
+<table>
+<thead>
+<tr>
+<th> 属性名   </th>
+<th> 说明 </th>
+<th> 型态     </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> datetime </td>
+<td> 日期 </td>
+<td> NSString </td>
+<td>      </td>
+</tr>
+<tr>
+<td> ID       </td>
+<td> 序号 </td>
+<td> NSString </td>
+<td>      </td>
+</tr>
+<tr>
+<td> content  </td>
+<td> 内文 </td>
+<td> NSString </td>
+<td>      </td>
+</tr>
+<tr>
+<td> format   </td>
+<td> 格式 </td>
+<td> NSString </td>
+<td>      </td>
+</tr>
+</tbody>
+</table>
+
+
+<p><a href="#top">top</a></p>
+
+<h4 id="MStockNewsItem">个股新闻(MStockNewsItem)</h4>
+
+
+<table>
+<thead>
+<tr>
+<th> 属性名   </th>
+<th> 说明     </th>
+<th> 型态     </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> dateTime </td>
+<td> 日期     </td>
+<td> NSString </td>
+<td>      </td>
+</tr>
+<tr>
+<td> ID       </td>
+<td> 序号     </td>
+<td> NSString </td>
+<td>      </td>
+</tr>
+<tr>
+<td> title    </td>
+<td> 标题     </td>
+<td> NSString </td>
+<td>      </td>
+</tr>
+<tr>
+<td> level    </td>
+<td> 报告级别 </td>
+<td> NSString </td>
+<td>      </td>
+</tr>
+<tr>
+<td> source   </td>
+<td> 来源     </td>
+<td> NSString </td>
+<td>      </td>
+</tr>
+</tbody>
+</table>
+
+
+<p><a href="#top">top</a></p>
+
+<h4 id="MStockNewsDetailItem">个股新闻内文(MStockNewsDetailItem)</h4>
+
+
+<table>
+<thead>
+<tr>
+<th> 属性名   </th>
+<th> 说明             </th>
+<th> 型态     </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> datetime </td>
+<td> 日期             </td>
+<td> NSString </td>
+<td>      </td>
+</tr>
+<tr>
+<td> ID       </td>
+<td> 序号             </td>
+<td> NSString </td>
+<td>      </td>
+</tr>
+<tr>
+<td> content  </td>
+<td> 内文             </td>
+<td> NSString </td>
+<td>      </td>
+</tr>
+<tr>
+<td> format   </td>
+<td> 内容格式         </td>
+<td> NSString </td>
+<td>      </td>
+</tr>
+<tr>
+<td> source   </td>
+<td> 媒体出处(Option) </td>
+<td> NSString </td>
+<td>      </td>
+</tr>
+</tbody>
+</table>
+
+
+<p><a href="#top">top</a></p>
+
+<h4 id="MStockReportItem">个股研报(MStockReportItem)</h4>
+
+
+<table>
+<thead>
+<tr>
+<th> 属性名   </th>
+<th> 说明     </th>
+<th> 型态     </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> datetime </td>
+<td> 日期     </td>
+<td> NSString </td>
+<td>      </td>
+</tr>
+<tr>
+<td> ID       </td>
+<td> 序号     </td>
+<td> NSString </td>
+<td>      </td>
+</tr>
+<tr>
+<td> title    </td>
+<td> 标题     </td>
+<td> NSString </td>
+<td>      </td>
+</tr>
+<tr>
+<td> level    </td>
+<td> 报告级别 </td>
+<td> NSString </td>
+<td>      </td>
+</tr>
+<tr>
+<td> source   </td>
+<td> 来源     </td>
+<td> NSString </td>
+<td>      </td>
+</tr>
+</tbody>
+</table>
+
+
+<p><a href="#top">top</a></p>
+
+<h4 id="MStockReportDetailItem">个股研报内文(MStockReportDetailItem)</h4>
+
+
+<table>
+<thead>
+<tr>
+<th> 属性名   </th>
+<th> 说明             </th>
+<th> 型态     </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> datetime </td>
+<td> 日期             </td>
+<td> NSString </td>
+<td>      </td>
+</tr>
+<tr>
+<td> ID       </td>
+<td> 序号             </td>
+<td> NSString </td>
+<td>      </td>
+</tr>
+<tr>
+<td> content  </td>
+<td> 内文             </td>
+<td> NSString </td>
+<td>      </td>
+</tr>
+<tr>
+<td> format   </td>
+<td> 内容格式         </td>
+<td> NSString </td>
+<td>      </td>
+</tr>
+<tr>
+<td> source   </td>
+<td> 媒体出处(Option) </td>
+<td> NSString </td>
+<td>      </td>
+</tr>
+</tbody>
+</table>
+
+
+<p><a href="#top">top</a></p>
+
+<h4 id="MFininfolist">财经资讯列表</h4>
+
+
+<table>
+<thead>
+<tr>
+<th> 名称           </th>
+<th> 说明             </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> ID             </td>
+<td> 序號             </td>
+<td>      </td>
+</tr>
+<tr>
+<td> INIPUBDATE     </td>
+<td> 首次发布日期     </td>
+<td>      </td>
+</tr>
+<tr>
+<td> REPORTTITLE    </td>
+<td> 标题             </td>
+<td>      </td>
+</tr>
+<tr>
+<td> MEDIANAME      </td>
+<td> 媒体出处(Option) </td>
+<td>      </td>
+</tr>
+<tr>
+<td> ABSTRACTFORMAT </td>
+<td> 内容格式         </td>
+<td>      </td>
+</tr>
+</tbody>
+</table>
+
+
+<p><a href="#top">top</a></p>
+
+<h4 id="MFininfodetail">财经资讯明细</h4>
+
+
+<table>
+<thead>
+<tr>
+<th> 名称           </th>
+<th> 说明             </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> ABSTRACT       </td>
+<td> ABSTRACT         </td>
+<td>      </td>
+</tr>
+<tr>
+<td> INIPUBDATE     </td>
+<td> 首次发布日期     </td>
+<td>      </td>
+</tr>
+<tr>
+<td> MEDIANAME      </td>
+<td> 媒体出处(Option) </td>
+<td>      </td>
+</tr>
+<tr>
+<td> ABSTRACTFORMAT </td>
+<td> 内容格式         </td>
+<td>      </td>
+</tr>
+</tbody>
+</table>
+
+
+<p><a href="#top">top</a></p>
+
+<h4 id="MNewsType">新闻列表请求类别</h4>
+
+
+<table>
+<thead>
+<tr>
+<th> 名称                      </th>
+<th> 说明                              </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> MNewsTypeImportant       </td>
+<td> 要闻 - 精辟解析当日重点财经新闻        </td>
+<td> 0000 </td>
+</tr>
+<tr>
+<td> MNewsTypeRoll            </td>
+<td> 滚动 - 7X24小时即时新闻              </td>
+<td>      </td>
+</tr>
+<tr>
+<td> MNewsTypeFinance         </td>
+<td> 财经 - 汇聚重点国内外总体财经新闻      </td>
+<td> 13   </td>
+</tr>
+<tr>
+<td> MNewsTypeIndustry        </td>
+<td> 行业 - 汇聚各行业重点行业新闻与市况分析 </td>
+<td> 14   </td>
+</tr>
+<tr>
+<td> MNewsTypeStock           </td>
+<td> 股票 - 盘点当日重点股票新闻与市况分析   </td>
+<td> 15   </td>
+</tr>
+<tr>
+<td> MNewsTypeFuture          </td>
+<td> 期货 - 汇聚期货相关重点新闻           </td>
+<td> 11   </td>
+</tr>
+<tr>
+<td> MNewsTypeForeignExchange </td>
+<td> 外汇 - 汇聚外汇相关新闻与市况分析      </td>
+<td> 10   </td>
+</tr>
+<tr>
+<td> MNewsTypeFund            </td>
+<td> 基金 - 汇聚基金相关新闻与市况分析      </td>
+<td> 16   </td>
+</tr>
+<tr>
+<td> MNewsTypeBond            </td>
+<td> 债券 - 汇聚债券相关新闻与市况分析      </td>
+<td> 17   </td>
+</tr>
+<tr>
+<td> MNewsTypeGold            </td>
+<td> 黄金 - 汇聚黄金相关新闻与市况分析      </td>
+<td> 12   </td>
+</tr>
+<tr>
+<td> MNewsTypeOthers          </td>
+<td> 其他 - 汇聚基金相关新闻与市况分析      </td>
+<td> 99   </td>
+</tr>
+</tbody>
+</table>
+
+
+<p><a href="#top">top</a></p>
+
+<h4 id="MF10DataSourceType">f10数据来源类型</h4>
+
+
+<table>
+<thead>
+<tr>
+<th> 名称                      </th>
+<th> 说明                              </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> MF10DataSourceGA       </td>
+<td> 港澳  </td>
+<td>      </td>
+</tr>
+<tr>
+<td> MF10DataSourceCH      </td>
+<td> 财汇 </td>
+<td>      </td>
+</tr>
+</tbody>
+</table>
+
+
+<p><a href="#top">top</a></p>
+
+<h4 id="MFundBasicInfoKeyValue">基金概况</h4>
+
+
+<ul>
+<li>财汇数据</li>
+</ul>
+
+
+<table>
+<thead>
+<tr>
+<th> 名称           </th>
+<th> 说明             </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> FDNAME            </td>
+<td> 基金名称          </td>
+<td>      </td>
+</tr>
+<tr>
+<td> FDSNAME           </td>
+<td> 基金简称      </td>
+<td>      </td>
+</tr>
+<tr>
+<td> FSYMBOL           </td>
+<td> 基金代码  </td>
+<td>      </td>
+</tr>
+<tr>
+<td> FDTYPE        </td>
+<td> 基金类型        </td>
+<td>      </td>
+</tr>
+<tr>
+<td> FOUNDDATE         </td>
+<td> 成立日期        </td>
+<td>      </td>
+</tr>
+<tr>
+<td> TRUSTEENAME       </td>
+<td> 托管人         </td>
+<td>      </td>
+</tr>
+<tr>
+<td> KEEPERNAME        </td>
+<td> 管理人         </td>
+<td>      </td>
+</tr>
+<tr>
+<td> MANAGERNAME       </td>
+<td> 基金经理        </td>
+<td>      </td>
+</tr>
+<tr>
+<td> FDINVCATEGORY         </td>
+<td> 投资类型        </td>
+<td>      </td>
+</tr>
+<tr>
+<td> INVRULE           </td>
+<td> 投资理念      </td>
+<td>      </td>
+</tr>
+</tbody>
+</table>
+
+
+<p><a href="#top">top</a></p>
+
+<h4 id="MFundNetValueKeyValue">基金净值</h4>
+
+
+<ul>
+<li>财汇数据</li>
+</ul>
+
+
+<table>
+<thead>
+<tr>
+<th> 名称           </th>
+<th> 说明             </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> ACCUNITNAV        </td>
+<td> 累计净值          </td>
+<td>      </td>
+</tr>
+<tr>
+<td> UNITNAV           </td>
+<td> 单位净值      </td>
+<td>      </td>
+</tr>
+<tr>
+<td> NAVDATE           </td>
+<td> 发生日期  </td>
+<td>      </td>
+</tr>
+<tr>
+<td> GROWRATE      </td>
+<td> 净值涨跌额      </td>
+<td>      </td>
+</tr>
+</tbody>
+</table>
+
+
+<p><a href="#top">top</a></p>
+
+<h4 id="MFundAssetAllocationKeyValue">资产配置</h4>
+
+
+<ul>
+<li>财汇数据</li>
+</ul>
+
+
+<table>
+<thead>
+<tr>
+<th> 名称           </th>
+<th> 说明             </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> ASSESECI          </td>
+<td> 资产支持证券投资 </td>
+<td>      </td>
+</tr>
+<tr>
+<td> BDINVE            </td>
+<td> 债券投资      </td>
+<td>      </td>
+</tr>
+<tr>
+<td> FDINVE            </td>
+<td> 基金投资  </td>
+<td>      </td>
+</tr>
+<tr>
+<td> STKINVE       </td>
+<td> 股票投资      </td>
+<td>      </td>
+</tr>
+<tr>
+<td> TOTASSET      </td>
+<td> 资产总计      </td>
+<td>      </td>
+</tr>
+<tr>
+<td> TOTASSETYOY       </td>
+<td> 应收及其他资产      </td>
+<td>      </td>
+</tr>
+</tbody>
+</table>
+
+
+<p><a href="#top">top</a></p>
+
+<h4 id="MFundIndustryPortfolioKeyValue">行业组合</h4>
+
+
+<ul>
+<li>财汇数据</li>
+</ul>
+
+
+<table>
+<thead>
+<tr>
+<th> 名称           </th>
+<th> 说明             </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> ENDDATE           </td>
+<td> 期末日期 </td>
+<td>      </td>
+</tr>
+<tr>
+<td> INDUSTRYNAME      </td>
+<td> 行业类别      </td>
+<td>      </td>
+</tr>
+<tr>
+<td> FAIRVALUE         </td>
+<td> 公允价值（万元）  </td>
+<td>      </td>
+</tr>
+<tr>
+<td> NAVRATIO      </td>
+<td> 占净值比（％）      </td>
+<td>      </td>
+</tr>
+</tbody>
+</table>
+
+
+<p><a href="#top">top</a></p>
+
+<h4 id="MFundStockPortfolioKeyValue">股票组合</h4>
+
+
+<ul>
+<li>财汇数据</li>
+</ul>
+
+
+<table>
+<thead>
+<tr>
+<th> 名称           </th>
+<th> 说明             </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> ENDDATE           </td>
+<td> 期末日期 </td>
+<td>      </td>
+</tr>
+<tr>
+<td> FDSNAME       </td>
+<td> 简称        </td>
+<td>      </td>
+</tr>
+<tr>
+<td> HOLDVOL           </td>
+<td> 持股（万）   </td>
+<td>      </td>
+</tr>
+<tr>
+<td> ACCTFORNAV        </td>
+<td> 占比（％）      </td>
+<td>      </td>
+</tr>
+<tr>
+<td> HOLDVALUE         </td>
+<td> 价值（万）      </td>
+<td>      </td>
+</tr>
+</tbody>
+</table>
+
+
+<p><a href="#top">top</a></p>
+
+<h4 id="MFundShareStructKeyValue">份额结构</h4>
+
+
+<ul>
+<li>财汇数据</li>
+</ul>
+
+
+<table>
+<thead>
+<tr>
+<th> 名称           </th>
+<th> 说明             </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> ENDDATE           </td>
+<td> 期末日期 </td>
+<td>      </td>
+</tr>
+<tr>
+<td> ENDFDSHARE        </td>
+<td> 基金总份额       </td>
+<td>      </td>
+</tr>
+<tr>
+<td> SUBSHARETOT       </td>
+<td> 报告期总申购额     </td>
+<td>      </td>
+</tr>
+<tr>
+<td> REDTOTSHARE       </td>
+<td> 报告期总赎回额      </td>
+<td>      </td>
+</tr>
+</tbody>
+</table>
+
+
+<p><a href="#top">top</a></p>
+
+<h4 id="MFundFinanceKeyValue">基金财务</h4>
+
+
+<ul>
+<li>财汇数据</li>
+</ul>
+
+
+<table>
+<thead>
+<tr>
+<th> 名称           </th>
+<th> 说明             </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> PUBLISHDATE           </td>
+<td> 公布日期 </td>
+<td>      </td>
+</tr>
+<tr>
+<td> ENDDATE       </td>
+<td> 期末日期      </td>
+<td>      </td>
+</tr>
+<tr>
+<td> UNFDDISTNETINC        </td>
+<td> 单位净收益   </td>
+<td>      </td>
+</tr>
+<tr>
+<td> FINAUNFDASSNAV    </td>
+<td> 单位资产净值      </td>
+<td>      </td>
+</tr>
+<tr>
+<td> FDNETPROPER           </td>
+<td> 净收益 </td>
+<td>      </td>
+</tr>
+<tr>
+<td> FINAFDASSETNAV    </td>
+<td> 资产净值      </td>
+<td>      </td>
+</tr>
+<tr>
+<td> NAVGRORATE        </td>
+<td> 净值增长率   </td>
+<td>      </td>
+</tr>
+</tbody>
+</table>
+
+
+<p><a href="#top">top</a></p>
+
+<h4 id="MFundDividendKeyValue">基金分红</h4>
+
+
+<ul>
+<li>财汇数据</li>
+</ul>
+
+
+<table>
+<thead>
+<tr>
+<th> 名称           </th>
+<th> 说明             </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> DEFSHAREMODE          </td>
+<td> 分配说明 </td>
+<td>      </td>
+</tr>
+<tr>
+<td> INNERDEVDATE      </td>
+<td> 红利发放日       </td>
+<td>      </td>
+</tr>
+<tr>
+<td> INNERDEVPSETDATE      </td>
+<td> 红利结转份额日     </td>
+<td>      </td>
+</tr>
+<tr>
+<td> INNERRIGHTDATE    </td>
+<td> 除息日      </td>
+<td>      </td>
+</tr>
+<tr>
+<td> ISBONUS       </td>
+<td> 进展说明      </td>
+<td>      </td>
+</tr>
+<tr>
+<td> PUBLISHDATE       </td>
+<td> 公布日期      </td>
+<td>      </td>
+</tr>
+<tr>
+<td> RECORDDATE        </td>
+<td> 权益登记日      </td>
+<td>      </td>
+</tr>
+<tr>
+<td> UNITPTAXDEV       </td>
+<td> 每10份基金单位派现      </td>
+<td>      </td>
+</tr>
+</tbody>
+</table>
+
+
+<p><a href="#top">top</a></p>
+
+<h4 id="MBondBasicInfoKeyValue">债券概况</h4>
+
+
+<ul>
+<li>财汇数据</li>
+</ul>
+
+
+<table>
+<thead>
+<tr>
+<th> 名称           </th>
+<th> 说明             </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> BONDNAME          </td>
+<td> 债券名称 </td>
+<td>      </td>
+</tr>
+<tr>
+<td> BONDSNAME         </td>
+<td> 债券简称      </td>
+<td>      </td>
+</tr>
+<tr>
+<td> SYMBOL            </td>
+<td> 债券代码  </td>
+<td>      </td>
+</tr>
+<tr>
+<td> BONDTYPE2         </td>
+<td> 债券性质      </td>
+<td>      </td>
+</tr>
+<tr>
+<td> INITIALCREDITRATE     </td>
+<td> 债券信用级别      </td>
+<td>      </td>
+</tr>
+<tr>
+<td> PARVALUE      </td>
+<td> 债券面额      </td>
+<td>      </td>
+</tr>
+<tr>
+<td> MATURITYYEAR      </td>
+<td> 债券年限      </td>
+<td>      </td>
+</tr>
+<tr>
+<td> BASERATE          </td>
+<td> 债券基准利率（％） </td>
+<td>      </td>
+</tr>
+<tr>
+<td> CALCAMODE         </td>
+<td> 计息方式      </td>
+<td>      </td>
+</tr>
+<tr>
+<td> PAYMENTMODE       </td>
+<td> 付息方式      </td>
+<td>      </td>
+</tr>
+<tr>
+<td> LISTDATE      </td>
+<td> 上市日期      </td>
+<td>      </td>
+</tr>
+<tr>
+<td> EXCHANGENAME      </td>
+<td> 市场      </td>
+<td>      </td>
+</tr>
+<tr>
+<td> LISTSTATE         </td>
+<td> 上市状态  </td>
+<td>      </td>
+</tr>
+<tr>
+<td> PAYMENTDATE       </td>
+<td> 兑付日      </td>
+<td>      </td>
+</tr>
+</tbody>
+</table>
+
+
+<p><a href="#top">top</a></p>
+
+<h4 id="MBondInterestPayKeyValue">付息情况</h4>
+
+
+<ul>
+<li>财汇数据</li>
+</ul>
+
+
+<table>
+<thead>
+<tr>
+<th> 名称           </th>
+<th> 说明             </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> BONDNAME          </td>
+<td> 债券名称 </td>
+<td>      </td>
+</tr>
+<tr>
+<td> BONDSNAME         </td>
+<td> 债券简称      </td>
+<td>      </td>
+</tr>
+<tr>
+<td> SYMBOL            </td>
+<td> 债券代码  </td>
+<td>      </td>
+</tr>
+<tr>
+<td> PERPAYDATEYEAR    </td>
+<td> 付息年度      </td>
+<td>      </td>
+</tr>
+<tr>
+<td> PRETAXINT     </td>
+<td> 每百元面值所得利息      </td>
+<td>      </td>
+</tr>
+<tr>
+<td> IPRATE        </td>
+<td> 本期利率（％）      </td>
+<td>      </td>
+</tr>
+<tr>
+<td> EQURECORDDATE     </td>
+<td> 债券登记日      </td>
+<td>      </td>
+</tr>
+<tr>
+<td> PERPAYDATE        </td>
+<td> 利息支付日 </td>
+<td>      </td>
+</tr>
+<tr>
+<td> XDRDATE       </td>
+<td> 除息基准日      </td>
+<td>      </td>
+</tr>
+<tr>
+<td> REPAYDATE         </td>
+<td> 集中兑付期      </td>
+<td>      </td>
+</tr>
+</tbody>
+</table>
+
+
+<p><a href="#top">top</a></p>
+
+<h4 id="MBondBuyBacksKeyValue">债券回购</h4>
+
+
+<ul>
+<li>财汇数据</li>
+</ul>
+
+
+<table>
+<thead>
+<tr>
+<th> 名称           </th>
+<th> 说明             </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> BONDNAME          </td>
+<td> 债券名称   </td>
+<td>      </td>
+</tr>
+<tr>
+<td> BONDSNAME         </td>
+<td> 债券简称      </td>
+<td>      </td>
+</tr>
+<tr>
+<td> SYMBOL            </td>
+<td> 债券代码  </td>
+<td>      </td>
+</tr>
+<tr>
+<td> EXERENDDATE       </td>
+<td> 调整日      </td>
+<td>      </td>
+</tr>
+<tr>
+<td> PARVALUE      </td>
+<td> 现券面额      </td>
+<td>      </td>
+</tr>
+<tr>
+<td> CONVERTRATE       </td>
+<td> 折算比率（％）      </td>
+<td>      </td>
+</tr>
+<tr>
+<td> CONVERTPRC        </td>
+<td> 折换价      </td>
+<td>      </td>
+</tr>
+<tr>
+<td> REPAYDATE         </td>
+<td> 集中兑付期（启始-截止） </td>
+<td>      </td>
+</tr>
+</tbody>
+</table>
+
+
+<p><a href="#top">top</a></p>
+</body>
+</html>

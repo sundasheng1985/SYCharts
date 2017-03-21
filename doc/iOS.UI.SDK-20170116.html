@@ -1,0 +1,2817 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<style>
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote {
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: "Helvetica Neue", Helvetica, "Hiragino Sans GB", Arial, sans-serif;
+    font-size: 13px;
+    line-height: 18px;
+    color: #737373;
+    background-color: white;
+    margin: 10px 13px 10px 13px;
+}
+table {
+	margin: 10px 0 15px 0;
+	border-collapse: collapse;
+}
+td,th {	
+	border: 1px solid #ddd;
+	padding: 3px 10px;
+}
+th {
+	padding: 5px 10px;	
+}
+
+a {
+    color: #0069d6;
+}
+a:hover {
+    color: #0050a3;
+    text-decoration: none;
+}
+a img {
+    border: none;
+}
+p {
+    margin-bottom: 9px;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: #404040;
+    line-height: 36px;
+}
+h1 {
+    margin-bottom: 18px;
+    font-size: 30px;
+}
+h2 {
+    font-size: 24px;
+}
+h3 {
+    font-size: 18px;
+}
+h4 {
+    font-size: 16px;
+}
+h5 {
+    font-size: 14px;
+}
+h6 {
+    font-size: 13px;
+}
+hr {
+    margin: 0 0 19px;
+    border: 0;
+    border-bottom: 1px solid #ccc;
+}
+blockquote {
+    padding: 13px 13px 21px 15px;
+    margin-bottom: 18px;
+    font-family:georgia,serif;
+    font-style: italic;
+}
+blockquote:before {
+    content:"\201C";
+    font-size:40px;
+    margin-left:-10px;
+    font-family:georgia,serif;
+    color:#eee;
+}
+blockquote p {
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 18px;
+    margin-bottom: 0;
+    font-style: italic;
+}
+code, pre {
+    font-family: Monaco, Andale Mono, Courier New, monospace;
+}
+code {
+    background-color: #fee9cc;
+    color: rgba(0, 0, 0, 0.75);
+    padding: 1px 3px;
+    font-size: 12px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+pre {
+    display: block;
+    padding: 14px;
+    margin: 0 0 18px;
+    line-height: 16px;
+    font-size: 11px;
+    border: 1px solid #d9d9d9;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+pre code {
+    background-color: #fff;
+    color:#737373;
+    font-size: 11px;
+    padding: 0;
+}
+sup {
+    font-size: 0.83em;
+    vertical-align: super;
+    line-height: 0;
+}
+* {
+	-webkit-print-color-adjust: exact;
+}
+@media screen and (min-width: 914px) {
+    body {
+        width: 854px;
+        margin:10px auto;
+    }
+}
+@media print {
+	body,code,pre code,h1,h2,h3,h4,h5,h6 {
+		color: black;
+	}
+	table, pre {
+		page-break-inside: avoid;
+	}
+}
+</style>
+<title>
+<h1 id="top">移动客户端图形接口说明</h1>
+================
+
+* [概述](#概述)
+	* [目的</title>
+
+</head>
+<body>
+
+
+<h1 id="top">移动客户端图形接口说明</h1>
+
+
+<hr />
+
+<ul>
+<li><a href="#%E6%A6%82%E8%BF%B0">概述</a>
+
+<ul>
+<li><a href="#%E7%9B%AE%E7%9A%84">目的</a></li>
+<li><a href="#%E5%BD%A2%E5%BC%8F%E8%AF%B4%E6%98%8E">形式说明</a></li>
+<li><a href="#UI%E7%B1%BB%E5%88%AB%E5%88%97%E8%A1%A8">UI类别列表</a></li>
+</ul>
+</li>
+<li><p><a href="#%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E">使用说明</a></p>
+
+<ul>
+<li><a href="#MChartView">线图父类别(MChartView)</a>
+
+<ul>
+<li><a href="#MChartViewExplain">说明</a></li>
+<li><a href="#MChartViewAttribute">属性</a></li>
+<li><a href="#MChartViewSample">调用样例</a></li>
+</ul>
+</li>
+<li><a href="#MTrendChartView">走势图(MTrendChartView)</a>
+
+<ul>
+<li><a href="#MTrendChartViewExplain">说明</a></li>
+<li><a href="#MTrendChartViewAttribute">属性</a></li>
+<li><a href="#MTrendChartViewSample">调用样例</a></li>
+</ul>
+</li>
+<li><a href="#MFundChartView">基金净值走势图(MFundChartView)</a>
+
+<ul>
+<li><a href="#MFundChartViewExplain">说明</a></li>
+<li><a href="#MFundChartViewAttribute">属性</a></li>
+<li><a href="#MFundChartViewSample">调用样例</a></li>
+</ul>
+</li>
+<li><a href="#MOHLCChartView">K线图(MOHLCChartView)</a>
+
+<ul>
+<li><a href="#MOHLCChartViewExplain">说明</a></li>
+<li><a href="#MOHLCChartViewAttribute">属性</a></li>
+<li><a href="#MOHLCChartViewSample">调用样例</a></li>
+</ul>
+</li>
+<li><a href="#MPlot">K线图指标(MPlot)</a>
+
+<ul>
+<li><a href="#MPlotExplain">说明</a></li>
+<li><a href="#MPlotAttribute">属性</a></li>
+<li><a href="#%E4%B8%BB%E5%9B%BE%E6%8C%87%E6%A0%87">主图指标</a>
+
+<ul>
+<li><a href="#MMAPlot">移动平均线(MMAPlot)</a></li>
+<li><a href="#MBOLLPlot">布林线(MBOLLPlot)</a></li>
+</ul>
+</li>
+<li><a href="#%E5%89%AF%E5%9B%BE%E6%8C%87%E6%A0%87">副图指标</a>
+
+<ul>
+<li><a href="#MVOLPlot">成交量指标(MVOLPlot)</a></li>
+<li><a href="#MRSIPlot">相对强弱指标(MRSIPlot)</a></li>
+<li><a href="#MKDJPlot">随机指标(MKDJPlot)</a></li>
+<li><a href="#MMACDPlot">指数平滑移动平均(MMACDPlot)</a></li>
+<li><a href="#MBIASPlot">乖离率指标(MBIASPlot)</a></li>
+<li><a href="#MCCIPlot">顺势指标(MCCIPlot)</a></li>
+<li><a href="#MWRPlot">威廉指标(MWRPlot)</a></li>
+<li><a href="#MARPlot">人气指标(MARPlot)</a></li>
+<li><a href="#MBBIPlot">多空指标(MBBIPlot)</a></li>
+<li><a href="#MBRPlot">意愿指标(MBRPlot)</a></li>
+<li><a href="#MKDPlot">随机指数(MKDPlot)</a></li>
+<li><a href="#MDMIPlot">动向指标(MDMIPlot)</a></li>
+<li><a href="#MPSYPlot">心理线指标(MPSYPlot)</a></li>
+<li><a href="#MOBVPlot">能量潮指标(MOBVPlot)</a></li>
+<li><a href="#MMTMPlot">动量指标(MMTMPlot)</a></li>
+<li><a href="#MVRPlot">成交量变异率(MVRPlot)</a></li>
+<li><a href="#MROCPlot">变动速率指标(MROCPlot)</a></li>
+<li><a href="#MNVIPlot">负量指标(MNVIPlot)</a></li>
+<li><a href="#MPVIPlot">正成交量指标(MPVIPlot)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#MIPOCalendarView">新股日历图(MIPOCalendarView)</a>
+
+<ul>
+<li><a href="#MIPOCalendarViewExplain">说明</a></li>
+<li><a href="#MIPOCalendarViewAttribute">属性</a></li>
+<li><a href="#MIPOCalendarViewSample">调用样例</a></li>
+</ul>
+</li>
+<li><p><a href="#MIPODetailView">新股日历详情图(MIPODetailView)</a></p>
+
+<ul>
+<li><a href="#MIPODetailViewExplain">说明</a></li>
+<li><a href="#MIPODetailViewAttribute">属性</a></li>
+<li><a href="#MIPODetailViewSample">调用样例</a></li>
+</ul>
+</li>
+<li><p><a href="#MTopPriceDetailView">五档明细视图(MTopPriceDetailView)</a></p>
+
+<ul>
+<li><a href="#MTopPriceDetailViewExplain">说明</a></li>
+<li><a href="#MTopPriceDetailViewAttribute">属性</a></li>
+<li><a href="#MTopPriceDetailViewSample">调用样例</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><a href="#%E5%85%B6%E4%BB%96">其他</a></p>
+
+<ul>
+<li><a href="#MTrendChartType">走势图类型(MTrendChartType)</a></li>
+<li><a href="#MOHLCChartType">K线图类型(MOHLCChartType)</a></li>
+<li><a href="#MIPOCalendarViewScrollDirection">新股日历轴线滚动方向(MIPOCalendarViewScrollDirection)</a></li>
+<li><a href="#MIPOCalendarViewDelegate">新股日历视图代理(MIPOCalendarViewDelegate)</a></li>
+<li><a href="#MIPODetailViewDelegate">新股日历详情是图代理(MIPODetailViewDelegate)</a></li>
+</ul>
+</li>
+</ul>
+
+
+<hr />
+
+<h2 id="概述">概述</h2>
+
+
+
+
+<h3 id="目的">目的</h3>
+
+
+<ul>
+<li>本文档面向的读者是项目开发人员，其中详细描述了iOS系统之请求应答类别名与上下行参数的属性名称及型态。</li>
+<li>如何通过行情客户端接口发送请求，进而获得行情数据，请至网页下载最新的<a href="http://example.net/">API Documentation</a>或下载<a href="http://example.net/">Demo</a>程式码。</li>
+<li>接口实现了UI层及行情数据请求通讯封装，故开发UI人员可以大量减少处理数据及复杂UI逻辑的代码与时间。</li>
+</ul>
+
+
+<h3 id="形式说明">形式说明</h3>
+
+
+<ul>
+<li>接口中的类名、属性名及方法名皆以驼峰式命名法，类名首字母皆为大写，属性及方法名首字母皆为小写。</li>
+<li>由于iOS不支持命名空间，故类名皆冠上M来避免与工程上的其他类重复。</li>
+</ul>
+
+
+<hr />
+
+<h2 id="使用说明">使用说明</h2>
+
+
+
+
+<h3 id="MChartView">线图父类别：MChartView</h3>
+
+
+
+
+<h4 id="MChartViewExplain">说明</h4>
+
+
+<ul>
+<li>此为<a href="#MTrendChartView">MTrendChartView</a>及<a href="#MOHLCChartView">MOHLCChartView</a>的父类别，包含通用属性及方法，其馀属性及方法请参考各个子类别实现。</li>
+</ul>
+
+
+<h4 id="MChartViewAttribute">属性</h4>
+
+
+<ul>
+<li><p>属性说明:</p>
+
+<table>
+<thead>
+<tr>
+<th> 属性名      </th>
+<th> 说明         </th>
+<th> 型态         </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> code    </td>
+<td> 股票代码 </td>
+<td> NSString </td>
+<td> 包含市场别 如：000001.sh </td>
+</tr>
+<tr>
+<td> yAxisFont   </td>
+<td> y轴文字风格 </td>
+<td> UIFont </td>
+<td>      </td>
+</tr>
+<tr>
+<td> xAxisFont </td>
+<td> x轴文字风格 </td>
+<td> UIFont </td>
+<td>      </td>
+</tr>
+<tr>
+<td> xAxisTextColor </td>
+<td> x轴文字颜色 </td>
+<td> UIColor </td>
+<td>      </td>
+</tr>
+<tr>
+<td> borderWidth </td>
+<td> 外框线宽 </td>
+<td> CGFloat </td>
+<td>      </td>
+</tr>
+<tr>
+<td> borderColor </td>
+<td> 外框颜色 </td>
+<td> UIColor </td>
+<td> </td>
+</tr>
+<tr>
+<td> insideLineWidth </td>
+<td> 内部线宽 </td>
+<td> CGFloat </td>
+<td>      </td>
+</tr>
+<tr>
+<td> insideLineColor </td>
+<td> 内部线颜色 </td>
+<td> UIColor </td>
+<td>      </td>
+</tr>
+<tr>
+<td> enquiryEnabled    </td>
+<td> 是否可使用查价线 </td>
+<td> BOOL </td>
+<td>      </td>
+</tr>
+<tr>
+<td> enquiryLineColor   </td>
+<td> 查价线颜色 </td>
+<td> UIColor </td>
+<td>      </td>
+</tr>
+<tr>
+<td> enquiryFrameColor   </td>
+<td> 查价线外框颜色 </td>
+<td> UIColor </td>
+<td>      </td>
+</tr>
+<tr>
+<td> enquiryTextFont   </td>
+<td> 查价线文字风格 </td>
+<td> UIFont </td>
+<td>      </td>
+</tr>
+<tr>
+<td> enquiryTextColor   </td>
+<td> 查价线文字颜色 </td>
+<td> UIColor </td>
+<td>      </td>
+</tr>
+<tr>
+<td> enquiryLineMode   </td>
+<td> 查价线绘制模式 </td>
+<td> MChartEnquiryLineMode </td>
+<td>  类型请参考<a href="#MChartEnquiryLineMode">MChartEnquiryLineMode</a>  </td>
+</tr>
+</tbody>
+</table>
+</li>
+<li><p>方法说明:</p>
+
+<table>
+<thead>
+<tr>
+<th> 方法名      </th>
+<th> 说明         </th>
+<th> 回调型态         </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> reloadData </td>
+<td> 请求数据并刷新线图 </td>
+<td> void </td>
+<td>  </td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+
+
+<h4 id="MChartViewSample">调用样例</h4>
+
+
+<p>调用样例请参考各子类别</p>
+
+<p><a href="#top">top</a></p>
+
+<h3 id="MTrendChartView">走势图：MTrendChartView</h3>
+
+
+
+
+<h4 id="MTrendChartViewExplain">说明</h4>
+
+
+<ul>
+<li>从服务器取得取得分时走势或五日走势，并绘制走势图。</li>
+</ul>
+
+
+<h4 id="MTrendChartViewAttribute">属性</h4>
+
+
+<ul>
+<li><p>属性说明:</p>
+
+<table>
+<thead>
+<tr>
+<th> 属性名      </th>
+<th> 说明         </th>
+<th> 型态         </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> type               </td>
+<td> 走势图类型 </td>
+<td> MTrendChartType </td>
+<td> 类型请参考<a href="#MTrendChartType">MTrendChartType</a> </td>
+</tr>
+<tr>
+<td> priceRiseTextColor </td>
+<td> 价格涨文字颜色 </td>
+<td> UIColor </td>
+<td>      </td>
+</tr>
+<tr>
+<td> priceFlatTextColor </td>
+<td> 价格平盘文字颜色 </td>
+<td> UIColor </td>
+<td>      </td>
+</tr>
+<tr>
+<td> priceDropTextColor </td>
+<td> 价格跌文字颜色 </td>
+<td> UIColor </td>
+<td>      </td>
+</tr>
+<tr>
+<td> rangeRiseTextColor </td>
+<td> 价格涨幅文字颜色 </td>
+<td> UIColor </td>
+<td> </td>
+</tr>
+<tr>
+<td> rangeFlatTextColor </td>
+<td> 价格幅度平盘文字颜色 </td>
+<td> UIColor </td>
+<td>      </td>
+</tr>
+<tr>
+<td> rangeDropTextColor </td>
+<td> 价格跌幅文字颜色 </td>
+<td> UIColor </td>
+<td>      </td>
+</tr>
+<tr>
+<td> volumeTextColor    </td>
+<td> 量文字颜色 </td>
+<td> UIColor </td>
+<td>      </td>
+</tr>
+<tr>
+<td> currentLineColor   </td>
+<td> 价格线颜色 </td>
+<td> UIColor </td>
+<td>      </td>
+</tr>
+<tr>
+<td> currentLineWidth   </td>
+<td> 价格线宽 </td>
+<td> CGFloat </td>
+<td>      </td>
+</tr>
+<tr>
+<td> averageLineColor   </td>
+<td> 均价线颜色 </td>
+<td> UIColor </td>
+<td>      </td>
+</tr>
+<tr>
+<td> averageLineWidth   </td>
+<td> 均价线宽 </td>
+<td> CGFloat </td>
+<td>      </td>
+</tr>
+<tr>
+<td> volumeRiseColor    </td>
+<td> 量涨颜色 </td>
+<td> UIColor </td>
+<td>      </td>
+</tr>
+<tr>
+<td> volumeDropColor    </td>
+<td> 量跌颜色 </td>
+<td> UIColor </td>
+<td>      </td>
+</tr>
+<tr>
+<td> gradientColors    </td>
+<td> 渐层颜色 </td>
+<td> NSArray </td>
+<td>      </td>
+</tr>
+<tr>
+<td> gradientLocations    </td>
+<td> 渐层颜色位置 </td>
+<td> CGFloat[] </td>
+<td>      </td>
+</tr>
+<tr>
+<td> lastBlinkDot    </td>
+<td> 最后一个报价发亮点 </td>
+<td> UIView </td>
+<td>      </td>
+</tr>
+<tr>
+<td> options    </td>
+<td> 其他参数 </td>
+<td> NSDictionary </td>
+<td>    </td>
+</tr>
+</tbody>
+</table>
+</li>
+<li><p>其他参数说明:</p>
+
+<table>
+<thead>
+<tr>
+<th> 键值      </th>
+<th> 说明         </th>
+<th> 型态         </th>
+<th> 备注  </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> CUSTOM_DATETIME</td>
+<td> 客制日期显示 </td>
+<td> NSArray </td>
+<td> @[@"09:30", @"11:30/13:00", @"15:00"]</td>
+</tr>
+<tr>
+<td> FIVEDAY_LINE_CONTINUOUS </td>
+<td> 五日线是否连续 </td>
+<td> BOOL </td>
+<td> </td>
+</tr>
+<tr>
+<td> Y_AXIS_PRICE_LABELS_HIDDEN </td>
+<td> Y轴价格Label是否隐藏 </td>
+<td> NSArray </td>
+<td> @[@YES, @NO, @NO, @YES] </td>
+</tr>
+<tr>
+<td> Y_AXIS_UDRATE_LABELS_HIDDEN </td>
+<td> Y轴幅度Label是否隐藏 </td>
+<td> NSArray </td>
+<td>@[@YES, @NO, @NO, @YES] </td>
+</tr>
+<tr>
+<td> Y_AXIS_VOLUME_LABELS_HIDDEN </td>
+<td> Y轴量Label是否隐藏 </td>
+<td> NSArray </td>
+<td>@[@YES, @NO, @NO, @YES] </td>
+</tr>
+<tr>
+<td> YCLOSE_LINE_COLOR </td>
+<td> 昨收线颜色 </td>
+<td> UIColor </td>
+<td> </td>
+</tr>
+<tr>
+<td> YCLOSE_LINE_DASH  </td>
+<td> 昨收线实线虚线 </td>
+<td> BOOL </td>
+<td> @YES</td>
+</tr>
+<tr>
+<td> Y_AXIS_UDRATE_LABELS_FORMAT  </td>
+<td> Y轴幅度Label正负号 </td>
+<td> NSArray </td>
+<td> @[@"+%.2f%%", @"+%.2f%%", @"%.2f%%", @"-%.2f%%", @"-%.2f%%"]</td>
+</tr>
+<tr>
+<td> Y_AXIS_TICK_SPACING </td>
+<td> X轴虚线根数 </td>
+<td> NSInteger </td>
+<td> @(60)</td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+
+
+<p><a href="#top">top</a></p>
+
+<h4 id="MTrendChartViewSample">调用样例</h4>
+
+
+<pre><code>// 走势图初始化
+MTrendChartView *chartView = [[MTrendChartView alloc] initWithFrame:CGRectZero];
+
+// 必要属性
+chartView.code = @"000001.sh";
+
+// 订制化属性
+chartView.type = MTrendChartTypeOneDay;
+chartView.yAxisFont = [UIFont boldSystemFontOfSize:17];
+chartView.borderWidth = 5;
+chartView.borderColor = [UIColor whiteColor];
+chartView.insideLineWidth = 2;
+chartView.insideLineColor = [UIColor purpleColor];
+chartView.xAxisFont = [UIFont boldSystemFontOfSize:12.0];
+chartView.xAxisTextColor = [UIColor redColor];
+chartView.priceRiseTextColor = [UIColor yellowColor];
+chartView.priceFlatTextColor = [UIColor greenColor];
+chartView.priceDropTextColor = [UIColor brownColor];
+chartView.volumeTextColor = [UIColor yellowColor];
+chartView.rangeRiseTextColor = [UIColor orangeColor];
+chartView.rangeFlatTextColor = [UIColor purpleColor];
+chartView.rangeDropTextColor = [UIColor redColor];
+chartView.currentLineWidth = 5;
+chartView.currentLineColor = [UIColor blueColor];
+chartView.averageLineColor = [UIColor orangeColor];
+chartView.averageLineWidth = 5;
+chartView.lastBlinkDot = [MChartDotView blinkDot];
+
+[self.view addSubview:chartView];
+</code></pre>
+
+<p><a href="#top">top</a></p>
+
+<h3 id="MFundChartView">基金净值走势图：MFundChartView</h3>
+
+
+
+
+<h4 id="MFundChartViewExplain">说明</h4>
+
+
+<ul>
+<li>从服务器取得基金净值信息，并绘制走势图。</li>
+</ul>
+
+
+<h4 id="MFundChartViewAttribute">属性</h4>
+
+
+<ul>
+<li><p>属性说明:</p>
+
+<table>
+<thead>
+<tr>
+<th> 属性名      </th>
+<th> 说明         </th>
+<th> 型态         </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> priceRiseTextColor </td>
+<td> 价格涨文字颜色 </td>
+<td> UIColor </td>
+<td>      </td>
+</tr>
+<tr>
+<td> priceFlatTextColor </td>
+<td> 价格平盘文字颜色 </td>
+<td> UIColor </td>
+<td>      </td>
+</tr>
+<tr>
+<td> priceDropTextColor </td>
+<td> 价格跌文字颜色 </td>
+<td> UIColor </td>
+<td>      </td>
+</tr>
+<tr>
+<td> rangeRiseTextColor </td>
+<td> 价格涨幅文字颜色 </td>
+<td> UIColor </td>
+<td> </td>
+</tr>
+<tr>
+<td> rangeFlatTextColor </td>
+<td> 价格幅度平盘文字颜色 </td>
+<td> UIColor </td>
+<td>      </td>
+</tr>
+<tr>
+<td> rangeDropTextColor </td>
+<td> 价格跌幅文字颜色 </td>
+<td> UIColor </td>
+<td>      </td>
+</tr>
+<tr>
+<td> currentLineColor   </td>
+<td> 价格线颜色 </td>
+<td> UIColor </td>
+<td>      </td>
+</tr>
+<tr>
+<td> currentLineWidth   </td>
+<td> 价格线宽 </td>
+<td> CGFloat </td>
+<td>      </td>
+</tr>
+<tr>
+<td> gradientColors    </td>
+<td> 渐层颜色 </td>
+<td> NSArray </td>
+<td>      </td>
+</tr>
+<tr>
+<td> gradientLocations    </td>
+<td> 渐层颜色位置 </td>
+<td> CGFloat[] </td>
+<td>      </td>
+</tr>
+<tr>
+<td> startTime    </td>
+<td> 开始时间 </td>
+<td> NSString </td>
+<td>  @"2016-03-04"    </td>
+</tr>
+<tr>
+<td> endTime    </td>
+<td> 结束时间 </td>
+<td> NSString </td>
+<td>   @"2016-03-04"   </td>
+</tr>
+</tbody>
+</table>
+</li>
+<li><p>方法说明:</p>
+
+<table>
+<thead>
+<tr>
+<th> 方法名      </th>
+<th> 说明         </th>
+<th> 回调型态         </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> getALLFundValue </td>
+<td> 获取一年内所有净值信息 </td>
+<td> NSArry </td>
+<td>  </td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+
+
+<h4 id="MFundChartViewSample">调用样例</h4>
+
+
+<pre><code>// 走势图初始化
+MFundChartView *chartView = [[MFundChartView alloc] initWithFrame:CGRectZero];
+
+// 必要属性
+chartView.code = @"502025.sh";
+
+// 订制化属性
+chartView.yAxisFont = [UIFont boldSystemFontOfSize:17];
+chartView.borderWidth = 5;
+chartView.borderColor = [UIColor whiteColor];
+chartView.insideLineWidth = 2;
+chartView.insideLineColor = [UIColor purpleColor];
+chartView.xAxisFont = [UIFont boldSystemFontOfSize:12.0];
+chartView.xAxisTextColor = [UIColor redColor];
+chartView.priceRiseTextColor = [UIColor yellowColor];
+chartView.priceFlatTextColor = [UIColor greenColor];
+chartView.priceDropTextColor = [UIColor brownColor];
+chartView.volumeTextColor = [UIColor yellowColor];
+chartView.rangeRiseTextColor = [UIColor orangeColor];
+chartView.rangeFlatTextColor = [UIColor purpleColor];
+chartView.rangeDropTextColor = [UIColor redColor];
+chartView.currentLineWidth = 5;
+chartView.currentLineColor = [UIColor blueColor];
+chartView.startTime = @"2015-09-10";
+chartView.endTime = @"2016-10-11";
+
+[self.view addSubview:chartView];
+</code></pre>
+
+<p><a href="#top">top</a></p>
+
+<h3 id="MOHLCChartView">K线图：MOHLCChartView</h3>
+
+
+
+
+<h4 id="MOHLCChartViewExplain">说明</h4>
+
+
+<ul>
+<li>从服务器取得取得各时间类型数据，如日K、周K、月K...等，并绘制K线图。</li>
+</ul>
+
+
+<h4 id="MOHLCChartViewAttribute">属性</h4>
+
+
+<ul>
+<li><p>属性说明:</p>
+
+<table>
+<thead>
+<tr>
+<th> 属性名      </th>
+<th> 说明         </th>
+<th> 型态         </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> type </td>
+<td> K线图类型 </td>
+<td> MOHLCChartType </td>
+<td> 类型请参考<a href="#MOHLCChartType">MOHLCChartType</a> </td>
+</tr>
+<tr>
+<td> numberOfVisibleRecords   </td>
+<td> 设置画面k棒笔数 </td>
+<td> NSUInteger </td>
+<td>      </td>
+</tr>
+<tr>
+<td> majorPlotIndex </td>
+<td> 主图当前索引值 </td>
+<td> NSUInteger </td>
+<td>      </td>
+</tr>
+<tr>
+<td> minorPlotIndex </td>
+<td> 副图当前索引值 </td>
+<td> NSUInteger </td>
+<td>      </td>
+</tr>
+<tr>
+<td> majorPlotSettingButton </td>
+<td> 主图设定按钮 </td>
+<td> UIButton </td>
+<td>      </td>
+</tr>
+<tr>
+<td> majorPlotChangeIndexButton </td>
+<td> 主图切换索引按钮 </td>
+<td> UIButton </td>
+<td> </td>
+</tr>
+<tr>
+<td> minorPlotChangeIndexButton </td>
+<td> 副图切换索引按钮 </td>
+<td> UIButton </td>
+<td>      </td>
+</tr>
+<tr>
+<td> majorPlots    </td>
+<td> 主图plot数组 </td>
+<td> NSArray </td>
+<td>      </td>
+</tr>
+<tr>
+<td> minorPlots   </td>
+<td> 副图plot数组 </td>
+<td> NSArray </td>
+<td>      </td>
+</tr>
+<tr>
+<td> barFill   </td>
+<td> k棒是否填充 </td>
+<td> BOOL </td>
+<td>      </td>
+</tr>
+<tr>
+<td> scrollEnabled   </td>
+<td> 是否可滚动 </td>
+<td> BOOL </td>
+<td>      </td>
+</tr>
+<tr>
+<td> zoomEnabled   </td>
+<td> 是否可缩放 </td>
+<td> BOOL </td>
+<td>      </td>
+</tr>
+<tr>
+<td> majorGraphView    </td>
+<td> 主图实例 </td>
+<td> UIView </td>
+<td>      </td>
+</tr>
+<tr>
+<td> minorGraphView    </td>
+<td> 副图实例 </td>
+<td> UIView </td>
+<td>      </td>
+</tr>
+<tr>
+<td> yAxisTextColor    </td>
+<td> y轴文字颜色 </td>
+<td> UIColor </td>
+<td>      </td>
+</tr>
+</tbody>
+</table>
+</li>
+<li><p>方法说明:</p>
+
+<table>
+<thead>
+<tr>
+<th> 方法名      </th>
+<th> 说明     </th>
+<th>  传入参数  </th>
+<th> 回调型态         </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> addMajorPlot: </td>
+<td> 加入主图 </td>
+<td> (MOHLCPlot *)plot </td>
+<td> void </td>
+<td>  </td>
+</tr>
+<tr>
+<td> addMajorPlots: </td>
+<td> 加入主图 </td>
+<td> (MOHLCPlot *)plots </td>
+<td> void </td>
+<td> 以nil结尾 </td>
+</tr>
+<tr>
+<td> addMinorPlot: </td>
+<td> 加入副图 </td>
+<td> (MPlot *)plot </td>
+<td> void </td>
+<td>  </td>
+</tr>
+<tr>
+<td> addMinorPlots: </td>
+<td> 加入副图 </td>
+<td> (MPlot *)plots </td>
+<td> void </td>
+<td> 以nil结尾 </td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+
+
+<h4 id="MOHLCChartViewSample">调用样例</h4>
+
+
+<pre><code>// K线图初始化
+MOHLCChartView *chartView = [[MOHLCChartView alloc] initWithFrame:CGRectZero];
+
+// 必要属性
+chartView.code = @"600000.sh";
+
+// 线图数据类型
+chartView.type = MOHLCChartTypeDay;
+
+// 订制化属性
+chartView.backgroundColor = [UIColor orangeColor];
+chartView.borderWidth = 5;
+chartView.borderColor = [UIColor brownColor];
+chartView.insideLineColor = [UIColor purpleColor];
+chartView.insideLineWidth = 3;
+chartView.yAxisFont = [UIFont boldSystemFontOfSize:25.0];
+chartView.yAxisTextColor = [UIColor blueColor];
+chartView.xAxisFont = [UIFont boldSystemFontOfSize:25];
+chartView.xAxisTextColor = [UIColor redColor];
+chartView.enquiryFrameColor = [UIColor blueColor];
+chartView.enquiryLineColor = [UIColor orangeColor];
+chartView.enquiryTextColor = [UIColor yellowColor];
+chartView.enquiryTextFont = [UIFont boldSystemFontOfSize:17];
+chartView.barFill = YES;
+
+UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+button.frame = CGRectMake(0, 0, 60, 20);
+button.backgroundColor = [UIColor blueColor];
+[button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+[button setTitle:@"设均线" forState:UIControlStateNormal];
+[button addTarget:self
+           action:@selector(MASettingButtonClicked:)
+ forControlEvents:UIControlEventTouchUpInside];
+chartView.majorPlotSettingButton = button;
+
+button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+button.frame = CGRectMake(0, 0, 60, 20);
+button.backgroundColor = [UIColor yellowColor];
+[button setTitle:@"主图" forState:UIControlStateNormal];
+[button addTarget:self
+           action:@selector(majorPlotChangeIndexButtonClicked:)
+ forControlEvents:UIControlEventTouchUpInside];
+chartView.majorPlotChangeIndexButton = button;
+
+button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+button.frame = CGRectMake(0, 0, 50, 20);
+button.backgroundColor = [UIColor yellowColor];
+[button setTitle:@"副指标" forState:UIControlStateNormal];
+[button addTarget:self
+           action:@selector(minorPlotChangeIndexButtonClicked:)
+ forControlEvents:UIControlEventTouchUpInside];
+chartView.minorPlotChangeIndexButton = button;
+
+// 设置主图
+MOHLCPlot *plot = [[MOHLCPlot alloc] initWithYAxisLabelCount:5];
+[plot setParameters:5, 10, 15, 20, nil];
+[plot setLineColors:[UIColor whiteColor],
+    [UIColor yellowColor],
+    [UIColor greenColor],
+    [UIColor orangeColor], nil];
+chartView.majorPlots = @[plot];
+
+// 设置副图
+chartView.minorPlots = @[[[MVolumePlot alloc] initWithYAxisLabelCount:5], 
+                         [[MRSIPlot alloc] initWithYAxisLabelCount:5], 
+                         [[MKDJPlot alloc] initWithYAxisLabelCount:5]];
+
+[self.view addSubview:chartView];
+</code></pre>
+
+<p><a href="#top">top</a></p>
+
+<h3 id="MPlot">K线图指标：MPlot</h3>
+
+
+
+
+<h4 id="MPlotExplain">说明</h4>
+
+
+<ul>
+<li>此为各个指标父类别，请根据不同指标子类别生成指标实例，并设置MOHLCChartView的majorPlot及minorPlot绘制图形。</li>
+</ul>
+
+
+<h4 id="MPlotAttribute">属性</h4>
+
+
+<ul>
+<li><p>属性说明:</p>
+
+<table>
+<thead>
+<tr>
+<th> 属性名      </th>
+<th> 说明         </th>
+<th> 型态         </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> title </td>
+<td> 指标名 </td>
+<td> NSString </td>
+<td>  </td>
+</tr>
+<tr>
+<td> options </td>
+<td> 其他参数 </td>
+<td> NSDictionary </td>
+<td>  </td>
+</tr>
+</tbody>
+</table>
+</li>
+<li><p>其他参数说明:</p>
+
+<table>
+<thead>
+<tr>
+<th> 键值      </th>
+<th> 说明         </th>
+<th> 型态         </th>
+<th> 备注  </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> Y_AXIS_LABELS_HIDDEN</td>
+<td> Y轴Label是否隐藏 </td>
+<td> NSArray </td>
+<td> @[@YES, @NO, @NO, @YES] </td>
+</tr>
+</tbody>
+</table>
+</li>
+<li><p>方法说明:</p>
+
+<table>
+<thead>
+<tr>
+<th> 方法名      </th>
+<th> 说明     </th>
+<th>  传入参数  </th>
+<th> 回调型态         </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> initWithYAxisLabelCount: </td>
+<td> 初始化并设置y轴Label个数 </td>
+<td> (NSInteger)yAxisLabelCount </td>
+<td> instancetype </td>
+<td>  </td>
+</tr>
+<tr>
+<td> redraw </td>
+<td> 重新绘制 </td>
+<td>  </td>
+<td> void </td>
+<td> </td>
+</tr>
+<tr>
+<td> setParameters: </td>
+<td> 设置参数 </td>
+<td> (NSUInteger)param, ... </td>
+<td> void </td>
+<td> 以nil结尾。参数索引对应请参照各子类别文档 </td>
+</tr>
+<tr>
+<td> setParametersFromArray: </td>
+<td> 设置参数 </td>
+<td> (NSArray *)params </td>
+<td> void </td>
+<td> 参数索引对应请参照各子类别文档 </td>
+</tr>
+<tr>
+<td> setLineColors: </td>
+<td> 设置线的颜色 </td>
+<td> (UIColor *)color, ... </td>
+<td> void </td>
+<td> 以nil结尾 </td>
+</tr>
+<tr>
+<td> setLineColorsFromArray: </td>
+<td> 设置线的颜色 </td>
+<td> (NSArray *)colors </td>
+<td> void </td>
+<td>  </td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+
+
+<p><a href="#top">top</a></p>
+
+<h4 id="主图指标">主图指标</h4>
+
+
+
+
+<h5 id="MMAPlot">移动平均线：MMAPlot</h5>
+
+
+<ul>
+<li><p>属性说明:</p>
+
+<table>
+<thead>
+<tr>
+<th> 属性名      </th>
+<th> 说明         </th>
+<th> 型态         </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> flatColor </td>
+<td> 平盘颜色 </td>
+<td> UIColor </td>
+<td>  </td>
+</tr>
+<tr>
+<td> riseColor </td>
+<td> 涨颜色 </td>
+<td> UIColor </td>
+<td>  </td>
+</tr>
+<tr>
+<td> dropColor </td>
+<td> 跌颜色 </td>
+<td> UIColor </td>
+<td>  </td>
+</tr>
+</tbody>
+</table>
+</li>
+<li><p>参数说明:</p>
+
+<table>
+<thead>
+<tr>
+<th> 参数索引 </th>
+<th> 说明     </th>
+<th> 默认值            </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> 0~9     </td>
+<td> 天数     </td>
+<td> 0:6, 1:12, 2:24  </td>
+<td>  </td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+
+
+<p><a href="#top">top</a></p>
+
+<h5 id="MBOLLPlot">布林线：MBOLLPlot</h5>
+
+
+<ul>
+<li><p>参数说明:</p>
+
+<table>
+<thead>
+<tr>
+<th> 参数索引 </th>
+<th> 说明       </th>
+<th> 默认值 </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> 0       </td>
+<td> 天数       </td>
+<td> 20    </td>
+<td>  </td>
+</tr>
+<tr>
+<td> 1       </td>
+<td> N倍标准差   </td>
+<td> 2     </td>
+<td>  </td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+
+
+<p><a href="#top">top</a></p>
+
+<h4 id="副图指标">副图指标</h4>
+
+
+
+
+<h5 id="MVOLPlot">成交量指标：MVOLPlot</h5>
+
+
+<ul>
+<li><p>属性说明:</p>
+
+<table>
+<thead>
+<tr>
+<th> 属性名      </th>
+<th> 说明         </th>
+<th> 型态         </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> flatColor </td>
+<td> 平盘颜色 </td>
+<td> UIColor </td>
+<td>  </td>
+</tr>
+<tr>
+<td> riseColor </td>
+<td> 涨颜色 </td>
+<td> UIColor </td>
+<td>  </td>
+</tr>
+<tr>
+<td> dropColor </td>
+<td> 跌颜色 </td>
+<td> UIColor </td>
+<td>  </td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+
+
+<p><a href="#top">top</a></p>
+
+<h5 id="MRSIPlot">相对强弱指标：MRSIPlot</h5>
+
+
+<ul>
+<li><p>参数说明:</p>
+
+<table>
+<thead>
+<tr>
+<th> 参数索引 </th>
+<th> 说明       </th>
+<th> 默认值 </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> 0       </td>
+<td> 天数       </td>
+<td> 6    </td>
+<td>  </td>
+</tr>
+<tr>
+<td> 1       </td>
+<td> 天数       </td>
+<td> 12     </td>
+<td>  </td>
+</tr>
+<tr>
+<td> 2       </td>
+<td> 天数       </td>
+<td> 24     </td>
+<td>  </td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+
+
+<p><a href="#top">top</a></p>
+
+<h5 id="MKDJPlot">随机指标：MKDJPlot</h5>
+
+
+<ul>
+<li><p>参数说明:</p>
+
+<table>
+<thead>
+<tr>
+<th> 参数索引 </th>
+<th> 说明       </th>
+<th> 默认值 </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> 0       </td>
+<td> 天数       </td>
+<td> 9    </td>
+<td>  </td>
+</tr>
+<tr>
+<td> 1       </td>
+<td> -       </td>
+<td> 3     </td>
+<td>  </td>
+</tr>
+<tr>
+<td> 2       </td>
+<td> -       </td>
+<td> 3     </td>
+<td>  </td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+
+
+<p><a href="#top">top</a></p>
+
+<h5 id="MMACDPlot">指数平滑移动平均：MMACDPlot</h5>
+
+
+<ul>
+<li><p>属性说明:</p>
+
+<table>
+<thead>
+<tr>
+<th> 属性名      </th>
+<th> 说明         </th>
+<th> 型态         </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> riseColor </td>
+<td> 涨颜色 </td>
+<td> UIColor </td>
+<td>  </td>
+</tr>
+<tr>
+<td> dropColor </td>
+<td> 跌颜色 </td>
+<td> UIColor </td>
+<td>  </td>
+</tr>
+</tbody>
+</table>
+</li>
+<li><p>参数说明:</p>
+
+<table>
+<thead>
+<tr>
+<th> 参数索引 </th>
+<th> 说明       </th>
+<th> 默认值 </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> 0       </td>
+<td> 短期       </td>
+<td> 12    </td>
+<td>  </td>
+</tr>
+<tr>
+<td> 1       </td>
+<td> 长期       </td>
+<td> 26     </td>
+<td>  </td>
+</tr>
+<tr>
+<td> 2       </td>
+<td> 天数       </td>
+<td> 9     </td>
+<td>  </td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+
+
+<p><a href="#top">top</a></p>
+
+<h5 id="MBIASPlot">乖离率指标：MBIASPlot</h5>
+
+
+<ul>
+<li><p>参数说明:</p>
+
+<table>
+<thead>
+<tr>
+<th> 参数索引 </th>
+<th> 说明       </th>
+<th> 默认值 </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> 0       </td>
+<td> 天数       </td>
+<td> 5    </td>
+<td>  </td>
+</tr>
+<tr>
+<td> 1       </td>
+<td> 天数       </td>
+<td> 10     </td>
+<td>  </td>
+</tr>
+<tr>
+<td> 2       </td>
+<td> 天数       </td>
+<td> 20     </td>
+<td>  </td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+
+
+<p><a href="#top">top</a></p>
+
+<h5 id="MCCIPlot">顺势指标：MCCIPlot</h5>
+
+
+<ul>
+<li><p>参数说明:</p>
+
+<table>
+<thead>
+<tr>
+<th> 参数索引 </th>
+<th> 说明       </th>
+<th> 默认值 </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> 0       </td>
+<td> 天数       </td>
+<td> 12    </td>
+<td>  </td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+
+
+<p><a href="#top">top</a></p>
+
+<h5 id="MWRPlot">威廉指标：MWRPlot</h5>
+
+
+<ul>
+<li><p>参数说明:</p>
+
+<table>
+<thead>
+<tr>
+<th> 参数索引 </th>
+<th> 说明       </th>
+<th> 默认值 </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> 0       </td>
+<td> 天数       </td>
+<td> 5    </td>
+<td>  </td>
+</tr>
+<tr>
+<td> 1       </td>
+<td> 天数       </td>
+<td> 10     </td>
+<td>  </td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+
+
+<p><a href="#top">top</a></p>
+
+<h5 id="MARPlot">人气指标：MARPlot</h5>
+
+
+<ul>
+<li><p>参数说明:</p>
+
+<table>
+<thead>
+<tr>
+<th> 参数索引 </th>
+<th> 说明       </th>
+<th> 默认值 </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> 0       </td>
+<td> 天数       </td>
+<td> 13    </td>
+<td>  </td>
+</tr>
+<tr>
+<td> 1       </td>
+<td> 天数       </td>
+<td> 26     </td>
+<td>  </td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+
+
+<p><a href="#top">top</a></p>
+
+<h5 id="MBBIPlot">多空指标：MBBIPlot</h5>
+
+
+<ul>
+<li><p>参数说明:</p>
+
+<table>
+<thead>
+<tr>
+<th> 参数索引 </th>
+<th> 说明       </th>
+<th> 默认值 </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> 0       </td>
+<td> 天数       </td>
+<td> 3    </td>
+<td>  </td>
+</tr>
+<tr>
+<td> 1       </td>
+<td> 天数       </td>
+<td> 6     </td>
+<td>  </td>
+</tr>
+<tr>
+<td> 2       </td>
+<td> 天数       </td>
+<td> 12    </td>
+<td>  </td>
+</tr>
+<tr>
+<td> 3       </td>
+<td> 天数       </td>
+<td> 24     </td>
+<td>  </td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+
+
+<p><a href="#top">top</a></p>
+
+<h5 id="MBRPlot">意愿指标：MBRPlot</h5>
+
+
+<ul>
+<li><p>参数说明:</p>
+
+<table>
+<thead>
+<tr>
+<th> 参数索引 </th>
+<th> 说明       </th>
+<th> 默认值 </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> 0       </td>
+<td> 天数       </td>
+<td> 13    </td>
+<td>  </td>
+</tr>
+<tr>
+<td> 1       </td>
+<td> 天数       </td>
+<td> 26     </td>
+<td>  </td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+
+
+<p><a href="#top">top</a></p>
+
+<h5 id="MKDPlot">随机指数：MKDPlot</h5>
+
+
+<ul>
+<li><p>参数说明:</p>
+
+<table>
+<thead>
+<tr>
+<th> 参数索引 </th>
+<th> 说明       </th>
+<th> 默认值 </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> 0       </td>
+<td> 天数       </td>
+<td> 9    </td>
+<td>  </td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+
+
+<p><a href="#top">top</a></p>
+
+<h5 id="MDMIPlot">动向指标：MDMIPlot</h5>
+
+
+<ul>
+<li><p>参数说明:</p>
+
+<table>
+<thead>
+<tr>
+<th> 参数索引 </th>
+<th> 说明       </th>
+<th> 默认值 </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> 0       </td>
+<td> 天数       </td>
+<td> 14    </td>
+<td>  </td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+
+
+<p><a href="#top">top</a></p>
+
+<h5 id="MPSYPlot">心理线指标：MPSYPlot</h5>
+
+
+<ul>
+<li><p>参数说明:</p>
+
+<table>
+<thead>
+<tr>
+<th> 参数索引 </th>
+<th> 说明       </th>
+<th> 默认值 </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> 0       </td>
+<td> 天数       </td>
+<td> 12    </td>
+<td>  </td>
+</tr>
+<tr>
+<td> 1        </td>
+<td> 天数       </td>
+<td> 24    </td>
+<td>  </td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+
+
+<p><a href="#top">top</a></p>
+
+<h5 id="MOBVPlot">能量潮指标：MOBVPlot</h5>
+
+
+<p><a href="#top">top</a></p>
+
+<h5 id="MMTMPlot">动量指标：MMTMPlot</h5>
+
+
+<ul>
+<li><p>参数说明:</p>
+
+<table>
+<thead>
+<tr>
+<th> 参数索引 </th>
+<th> 说明       </th>
+<th> 默认值 </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> 0       </td>
+<td> 天数       </td>
+<td> 12    </td>
+<td>  </td>
+</tr>
+<tr>
+<td> 1       </td>
+<td> -       </td>
+<td> 6    </td>
+<td>  </td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+
+
+<p><a href="#top">top</a></p>
+
+<h5 id="MVRPlot">成交量变异率：MVRPlot</h5>
+
+
+<ul>
+<li><p>参数说明:</p>
+
+<table>
+<thead>
+<tr>
+<th> 参数索引 </th>
+<th> 说明       </th>
+<th> 默认值 </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> 0       </td>
+<td> 天数       </td>
+<td> 13    </td>
+<td>  </td>
+</tr>
+<tr>
+<td> 1       </td>
+<td> 天数       </td>
+<td> 26    </td>
+<td>  </td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+
+
+<p><a href="#top">top</a></p>
+
+<h5 id="MROCPlot">变动速率指标：MROCPlot</h5>
+
+
+<ul>
+<li><p>参数说明:</p>
+
+<table>
+<thead>
+<tr>
+<th> 参数索引 </th>
+<th> 说明       </th>
+<th> 默认值 </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> 0       </td>
+<td> 天数       </td>
+<td> 10    </td>
+<td>  </td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+
+
+<p><a href="#top">top</a></p>
+
+<h5 id="MNVIPlot">负量指标：MNVIPlot</h5>
+
+
+<p><a href="#top">top</a></p>
+
+<h5 id="MPVIPlot">正成交量指标：MPVIPlot</h5>
+
+
+<p><a href="#top">top</a></p>
+
+<h3 id="MIPOCalendarView">新股日历图：MIPOCalendarView</h3>
+
+
+
+
+<h4 id="MIPOCalendarViewExplain">说明</h4>
+
+
+<ul>
+<li>新股日历列表页面。</li>
+</ul>
+
+
+<h4 id="MIPOCalendarViewAttribute">属性</h4>
+
+
+<ul>
+<li><p>属性说明:</p>
+
+<table>
+<thead>
+<tr>
+<th> 属性名      </th>
+<th> 说明         </th>
+<th> 型态         </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> delegate </td>
+<td> 视图代理 </td>
+<td> MIPOCalendarViewDelegate </td>
+<td> 类型请参考<a href="#MIPOCalendarViewDelegate">MIPOCalendarViewDelegate</a> </td>
+</tr>
+<tr>
+<td> headerTitleColor </td>
+<td> section标题文字颜色 </td>
+<td> UIColor </td>
+<td>      </td>
+</tr>
+<tr>
+<td> headerPromptColor </td>
+<td> section副标题文字颜色 </td>
+<td> UIColor </td>
+<td>      </td>
+</tr>
+<tr>
+<td> headerTitleFontSize </td>
+<td> section标题文字大小 </td>
+<td> CGFloat </td>
+<td>      </td>
+</tr>
+<tr>
+<td> headerPromptFontSize </td>
+<td> section副标题文字大小 </td>
+<td> CGFloat </td>
+<td> </td>
+</tr>
+<tr>
+<td> headerBackColor </td>
+<td> section背景色 </td>
+<td> UIColor </td>
+<td>      </td>
+</tr>
+<tr>
+<td> separatorClolor </td>
+<td> section标题分割线颜色 </td>
+<td> UIColor </td>
+<td>      </td>
+</tr>
+<tr>
+<td> promptSeparatorColor    </td>
+<td> section副标题下面的分割线颜色 </td>
+<td> UIColor </td>
+<td>      </td>
+</tr>
+<tr>
+<td> cellTextColor </td>
+<td> cell文字颜色 </td>
+<td> UIColor </td>
+<td>      </td>
+</tr>
+<tr>
+<td> cellFontSize </td>
+<td> cell文字大小 </td>
+<td> CGFloat </td>
+<td>      </td>
+</tr>
+<tr>
+<td> codeIdColor </td>
+<td> 股票代码字体颜色 </td>
+<td> UIColor </td>
+<td>      </td>
+</tr>
+<tr>
+<td> codeIdFontSize </td>
+<td> 股票代码字体大小 </td>
+<td> CGFloat </td>
+<td>      </td>
+</tr>
+<tr>
+<td> cellBackColor </td>
+<td> cell背景颜色 </td>
+<td> UIColor </td>
+<td>      </td>
+</tr>
+<tr>
+<td> axisHolidayColor </td>
+<td> 休息日轴线颜色 </td>
+<td> UIColor </td>
+<td>      </td>
+</tr>
+<tr>
+<td> axisWorkdayColor </td>
+<td> 工作日轴线颜色 </td>
+<td> UIColor </td>
+<td>      </td>
+</tr>
+<tr>
+<td> axisSelectColor </td>
+<td> 当前选择日期轴线颜色 </td>
+<td> UIColor </td>
+<td>      </td>
+</tr>
+<tr>
+<td> axisLineWidth </td>
+<td> 轴线宽度 </td>
+<td> CGFloat </td>
+<td>      </td>
+</tr>
+<tr>
+<td> axisArcRadius </td>
+<td> 圆的半径 </td>
+<td> CGFloat </td>
+<td>      </td>
+</tr>
+<tr>
+<td> axisBackColor </td>
+<td> 滚动轴背景色 </td>
+<td> UIColor </td>
+<td>      </td>
+</tr>
+<tr>
+<td> dateTextColor </td>
+<td> 日期文字颜色 </td>
+<td> UIColor </td>
+<td>      </td>
+</tr>
+<tr>
+<td> dateTextFontSize </td>
+<td> 日期字体大小 </td>
+<td> CGFloat </td>
+<td>      </td>
+</tr>
+<tr>
+<td> promptTextColor </td>
+<td> 提示消息文字颜色 </td>
+<td> UIColor </td>
+<td>      </td>
+</tr>
+<tr>
+<td> promptTextFontSize </td>
+<td> 提示消息文字大小 </td>
+<td> CGFloat </td>
+<td>      </td>
+</tr>
+<tr>
+<td> noDataMessageColor </td>
+<td> “暂无数据” 提示文字颜色 </td>
+<td> UIColor </td>
+<td>      </td>
+</tr>
+<tr>
+<td> scrollDirection </td>
+<td> 点击日期后的滚动方向 </td>
+<td> MIPOCalendarViewScrollDirection </td>
+<td>  类型请参考<a href="#MIPOCalendarViewScrollDirection">MIPOCalendarViewScrollDirection</a>    </td>
+</tr>
+</tbody>
+</table>
+</li>
+<li><p>方法说明:</p>
+
+<table>
+<thead>
+<tr>
+<th> 方法名      </th>
+<th> 说明     </th>
+<th>  传入参数  </th>
+<th> 回调型态         </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> loadData </td>
+<td> 加载数据 </td>
+<td> 无 </td>
+<td> 无 </td>
+<td>  </td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+
+
+<h4 id="MIPOCalendarViewSample">调用样例</h4>
+
+
+<p></p>
+
+<pre><code>- (void)viewDidLoad {
+    [super viewDidLoad];
+    self.title = @"新股日历";
+    self.view.backgroundColor = [UIColor blackColor];
+    stockView = [[MIPOCalendarView alloc]init];
+    stockView.separatorClolor = [UIColor colorWithRed:20.0/255.0 green:34.0/255.0 blue:50.0/255.0 alpha:1];
+    stockView.headerBackColor = [UIColor colorWithRed:17.0/255.0 green:24.0/255.0 blue:30.0/255.0 alpha:1];
+    stockView.headerTitleColor = [UIColor colorWithRed:61.0/255.0 green:118.0/255.0 blue:148.0/255.0 alpha:1];
+    stockView.headerPromptColor = [UIColor grayColor];
+    stockView.promptSeparatorColor = [UIColor colorWithRed:24./255. green:29./255. blue:33./255. alpha:1];
+    stockView.cellBackColor = [UIColor colorWithRed:16.0/255.0 green:20.0/255.0 blue:25.0/255.0 alpha:1];
+    stockView.cellTextColor = [UIColor whiteColor];
+    stockView.codeIdColor = [UIColor colorWithRed:105.0/255.0 green:113.0/255.0 blue:118.0/255.0 alpha:1];
+    stockView.axisHolidayColor = [UIColor lightGrayColor];
+    stockView.axisWorkdayColor = [UIColor whiteColor];
+    stockView.axisSelectColor = [UIColor redColor];
+    stockView.dateTextColor = [UIColor whiteColor];
+    stockView.promptTextColor = [UIColor lightGrayColor];
+    stockView.axisBackColor = [UIColor colorWithRed:16.0/255.0 green:20.0/255.0 blue:25.0/255.0 alpha:1];
+
+    stockView.delegate = self;
+    [self.view addSubview:stockView];
+    [stockView loadData];
+}
+</code></pre>
+
+<p><a href="#top">top</a></p>
+
+<h3 id="MIPODetailView">新股日历详情视图：MIPODetailView</h3>
+
+
+
+
+<h4 id="MIPODetailViewExplain">说明</h4>
+
+
+<ul>
+<li>新股日历详情页面。</li>
+</ul>
+
+
+<h4 id="MIPODetailViewAttribute">属性</h4>
+
+
+<ul>
+<li><p>属性说明:</p>
+
+<table>
+<thead>
+<tr>
+<th> 属性名      </th>
+<th> 说明         </th>
+<th> 型态         </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> delegate </td>
+<td> 视图代理 </td>
+<td> MIPODetailViewDelegate </td>
+<td> 类型请参考<a href="#MIPODetailViewDelegate">MIPODetailViewDelegate</a> </td>
+</tr>
+<tr>
+<td> sectionHeaderSeparatorColor </td>
+<td> section header 的分割线颜色 </td>
+<td> UIColor </td>
+<td>      </td>
+</tr>
+<tr>
+<td> sectionHeaderHeight </td>
+<td> section header 高度 </td>
+<td> CGFloat </td>
+<td>      </td>
+</tr>
+<tr>
+<td> sectionHeaderBackgroundColor </td>
+<td> section header 背景色 </td>
+<td> UIColor </td>
+<td>      </td>
+</tr>
+<tr>
+<td> sectionHeaderFontSize </td>
+<td> section header 文字大小 </td>
+<td> CGFloat </td>
+<td> </td>
+</tr>
+<tr>
+<td> sectionHeaderTextColor </td>
+<td> section header 文字颜色 </td>
+<td> UIColor </td>
+<td>      </td>
+</tr>
+<tr>
+<td> cellNameTextColor </td>
+<td> cell右边标题文字颜色 </td>
+<td> UIColor </td>
+<td>      </td>
+</tr>
+<tr>
+<td> cellNameTextFontSize    </td>
+<td> cell右边标题文字大小 </td>
+<td> CGFloat </td>
+<td>      </td>
+</tr>
+<tr>
+<td> cellValueTextColor </td>
+<td> cell左边详情文字颜色 </td>
+<td> UIColor </td>
+<td>      </td>
+</tr>
+<tr>
+<td> cellValueTextFontSize </td>
+<td> cell左边详情文字大小 </td>
+<td> CGFloat </td>
+<td>      </td>
+</tr>
+<tr>
+<td> clickedTextColor </td>
+<td> 可点击的股票名称文字颜色 </td>
+<td> UIColor </td>
+<td>      </td>
+</tr>
+<tr>
+<td> cellBackColor </td>
+<td> cell背景颜色 </td>
+<td> UIColor </td>
+<td>      </td>
+</tr>
+</tbody>
+</table>
+</li>
+<li><p>方法说明:</p>
+
+<table>
+<thead>
+<tr>
+<th> 方法名      </th>
+<th> 说明     </th>
+<th>  传入参数  </th>
+<th> 回调型态         </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> loadDataWithCode: </td>
+<td> 加载数据 </td>
+<td> 股票代码 </td>
+<td> 无 </td>
+<td>  </td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+
+
+<h4 id="MIPODetailViewSample">调用样例</h4>
+
+
+<p></p>
+
+<pre><code>- (void)viewDidLoad {
+    [super viewDidLoad];
+    self.view.backgroundColor = [UIColor blackColor];
+    detailView = [[MIPODetailView alloc]init];
+    detailView.sectionHeaderSeparatorColor     = [UIColor colorWithRed:20.0/255.0 green:34.0/255.0 blue:50.0/255.0 alpha:1];
+    detailView.sectionHeaderBackgroundColor    = [UIColor colorWithRed:17.0/255.0 green:24.0/255.0 blue:30.0/255.0 alpha:1];
+    detailView.sectionHeaderTextColor    = [UIColor colorWithRed:61.0/255.0 green:118.0/255.0 blue:148.0/255.0 alpha:1];
+
+
+    detailView.cellNameTextColor = [UIColor grayColor];
+    detailView.cellValueTextColor = [UIColor whiteColor];
+    detailView.clickedTextColor = [UIColor colorWithRed:61.0/255.0 green:118.0/255.0 blue:148.0/255.0 alpha:1];
+    detailView.cellBackColor = [UIColor blackColor];
+    detailView.delegate = self;
+    [self.view addSubview:detailView];
+    [detailView loadDataWithCode:self.code];
+
+}
+</code></pre>
+
+<p><a href="#top">top</a></p>
+
+<h3 id="MTopPriceDetailView">五档明细视图：MTopPriceDetailView</h3>
+
+
+
+
+<h4 id="MTopPriceDetailViewExplain">说明</h4>
+
+
+<ul>
+<li>五档明细视图。</li>
+</ul>
+
+
+<h4 id="MTopPriceDetailViewAttribute">属性</h4>
+
+
+<ul>
+<li><p>属性说明:</p>
+
+<table>
+<thead>
+<tr>
+<th> 属性名      </th>
+<th> 说明         </th>
+<th> 型态         </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> code </td>
+<td> 股号 </td>
+<td> NSString </td>
+<td>  </td>
+</tr>
+<tr>
+<td> segmentBorderColor </td>
+<td> segment边框颜色 </td>
+<td> UIColor </td>
+<td>      </td>
+</tr>
+<tr>
+<td> segmentFont </td>
+<td> segment字体 </td>
+<td> UIFont </td>
+<td>      </td>
+</tr>
+<tr>
+<td> segmentBackgroundColor </td>
+<td> segment背景色 </td>
+<td> UIColor </td>
+<td>      </td>
+</tr>
+<tr>
+<td> segmentSelectedBackgroundColor </td>
+<td> segment选择时背景色 </td>
+<td> UIColor </td>
+<td> </td>
+</tr>
+<tr>
+<td> segmentTextColor </td>
+<td> segment文字颜色 </td>
+<td> UIColor </td>
+<td>      </td>
+</tr>
+<tr>
+<td> segmentSelectedTextColor </td>
+<td> segment选择时文字颜色 </td>
+<td> UIColor </td>
+<td>      </td>
+</tr>
+<tr>
+<td> segmentHeight </td>
+<td> segment高度 </td>
+<td> CGFloat </td>
+<td>      </td>
+</tr>
+<tr>
+<td> riseTextColor </td>
+<td> 涨文字色 </td>
+<td> UIColor </td>
+<td>      </td>
+</tr>
+<tr>
+<td> dropTextColor </td>
+<td> 跌文字色 </td>
+<td> UIColor </td>
+<td>      </td>
+</tr>
+<tr>
+<td> flatTextColor </td>
+<td> 平盘文字色 </td>
+<td> UIColor </td>
+<td>      </td>
+</tr>
+<tr>
+<td> volumeTextColor </td>
+<td> 量文字色 </td>
+<td> UIColor </td>
+<td>      </td>
+</tr>
+<tr>
+<td> textColor </td>
+<td> 通用文字色 </td>
+<td> UIColor </td>
+<td>      </td>
+</tr>
+<tr>
+<td> textFont </td>
+<td> 通用字体 </td>
+<td> UIFont </td>
+<td>      </td>
+</tr>
+</tbody>
+</table>
+</li>
+<li><p>方法说明:</p>
+
+<table>
+<thead>
+<tr>
+<th> 方法名      </th>
+<th> 说明     </th>
+<th>  传入参数  </th>
+<th> 回调型态         </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> reloadData </td>
+<td> 请求数据并刷新 </td>
+<td> </td>
+<td> 无 </td>
+<td>  </td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+
+
+<h4 id="MTopPriceDetailViewSample">调用样例</h4>
+
+
+<p></p>
+
+<pre><code>- (void)viewDidLoad {
+    [super viewDidLoad];
+    self.view.backgroundColor = [UIColor blackColor];
+    _topPriceDetailView = [[MTopPriceDetailView alloc] initWithFrame:self.view.bounds];
+    _topPriceDetailView.code = @"600919.sh";
+    _topPriceDetailView.volumeTextColor = [UIColor yellowColor];
+    [self.view addSubview:_topPriceDetailView];
+}
+</code></pre>
+
+<p><a href="#top">top</a></p>
+
+<h2 id="其他">其他</h2>
+
+
+
+
+<h3 id="MTrendChartType">走势图类型(MTrendChartType)</h3>
+
+
+<table>
+<thead>
+<tr>
+<th> 名称                 </th>
+<th> 说明     </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> MTrendChartTypeOneDay   </td>
+<td> 分时 </td>
+<td>      </td>
+</tr>
+<tr>
+<td> MTrendChartTypeFiveDays    </td>
+<td> 五日 </td>
+<td>      </td>
+</tr>
+</tbody>
+</table>
+
+
+<p><a href="#top">top</a></p>
+
+<h3 id="MOHLCChartType">K线图类型(MOHLCChartType)</h3>
+
+
+<table>
+<thead>
+<tr>
+<th> 名称                     </th>
+<th> 说明     </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> MOHLCChartTypeDay      </td>
+<td> 日线 </td>
+<td>      </td>
+</tr>
+<tr>
+<td> MOHLCChartTypeWeek     </td>
+<td> 周线 </td>
+<td>      </td>
+</tr>
+<tr>
+<td> MOHLCChartTypeMonth    </td>
+<td> 月线 </td>
+<td>      </td>
+</tr>
+<tr>
+<td> MOHLCChartTypeMin5     </td>
+<td> 5分钟线 </td>
+<td>      </td>
+</tr>
+<tr>
+<td> MOHLCChartTypeMin15    </td>
+<td> 15分钟线 </td>
+<td>      </td>
+</tr>
+<tr>
+<td> MOHLCChartTypeMin30    </td>
+<td> 30分钟线   </td>
+<td>      </td>
+</tr>
+<tr>
+<td> MOHLCChartTypeMin60    </td>
+<td> 60分钟线 </td>
+<td>      </td>
+</tr>
+<tr>
+<td> MOHLCChartTypeMin120   </td>
+<td> 120分钟线 </td>
+<td>      </td>
+</tr>
+</tbody>
+</table>
+
+
+<p><a href="#top">top</a></p>
+
+<h3 id="MChartEnquiryLineMode">查价线模式类型(MChartEnquiryLineMode)</h3>
+
+
+<table>
+<thead>
+<tr>
+<th> 名称                 </th>
+<th> 说明     </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> MChartEnquiryLineModeNone   </td>
+<td> y轴线自由移动 </td>
+<td>     </td>
+</tr>
+<tr>
+<td> MChartEnquiryLineModeSticky    </td>
+<td> y轴线绘制在当前所查的价格座标上 </td>
+<td>  默认值  </td>
+</tr>
+<tr>
+<td> MChartEnquiryLineModeNotToDisappear    </td>
+<td> 查价线出现后不消失 </td>
+<td>    </td>
+</tr>
+<tr>
+<td> MChartEnquiryLineModeDelayDisappear    </td>
+<td> 查价线出现后延迟消失 </td>
+<td>    </td>
+</tr>
+<tr>
+<td> MChartEnquiryLineModeAppearImmediately    </td>
+<td> 查价线点击立即出现 </td>
+<td>    </td>
+</tr>
+</tbody>
+</table>
+
+
+<p><a href="#top">top</a></p>
+
+<h3 id="MIPOCalendarViewScrollDirection">新股日历轴线滚动方向(MIPOCalendarViewScrollDirection)</h3>
+
+
+<table>
+<thead>
+<tr>
+<th> 名称                 </th>
+<th> 说明     </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> MIPOCalendarViewScrollDirectionLeft   </td>
+<td> 选中日期滚动到左边 </td>
+<td>   默认值   </td>
+</tr>
+<tr>
+<td> MIPOCalendarViewScrollDirectionMiddle    </td>
+<td> 选中日期滚动到中间 </td>
+<td>      </td>
+</tr>
+<tr>
+<td> MIPOCalendarViewScrollDirectionRight    </td>
+<td> 选中日期滚动到右边 </td>
+<td>      </td>
+</tr>
+</tbody>
+</table>
+
+
+<p><a href="#top">top</a></p>
+
+<h3 id="MIPOCalendarViewDelegate">新股日历视图代理(MIPOCalendarViewDelegate)</h3>
+
+
+<ul>
+<li><p>方法说明</p>
+
+<table>
+<thead>
+<tr>
+<th> 方法名      </th>
+<th> 说明     </th>
+<th>  传入参数  </th>
+<th> 回调型态         </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> IPODetailView: didSelectStockWithCode: </td>
+<td> 点击股票名称事件回调 </td>
+<td> 股票代码 </td>
+<td>  </td>
+<td> 可选方法 </td>
+</tr>
+<tr>
+<td> IPODetailViewWillGetData: </td>
+<td> 将要获取数据时调用 </td>
+<td>  </td>
+<td>  </td>
+<td> 可选方法 </td>
+</tr>
+<tr>
+<td> IPODetailViewDidEndGetData: </td>
+<td> 获取数据完成后调用 </td>
+<td>  </td>
+<td>  </td>
+<td> 可选方法 </td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+
+
+<p><a href="#top">top</a></p>
+
+<h3 id="MIPODetailViewDelegate">新股日历详情视图代理(MIPODetailViewDelegate)</h3>
+
+
+<ul>
+<li><p>方法说明</p>
+
+<table>
+<thead>
+<tr>
+<th> 方法名      </th>
+<th> 说明     </th>
+<th>  传入参数  </th>
+<th> 回调型态         </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> IPOCalendarView: didSelectStockWithCode: andName: </td>
+<td> 点击股票事件回调 </td>
+<td> 股票代码,股票名称 </td>
+<td>  </td>
+<td> 可选方法 </td>
+</tr>
+<tr>
+<td> IPOCalendarViewWillGetData: </td>
+<td> 将要获取数据时调用 </td>
+<td>  </td>
+<td>  </td>
+<td> 可选方法 </td>
+</tr>
+<tr>
+<td> IPOCalendarViewDidEndGetData: </td>
+<td> 获取数据完成后调用 </td>
+<td>  </td>
+<td>  </td>
+<td> 可选方法 </td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+
+
+<p><a href="#top">top</a></p>
+</body>
+</html>

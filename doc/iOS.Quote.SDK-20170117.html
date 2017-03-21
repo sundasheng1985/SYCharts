@@ -1,0 +1,6932 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<style>
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote {
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: "Helvetica Neue", Helvetica, "Hiragino Sans GB", Arial, sans-serif;
+    font-size: 13px;
+    line-height: 18px;
+    color: #737373;
+    background-color: white;
+    margin: 10px 13px 10px 13px;
+}
+table {
+	margin: 10px 0 15px 0;
+	border-collapse: collapse;
+}
+td,th {	
+	border: 1px solid #ddd;
+	padding: 3px 10px;
+}
+th {
+	padding: 5px 10px;	
+}
+
+a {
+    color: #0069d6;
+}
+a:hover {
+    color: #0050a3;
+    text-decoration: none;
+}
+a img {
+    border: none;
+}
+p {
+    margin-bottom: 9px;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: #404040;
+    line-height: 36px;
+}
+h1 {
+    margin-bottom: 18px;
+    font-size: 30px;
+}
+h2 {
+    font-size: 24px;
+}
+h3 {
+    font-size: 18px;
+}
+h4 {
+    font-size: 16px;
+}
+h5 {
+    font-size: 14px;
+}
+h6 {
+    font-size: 13px;
+}
+hr {
+    margin: 0 0 19px;
+    border: 0;
+    border-bottom: 1px solid #ccc;
+}
+blockquote {
+    padding: 13px 13px 21px 15px;
+    margin-bottom: 18px;
+    font-family:georgia,serif;
+    font-style: italic;
+}
+blockquote:before {
+    content:"\201C";
+    font-size:40px;
+    margin-left:-10px;
+    font-family:georgia,serif;
+    color:#eee;
+}
+blockquote p {
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 18px;
+    margin-bottom: 0;
+    font-style: italic;
+}
+code, pre {
+    font-family: Monaco, Andale Mono, Courier New, monospace;
+}
+code {
+    background-color: #fee9cc;
+    color: rgba(0, 0, 0, 0.75);
+    padding: 1px 3px;
+    font-size: 12px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+pre {
+    display: block;
+    padding: 14px;
+    margin: 0 0 18px;
+    line-height: 16px;
+    font-size: 11px;
+    border: 1px solid #d9d9d9;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+pre code {
+    background-color: #fff;
+    color:#737373;
+    font-size: 11px;
+    padding: 0;
+}
+sup {
+    font-size: 0.83em;
+    vertical-align: super;
+    line-height: 0;
+}
+* {
+	-webkit-print-color-adjust: exact;
+}
+@media screen and (min-width: 914px) {
+    body {
+        width: 854px;
+        margin:10px auto;
+    }
+}
+@media print {
+	body,code,pre code,h1,h2,h3,h4,h5,h6 {
+		color: black;
+	}
+	table, pre {
+		page-break-inside: avoid;
+	}
+}
+</style>
+<title>
+<h1 id="top">移动行情客户端接口说明</h1>
+================
+
+* [概述](#概述</title>
+
+</head>
+<body>
+
+
+<h1 id="top">移动行情客户端接口说明</h1>
+
+
+<hr />
+
+<ul>
+<li><a href="#%E6%A6%82%E8%BF%B0">概述</a>
+
+<ul>
+<li><a href="#%E7%9B%AE%E7%9A%84">目的</a></li>
+<li><a href="#%E5%BD%A2%E5%BC%8F%E8%AF%B4%E6%98%8E">形式说明</a></li>
+<li><a href="#%E8%B5%84%E6%BA%90%E7%B1%BB%E5%88%AB%E5%88%97%E8%A1%A8">资源类别列表</a>
+
+<ul>
+<li><a href="#%E8%BE%85%E5%8A%A9%E7%B1%BB%E5%88%AB%E5%88%97%E8%A1%A8">辅助类别列表</a></li>
+<li><a href="#%E8%AF%B7%E6%B1%82%E7%B1%BB%E5%88%AB%E5%88%97%E8%A1%A8">请求类别列表</a></li>
+<li><a href="#%E5%BA%94%E7%AD%94%E7%B1%BB%E5%88%AB%E5%88%97%E8%A1%A8">应答类别列表</a></li>
+<li><a href="#%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%88%97%E8%A1%A8">数据结构列表</a></li>
+<li><a href="#%E9%94%99%E8%AF%AF%E4%BB%A3%E7%A0%81%E5%88%97%E8%A1%A8">错误代码列表</a></li>
+<li><a href="#%E9%80%9A%E7%9F%A5%E4%BB%A3%E7%A0%81%E5%88%97%E8%A1%A8">通知代码列表</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><a href="#%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E">使用说明</a></p>
+
+<ul>
+<li><a href="#MApi">应用程序接口</a>
+
+<ul>
+<li><a href="#InitExplain">说明</a></li>
+<li><a href="#InitSample">调用样例</a></li>
+</ul>
+</li>
+<li><a href="#MApi_downloadStockTableWithCompletionHandler">取得全市场股票代码表</a>
+
+<ul>
+<li><a href="#MApi_downloadStockTableWithCompletionHandlerExplain">说明</a></li>
+<li><a href="#MApi_downloadStockTableWithCompletionHandlerSample">调用样例</a></li>
+</ul>
+</li>
+<li><a href="#MApi_subscribeQuoteCode">股票报价订阅接口</a>
+
+<ul>
+<li><a href="#MApi_subscribeQuoteCodeExplain">说明</a></li>
+<li><a href="#MApi_subscribeQuoteCodeSample">调用样例</a></li>
+</ul>
+</li>
+<li><a href="#MApi_ClassMethods">其他类方法</a>
+
+<ul>
+<li><a href="#MApi_ClassMethodsExplain">说明</a></li>
+</ul>
+</li>
+<li><a href="#MCheckVersion">版本检查</a>
+
+<ul>
+<li><a href="#MCheckVersionExplain">说明</a></li>
+<li><a href="#MCheckVersionRequest">请求类(MCheckVersionRequest)</a></li>
+<li><a href="#MCheckVersionResponse">应答类(MCheckVersionResponse)</a></li>
+<li><a href="#MCheckVersionSample">调用样例</a></li>
+</ul>
+</li>
+<li><a href="#MGetSource">获取资讯源类别</a>
+
+<ul>
+<li><a href="#MGetSourceExplain">说明</a></li>
+<li><a href="#MGetSourceRequest">请求类(MGetSourceRequest)</a></li>
+<li><a href="#MGetSourceResponse">应答类(MGetSourceResponse)</a></li>
+<li><a href="#MGetSourceSample">调用样例</a></li>
+</ul>
+</li>
+<li><a href="#MGetSourceClass">获取行情分类</a>
+
+<ul>
+<li><a href="#MGetSourceClassExplain">说明</a></li>
+<li><a href="#MGetSourceClassRequest">请求类(MGetSourceClassRequest)</a></li>
+<li><a href="#MGetSourceClassResponse">应答类(MGetSourceClassResponse)</a></li>
+<li><a href="#MGetSourceClassSample">调用样例</a></li>
+</ul>
+</li>
+<li><a href="#MGetMenu">获取主选单分类</a>
+
+<ul>
+<li><a href="#MGetMenuExplain">说明</a></li>
+<li><a href="#MGetMenuRequest">请求类(MGetMenuRequest)</a></li>
+<li><a href="#MGetMenuResponse">应答类(MGetMenuResponse)</a></li>
+<li><a href="#MGetMenuSample">调用样例</a></li>
+</ul>
+</li>
+<li><a href="#MAdvert">获取广告资讯</a>
+
+<ul>
+<li><a href="MAdvertExplain">说明</a></li>
+<li><a href="#MAdvertRequest">请求类(MAdvertRequest)</a></li>
+<li><a href="#MAdvertResponse">应答类(MAdvertResponse)</a></li>
+<li><a href="#MAdvertSample">调用样例</a></li>
+</ul>
+</li>
+<li><a href="#MAnnouncement">获取公告</a>
+
+<ul>
+<li><a href="MAnnouncementExplain">说明</a></li>
+<li><a href="#MAnnouncementRequest">请求类(MAnnouncementRequest)</a></li>
+<li><a href="#MAnnouncementResponse">应答类(MAnnouncementResponse)</a></li>
+<li><a href="#MAnnouncementSample">调用样例</a></li>
+</ul>
+</li>
+<li><a href="#Quote">证券行情列表</a>
+
+<ul>
+<li><a href="#QuoteExplain">说明</a></li>
+<li><a href="#MQuoteRequest">请求类(MQuoteRequest)</a></li>
+<li><a href="#MQuoteResponse">应答类(MQuoteResponse)</a></li>
+<li><a href="#QuoteSample">调用样例</a></li>
+</ul>
+</li>
+<li><a href="#QuoteSnap">行情快照</a>
+
+<ul>
+<li><a href="#QuoteSnapExplain">说明</a></li>
+<li><a href="#MSnapQuoteRequest">请求类(MSnapQuoteRequest)</a></li>
+<li><a href="#MSnapQuoteResponse">应答类(MSnapQuoteResponse)</a></li>
+<li><a href="#QuoteSnapSample">调用样例</a></li>
+</ul>
+</li>
+<li><a href="#QuoteSectionRanking">板块排行</a>
+
+<ul>
+<li><a href="#QuoteSectionRankingExplain">说明</a></li>
+<li><a href="#MSectionRankingRequest">请求类(MSectionRankingRequest)</a></li>
+<li><a href="#MSectionRankingResponse">应答类(MSectionRankingResponse)</a></li>
+<li><a href="#MSectionRankingSample">调用样例</a></li>
+</ul>
+</li>
+<li><a href="#MSectionSorting">板块排行</a>
+
+<ul>
+<li><a href="#MSectionSortingExplain">说明</a></li>
+<li><a href="#MSectionSortingRequest">请求类(MSectionSortingRequest)</a></li>
+<li><a href="#MSectionSortingResponse">应答类(MSectionSortingResponse)</a></li>
+<li><a href="#MSectionSortingSample">调用样例</a></li>
+</ul>
+</li>
+<li><a href="#MCategoryQuoteList">指数分类即时行情列表</a>
+
+<ul>
+<li><a href="#MCategoryQuoteListExplain">说明</a></li>
+<li><a href="#MCategoryQuoteListRequest">请求类(MCategoryQuoteListRequest)</a></li>
+<li><a href="#MCategoryQuoteListResponse">应答类(MCategoryQuoteListResponse)</a></li>
+<li><a href="#MCategoryQuoteListSample">调用样例</a></li>
+</ul>
+</li>
+<li><a href="#MRiseRanking">涨幅排行</a>
+
+<ul>
+<li><a href="#MRiseRankingExplain">说明</a></li>
+<li><a href="#MRiseRankingRequest">请求类(MRiseRankingRequest)</a></li>
+<li><a href="#MRiseRankingResponse">应答类(MRiseRankingResponse)</a></li>
+<li><a href="#MRiseRankingSample">调用样例</a></li>
+</ul>
+</li>
+<li><a href="#MFallRanking">跌幅排行</a>
+
+<ul>
+<li><a href="#MFallRankingExplain">说明</a></li>
+<li><a href="#MFallRankingRequest">请求类(MFallRankingRequest)</a></li>
+<li><a href="#MFallRankingResponse">应答类(MRiseRankingResponse)</a></li>
+<li><a href="#MFallRankingSample">调用样例</a></li>
+</ul>
+</li>
+<li><p><a href="#MCategorySorting">分类排行</a></p>
+
+<ul>
+<li><a href="#MCategorySortingExplain">说明</a></li>
+<li><a href="#MCategorySortingRequest">请求类(MCategorySortingRequest)</a></li>
+<li><a href="#MCategorySortingResponse">应答类(MCategorySortingResponse)</a></li>
+<li><a href="#MCategorySortingSample">调用样例</a></li>
+</ul>
+</li>
+<li><p><a href="#Chart">走势数据</a></p>
+
+<ul>
+<li> <a href="#ChartExplain">说明</a></li>
+<li> <a href="#MChartRequest">请求类(MChartRequest)</a></li>
+<li> <a href="#MChartResponse">应答类(MChartResponse)</a></li>
+<li> <a href="#ChartSample">调用样例</a></li>
+</ul>
+</li>
+<li><a href="#OHLC">K线数据</a>
+
+<ul>
+<li><a href="#OHLCExplain">说明</a></li>
+<li><a href="#MOHLCRequest">请求类(MOHLCRequest)</a></li>
+<li><a href="#MOHLCResponse">应答类(MOHLCResponse)</a></li>
+<li><a href="#OHLCSample">调用样例</a></li>
+</ul>
+</li>
+<li><a href="#MBrokerSeat">经纪席位</a>
+
+<ul>
+<li><a href="#MBrokerSeatExplain">说明</a></li>
+<li><a href="#MBrokerRequest">请求类(MBrokerSeatRequest)</a></li>
+<li><a href="#MBrokerResponse">应答类(MBrokerSeatResponse)</a></li>
+<li><a href="#MBrokerSample">调用样例</a></li>
+</ul>
+</li>
+<li><a href="#Search">股票查询</a>
+
+<ul>
+<li><a href="#SearchExplain">说明</a></li>
+<li><a href="#MSearchRequest">请求类(MSearchRequest)</a></li>
+<li><a href="#MSearchResponse">应答类(MSearchResponse)</a></li>
+<li><a href="#SearchSample">调用样例</a></li>
+</ul>
+</li>
+<li><a href="#UnderlyingStock">期权-标的行情</a>
+
+<ul>
+<li><a href="#UnderlyingStockExplain">说明</a></li>
+<li><a href="#MUnderlyingStockRequest">请求类(MUnderlyingStockRequest)</a></li>
+<li><a href="#MUnderlyingStockResponse">应答类(MUnderlyingStockResponse)</a></li>
+<li><a href="#UnderlyingStockSample">调用样例</a></li>
+</ul>
+</li>
+<li><a href="#ExpireMonth">期权-交割月列表</a>
+
+<ul>
+<li><a href="#ExpireMonthExplain">说明</a></li>
+<li><a href="#MExpireMonthRequest">请求类(MExpireMonthRequest)</a></li>
+<li><a href="#MExpireMonthResponse">应答类(MExpireMonthResponse)</a></li>
+<li><a href="#ExpireMonthSample">调用样例</a></li>
+</ul>
+</li>
+<li><a href="#Option">期权-商品行情</a>
+
+<ul>
+<li><a href="#OptionExplain">说明</a></li>
+<li><a href="#MOptionRequest">请求类(MOptionRequest)</a></li>
+<li><a href="#MOptionResponse">应答类(MOptionResponse)</a></li>
+<li><a href="#OptionSample">调用样例</a></li>
+</ul>
+</li>
+<li><a href="#OptionT">期权T型报价行情</a>
+
+<ul>
+<li><a href="#TOptionExplain">说明</a></li>
+<li><a href="#MOptionTRequest">请求类(MOptionTRequest)</a></li>
+<li><a href="#MOptionResponse">应答类(MOptionResponse)</a></li>
+<li><a href="#TOptionSample">调用样例</a></li>
+</ul>
+</li>
+<li><a href="#MEvent">用户行为统计</a>
+
+<ul>
+<li><a href="#MEventExplain">说明</a></li>
+<li><a href="#MEventRequest">请求类(MEventRequest)</a></li>
+<li><a href="#TOptionSample">调用样例</a></li>
+</ul>
+</li>
+<li><a href="#StockCategoryList">股票分类代码表</a>
+
+<ul>
+<li><a href="#StockCategoryListExplain">说明</a></li>
+<li><a href="#MStockCategoryListRequest">请求类(MStockCategoryListRequest)</a></li>
+<li><a href="#MStockCategoryListResponse">应答类(MStockCategoryListResponse)</a></li>
+<li><a href="#StockCategoryListSample">调用样例</a></li>
+</ul>
+</li>
+<li><a href="#MTimeTick">分时明细表</a>
+
+<ul>
+<li><a href="#MTimeTickExplain">说明</a></li>
+<li><a href="#MTimeTickRequest">请求类(MTimeTickRequest)</a></li>
+<li><a href="#MTimeTickResponse">应答类(MTimeTickResponse)</a></li>
+<li><a href="#MTimeTickSample">调用样例</a></li>
+</ul>
+</li>
+<li><a href="#MPriceVolume">分价量表</a>
+
+<ul>
+<li><a href="#MPriceVolumeExplain">说明</a></li>
+<li><a href="#MPriceVolumeRequest">请求类(MPriceVolumeRequest)</a></li>
+<li><a href="#MPriceVolumeResponse">应答类(MPriceVolumeResponse)</a></li>
+<li><a href="#MPriceVolumeSample">调用样例</a></li>
+</ul>
+</li>
+<li><a href="#MOrderQuantity">买卖队列</a>
+
+<ul>
+<li><a href="#MOrderQuantityExplain">说明</a></li>
+<li><a href="#MOrderQuantityRequest">请求类(MOrderQuantityRequest)</a></li>
+<li><a href="#MOrderQuantityResponse">应答类(MOrderQuantityResponse)</a></li>
+<li><a href="#MOrderQuantitySample">调用样例</a></li>
+</ul>
+</li>
+<li><a href="#MHKQuoteInfo">港股其他信息</a>
+
+<ul>
+<li><a href="#MHKQuoteInfoExplain">说明</a></li>
+<li><a href="#MHKQuoteInfoRequest">请求类(MHKQuoteInfoRequest)</a></li>
+<li><a href="#MHKQuoteInfoResponse">应答类(MHKQuoteInfoResponse)</a></li>
+<li><a href="#MHKQuoteInfoSample">调用样例</a></li>
+</ul>
+</li>
+<li><p><a href="#MMarketHoliday">假日黑名单</a></p>
+
+<ul>
+<li><a href="#MMarketHolidayExplain">说明</a></li>
+<li><a href="#MMarketHolidayRequest">请求类(MMarketHolidayRequest)</a></li>
+<li><a href="#MMarketHolidayResponse">应答类(MMarketHolidayResponse)</a></li>
+<li><a href="#MMarketHolidaySample">调用样例</a></li>
+</ul>
+</li>
+<li><p><a href="#MTimeTickDetail">逐笔明细</a></p>
+
+<ul>
+<li><a href="#MTimeTickDetailExplain">说明</a></li>
+<li><a href="#MTimeTickDetailRequest">请求类(MTimeTickDetailRequest)</a></li>
+<li><a href="#MTimeTickDetailResponse">应答类(MTimeTickDetailResponse)</a></li>
+<li><a href="#MTimeTickDetailSample">调用样例</a></li>
+</ul>
+</li>
+<li><p><a href="#MStaticData">个股静态数据</a></p>
+
+<ul>
+<li><a href="#MStaticDataExplain">说明</a></li>
+<li><a href="#MStaticDataRequest">请求类(MStaticDataRequest)</a></li>
+<li><a href="#MStaticDataResponse">应答类(MStaticDataResponse)</a></li>
+<li><a href="#MStaticDataSample">调用样例</a></li>
+</ul>
+</li>
+<li><p><a href="#MHKMarketInfo">两市港股通数据</a></p>
+
+<ul>
+<li><a href="#MHKMarketInfoExplain">说明</a></li>
+<li><a href="#MHKMarketInfoRequest">请求类(MHKMarketInfoRequest)</a></li>
+<li><a href="#MHKMarketInfoResponse">应答类(MHKMarketInfoResponse)</a></li>
+<li><a href="#MHKMarketInfoSample">调用样例</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><a href="#%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84">数据结构</a></p>
+
+<ul>
+<li><a href="#MStockItem">股票行情(MStockItem)</a></li>
+<li><a href="#MOHLCItem">K线数据(MOHLCItem)</a></li>
+<li><a href="#MTickItem">分笔成交(MTickItem)</a></li>
+<li><a href="#MTimeTickItem">分时成交(MTimeTickItem)</a></li>
+<li><a href="#MTimeTickDetailItem">分时成交明细(MTimeTickDetailItem)</a></li>
+<li><a href="#MPriceVolumeItem">分价量表(MPriceVolumeItem)</a></li>
+<li><a href="#MStaticDataItem">个股静态数据(MStaticDataItem)</a></li>
+<li><a href="#MBoardInfoItem">版块信息(MBoardInfoItem)</a></li>
+<li><a href="#MOrderQuantityItem">交易单明细(MOrderQuantityItem)</a></li>
+<li><a href="#MSearchResultItem">搜寻结果(MSearchResultItem)</a></li>
+<li><a href="#MCategoryItem">板块分类(MCategoryItem)</a></li>
+<li><a href="#MSectionRankingItem">板块排行(MSectionRankingItem)</a></li>
+<li><a href="#MBrokerSeatItem">经纪席位(MBrokerSeatItem)</a></li>
+<li><a href="#MOptionItem">期权-商品行情(MOptionItem)</a></li>
+<li><a href="#MHKOddInfoItem">港股碎股(MHKOddInfoItem)</a></li>
+</ul>
+</li>
+<li><p>其他</p>
+
+<ul>
+<li><a href="#MOHLCPeriod">K线周期(MOHLCPeriod)</a></li>
+<li><a href="#MOHLCPriceAdjustedMode">K线复权(MOHLCPriceAdjustedMode)</a></li>
+<li><a href="#MBSVolumeType">内外盘类别(MBSVolumeType)</a></li>
+<li><a href="#MChartType">走势类别(MChartType)</a></li>
+<li><a href="#MChangeState">涨跌状态(MChangeState)</a></li>
+<li><a href="#MOptionType">期权类别(MOptionType)</a></li>
+<li><a href="#MStockStatus">交易狀態代碼表(MStockStatus)</a></li>
+<li><a href="#MStockStage">交易阶段代碼表(MStockStage)</a></li>
+<li><a href="#MHKInfoStatus">港股状态(MHKInfoStatus)</a></li>
+<li><a href="#MTimeTickAMSFlag">港股交易明细旗标(MTimeTickAMSFlag)</a></li>
+<li><a href="#MCategorySortingField">排序代码栏位(MCategorySortingField)</a></li>
+<li><a href="#MHKOddSide">港股碎股订单买卖方向(MHKOddSide)</a></li>
+<li><a href="#MSnapQuoteRequestType">详细报价请求类别(MSnapQuoteRequestType)</a></li>
+<li><a href="#MCategoryID">分类代码(MCategoryID)</a></li>
+<li><a href="#MSectionRankingID">板块排行代码(MSectionRankingID)</a></li>
+<li><a href="#MTimeTickRequestType">分时明细请求类别(MTimeTickRequestType)</a></li>
+</ul>
+</li>
+</ul>
+
+
+<hr />
+
+<h2 id="概述">概述</h2>
+
+
+
+
+<h3 id="目的">目的</h3>
+
+
+<ul>
+<li>本文档面向的读者是项目开发人员，其中详细描述了iOS系统之请求应答类别名与上下行参数的属性名称及型态。</li>
+<li>如何通过行情客户端接口发送请求，进而获得行情数据，请至网页下载最新的<a href="http://example.net/">API Documentation</a>或下载<a href="http://example.net/">Demo</a>程式码。</li>
+<li>接口实现了通讯、数据结构与缓存机制，故开发UI人员可以大量减少处理数据的代码与时间。</li>
+</ul>
+
+
+<h3 id="形式说明">形式说明</h3>
+
+
+<ul>
+<li>接口中的类名、属性名及方法名皆以驼峰式命名法，类名首字母皆为大写，属性及方法名首字母皆为小写。</li>
+<li>由于iOS不支持命名空间，故类名皆冠上M来避免与工程上的其他类重复。</li>
+</ul>
+
+
+<h3 id="资源类别列表">资源类别列表</h3>
+
+
+
+
+<h4 id="辅助类别列表">辅助类别列表</h4>
+
+
+<table>
+<thead>
+<tr>
+<th> 说明           </th>
+<th align="center"> 类名 </th>
+<th align="center">        备注        </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> 应用程序接口类 </td>
+<td align="center"> <a href="#MApi">MApi</a> </td>
+<td align="center"> 初始化、发送请求用 </td>
+</tr>
+</tbody>
+</table>
+
+
+<h4 id="请求类别列表">请求类别列表</h4>
+
+
+<table>
+<thead>
+<tr>
+<th> 说明             </th>
+<th> 类名                    </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> 版本检查 </td>
+<td> <a href="#MCheckVersionRequest">MCheckVersionRequest</a>    </td>
+<td>      </td>
+</tr>
+<tr>
+<td> 获取资讯源类别 </td>
+<td> <a href="#MGetSourceRequest">MGetSourceRequest</a>    </td>
+<td>      </td>
+</tr>
+<tr>
+<td> 获取行情分类 </td>
+<td> <a href="#MGetSourceClassRequest">MGetSourceClassRequest</a></td>
+<td></td>
+</tr>
+<tr>
+<td> 获取主选单分类 </td>
+<td> <a href="#MGetMenuRequest">MGetMenuRequest</a>    </td>
+<td> </td>
+</tr>
+<tr>
+<td> 获取广告资讯     </td>
+<td> <a href="#MAdvertRequest">MAdvertRequest</a>  </td>
+<td></td>
+</tr>
+<tr>
+<td> 获取公告     </td>
+<td> <a href="#MAnnouncementRequest">MAnnouncementRequest</a>  </td>
+<td></td>
+</tr>
+<tr>
+<td> 证券行情列表     </td>
+<td> <a href="#MQuoteRequest">MQuoteRequest</a> </td>
+<td>      </td>
+</tr>
+<tr>
+<td> 行情快照     </td>
+<td> <a href="#MSnapQuoteRequest">MSnapQuoteRequest</a> </td>
+<td>      </td>
+</tr>
+<tr>
+<td> 板块排行         </td>
+<td> <a href="#MSectionRankingRequest">MSectionRankingRequest</a> </td>
+<td>      </td>
+</tr>
+<tr>
+<td> 板块类别个股即時行情 </td>
+<td> <a href="#MCategoryQuoteListRequest">MCategoryQuoteListRequest</a> </td>
+<td></td>
+</tr>
+<tr>
+<td> 涨幅排行     </td>
+<td> <a href="#MRiseRankingRequest">MRiseRankingRequest</a> </td>
+<td>      </td>
+</tr>
+<tr>
+<td> 跌幅排行     </td>
+<td> <a href="#MFallRankingRequest">MFallRankingRequest</a> </td>
+<td>      </td>
+</tr>
+<tr>
+<td> 分类排行     </td>
+<td> <a href="#MCategorySortingRequest">MCategorySortingRequest</a> </td>
+<td>      </td>
+</tr>
+<tr>
+<td> 走势数据         </td>
+<td> <a href="#MChartRequest">MChartRequest</a> </td>
+<td>      </td>
+</tr>
+<tr>
+<td> K线数据          </td>
+<td> <a href="#MOHLCRequest">MOHLCRequest</a> </td>
+<td>      </td>
+</tr>
+<tr>
+<td> 经纪席位         </td>
+<td> <a href="#MBrokerSeatRequest">MBrokerSeatRequest</a> </td>
+<td>      </td>
+</tr>
+<tr>
+<td> 股票查询         </td>
+<td> <a href="#MSearchRequest">MSearchRequest</a> </td>
+<td>      </td>
+</tr>
+<tr>
+<td> 期权-标的行情     </td>
+<td> <a href="#MUnderlyingStockRequest">MUnderlyingStockRequest</a> </td>
+<td>      </td>
+</tr>
+<tr>
+<td> 期权-交割月       </td>
+<td> <a href="#MExpireMonthRequest">MExpireMonthRequest</a> </td>
+<td>      </td>
+</tr>
+<tr>
+<td> 期权-商品行情         </td>
+<td> <a href="#MOptionRequest">MOptionRequest</a> </td>
+<td>      </td>
+</tr>
+<tr>
+<td> 期权-T型报价      </td>
+<td> <a href="#MOptionTRequest">MOptionTRequest</a> </td>
+<td>      </td>
+</tr>
+<tr>
+<td> 用户行为统计     </td>
+<td> <a href="#MEventRequest">MEventRequest</a> </td>
+<td>      </td>
+</tr>
+<tr>
+<td> 股票分类代码表     </td>
+<td> <a href="#MStockCategoryListRequest">MStockCategoryListRequest</a> </td>
+<td>      </td>
+</tr>
+<tr>
+<td> 个股静态数据     </td>
+<td> <a href="#MStaticDataRequest">MStaticDataRequest</a> </td>
+<td>      </td>
+</tr>
+<tr>
+<td> 两市港股通数据     </td>
+<td> <a href="#MHKMarketInfoRequest">MHKMarketInfoRequest</a> </td>
+<td>      </td>
+</tr>
+</tbody>
+</table>
+
+
+<p><a href="#top">top</a></p>
+
+<h4 id="应答类别列表">应答类别列表</h4>
+
+
+<table>
+<thead>
+<tr>
+<th> 说明             </th>
+<th> 类名                     </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> 版本检查 </td>
+<td> <a href="#MCheckVersionResponse">MCheckVersionResponse</a>   </td>
+<td>      </td>
+</tr>
+<tr>
+<td> 获取资讯源类别 </td>
+<td> <a href="#MGetSourceResponse">MGetSourceResponse</a>    </td>
+<td>  </td>
+</tr>
+<tr>
+<td> 获取行情分类 </td>
+<td> <a href="#MGetSourceClassResponse">MGetSourceClassResponse</a></td>
+<td></td>
+</tr>
+<tr>
+<td> 获取主选单分类 </td>
+<td> <a href="#MGetMenuResponse">MGetMenuResponse</a>    </td>
+<td> </td>
+</tr>
+<tr>
+<td> 获取广告资讯     </td>
+<td> <a href="#MAdvertResponse">MAdvertResponse</a>  </td>
+<td></td>
+</tr>
+<tr>
+<td> 获取公告     </td>
+<td> <a href="#MAnnouncementResponse">MAnnouncementResponse</a>  </td>
+<td></td>
+</tr>
+<tr>
+<td> 证券行情列表     </td>
+<td> <a href="#MQuoteResponse">MQuoteResponse</a>           </td>
+<td>      </td>
+</tr>
+<tr>
+<td> 行情快照     </td>
+<td> <a href="#MSnapQuoteResponse">MSnapQuoteResponse</a>       </td>
+<td>      </td>
+</tr>
+<tr>
+<td> 板块排行         </td>
+<td> <a href="#MSectionRankingResponse">MSectionRankingResponse</a>  </td>
+<td>      </td>
+</tr>
+<tr>
+<td> 板块类别个股即時行情 </td>
+<td> <a href="#MCategoryQuoteListResponse">MCategoryQuoteListResponse</a> </td>
+<td></td>
+</tr>
+<tr>
+<td> 涨幅排行     </td>
+<td> <a href="#MRiseRankingResponse">MRiseRankingResponse</a>     </td>
+<td>      </td>
+</tr>
+<tr>
+<td> 跌幅排行     </td>
+<td> <a href="#MFallRankingResponse">MFallRankingResponse</a>     </td>
+<td>      </td>
+</tr>
+<tr>
+<td> 分类排行     </td>
+<td> <a href="#MCategorySortingResponse">MCategorySortingResponse</a> </td>
+<td>      </td>
+</tr>
+<tr>
+<td> 走势数据         </td>
+<td> <a href="#MChartResponse">MChartResponse</a>           </td>
+<td>      </td>
+</tr>
+<tr>
+<td> K线数据          </td>
+<td> <a href="#MOHLCResponse">MOHLCResponse</a>            </td>
+<td>      </td>
+</tr>
+<tr>
+<td> 经纪席位         </td>
+<td> <a href="#MBrokerSeatResponse">MBrokerSeatResponse</a>      </td>
+<td>      </td>
+</tr>
+<tr>
+<td> 股票查询         </td>
+<td> <a href="#MSearchResponse">MSearchResponse</a>          </td>
+<td>      </td>
+</tr>
+<tr>
+<td> 板块分类         </td>
+<td> <a href="#MCategoryListResponse">MCategoryListResponse</a>    </td>
+<td>      </td>
+</tr>
+<tr>
+<td> 期权-标的行情     </td>
+<td> <a href="#MUnderlyingStockResponse">MUnderlyingStockResponse</a> </td>
+<td>      </td>
+</tr>
+<tr>
+<td> 期权-交割月       </td>
+<td> <a href="#MExpireMonthResponse">MExpireMonthResponse</a>     </td>
+<td>      </td>
+</tr>
+<tr>
+<td> 期权-商品行情         </td>
+<td> <a href="#MOptionResponse">MOptionResponse</a>          </td>
+<td>      </td>
+</tr>
+<tr>
+<td> 期权-T型报价      </td>
+<td> <a href="#MOptionResponse">MOptionResponse</a>         </td>
+<td>      </td>
+</tr>
+<tr>
+<td> 股票分类代码表     </td>
+<td> <a href="#MStockCategoryListResponse">MStockCategoryListResponse</a> </td>
+<td>      </td>
+</tr>
+<tr>
+<td> 个股静态数据     </td>
+<td> <a href="#MStaticDataResponse">MStaticDataResponse</a> </td>
+<td>      </td>
+</tr>
+<tr>
+<td> 两市港股通数据     </td>
+<td> <a href="#MHKMarketInfoResponse">MHKMarketInfoResponse</a> </td>
+<td>      </td>
+</tr>
+</tbody>
+</table>
+
+
+<p><a href="#top">top</a></p>
+
+<h4 id="数据结构列表">数据结构列表</h4>
+
+
+<table>
+<thead>
+<tr>
+<th> 说明             </th>
+<th> 类名                 </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> 股票模型         </td>
+<td> <a href="#MStockItem">MStockItem</a>           </td>
+<td>      </td>
+</tr>
+<tr>
+<td> 分笔成交模型     </td>
+<td> <a href="#MTickItem">MTickItem</a>            </td>
+<td>      </td>
+</tr>
+<tr>
+<td> 历史数据结构     </td>
+<td> <a href="#MOHLCItem">MOHLCItem</a>            </td>
+<td>      </td>
+</tr>
+<tr>
+<td> 搜寻结果模型     </td>
+<td> <a href="#MSearchResultItem">MSearchResultItem</a>    </td>
+<td>      </td>
+</tr>
+<tr>
+<td> 板块分类模型     </td>
+<td> <a href="#MCategoryItem">MCategoryItem</a>        </td>
+<td>      </td>
+</tr>
+<tr>
+<td> 板块排行模型     </td>
+<td> <a href="#MSectionRankingItem">MSectionRankingItem</a>  </td>
+<td>      </td>
+</tr>
+<tr>
+<td> 期权-商品行情模型     </td>
+<td> <a href="#MOptionItem">MOptionItem</a>          </td>
+<td>      </td>
+</tr>
+</tbody>
+</table>
+
+
+<p><a href="#top">top</a></p>
+
+<h4 id="错误代码列表">错误代码列表</h4>
+
+
+<table>
+<thead>
+<tr>
+<th> 说明             </th>
+<th> 列举名                 </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> 请求成功        </td>
+<td> MResponseStatusSuccess </td>
+<td> 200 </td>
+</tr>
+<tr>
+<td> session失效    </td>
+<td> MResponseStatusSessionExpired </td>
+<td> 401 </td>
+</tr>
+<tr>
+<td> 请求失败        </td>
+<td> MResponseStatusNoData </td>
+<td> 404 </td>
+</tr>
+<tr>
+<td> 股票代码数量超过限制        </td>
+<td> MResponseStatusOverLimit </td>
+<td> 444 </td>
+</tr>
+<tr>
+<td> 业务异常        </td>
+<td> MResponseStatusServerError </td>
+<td> 500 </td>
+</tr>
+<tr>
+<td> 网关错误        </td>
+<td> MResponseStatusBadGateway </td>
+<td> 502 </td>
+</tr>
+<tr>
+<td> 请求逾时        </td>
+<td> MResponseStatusTimeout </td>
+<td> -1001 </td>
+</tr>
+<tr>
+<td> 无法连结到主机   </td>
+<td> MResponseStatusNotReachabled </td>
+<td> -1002 </td>
+</tr>
+<tr>
+<td> 应答信息处理失败  </td>
+<td> MResponseStatusDataParseError </td>
+<td> -1003 </td>
+</tr>
+<tr>
+<td> 服务器无应答信息  </td>
+<td> MResponseStatusDataNil </td>
+<td> -1004 </td>
+</tr>
+<tr>
+<td> 参数错误        </td>
+<td> MResponseStatusParameterError </td>
+<td> -1005 </td>
+</tr>
+<tr>
+<td> 认证审计错误     </td>
+<td> MResponseStatusCertificationAuditError </td>
+<td> -2001 </td>
+</tr>
+</tbody>
+</table>
+
+
+<p><a href="#top">top</a></p>
+
+<h4 id="通知代码列表">通知代码列表</h4>
+
+
+<table>
+<thead>
+<tr>
+<th> 说明             </th>
+<th> 通知名称                 </th>
+<th> 通知信息 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> 行情源切换通知  </td>
+<td> MApiSourceLevelChangedNotification </td>
+<td><a href="#%E8%A1%8C%E6%83%85%E6%BA%90%E5%88%87%E6%8D%A2%E9%80%9A%E7%9F%A5%E4%BF%A1%E6%81%AF">行情源切换通知信息</a> </td>
+</tr>
+</tbody>
+</table>
+
+
+<h4 id="行情源切换通知信息">行情源切换通知信息</h4>
+
+
+<table>
+<thead>
+<tr>
+<th> 键值      </th>
+<th> 说明         </th>
+<th> 型态         </th>
+<th> 备注  </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> MApiSourceLevelChangedToKey </td>
+<td> 行情源切换通知：切换方向 </td>
+<td> MApiSourceLevel </td>
+<td> 当值为1（MApiSourceLevel1）时表示切换到MApiSourceLevel1 </td>
+</tr>
+<tr>
+<td> MApiSourceLevelChangedMarketKey </td>
+<td> 行情源切换通知：市场别 </td>
+<td> NSString </td>
+<td> 如：sh</td>
+</tr>
+</tbody>
+</table>
+
+
+<p><a href="#top">top</a></p>
+
+<h2 id="使用说明">使用说明</h2>
+
+
+
+
+<h3 id="MApi">应用程序接口</h3>
+
+
+
+
+<h4 id="InitExplain">说明</h4>
+
+
+<ul>
+<li><p>初始化方法说明:</p>
+
+<p>  <code>+ (void)registerAPP:(NSString *)appkey completionHandler:(void (^)(NSError *error))handler;</code></p>
+
+<pre><code>  * MApi的成员函数，与服务器注册接口的使用许可。
+  * appkey: 许可键值。
+  * error: 注册失败错误对象。
+</code></pre>
+
+<p>  <code>+ (void)registerAPP:(NSString *)appkey sourceLevel:(MApiSourceLevel)sourceLevel completionHandler:(void (^)(NSError *error))handler;</code></p>
+
+<pre><code>  * MApi的成员函数，与服务器注册接口的使用许可。
+  * sourceLevel: 行情源类别。
+      1. MApiSourceLevel1 (默认)
+      2. MApiSourceLevel2
+  * appkey: 许可键值。
+  * error: 注册失败错误对象。
+</code></pre>
+
+<p>  <code>+ (void)registerAPP:(NSString *)appkey withOptions:(NSDictionary *)options completionHandler:(void (^)(NSError *error))handler;</code></p>
+
+<pre><code>  * MApi的成员函数，与服务器注册接口的使用许可。
+  * options: 配置参数，如：@{MApiRegisterOptionGetServerPoolingTimeKey:@60};
+  * appkey: 许可键值。
+  * error: 注册失败错误对象。
+</code></pre>
+
+<p>  备注：更多配置见 <a href="#RegisterOptionsKey">注册配置键值表</a></p></li>
+<li><p>发送方法说明:</p>
+
+<p>  <code>+ (void)sendRequest:(MRequest *)request completionHandler:(MApiCompletionHandler)handler;</code></p>
+
+<pre><code>  * 发送请求至行情服务器。
+  * request: 具体的发送对象。
+  * handler: 回调函式(返回回应内容对象)。
+</code></pre></li>
+<li><p>取消请求方法:</p>
+
+<p>  <code>+ (void)cancelAllRequests</code></p>
+
+<pre><code>  * 取消所有请求。
+</code></pre>
+
+<p>  <code>+ (void)cancelRequest:(MRequest *)request;</code></p>
+
+<pre><code>  * 取消某个请求。
+</code></pre>
+
+<p>  <code>+ (void)cancelRequest_ptr:(MRequest *)request;</code></p>
+
+<pre><code>  * 取消某个请求。
+</code></pre></li>
+<li><p>清除缓存方法:</p>
+
+<p>  <code>+ (void)clearCache</code></p>
+
+<pre><code>  * 支持部分行情缓存，调用此方法可清除所有缓存数据，释放内存及硬盘空间。
+</code></pre></li>
+<li><p>获取缓存大小方法:</p>
+
+<p>  <code>+ (unsigned long long)num_CacheSize;</code></p>
+
+<pre><code>  *  此库支持部分行情缓存，调用此方法可获取当前缓存使用量。
+  *  返回单位:Byte。
+</code></pre></li>
+<li><p>获取网络状态方法:</p>
+
+<p>  <code>+ (MApiNetworkStatus)networkStatus;</code></p>
+
+<pre><code>  *  调用此方法可获取当前装置的网路状态。
+  *  返回值
+      *  MApiNotReachable,
+          *  MApiReachableViaWiFi,
+          *  MApiReachableViaWWAN
+</code></pre></li>
+<li><p>获取市场资讯方法:</p>
+
+<p>  <code>+ (MMarketInfo *)marketInfoWithMarket:(NSString *)market subtype:(NSString *)subtype;</code></p>
+
+<pre><code>  *  若欲查询股票的市场资讯(包含小数位数、开收盘时间等信息)，可调用此方法。
+  *  market:市场别 可见 MStockItem类的market。
+  *  subtype:次类别 可见 MStockItem类的subtype。
+</code></pre></li>
+<li><p>获取市场交易日:</p>
+
+<p>  <code>+ (NSDictionary *)fetchMarketLastestTradeDays;</code></p>
+
+<pre><code>  *  取得各个市场最新交易日期数组。
+</code></pre></li>
+<li><p>获取全市场股票代码表:</p>
+
+<p>  <code>+ (MStockTableRequest *)downloadStockTableWithCompletionHandler:(void (^)(NSError *error))handler;</code></p>
+
+<pre><code>  *  下载全市场股票代码列表到本地
+  *  说明：此处不会返回股票代码列表，可以发送MStockTableRequest请求获取股票代码列表。
+</code></pre></li>
+<li><p>获取当前版本信息:</p>
+
+<p>  <code>+ (NSString *)version;</code></p></li>
+<li><p>获取注册的行情源:</p>
+
+<p>  <code>+ (MApiSourceLevel)sourceLevel;</code></p></li>
+<li><p>获取当前某市场行情源类别:</p>
+
+<p>  <code>+ (MApiSourceLevel)sourceLevelWithMarket:(NSString *)market;</code></p>
+
+<pre><code>  *  market:sh 或 sz 或 hk
+</code></pre></li>
+<li><p>订阅股票:</p>
+
+<p>  <code>+ (void)subscribeQuoteCode:(NSString *)code didReceiveUpdate:(MApiTcpReceiveBlock)didReceiveUpdate;</code></p></li>
+<li><p>取消订阅股票:</p>
+
+<p>  <code>+ (void)unsubscribeQuoteCode:(NSString *)code;</code></p>
+
+<pre><code>  *  取消某只股票的订阅
+</code></pre>
+
+<p>  <code>+ (void)unsubscribeAllQuoteCode;</code></p>
+
+<pre><code>  *  取消所有股票的订阅
+</code></pre></li>
+<li><p>更新服务器列表:</p>
+
+<p>  <code>+ (void)checkServerList;</code></p>
+
+<pre><code>  *  若要更新当前服务器列表，可调用此方法
+</code></pre></li>
+</ul>
+
+
+<h4 id="InitSample">调用样例</h4>
+
+
+<p></p>
+
+<pre><code>- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    //初始化接口
+    [MApi registerAPP:@"anAppKey"completionHandler:^(NSError *error) {
+        if(!error) {
+            [self initialCompleted];
+        } else {
+            [Utility alertMessage:[error localizedDescription]];
+        }
+    }];
+    returnYES;
+}
+</code></pre>
+
+<p><a href="#top">top</a></p>
+
+<h3 id="MApi_downloadStockTableWithCompletionHandler">取得全市场股票代码表</h3>
+
+
+
+
+<h4 id="MApi_downloadStockTableWithCompletionHandlerExplain">说明</h4>
+
+
+<ul>
+<li><p>下载代码表方法说明:</p>
+
+<p>  <code>+ (void)downloadStockTableWithCompletionHandler:(void (^)(NSError *error))handler;</code></p>
+
+<pre><code>  * MApi的成员函数，向服务器请求股票代码表，即可使用本地搜索功能。
+  * error: 获取失败错误对象。
+</code></pre></li>
+</ul>
+
+
+<h4 id="MApi_downloadStockTableWithCompletionHandlerSample">调用样例</h4>
+
+
+<p></p>
+
+<pre><code>[MApi downloadStockTableWithCompletionHandler:^(NSError *error) {
+    if (!error) {
+        // 进入搜索页
+    }
+}];
+</code></pre>
+
+<p><a href="#top">top</a></p>
+
+<h3 id="MApi_subscribeQuoteCode">股票报价订阅接口</h3>
+
+
+
+
+<h4 id="MApi_subscribeQuoteCodeExplain">说明</h4>
+
+
+<ul>
+<li><p>订阅方法说明:</p>
+
+<p>  <code>+ (void)subscribeQuoteCode:(NSString *)code didReceiveUpdate:(MApiTcpReceiveBlock)didReceiveUpdate;</code></p>
+
+<pre><code>  * MApi的成员函数，向服务器建立TCP长连接请求股票行情，即可接收服务端PUSH之行情报价。
+  * code: 股票代码，用逗号（,）分隔。
+  * didReceiveUpdate: 接收信息的回调函式。
+</code></pre></li>
+<li><p>解订阅方法说明:</p>
+
+<p>  <code>+ (void)unsubscribeQuoteCode:(NSString *)code;</code></p>
+
+<pre><code>  * MApi的成员函数，向服务器取消订阅行情报价。
+  * code: 股票代码，用逗号（,）分隔。
+</code></pre>
+
+<p>  <code>+ (void)unsubscribeAllQuoteCode;</code></p>
+
+<pre><code>  * MApi的成员函数，向服务器取消订阅行情报价。
+</code></pre></li>
+</ul>
+
+
+<h4 id="MApi_subscribeQuoteCodeSample">调用样例</h4>
+
+
+<p></p>
+
+<pre><code>/// 订阅股票
+[MApi subscribeQuoteCode:@"000001.sh,600000.sh" didReceiveUpdate:^(NSString *code, MApiTcpUpdateBlock update) {    
+    for (MStockItem *item in self.items) {
+        if ([item.ID isEqualToString:code]) {
+            update(item);
+            break;
+        }
+    }
+    [self reloadData];
+}];
+
+/// 取消订阅
+[MApi unsubscribeAllQuoteCode];
+</code></pre>
+
+<p><a href="#top">top</a></p>
+
+<h3 id="MApi_ClassMethods">其他类方法</h3>
+
+
+
+
+<h4 id="MApi_ClassMethodsExplain">说明</h4>
+
+
+<ul>
+<li><p>获取某市场别行情源类别说明:</p>
+
+<p>  <code>+ (MApiSourceLevel)sourceLevelWithMarket:(NSString *)market;</code></p>
+
+<pre><code>  * MApi的成员函数，若要知道某市场别当前使用的行情源，可以调用此方法。
+  * market: 市场别，如：sh或sz或hk。
+</code></pre></li>
+<li><p>更新服务器列表说明:</p>
+
+<p>  <code>+ (void)checkServerList;</code></p>
+
+<pre><code>  * MApi的成员函数，若要更新当前服务器列表，可调用此方法。
+</code></pre></li>
+</ul>
+
+
+<p><a href="#top">top</a></p>
+
+<h3 id="MCheckVersion">版本检查</h3>
+
+
+
+
+<h4 id="MCheckVersionExplain">说明</h4>
+
+
+<ul>
+<li>从服务器取得最新版本资讯,其中包含最新版本号与最新版本下载位址等</li>
+</ul>
+
+
+<h4 id="MCheckVersionRequest">请求类：MCheckVersionRequest</h4>
+
+
+<ul>
+<li><p>属性说明:</p>
+
+<p>  無</p></li>
+</ul>
+
+
+<h4 id="MCheckVersionResponse">应答类：MCheckVersionResponse</h4>
+
+
+<ul>
+<li><p>属性说明</p>
+
+<table>
+<thead>
+<tr>
+<th> 属性名      </th>
+<th> 说明         </th>
+<th> 型态         </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> versionInfo </td>
+<td> 最新版本资讯 </td>
+<td> NSDictionary </td>
+<td>      </td>
+</tr>
+<tr>
+<td> versionStatus </td>
+<td> 检核状态 </td>
+<td> NSString </td>
+<td>   0:提示更新 1:强制更新 2:强制退出   </td>
+</tr>
+<tr>
+<td> downloadURLString </td>
+<td> 下载网址 </td>
+<td> NSString </td>
+<td>      </td>
+</tr>
+<tr>
+<td> checkVersionDescription </td>
+<td> 更新叙述 </td>
+<td> NSString </td>
+<td>      </td>
+</tr>
+<tr>
+<td> version </td>
+<td> 最新版本号 </td>
+<td> NSString </td>
+<td>      </td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+
+
+<h4 id="MCheckVersionSample">调用样例</h4>
+
+
+<p>
+    //请求版本资讯
+    MCheckVersionRequest *request = [[MCheckVersionRequest alloc] init];</p>
+
+<pre><code>//发送请求
+[MApi sendRequest:request completionHandler:^(MResponse *resp) {
+    if (resp.status == ResponseStatusSuccess) {
+        MCheckVersionResponse *response = (MCheckVersionResponse *)resp;
+        self.versionInfo = response.versionInfo;
+        if (![self isNewestVersion:response.versionInfo[@"ver"]]) {
+        [self updata];
+
+    } else {
+        //应答错误，显示错误信息
+        [Utility alertMessage:resp.message];
+    }
+}];
+</code></pre>
+
+<p><a href="#top">top</a></p>
+
+<h3 id="MGetSource">获取资讯源类别</h3>
+
+
+
+
+<h4 id="MGetSourceExplain">说明</h4>
+
+
+<ul>
+<li>获取资讯源类别, 举例:hkl2:港股Level2, hk:港股Level1, sh:上証...等资讯源类别</li>
+</ul>
+
+
+<h4 id="MGetSourceRequest">请求类：MGetSourceRequest</h4>
+
+
+<ul>
+<li><p>属性说明:</p>
+
+<p>  無</p></li>
+</ul>
+
+
+<h4 id="MGetSourceResponse">应答类：MGetSourceResponse</h4>
+
+
+<ul>
+<li><p>属性说明</p>
+
+<table>
+<thead>
+<tr>
+<th> 属性名      </th>
+<th> 说明         </th>
+<th> 型态         </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> sourceInfos </td>
+<td> 资讯源类别 </td>
+<td> NSDictionary   </td>
+<td>{ "src":[{ "type":" hk" }, { "type":"hkl2" }, { "type":"sh" }]}</td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+
+
+<h4 id="MGetSourceSample">调用样例</h4>
+
+
+<p>
+    //获取资讯源类别
+    MGetSourceRequest *request = [[MGetSourceRequest alloc] init];</p>
+
+<pre><code>//发送请求
+[MApi sendRequest:request completionHandler:^(MResponse *resp) {
+    if (resp.status == ResponseStatusSuccess) {
+        //应答无误，处理数据更新画面
+        MGetSourceResponse *response = (MGetSourceResponse *)resp;
+        self.sourceInfos = response.sourceInfos;
+        [self reloadData];
+
+    } else {
+        //应答错误，显示错误信息
+        [Utility alertMessage:resp.message];
+    }
+}];
+</code></pre>
+
+<p><a href="#top">top</a></p>
+
+<h3 id="MGetSourceClass">获取行情分类</h3>
+
+
+
+
+<h4 id="MGetSourceClassExplain">说明</h4>
+
+
+<ul>
+<li>取得各市场行情的分类列表:如沪深市场又区分沪深A股、上证A股等,港股分港股通、AH股等</li>
+</ul>
+
+
+<h4 id="MGetSourceClassRequest">请求类：MGetSourceClassRequest</h4>
+
+
+<ul>
+<li><p>属性说明:</p>
+
+<p>  無</p></li>
+</ul>
+
+
+<h4 id="MGetSourceClassResponse">应答类：MGetSourceClassResponse</h4>
+
+
+<ul>
+<li><p>属性说明</p>
+
+<table>
+<thead>
+<tr>
+<th> 属性名      </th>
+<th> 说明         </th>
+<th> 型态         </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> sourceClassInfos </td>
+<td> 各市场分类类别 </td>
+<td> NSDictionary </td>
+<td>      </td>
+</tr>
+</tbody>
+</table>
+
+
+<pre><code>  { 
+  "class": [ 
+      {
+      "n": "沪深市场",
+      "m": [
+          {
+              "t": "cateranking",
+              "s": "SHSZ1001",
+              "n": "沪深A股"
+          },
+          {
+              "t": "cateranking",
+              "s": "SH1001",
+              "n": "上证A股"
+          },
+          {
+              "t": "cateranking",
+              "s": "SZ1001",
+              "n": "深证A股"
+          },
+          {
+              "t": "cateranking",
+              "s": "SZ1004",
+              "n": "创业板"
+          },
+          {
+              "t": "cateranking",
+              "s": "SHSZ1400",
+              "n": "大盘指数"
+          },
+          {
+              "t": "cateranking",
+              "s": "SH1400",
+              "n": "上海指数"
+          },
+          {
+              "t": "cateranking",
+              "s": "SZ1400",
+              "n": "深圳指数"
+          },
+          {
+              "t": "cateranking",
+              "s": "SH1002",
+              "n": "上证B股"
+          },
+          {
+              "t": "cateranking",
+              "s": "SZ1002",
+              "n": "深证B股"
+          },
+          {
+              "t": "cateranking",
+              "s": "SH1100",
+              "n": "上证基金"
+          },
+          {
+              "t": "cateranking",
+              "s": "SZ1100",
+              "n": "深证基金"
+          },
+          {
+              "t": "cateranking",
+              "s": "SH1300",
+              "n": "上证债券"
+          },
+          {
+              "t": "cateranking",
+              "s": "SZ1300",
+              "n": "深证债券"
+          }
+      ]
+  },
+  {
+      "n": "板块",
+      "m": [
+          {
+              "t": "bankuairanking",
+              "s": "Trade",
+              "n": "行业板块"
+          },
+          {
+              "t": "bankuairanking",
+              "s": "Notion",
+              "n": "概念板块"
+          },
+          {
+              "t": "bankuairanking",
+              "s": "Area",
+              "n": "地域板块"
+          }
+      ]
+  },
+  {
+      "n": "沪港通",
+      "m": [
+          {
+              "t": "cateranking",
+              "s": "SHTone",
+              "n": "沪股通"
+          },
+          {
+              "t": "cateranking",
+              "s": "HKTone",
+              "n": "港股通"
+          },
+          {
+              "t": "cateranking",
+              "s": "HKAH",
+              "n": "AH股"
+          }
+      ]
+  },
+  {
+      "n": "期权",
+      "m": [
+          {
+              "t": "cateranking",
+              "s": "SH3002",
+              "n": "上证期权"
+          }
+      ]
+  },
+  {
+      "n": "港股",
+      "m": [
+          {
+              "t": "cateranking",
+              "s": "HKTone",
+              "n": "港股通"
+          },
+          {
+              "t": "cateranking",
+              "s": "HKAH",
+              "n": "AH股"
+          },
+          {
+              "t": "cateranking",
+              "s": "HKRed",
+              "n": "红筹股"
+          },
+          {
+              "t": "cateranking",
+              "s": "HKBlue",
+              "n": "蓝筹股"
+          },
+          {
+              "t": "cateranking",
+              "s": "HK1000",
+              "n": "主版"
+          },
+          {
+              "t": "cateranking",
+              "s": "HK1004",
+              "n": "创业板"
+          },
+          {
+              "t": "cateranking",
+              "s": "HKNationCom",
+              "n": "国企股"
+          }]
+      }]
+  }
+</code></pre></li>
+</ul>
+
+
+<h4 id="MGetSourceClassSample">调用样例</h4>
+
+
+<p>  <br/>
+    //获取行情分类
+    MGetSourceClassRequest *request = [[MGetSourceClassRequest alloc] init];</p>
+
+<pre><code>//发送请求
+[MApi sendRequest:request completionHandler:^(MResponse *resp) {
+    if (resp.status == ResponseStatusSuccess) {
+        //应答无误，处理数据更新画面
+        MGetSourceClassResponse *response = (MGetSourceClassResponse *)resp;
+        self.sourceClassInfos = response.sourceClassInfos;
+        [self reloadData];
+
+    } else {
+        //应答错误，显示错误信息
+        [Utility alertMessage:resp.message];
+    }
+}];
+</code></pre>
+
+<p><a href="#top">top</a></p>
+
+<h3 id="MGetMenu">获取主选单分类</h3>
+
+
+
+
+<h4 id="MGetMenuExplain">说明</h4>
+
+
+<ul>
+<li>取得主选单的功能列表</li>
+</ul>
+
+
+<h4 id="MGetMenuRequest">请求类：MGetMenuRequest</h4>
+
+
+<ul>
+<li><p>属性说明:</p>
+
+<p>  無</p></li>
+</ul>
+
+
+<h4 id="MGetMenuResponse">应答类：MGetMenuResponse</h4>
+
+
+<ul>
+<li><p>属性说明</p>
+
+<table>
+<thead>
+<tr>
+<th> 属性名      </th>
+<th> 说明         </th>
+<th> 型态         </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> menuDictionary </td>
+<td> 主选单功能列表 </td>
+<td> NSDictionary </td>
+<td>   { "menu":[{ "id":" 1", "name":"财经新闻" }, { "id":" 2", "name":"自选股" }, { "id":"3", "name":"大盘指数" }] }   </td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+
+
+<h4 id="MGetMenuSample">调用样例</h4>
+
+
+<p> <br/>
+    //请求主选单功能列表
+    MGetMenuRequest *request = [[MGetMenuRequest alloc] init];</p>
+
+<pre><code>//发送请求
+[MApi sendRequest:request completionHandler:^(MResponse *resp) {
+    if (resp.status == ResponseStatusSuccess) {
+        //应答无误，处理数据更新画面
+        MGetMenuResponse *response = (MGetMenuResponse *)resp;
+        self.menuDictionary = response.menuDictionary;
+
+        [self reloadData];
+
+    } else {
+        //应答错误，显示错误信息
+        [Utility alertMessage:resp.message];
+    }
+}];
+</code></pre>
+
+<p><a href="#top">top</a></p>
+
+<h3 id="MAdvert">获取广告资讯</h3>
+
+
+
+
+<h4 id="MAdvertExplain">说明</h4>
+
+
+<ul>
+<li>从服务器取得广告轮拨资讯和重点资讯列表</li>
+</ul>
+
+
+<h4 id="MAdvertRequest">请求类：MAdvertRequest</h4>
+
+
+<ul>
+<li><p>属性说明:</p>
+
+<table>
+<thead>
+<tr>
+<th> 属性名  </th>
+<th> 说明 </th>
+<th> 型态 </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>advertKey </td>
+<td>广告Key</td>
+<td>NSString</td>
+<td> 可为空取回所有广告资讯列表</td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+
+
+<h4 id="MAdvertResponse">应答类：MAdvertResponse</h4>
+
+
+<ul>
+<li><p>属性说明</p>
+
+<table>
+<thead>
+<tr>
+<th> 属性名      </th>
+<th> 说明         </th>
+<th> 型态         </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> advertDictionary </td>
+<td> 分类列表 </td>
+<td> NSDictionary </td>
+<td>      </td>
+</tr>
+</tbody>
+</table>
+
+
+<pre><code>  {  marketing : 
+      ( 
+          { items : 
+              ({ 
+                  click : "http://114.80.155.142:22018/upload/html/20150916101910796/index.html";
+                  image : "http://114.80.155.142:22018/upload/image/2015040803.png";
+                  title : "\U4e91\U5e73\U53f0\U5168\U9762\U516c\U7248\U6d4b\U8bd5";
+                  type : image;
+              },
+              {
+                  click : "http://114.80.155.142:22018/upload/html/20150916101910796/index.html";
+                  image : "http://114.80.155.142:22018/upload/image/2015040801.png";
+                  title : "\U4e91\U5e73\U53f0\U5168\U9762\U516c\U7248\U6d4b\U8bd5";
+                  type : image;
+              });
+            loc : 01;
+          },
+          { items :             
+              ({
+                  click : "http://114.80.155.142:22018/upload/html/20150916101941687/index.html";
+                  image : "http://114.80.155.142:22018/upload/image/2015042600.png";
+                  title : "\U79fb\U52a8\U8bc1\U5238\U6807\U51c6\U7248\U4ecb\U7ecd";
+                  type : list;
+              },
+             {
+                  click : "http://114.80.155.142:22018/upload/html/20150916102015548/index.html";
+                  image : "http://114.80.155.142:22018/upload/image/2015042600.png";
+                  title : "\U79fb\U52a8\U8bc1\U5238\U63a5\U53e3\U7248\U4ecb\U7ecd";
+                  type : list;
+              });
+          loc : 02;
+          }
+      );
+  }
+</code></pre></li>
+</ul>
+
+
+<h4 id="MAdvertSample">调用样例</h4>
+
+
+<p>  <br/>
+    //请求广告资讯
+    MAdvertRequest *request = [[MAdvertRequest alloc] init];</p>
+
+<pre><code>//发送请求
+[MApi sendRequest:request completionHandler:^(MResponse *resp) {
+    if (resp.status == ResponseStatusSuccess) {
+        //应答无误，处理数据更新画面
+        MAdvertResponse *response = (MAdvertResponse *)resp;
+        self.advertDictionary = response.advertDictionary;
+        [self reloadData];
+
+    } else {
+        //应答错误，显示错误信息
+        [Utility alertMessage:resp.message];
+    }
+}];
+</code></pre>
+
+<p><a href="#top">top</a></p>
+
+<h3 id="MAnnouncement">获取公告</h3>
+
+
+
+
+<h4 id="MAdvertExplain">说明</h4>
+
+
+<ul>
+<li>从服务器获取公告</li>
+</ul>
+
+
+<h4 id="MAnnouncementRequest">请求类：MAnnouncementRequest</h4>
+
+
+<ul>
+<li><p>属性说明:</p>
+
+<p>  無</p></li>
+</ul>
+
+
+<h4 id="MAnnouncementResponse">应答类：MAnnouncementResponse</h4>
+
+
+<ul>
+<li><p>属性说明</p>
+
+<table>
+<thead>
+<tr>
+<th> 属性名      </th>
+<th> 说明         </th>
+<th> 型态         </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> announcementTitle </td>
+<td> 公告标题 </td>
+<td> NSString </td>
+<td>      </td>
+</tr>
+<tr>
+<td> announcementContent </td>
+<td> 公告內容 </td>
+<td> NSString </td>
+<td>      </td>
+</tr>
+<tr>
+<td> announcementDatetime </td>
+<td> 公告时间 </td>
+<td> NSString </td>
+<td>      </td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+
+
+<h4 id="MAnnouncementSample">调用样例</h4>
+
+
+<p>
+    MAnnouncementRequest *request = [[MAnnouncementRequest alloc] init];</p>
+
+<pre><code>//发送请求
+[MApi sendRequest:request completionHandler:^(MResponse *resp) {
+    if (resp.status == ResponseStatusSuccess) {
+        //应答无误，处理数据更新画面
+            MAnnouncementResponse *announcementResponse = (MAnnouncementResponse *)resp;
+            if (announcementResponse.announcementTitle &amp;&amp; announcementResponse.announcementContent) {
+                [[[UIAlertView alloc] initWithTitle:announcementResponse.announcementTitle message:announcementResponse.announcementContent delegate:nil cancelButtonTitle:@"确定" otherButtonTitles: nil] show];
+            }
+
+    } else {
+        //应答错误，显示错误信息
+        [Utility alertMessage:resp.message];
+    }
+}];
+</code></pre>
+
+<p><a href="#top">top</a></p>
+
+<h3 id="Quote">证券行情列表</h3>
+
+
+
+
+<h4 id="QuoteExplain">说明</h4>
+
+
+<ul>
+<li>通过设置股票代码可获取该股票的行情数据，股票代码支持多笔，若异查询多行股票行情，可用逗号隔开，例如:600000.sh,600600.sh。</li>
+</ul>
+
+
+<h4 id="MQuoteRequest">请求类：MQuoteRequest</h4>
+
+
+<ul>
+<li><p>属性说明:</p>
+
+<table>
+<thead>
+<tr>
+<th> 属性名 </th>
+<th> 说明     </th>
+<th> 型态     </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> code   </td>
+<td> 股票代码 </td>
+<td> NSString </td>
+<td>      </td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+
+
+<h4 id="MQuoteResponse">应答类：MQuoteResponse</h4>
+
+
+<ul>
+<li><p>属性说明</p>
+
+<table>
+<thead>
+<tr>
+<th> 属性名     </th>
+<th> 说明     </th>
+<th> 型态    </th>
+<th> 备注                               </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> stockItems </td>
+<td> 股票列表 </td>
+<td> NSArray </td>
+<td> 股票列表中的对象请参考<a href="#MStockItem">MStockItem</a></td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+
+
+<h4 id="QuoteSample">调用样例</h4>
+
+
+<p>
+    //请求股票行情
+    MQuoteRequest *request = [[MQuoteRequest alloc] init];
+    request.code = symbols; //填入股票代码</p>
+
+<pre><code>//发送请求
+[MApi sendRequest:requestcompletionHandler:^(MResponse *resp) {
+    if (resp.status == ResponseStatusSuccess) {
+        //应答无误，处理数据更新画面
+        MQuoteResponse *response = (MQuoteResponse *)resp;
+        self.stockItems = response.stockItems;
+        [self reloadData];
+    } else {
+        //应答错误，显示错误信息
+        [Utility alertMessage:resp.message];
+    }
+}];
+</code></pre>
+
+<p><a href="#top">top</a></p>
+
+<h3 id="QuoteSnap">行情快照</h3>
+
+
+
+
+<h4 id="QuoteSnapExplain">说明</h4>
+
+
+<ul>
+<li>可获得股票(包含指数、期权)全部行情字段、五档、最新十笔交易明细。</li>
+<li>若送出的股票代码为期权商品，应答类的stockItem对象的形态为MOptionItem。</li>
+<li>若送出的股票代码为指数商品，应答类的stockItem对象会包含涨停、跌停及平盘家数。</li>
+</ul>
+
+
+<h4 id="MSnapQuoteRequest">请求类：MSnapQuoteRequest</h4>
+
+
+<ul>
+<li><p>属性说明:</p>
+
+<table>
+<thead>
+<tr>
+<th> 属性名 </th>
+<th> 说明                   </th>
+<th> 型态     </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> code   </td>
+<td> 股票代码(只可单笔查询) </td>
+<td> NSString </td>
+<td>      </td>
+</tr>
+<tr>
+<td> tickCount   </td>
+<td> 明细条数 </td>
+<td> NSInteger </td>
+<td>      </td>
+</tr>
+<tr>
+<td> type   </td>
+<td> 请求类别 </td>
+<td> <a href="#MSnapQuoteRequestType">MSnapQuoteRequestType</a> </td>
+<td>      </td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+
+
+<h4 id="MSnapQuoteResponse">应答类：MSnapQuoteResponse</h4>
+
+
+<ul>
+<li><p>属性说明</p>
+
+<table>
+<thead>
+<tr>
+<th> 属性名    </th>
+<th> 说明         </th>
+<th> 型态       </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> stockItem </td>
+<td> 快照行情  </td>
+<td> <a href="#MStockItem">MStockItem</a> </td>
+<td> 根据市场别不同，期权商品为<a href="#MOptionItem">MOptionItem</a> </td>
+</tr>
+<tr>
+<td> orderQuantityBuyItems </td>
+<td> 买卖队列买盘 </td>
+<td> NSArray </td>
+<td>  </td>
+</tr>
+<tr>
+<td> orderQuantitySellItems </td>
+<td> 买卖队列卖盘 </td>
+<td> NSArray </td>
+<td>  </td>
+</tr>
+<tr>
+<td> buyBrokerSeatItems </td>
+<td> 经济席位买盘 </td>
+<td> NSArray </td>
+<td>  </td>
+</tr>
+<tr>
+<td> sellBrokerSeatItems </td>
+<td> 经济席位买盘 </td>
+<td> NSArray </td>
+<td>  </td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+
+
+<h4 id="MSnapQuoteSample">调用样例</h4>
+
+
+<pre><code> //请求快照行情
+MSnapQuoteRequest *request = [[MSnapQuoteRequest alloc] init];
+request.code = self.stockItem.ID; //填入股票代码
+request.type = MSnapQuoteRequestType1;
+request.tickCount = 50;
+//发送请求
+[MApi sendRequest:request completionHandler:^(MResponse *resp) {
+    if(resp.status == MResponseStatusSuccess) {
+        //应答无误，处理数据更新画面
+        MSnapQuoteResponse *response = (MSnapQuoteResponse *)resp;
+        self.stockItem = response.stockItem;
+        [self reloadData];
+    } else {
+        //应答错误，显示错误信息            
+        [Utility alertMessage:resp.message];
+    }
+}];
+</code></pre>
+
+<p><a href="#top">top</a></p>
+
+<h3 id="QuoteSectionRanking">板块排行</h3>
+
+
+
+
+<h4 id="QuoteSectionRankingExplain">说明</h4>
+
+
+<ul>
+<li>可获得板块排行列表。</li>
+</ul>
+
+
+<h4 id="MSectionRankingRequest">请求类：MSectionRankingRequest</h4>
+
+
+<ul>
+<li><p>属性说明:</p>
+
+<table>
+<thead>
+<tr>
+<th> 属性名    </th>
+<th> 说明     </th>
+<th> 型态     </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> code      </td>
+<td> 板块代码 </td>
+<td> NSString </td>
+<td> 板块代码请参考<a href="#MSectionRankingID">MSectionRankingID</a> </td>
+</tr>
+<tr>
+<td> pageIndex </td>
+<td> 页码     </td>
+<td> NSString </td>
+<td>      </td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+
+
+<h4 id="MSectionRankingResponse">应答类：MSectionRankingResponse</h4>
+
+
+<ul>
+<li><p>属性说明</p>
+
+<table>
+<thead>
+<tr>
+<th> 属性名              </th>
+<th> 说明         </th>
+<th> 型态    </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> sectionRankingItems </td>
+<td> 板块排行列表 </td>
+<td> NSArray </td>
+<td>  板块排行列表中的对象请参考<a href="#MSectionRankingItem">MSectionRankingItem</a>    </td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+
+
+<h4 id="MSectionRankingSample">调用样例</h4>
+
+
+<pre><code> //请求板块排行
+MSectionRankingRequest *request = [[MSectionRankingRequest alloc] init];
+request.code = @"Trade"; //填入板块代码
+
+//发送请求
+[MApi sendRequest:request completionHandler:^(MResponse *resp) {
+    if(resp.status == MResponseStatusSuccess) {
+        //应答无误，处理数据更新画面
+        MSectionRankingResponse *response = (MSectionRankingResponse *)resp;
+        self.sectionRankingItems = response.sectionRankingItems;
+        [self reloadData];
+    } else {
+        //应答错误，显示错误信息
+        [Utility alertMessage:resp.message];
+    }
+    [self removeRequest:request];
+}];
+</code></pre>
+
+<p><a href="#top">top</a></p>
+
+<h3 id="MSectionSorting">板块排行</h3>
+
+
+
+
+<h4 id="MSectionSortingExplain">说明</h4>
+
+
+<ul>
+<li>可获得板块排行列表。</li>
+</ul>
+
+
+<h4 id="MSectionSortingRequest">请求类：MSectionSortingRequest</h4>
+
+
+<ul>
+<li><p>属性说明:</p>
+
+<table>
+<thead>
+<tr>
+<th> 属性名    </th>
+<th> 说明     </th>
+<th> 型态     </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> code      </td>
+<td> 板块代码 </td>
+<td> NSString </td>
+<td> 板块代码请参考<a href="#MSectionRankingID">MSectionRankingID</a> </td>
+</tr>
+<tr>
+<td> pageIndex </td>
+<td> 页码     </td>
+<td> NSString </td>
+<td>      </td>
+</tr>
+<tr>
+<td> pageSize </td>
+<td> 资料笔数     </td>
+<td> NSInteger </td>
+<td>      </td>
+</tr>
+<tr>
+<td> ascending </td>
+<td> 是否为升序     </td>
+<td> BOOL </td>
+<td>      </td>
+</tr>
+<tr>
+<td> field </td>
+<td> 排序栏位     </td>
+<td> MSectionSortingField </td>
+<td>  排序栏位请参考<a href="#MSectionSortingField">MSectionSortingField</a>  </td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+
+
+<h4 id="MSectionSortingResponse">应答类：MSectionSortingResponse</h4>
+
+
+<ul>
+<li><p>属性说明</p>
+
+<table>
+<thead>
+<tr>
+<th> 属性名              </th>
+<th> 说明         </th>
+<th> 型态    </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> sectionSortingItems </td>
+<td> 板块排行列表 </td>
+<td> NSArray </td>
+<td>  板块排行列表中的对象请参考<a href="#MSectionSortingItem">MSectionSortingItem</a>    </td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+
+
+<h4 id="MSectionSortingSample">调用样例</h4>
+
+
+<pre><code> //请求板块排行
+MSectionSortingRequest *request = [[MSectionSortingRequest alloc] init];
+request.code = @"Trade"; //填入板块代码
+request.pageIndex = 0;
+request.pageSize = 20;
+
+//发送请求
+[MApi sendRequest:request completionHandler:^(MResponse *resp) {
+    if(resp.status == MResponseStatusSuccess) {
+        //应答无误，处理数据更新画面
+        MSectionSortingResponse *response = (MSectionSortingResponse *)resp;
+        self.sectionSortingItems = response.sectionSortingItems;
+        [self reloadData];
+    } else {
+        //应答错误，显示错误信息
+        [Utility alertMessage:resp.message];
+    }
+    [self removeRequest:request];
+}];
+</code></pre>
+
+<p><a href="#top">top</a></p>
+
+<h3 id="MCategoryQuoteList">版块类股票行情</h3>
+
+
+
+
+<h4 id="MCategoryQuoteListExplain">说明</h4>
+
+
+<ul>
+<li>可获得板块类别个股即時行情。</li>
+</ul>
+
+
+<h4 id="MCategoryQuoteListRequest">请求类：MCategoryQuoteListRequest</h4>
+
+
+<ul>
+<li><p>属性说明:</p>
+
+<table>
+<thead>
+<tr>
+<th> 属性名    </th>
+<th> 说明     </th>
+<th> 型态     </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> categoryID  </td>
+<td> 分类代码 </td>
+<td> NSString </td>
+<td> 分类代码请参考<a href="#MCategoryID">MCategoryID</a> </td>
+</tr>
+<tr>
+<td> pageIndex  </td>
+<td> 页次 </td>
+<td> NSInteger </td>
+<td>      </td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+
+
+<h4 id="MCategoryQuoteListResponse">应答类：MCategoryQuoteListResponse</h4>
+
+
+<ul>
+<li><p>属性说明</p>
+
+<table>
+<thead>
+<tr>
+<th> 属性名              </th>
+<th> 说明         </th>
+<th> 型态    </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> categoryQuoteItems </td>
+<td> 分类即时列表 </td>
+<td> NSArray </td>
+<td>   版块类股票行情中的对象请参考<a href="#MStockItem">MStockItem</a>   </td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+
+
+<h4 id="MCategoryQuoteListSample">调用样例</h4>
+
+
+<pre><code> //请求板块类别个股即時列表
+MCategoryQuoteListRequest *request = [[MCategoryQuoteListRequest alloc] init];
+request.categoryID = @"SHSZ1001";  
+request.pageIndex = self.pageIndex;
+
+//发送请求
+[MApi sendRequest:request completionHandler:^(MResponse *resp) {
+    if(resp.status == MResponseStatusSuccess) {
+        //应答无误，处理数据更新画面
+        MCatequoteResponse *response = (MCatequoteResponse *)resp;
+        self.stockItem = response.stockItem;
+        [self reloadData];
+    } else {
+        //应答错误，显示错误信息
+        [Utility alertMessage:resp.message];
+    }
+    [self removeRequest:request];
+}];
+</code></pre>
+
+<p><a href="#top">top</a></p>
+
+<h3 id="MRiseRanking">涨幅排行</h3>
+
+
+
+
+<h4 id="MRiseRankingRankingExplain">说明</h4>
+
+
+<ul>
+<li>可获得涨幅排行列表。</li>
+</ul>
+
+
+<h4 id="MRiseRankingRequest">请求类：MRiseRankingRequest</h4>
+
+
+<ul>
+<li><p>属性说明:</p>
+
+<table>
+<thead>
+<tr>
+<th> 属性名    </th>
+<th> 说明     </th>
+<th> 型态     </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> code      </td>
+<td> 分类代码 </td>
+<td> NSString </td>
+<td> 分类代码请参考<a href="#MCategoryID">MCategoryID</a> </td>
+</tr>
+<tr>
+<td> pageIndex </td>
+<td> 页码     </td>
+<td> NSInteger </td>
+<td>      </td>
+</tr>
+<tr>
+<td> pageSize </td>
+<td> 资料笔数     </td>
+<td> NSInteger </td>
+<td>      </td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+
+
+<h4 id="MRiseRankingResponse">应答类：MRiseRankingResponse</h4>
+
+
+<ul>
+<li><p>属性说明</p>
+
+<table>
+<thead>
+<tr>
+<th> 属性名     </th>
+<th> 说明         </th>
+<th> 型态    </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> stockItems </td>
+<td> 股票区块列表 </td>
+<td> NSArray </td>
+<td>  涨幅排行中的对象请参考<a href="#MStockItem">MStockItem</a>    </td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+
+
+<h4 id="MRiseRankingSample">调用样例</h4>
+
+
+<pre><code> //请求排行数据
+ MRiseRankingRequest *request =[[class alloc] init];
+ request.code = @"SHSZ1001"; //查询沪深A股
+ request.pageIndex = 0; //第一页
+
+ //请求涨幅排行数据
+ [MApi sendRequest:request completionHandler:^(MResponse *resp) {
+     if(resp.status == MResponseStatusSuccess) {
+         //应答无误，处理数据更新画面
+         if ([resp respondsToSelector:@selector(stockItems)]) {
+             self.items = [resp valueForKeyPath:@"stockItems"];
+         }
+         else if ([resp respondsToSelector:@selector(sectionRankingItems)]) {
+             self.items = [resp valueForKeyPath:@"sectionRankingItems"];
+         }
+         [self reloadData];
+     } else {
+         //应答错误，显示错误信息
+         [Utility alertMessage:resp.message];
+     }
+ }];
+</code></pre>
+
+<p><a href="#top">top</a></p>
+
+<h3 id="MFallRanking">跌幅排行</h3>
+
+
+
+
+<h4 id="MFallRankingExplain">说明</h4>
+
+
+<ul>
+<li>可获得跌幅排行列表。</li>
+</ul>
+
+
+<h4 id="MFallRankingRequest">请求类：MFallRankingRequest</h4>
+
+
+<ul>
+<li><p>属性说明:</p>
+
+<table>
+<thead>
+<tr>
+<th> 属性名    </th>
+<th> 说明     </th>
+<th> 型态     </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> code      </td>
+<td> 分类代码 </td>
+<td> NSString </td>
+<td> 分类代码请参考<a href="#MCategoryID">MCategoryID</a> </td>
+</tr>
+<tr>
+<td> pageIndex </td>
+<td> 页码     </td>
+<td> NSInteger </td>
+<td>      </td>
+</tr>
+<tr>
+<td> pageSize </td>
+<td> 资料笔数     </td>
+<td> NSInteger </td>
+<td>      </td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+
+
+<h4 id="MFallRankingResponse">应答类：MFallRankingResponse</h4>
+
+
+<ul>
+<li><p>属性说明</p>
+
+<table>
+<thead>
+<tr>
+<th> 属性名     </th>
+<th> 说明         </th>
+<th> 型态    </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> stockItems </td>
+<td> 股票区块列表 </td>
+<td> NSArray </td>
+<td>  分类跌幅排中的对象请参考<a href="#MStockItem">MStockItem</a>    </td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+
+
+<h4 id="MFallRankingSample">调用样例</h4>
+
+
+<pre><code> //请求排行数据
+ MFallRankingRequest *request =[[class alloc] init];
+ request.code = @"allstocks"; //查询全部股票
+ request.pageIndex = 0; //第一页
+
+ //请求跌幅排行数据
+ [MApi sendRequest:request completionHandler:^(MResponse *resp) {
+     if(resp.status == MResponseStatusSuccess) {
+         //应答无误，处理数据更新画面
+         if ([resp respondsToSelector:@selector(stockItems)]) {
+             self.items = [resp valueForKeyPath:@"stockItems"];
+         }
+         else if ([resp respondsToSelector:@selector(sectionRankingItems)]) {
+             self.items = [resp valueForKeyPath:@"sectionRankingItems"];
+         }
+         [self reloadData];
+     } else {
+         //应答错误，显示错误信息
+         [Utility alertMessage:resp.message];
+     }
+ }];
+</code></pre>
+
+<p><a href="#top">top</a></p>
+
+<h3 id="MCategorySorting">分类排行</h3>
+
+
+
+
+<h4 id="MCategorySortingExplain">说明</h4>
+
+
+<ul>
+<li>可获得分类排行列表。</li>
+</ul>
+
+
+<h4 id="MCategorySortingRequest">请求类：MCategorySortingRequest</h4>
+
+
+<ul>
+<li><p>属性说明:</p>
+
+<table>
+<thead>
+<tr>
+<th> 属性名    </th>
+<th> 说明     </th>
+<th> 型态     </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> code      </td>
+<td> 分类代码 </td>
+<td> NSString </td>
+<td> 分类代码请参考<a href="#MCategoryID">MCategoryID</a> </td>
+</tr>
+<tr>
+<td> pageIndex </td>
+<td> 页码     </td>
+<td> NSInteger </td>
+<td>      </td>
+</tr>
+<tr>
+<td> pageSize </td>
+<td> 资料笔数     </td>
+<td> NSInteger </td>
+<td>      </td>
+</tr>
+<tr>
+<td> ascending </td>
+<td> 是否为升序     </td>
+<td> BOOL </td>
+<td>      </td>
+</tr>
+<tr>
+<td> field </td>
+<td> 排序栏位     </td>
+<td> MCategorySortingField </td>
+<td>  排序栏位请参考<a href="#MCategorySortingField">MCategorySortingField</a>  </td>
+</tr>
+<tr>
+<td> includeSuspension </td>
+<td> 是否包含停牌股     </td>
+<td> BOOL </td>
+<td>      </td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+
+
+<h4 id="MCategorySortingResponse">应答类：MCategorySortingResponse</h4>
+
+
+<ul>
+<li><p>属性说明</p>
+
+<table>
+<thead>
+<tr>
+<th> 属性名     </th>
+<th> 说明         </th>
+<th> 型态    </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> stockItems </td>
+<td> 股票区块列表 </td>
+<td> NSArray </td>
+<td>  分类跌幅排中的对象请参考<a href="#MStockItem">MStockItem</a>    </td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+
+
+<h4 id="MCategorySortingSample">调用样例</h4>
+
+
+<pre><code> //请求排行数据
+ MCategorySortingRequest *request =[[MCategorySortingRequest alloc] init];
+ request.code = @"allstocks"; //查询全部股票
+ request.pageIndex = 0; //第一页
+ request.ascending = YES;
+ request.field = MCategorySortingFieldChangeRate; // 涨跌幅排序
+
+ //请求分类排行数据
+ [MApi sendRequest:request completionHandler:^(MResponse *resp) {
+     if(resp.status == MResponseStatusSuccess) {
+         //应答无误，处理数据更新画面
+         if ([resp respondsToSelector:@selector(stockItems)]) {
+             self.items = [resp valueForKeyPath:@"stockItems"];
+         }
+         else if ([resp respondsToSelector:@selector(sectionRankingItems)]) {
+             self.items = [resp valueForKeyPath:@"sectionRankingItems"];
+         }
+         [self reloadData];
+     } else {
+         //应答错误，显示错误信息
+         [Utility alertMessage:resp.message];
+     }
+ }];
+</code></pre>
+
+<p><a href="#top">top</a></p>
+
+<h3 id="Chart">走势数据</h3>
+
+
+
+
+<h4 id="ChartExplain">说明</h4>
+
+
+<ul>
+<li>可获得当日及五日走势数据。</li>
+</ul>
+
+
+<h4 id="MChartRequest">请求类：MChartRequest</h4>
+
+
+<ul>
+<li><p>属性说明:</p>
+
+<table>
+<thead>
+<tr>
+<th> 属性名    </th>
+<th> 说明     </th>
+<th> 型态       </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> code      </td>
+<td> 股票代码 </td>
+<td> NSString   </td>
+<td>      </td>
+</tr>
+<tr>
+<td> subtype   </td>
+<td> 次类别   </td>
+<td> NSString   </td>
+<td>      </td>
+</tr>
+<tr>
+<td> chartType </td>
+<td> 走势类别 </td>
+<td> <a href="#MChartType">MChartType</a> </td>
+<td>      </td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+
+
+<h4 id="MChartResponse">应答类：MChartResponse</h4>
+
+
+<ul>
+<li><p>属性说明</p>
+
+<table>
+<thead>
+<tr>
+<th> 属性名     </th>
+<th> 说明                                           </th>
+<th> 型态    </th>
+<th> 备注                            </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> OHLCItems  </td>
+<td> 走势数据列表                                   </td>
+<td> NSArray </td>
+<td> 走势数据列表中的对象：<a href="#MOHLCItem">MOHLCItem</a> </td>
+</tr>
+<tr>
+<td> tradeDates </td>
+<td> 交易日，若五日则有五个交易日、若分时则显示当日 </td>
+<td> NSArray </td>
+<td>                                 </td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+
+
+<h4 id="ChartSample">调用样例</h4>
+
+
+<pre><code>//请求当日走势
+MChartRequest *request = [[MChartRequestalloc] init];
+request.code = self.stockItem.ID; //填入股票代码
+request.chartType = MChartTypeOneDay;
+
+//发送请求
+[MApi sendRequest:requestcompletionHandler:^(MResponse *resp) {
+    if (resp.status == ResponseStatusSuccess) {
+        //应答无误，处理数据更新画面
+        MChartResponse *response = (MChartResponse *)resp;
+        self.OHLCItems = response.OHLCItems;
+        [self reloadData];
+    } else {
+        //应答错误，显示错误信息
+        [Utility alertMessage:resp.message];
+    }
+}];
+</code></pre>
+
+<p><a href="#top">top</a></p>
+
+<h3 id="OHLC">K线数据</h3>
+
+
+
+
+<h4 id="OHLCExplain">说明</h4>
+
+
+<ul>
+<li>可通过设置__K线周期(period)来获取不同周期的日K或分K历史行情</li>
+</ul>
+
+
+<h4 id="MOHLCRequest">请求类：MOHLCRequest</h4>
+
+
+<ul>
+<li><p>属性说明:</p>
+
+<table>
+<thead>
+<tr>
+<th> 属性名  </th>
+<th> 说明     </th>
+<th> 型态        </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> code    </td>
+<td> 股票代码 </td>
+<td> NSString    </td>
+<td>      </td>
+</tr>
+<tr>
+<td> period  </td>
+<td> K线周期  </td>
+<td> <a href="#MOHLCPeriod">MOHLCPeriod</a> </td>
+<td>    </td>
+</tr>
+<tr>
+<td> priceAdjustedMode  </td>
+<td> 复权模式  </td>
+<td> <a href="#MOHLCPriceAdjustedMode">MOHLCPriceAdjustedMode</a> </td>
+<td>  </td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+
+
+<h4 id="MOHLCResponse">应答类：MOHLCResponse</h4>
+
+
+<ul>
+<li><p>属性说明</p>
+
+<table>
+<thead>
+<tr>
+<th> 属性名    </th>
+<th> 说明        </th>
+<th> 型态    </th>
+<th> 备注                             </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> OHLCItems </td>
+<td> K线数据列表 </td>
+<td> NSArray </td>
+<td> K线数据列表中的对象：<a href="#MOHLCItem">MOHLCItem</a> </td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+
+
+<h4 id="OHLCSample">调用样例</h4>
+
+
+<p>  <br/>
+    //请求K线数据
+    MOHLCRequest *request = [[MOHLCRequest alloc] init];
+    request.code = self.stockItem.ID; //填入股票代码
+    request.period = MOHLCPeriodDay; //日K线</p>
+
+<pre><code>//发送请求
+[MApi sendRequest:requestcompletionHandler:^(MResponse *resp) {
+    if (resp.status == ResponseStatusSuccess) {
+        //应答无误，处理数据更新画面
+        MOHLCResponse *response = (MOHLCResponse *)resp;
+        self.OHLCItems = response.OHLCItems;
+        [self reloadData];
+    } else {
+        //应答错误，显示错误信息
+        [Utility alertMessage:resp.message];
+    }
+}]; 
+</code></pre>
+
+<p><a href="#top">top</a></p>
+
+<h3 id="MBrokerSeat">经纪席位</h3>
+
+
+
+
+<h4 id="MBrokerSeatExplain">说明</h4>
+
+
+<ul>
+<li>可获得经纪席位买卖(港股专用)。</li>
+</ul>
+
+
+<h4 id="MBrokerSeatRequest">请求类：MBrokerSeatRequest</h4>
+
+
+<ul>
+<li><p>属性说明:</p>
+
+<table>
+<thead>
+<tr>
+<th> 属性名 </th>
+<th> 说明         </th>
+<th> 型态     </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> code   </td>
+<td> 港股股票代码 </td>
+<td> NSString </td>
+<td>      </td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+
+
+<h4 id="MBrokerSeatResponse">应答类(MBrokerSeatResponse)</h4>
+
+
+<ul>
+<li><p>属性说明</p>
+
+<table>
+<thead>
+<tr>
+<th> 属性名              </th>
+<th> 说明         </th>
+<th> 型态    </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> buyBrokerSeatItems  </td>
+<td> 经纪席位(买) </td>
+<td> NSArray </td>
+<td>  经纪席位(买)中的对象：<a href="#MBrokerSeatItem">MBrokerSeatItem</a>    </td>
+</tr>
+<tr>
+<td> sellBrokerSeatItems </td>
+<td> 经纪席位(卖) </td>
+<td> NSArray </td>
+<td>  经纪席位(卖中的对象：<a href="#MBrokerSeatItem">MBrokerSeatItem</a>    </td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+
+
+<h4 id="MBrokerSample">经纪席位请求样例</h4>
+
+
+<pre><code>//请求经纪席位买
+MBrokerSeatRequest *request = [[MBrokerSeatRequest alloc] init];
+request.code = self.stockItem.ID;
+
+[MApi sendRequest:request completionHandler:^(MResponse *resp) {
+    if (resp.status == MResponseStatusSuccess) {
+        MBrokerSeatResponse *response = (MBrokerSeatResponse *)resp;
+        self.buyBrokerSeatItems = response.buyBrokerSeatItems;
+        self.sellBrokerSeatItems = response.sellBrokerSeatItems;
+        [self reloadData];
+    } else {
+        //应答错误，显示错误信息
+        [Utility alertMessage:resp.message];
+    }
+ };
+</code></pre>
+
+<p><a href="#top">top</a></p>
+
+<h3 id="Search">股票查询</h3>
+
+
+
+
+<h4 id="SearchExplain">说明</h4>
+
+
+<ul>
+<li>通过设置<strong>搜寻字串(keyword)</strong>可获得相关股票列表，搜寻字串可以是代码、股名或拼音字串。</li>
+</ul>
+
+
+<h4 id="MSearchRequest">请求类(MSearchRequest)</h4>
+
+
+<ul>
+<li><p>属性说明:</p>
+
+<table>
+<thead>
+<tr>
+<th> 属性名  </th>
+<th> 说明     </th>
+<th> 型态     </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> keyword </td>
+<td> 搜寻字串 </td>
+<td> NSString </td>
+<td>      </td>
+</tr>
+<tr>
+<td> market </td>
+<td> 市场别 </td>
+<td> NSString </td>
+<td> 市场别：SH, SZ, HK     </td>
+</tr>
+<tr>
+<td> markets </td>
+<td> 多市场别 </td>
+<td> NSArray </td>
+<td> 市场别：SH, SZ, HK     </td>
+</tr>
+<tr>
+<td> subtype </td>
+<td> 子类别 </td>
+<td> NSString </td>
+<td> 请参考 <a href="#MSearchSubtype">搜索子分类代码表</a>    </td>
+</tr>
+<tr>
+<td> subtypes </td>
+<td> 多子类别 </td>
+<td> NSArray </td>
+<td> 请参考 <a href="#MSearchSubtype">搜索子分类代码表</a>    </td>
+</tr>
+<tr>
+<td> searchLocal </td>
+<td> 是否为本地端搜索 </td>
+<td> BOOL </td>
+<td> 如为YES，请先调用<a href="#MApi_downloadStockTableWithCompletionHandler">取得全市场股票代码表</a>接口 </td>
+</tr>
+<tr>
+<td> searchLimit </td>
+<td> 搜寻结果数量限制 </td>
+<td> NSUInteger </td>
+<td>      </td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+
+
+<h4 id="MSearchResponse">应答类(MSearchResponse)</h4>
+
+
+<ul>
+<li><p>属性说明</p>
+
+<table>
+<thead>
+<tr>
+<th> 属性名  </th>
+<th> 说明         </th>
+<th> 型态    </th>
+<th> 备注                                      </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> results </td>
+<td> 搜寻结果列表 </td>
+<td> NSArray </td>
+<td> 搜寻结果列表中的对象：<a href="#MSearchResultItem">MSearchResultItem</a> </td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+
+
+<h4 id="SearchSample">调用样例</h4>
+
+
+<pre><code>//股票查询
+MSearchRequest *request = [[MSearchRequest alloc] init];
+request.market = @"sh";
+request.subtype = @"1001"
+request.keyword = self.keywordTextField.text; //设定关键字
+
+//发送请求
+[MApi sendRequest:requestcompletionHandler:^(MResponse *resp) {
+    if (resp.status == ResponseStatusSuccess) {
+        //应答无误，处理数据更新画面
+        MSearchResponse *response = (MSearchResponse *)resp;
+        self.results = response.results;
+        [self reloadData];
+    } else {
+        //应答错误，显示错误信息
+        [Utility alertMessage:resp.message];
+    }
+}];
+</code></pre>
+
+<p><a href="#top">top</a></p>
+
+<h3 id="UnderlyingStock">期权-标的行情</h3>
+
+
+
+
+<h4 id="UnderlyingStockExplain">说明</h4>
+
+
+<ul>
+<li>可获得期权-标的行情列表。</li>
+</ul>
+
+
+<h4 id="MUnderlyingStockRequest">请求类(MUnderlyingStockRequest)</h4>
+
+
+<ul>
+<li>属性说明:无</li>
+</ul>
+
+
+<h4 id="MUnderlyingStockResponse">应答类(MUnderlyingStockResponse)</h4>
+
+
+<ul>
+<li><p>属性说明</p>
+
+<table>
+<thead>
+<tr>
+<th> 属性名     </th>
+<th> 说明             </th>
+<th> 型态    </th>
+<th> 备注                                               </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> stockItems </td>
+<td> 期权-标的行情列表 </td>
+<td> NSArray </td>
+<td> 期权-标的行情列表中的对象：<a href="#MStockItem">MStockItem</a> </td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+
+
+<p><a href="#top">top</a></p>
+
+<h3 id="UnderlyingStockSample">调用样例</h3>
+
+
+<pre><code>//请求期权标的证劵
+MUnderlyingStockRequest *request =[[MUnderlyingStockRequest alloc] init];
+
+[MApi sendRequest:request completionHandler:^(MResponse *resp) {
+    if(resp.status == MResponseStatusSuccess) {
+        //应答无误，处理数据更新画面
+        MUnderlyingStockResponse *response = (MUnderlyingStockResponse *)resp;
+        self.items = response.stockItems;
+        [self reloadData];
+    } else {
+        //应答错误，显示错误信息
+        [Utility alertMessage:resp.message];
+    }
+}];
+</code></pre>
+
+<p><a href="#top">top</a></p>
+
+<h3 id="ExpireMonth">期权-交割月列表</h3>
+
+
+
+
+<h4 id="ExpireMonthExplain">说明</h4>
+
+
+<ul>
+<li>可获得期权-标的行情交割月列表。</li>
+</ul>
+
+
+<h4 id="MExpireMonthRequest">请求类(MExpireMonthRequest)</h4>
+
+
+<ul>
+<li><p>属性说明:</p>
+
+<table>
+<thead>
+<tr>
+<th> 属性名  </th>
+<th> 说明         </th>
+<th> 型态     </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> stockID </td>
+<td> 标的证券代码 </td>
+<td> NSString </td>
+<td>      </td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+
+
+<h4 id="MExpireMonthResponse">应答类(MExpireMonthResponse)</h4>
+
+
+<ul>
+<li><p>属性说明</p>
+
+<table>
+<thead>
+<tr>
+<th> 属性名       </th>
+<th> 说明           </th>
+<th> 型态    </th>
+<th> 备注                               </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> expireMonths </td>
+<td> 期权-交割月列表 </td>
+<td> NSArray </td>
+<td> 期权-交割月列表中的对象：NSString </td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+
+
+<h4 id="ExpireMonthSample">调用样例</h4>
+
+
+<pre><code>MExpireMonthRequest *request = [[MExpireMonthRequest alloc] init];
+request.stockID = self.stockID;
+[MApi sendRequest:request completionHandler:^(MResponse *resp) {
+    if(resp.status == MResponseStatusSuccess) {
+        //应答无误，处理数据更新画面
+        MExpireMonthResponse *response = (MExpireMonthResponse *)resp;
+        self.expireMonths = response.expireMonths;
+    } else {
+        //应答错误，显示错误信息
+        [Utility alertMessage:resp.message];
+    }
+}];
+</code></pre>
+
+<p><a href="#top">top</a></p>
+
+<h3 id="Option">期权-商品行情</h3>
+
+
+
+
+<h4 id="OptionExplain">说明</h4>
+
+
+<ul>
+<li>可通过设置期权型态(optionType)来获取认购行情、认沽行情或全部行情。</li>
+<li>若要获得600600期权认购报价列表行期，可设置stockID=600600, optionType=MOptionTypeCALL。</li>
+</ul>
+
+
+<h4 id="MOptionRequest">请求类(MOptionRequest)</h4>
+
+
+<ul>
+<li><p>属性说明:</p>
+
+<table>
+<thead>
+<tr>
+<th> 属性名     </th>
+<th> 说明         </th>
+<th> 型态        </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> stockID    </td>
+<td> 标的证券代码 </td>
+<td> NSString    </td>
+<td>      </td>
+</tr>
+<tr>
+<td> pageIndex  </td>
+<td> 页码         </td>
+<td> NSInteger   </td>
+<td>      </td>
+</tr>
+<tr>
+<td> optionType </td>
+<td> 期权类别     </td>
+<td> <a href="#MOptionType">MOptionType</a> </td>
+<td>      </td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+
+
+<h4 id="MOptionResponse">应答类(MOptionResponse)</h4>
+
+
+<ul>
+<li><p>属性说明</p>
+
+<table>
+<thead>
+<tr>
+<th> 属性名      </th>
+<th> 说明         </th>
+<th> 型态    </th>
+<th> 备注                                  </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> optionItems </td>
+<td> 期权-商品行情 </td>
+<td> NSArray </td>
+<td>期权-商品行情中的对象：<a href="#MOptionItem">MOptionItem</a> </td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+
+
+<h4 id="OptionSample">调用样例</h4>
+
+
+<pre><code>MOptionRequest *request =[[MOptionRequest alloc] init];
+request.stockID = self.code;
+request.optionType = self.optionType;
+//请求期权数据
+[MApi sendRequest:request completionHandler:^(MResponse *resp) {
+        if(resp.status == MResponseStatusSuccess) {
+            //应答无误，处理数据更新画面
+            if ([resp respondsToSelector:@selector(optionItems)]) {
+                self.items = [resp valueForKeyPath:@"optionItems"];
+            }
+            [self reloadData];
+        } else {
+            //应答错误，显示错误信息
+            [Utility alertMessage:resp.message];
+        };
+    }];
+}
+</code></pre>
+
+<p><a href="#top">top</a></p>
+
+<h3 id="OptionT">期权T型报价行情</h3>
+
+
+
+
+<h4 id="TOptionExplain">说明</h4>
+
+
+<ul>
+<li>可通过设置标的证券代码(stockID)、期权-交割月(expireMonth)来获取期权T型报价行情。</li>
+</ul>
+
+
+<h4 id="MOptionTRequest">请求类(MOptionTRequest)</h4>
+
+
+<ul>
+<li><p>属性说明:</p>
+
+<table>
+<thead>
+<tr>
+<th> 属性名      </th>
+<th> 说明         </th>
+<th> 型态     </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> stockID     </td>
+<td> 标的证券代码 </td>
+<td> NSString </td>
+<td>      </td>
+</tr>
+<tr>
+<td> expireMonth </td>
+<td> 期权-交割月   </td>
+<td> NSString </td>
+<td>      </td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+
+
+<h4 id="MOptionTResponse">应答类(MOptionResponse)</h4>
+
+
+<ul>
+<li>属性说明:
+<a href="#MOptionResponse">MOptionResponse</a></li>
+</ul>
+
+
+<h4 id="TOptionSample">调用样例</h4>
+
+
+<pre><code>MOptionTRequest *request = [[MOptionTRequest alloc] init];
+request.stockID = self.stockID;
+request.expireMonth = expireMonth ;
+
+//发送请求
+[MApi sendRequest:request completionHandler:^(MResponse *resp) {
+    if(resp.status == MResponseStatusSuccess) {
+        //应答无误，处理数据更新画面
+        MOptionResponse *response = (MOptionResponse *)resp;
+        self.optionItems = response.optionItems;
+        self.optionItems = [self array:self.optionItems sortOptionByKey:@"exePrice"];
+        for(MOptionItem *item in _optionItems) {
+            if (item.putType) {
+                [self.putItems addObject:item];
+            } else {
+                [self.callItems addObject:item];
+            }
+        }
+        [self.optionsView reloadData];
+    } else {
+        //应答错误，显示错误信息
+        [Utility alertMessage:resp.message];
+    }
+}];
+</code></pre>
+
+<p><a href="#top">top</a></p>
+
+<h3 id="MEvent">用户行为统计</h3>
+
+
+
+
+<h4 id="MEventExplain">说明</h4>
+
+
+<ul>
+<li>可透过操作代码记录使用者行为。</li>
+</ul>
+
+
+<h4 id="MEventRequest">请求类(MEventRequest)</h4>
+
+
+<ul>
+<li><p>属性说明:</p>
+
+<table>
+<thead>
+<tr>
+<th> 属性名      </th>
+<th> 说明         </th>
+<th> 型态     </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> fid     </td>
+<td> 操作代码 </td>
+<td> NSString </td>
+<td>      </td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+
+
+<h4 id="MEventSample">调用样例</h4>
+
+
+<pre><code>MEventRequest *request = [[MEventRequest alloc] init];
+request.fid = self.fid;
+
+//发送请求
+[MApi sendRequest:request completionHandler:^(MResponse *resp) {}];
+</code></pre>
+
+<p><a href="#top">top</a></p>
+
+<h3 id="StockCategoryList">股票分类代码表</h3>
+
+
+
+
+<h4 id="StockCategoryListExplain">说明</h4>
+
+
+<ul>
+<li>可获取股票分类代码列表。</li>
+</ul>
+
+
+<h4 id="MStockCategoryListRequest">请求类(MStockCategoryListRequest)</h4>
+
+
+<ul>
+<li>属性说明:无</li>
+</ul>
+
+
+<h4 id="MStockCategoryListResponse">应答类(MStockCategoryListResponse)</h4>
+
+
+<ul>
+<li><p>属性说明:</p>
+
+<table>
+<thead>
+<tr>
+<th> 属性名      </th>
+<th> 说明         </th>
+<th> 型态     </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> list     </td>
+<td> 股票代码表 </td>
+<td> NSArray </td>
+<td>      </td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+
+
+<h4 id="StockCategoryListSample">调用样例</h4>
+
+
+<pre><code>MStockCategoryListRequest *request = [[MStockCategoryListRequest alloc] init];
+
+//发送请求
+[MApi sendRequest:request completionHandler:^(MResponse *resp) {
+    if(resp.status == MResponseStatusSuccess) {
+        //应答无误，处理数据更新画面
+        MStockCategoryListResponse *response = (MStockCategoryListResponse *)resp;
+        self.stockCategoryList = response.list;
+    } else {
+        //应答错误，显示错误信息
+        [Utility alertMessage:resp.message];
+    }
+}];
+</code></pre>
+
+<p><a href="#top">top</a></p>
+
+<h3 id="MTimeTick">分时明细表</h3>
+
+
+
+
+<h4 id="MTimeTickExplain">说明</h4>
+
+
+<ul>
+<li>通过设置股票代码及笔数可获取特定笔数的分时明细。</li>
+</ul>
+
+
+<h4 id="MTimeTickRequest">请求类(MTimeTickRequest)</h4>
+
+
+<ul>
+<li><p>属性说明:</p>
+
+<table>
+<thead>
+<tr>
+<th> 属性名      </th>
+<th> 说明         </th>
+<th> 型态     </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> code     </td>
+<td> 股票代码 </td>
+<td> NSString </td>
+<td>      </td>
+</tr>
+<tr>
+<td> subtype </td>
+<td> 次类别   </td>
+<td> NSString </td>
+<td>      </td>
+</tr>
+<tr>
+<td> index </td>
+<td> 开始索引   </td>
+<td> NSUInteger </td>
+<td>      </td>
+</tr>
+<tr>
+<td> pageSize </td>
+<td> 笔数   </td>
+<td> NSUInteger </td>
+<td>      </td>
+</tr>
+<tr>
+<td> type </td>
+<td> 基于开始索引请求的类别   </td>
+<td> <a href="#MTimeTickRequestType">MTimeTickRequestType</a> </td>
+<td>      </td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+
+
+<h4 id="MTimeTickResponse">应答类(MTimeTickResponse)</h4>
+
+
+<ul>
+<li><p>属性说明:</p>
+
+<table>
+<thead>
+<tr>
+<th> 属性名      </th>
+<th> 说明         </th>
+<th> 型态     </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> items     </td>
+<td> 明细数组 </td>
+<td> NSArray </td>
+<td>   列表中的对象类<a href="#MTickItem">MTickItem</a>   </td>
+</tr>
+<tr>
+<td> startIndex </td>
+<td> 开始索引值 </td>
+<td> NSString </td>
+<td>    </td>
+</tr>
+<tr>
+<td> endIndex   </td>
+<td> 结束索引值 </td>
+<td> NSString </td>
+<td>    </td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+
+
+<h4 id="MTimeTickSample">调用样例</h4>
+
+
+<pre><code>MTimeTickRequest *request = [[MTimeTickRequest alloc] init];
+request.code = @"600000.sh";
+request.subtype = @"1001";
+
+//发送请求
+[MApi sendRequest:request completionHandler:^(MResponse *resp) {
+    if(resp.status == MResponseStatusSuccess) {
+        //应答无误，处理数据更新画面
+        MTimeTickResponse *response = (MTimeTickResponse *)resp;
+        self.tickItems = response.items;
+        [self.list reloadData];
+    } else {
+        //应答错误，显示错误信息
+        [Utility alertMessage:resp.message];
+    }
+}];
+</code></pre>
+
+<p><a href="#top">top</a></p>
+
+<h3 id="MPriceVolume">分价量表</h3>
+
+
+
+
+<h4 id="MPriceVolumeExplain">说明</h4>
+
+
+<ul>
+<li>通过设置股票代码可获取分价量表。</li>
+</ul>
+
+
+<h4 id="MPriceVolumeRequest">请求类(MPriceVolumeRequest)</h4>
+
+
+<ul>
+<li><p>属性说明:</p>
+
+<table>
+<thead>
+<tr>
+<th> 属性名      </th>
+<th> 说明         </th>
+<th> 型态     </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> code     </td>
+<td> 股票代码 </td>
+<td> NSString </td>
+<td>      </td>
+</tr>
+<tr>
+<td> subtype </td>
+<td> 次类别   </td>
+<td> NSString </td>
+<td>      </td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+
+
+<h4 id="MPriceVolumeResponse">应答类(MPriceVolumeResponse)</h4>
+
+
+<ul>
+<li><p>属性说明:</p>
+
+<table>
+<thead>
+<tr>
+<th> 属性名      </th>
+<th> 说明         </th>
+<th> 型态     </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> items     </td>
+<td> 价量数组 </td>
+<td> NSArray </td>
+<td>   列表中的对象类<a href="#MPriceVolumeItem">MPriceVolumeItem</a>   </td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+
+
+<h4 id="MPriceVolumeSample">调用样例</h4>
+
+
+<pre><code>MPriceVolumeRequest *request = [[MPriceVolumeRequest alloc] init];
+request.code = @"600000.sh";
+request.subtype = @"1001";
+
+//发送请求
+[MApi sendRequest:request completionHandler:^(MResponse *resp) {
+    if(resp.status == MResponseStatusSuccess) {
+        //应答无误，处理数据更新画面
+        MPriceVolumeResponse *response = (MPriceVolumeResponse *)resp;
+        self.tickItems = response.items;
+        [self.list reloadData];
+    } else {
+        //应答错误，显示错误信息
+        [Utility alertMessage:resp.message];
+    }
+}];
+</code></pre>
+
+<p><a href="#top">top</a></p>
+
+<h3 id="MOrderQuantity">买卖队列</h3>
+
+
+
+
+<h4 id="MOrderQuantityExplain">说明</h4>
+
+
+<ul>
+<li>通过设置股票代码可获取买卖队列。</li>
+</ul>
+
+
+<h4 id="MOrderQuantityRequest">请求类(MOrderQuantityRequest)</h4>
+
+
+<ul>
+<li><p>属性说明:</p>
+
+<table>
+<thead>
+<tr>
+<th> 属性名      </th>
+<th> 说明         </th>
+<th> 型态     </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> code     </td>
+<td> 股票代码 </td>
+<td> NSString </td>
+<td>      </td>
+</tr>
+<tr>
+<td> subtype </td>
+<td> 次类别   </td>
+<td> NSString </td>
+<td>      </td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+
+
+<h4 id="MOrderQuantityResponse">应答类(MOrderQuantityResponse)</h4>
+
+
+<ul>
+<li><p>属性说明:</p>
+
+<table>
+<thead>
+<tr>
+<th> 属性名      </th>
+<th> 说明         </th>
+<th> 型态     </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> buyItems     </td>
+<td> 委买数组 </td>
+<td> NSArray </td>
+<td> 为买1~买10的<a href="#MOrderQuantityItem">MOrderQuantityItem</a>数组对象 </td>
+</tr>
+<tr>
+<td> sellItems     </td>
+<td> 委卖数组 </td>
+<td> NSArray </td>
+<td> 为卖1~卖10的<a href="#MOrderQuantityItem">MOrderQuantityItem</a>数组对象 </td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+
+
+<h4 id="MOrderQuantitySample">调用样例</h4>
+
+
+<pre><code>MOrderQuantityRequest *request = [[MOrderQuantityRequest alloc] init];
+request.code = @"600000.sh";
+request.subtype = @"1001";
+
+//发送请求
+[MApi sendRequest:request completionHandler:^(MResponse *resp) {
+    if(resp.status == MResponseStatusSuccess) {
+        //应答无误，处理数据更新画面
+        MOrderQuantityResponse *response = (MOrderQuantityResponse *)resp;
+        self.tickItems = response.items;
+        [self.list reloadData];
+    } else {
+        //应答错误，显示错误信息
+        [Utility alertMessage:resp.message];
+    }
+}];
+</code></pre>
+
+<p><a href="#top">top</a></p>
+
+<h3 id="MHKQuoteInfo">港股其他信息</h3>
+
+
+
+
+<h4 id="MHKQuoteInfoExplain">说明</h4>
+
+
+<ul>
+<li>通过设置股票代码可获取港股其他信息，包含港股碎股订单消息、港股市场波动调节、港股收市集合竞价。</li>
+</ul>
+
+
+<h4 id="MHKQuoteInfoRequest">请求类(MHKQuoteInfoRequest)</h4>
+
+
+<ul>
+<li><p>属性说明:</p>
+
+<table>
+<thead>
+<tr>
+<th> 属性名      </th>
+<th> 说明         </th>
+<th> 型态     </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> code     </td>
+<td> 股票代码 </td>
+<td> NSString </td>
+<td>      </td>
+</tr>
+<tr>
+<td> subtype </td>
+<td> 次类别   </td>
+<td> NSString </td>
+<td>      </td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+
+
+<h4 id="MHKQuoteInfoResponse">应答类(MHKQuoteInfoResponse)</h4>
+
+
+<ul>
+<li><p>属性说明:</p>
+
+<table>
+<thead>
+<tr>
+<th> 属性名      </th>
+<th> 说明         </th>
+<th> 型态     </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> oddInfoItems     </td>
+<td> 碎股订单数组 </td>
+<td> NSArray </td>
+<td> <a href="#MHKOddInfoItem">MHKOddInfo</a></td>
+</tr>
+<tr>
+<td> vcmDatetime     </td>
+<td> VCM 时间 </td>
+<td> NSString </td>
+<td>  </td>
+</tr>
+<tr>
+<td> vcmStartTime     </td>
+<td> 市场调节机制起始时间 </td>
+<td> NSString </td>
+<td>  </td>
+</tr>
+<tr>
+<td> vcmEndTime     </td>
+<td> 市场调节机制结束时间 </td>
+<td> NSString </td>
+<td>  </td>
+</tr>
+<tr>
+<td> vcmRefPrice     </td>
+<td> 市场调节机制参考价 </td>
+<td> NSString </td>
+<td>  </td>
+</tr>
+<tr>
+<td> vcmLowerPrice     </td>
+<td> 市场调节下限价 </td>
+<td> NSString </td>
+<td>  </td>
+</tr>
+<tr>
+<td> vcmUpperPrice     </td>
+<td> 市场调节上限价 </td>
+<td> NSString </td>
+<td>  </td>
+</tr>
+<tr>
+<td> casDatetime     </td>
+<td> CAS 时间 </td>
+<td> NSString </td>
+<td>  </td>
+</tr>
+<tr>
+<td> casOrdImbDirection     </td>
+<td> CAS 未能配对买卖盘的方向 </td>
+<td> NSString </td>
+<td>  </td>
+</tr>
+<tr>
+<td> casOrdImbQty     </td>
+<td> CAS 未能配对买卖盘的数量 </td>
+<td> NSString </td>
+<td>  </td>
+</tr>
+<tr>
+<td> casRefPrice     </td>
+<td> CAS 的参考价格 </td>
+<td> NSString </td>
+<td>  </td>
+</tr>
+<tr>
+<td> casLowerPrice     </td>
+<td> CAS 下限价 </td>
+<td> NSString </td>
+<td>  </td>
+</tr>
+<tr>
+<td> casUpperPrice     </td>
+<td> CAS 下限价 </td>
+<td> NSString </td>
+<td>  </td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+
+
+<h4 id="MHKQuoteInfoSample">调用样例</h4>
+
+
+<pre><code>MHKQuoteInfoRequest *request = [[MHKQuoteInfoRequest alloc] init];
+request.code = @"00005.hk";
+request.subtype = @"1001";
+
+//发送请求
+[MApi sendRequest:request completionHandler:^(MResponse *resp) {
+    if(resp.status == MResponseStatusSuccess) {
+        //应答无误，处理数据更新画面
+        MHKQuoteInfoResponse *response = (MHKQuoteInfoResponse *)resp;
+
+    } else {
+        //应答错误，显示错误信息
+        [Utility alertMessage:resp.message];
+    }
+}];
+</code></pre>
+
+<p><a href="#top">top</a></p>
+
+<h3 id="MMarketHoliday">假日黑名单</h3>
+
+
+
+
+<h4 id="MMarketHolidayExplain">说明</h4>
+
+
+<ul>
+<li>取得假日黑名单。</li>
+</ul>
+
+
+<h4 id="MMarketHolidayRequest">请求类(MMarketHolidayRequest)</h4>
+
+
+<ul>
+<li>属性说明:
+  无</li>
+</ul>
+
+
+<h4 id="MMarketHolidayResponse">应答类(MMarketHolidayResponse)</h4>
+
+
+<ul>
+<li><p>属性说明:</p>
+
+<table>
+<thead>
+<tr>
+<th> 属性名      </th>
+<th> 说明         </th>
+<th> 型态     </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> JSONObject     </td>
+<td>  </td>
+<td> NSDictionary </td>
+<td> </td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+
+
+<h4 id="MHKQuoteInfoSample">调用样例</h4>
+
+
+<pre><code>MMarketHolidayRequest *request = [[MMarketHolidayRequest alloc] init];
+
+//发送请求
+[MApi sendRequest:request completionHandler:^(MResponse *resp) {
+    if(resp.status == MResponseStatusSuccess) {
+        //应答无误，处理数据更新画面
+        MMarketHolidayResponse *response = (MMarketHolidayResponse *)resp;
+
+    } else {
+        //应答错误，显示错误信息
+        [Utility alertMessage:resp.message];
+    }
+}];
+</code></pre>
+
+<p><a href="#top">top</a></p>
+
+<h3 id="MTimeTickDetail">逐笔明细表</h3>
+
+
+
+
+<h4 id="MTimeTickDetailExplain">说明</h4>
+
+
+<ul>
+<li>通过设置股票代码及笔数可获取特定笔数的分时明细。</li>
+</ul>
+
+
+<h4 id="MTimeTickDetailRequest">请求类(MTimeTickDetailRequest)</h4>
+
+
+<ul>
+<li><p>属性说明:</p>
+
+<table>
+<thead>
+<tr>
+<th> 属性名      </th>
+<th> 说明         </th>
+<th> 型态     </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> code     </td>
+<td> 股票代码 </td>
+<td> NSString </td>
+<td>      </td>
+</tr>
+<tr>
+<td> subtype </td>
+<td> 次类别   </td>
+<td> NSString </td>
+<td>      </td>
+</tr>
+<tr>
+<td> pageIndex </td>
+<td> 页次   </td>
+<td> NSInteger </td>
+<td>      </td>
+</tr>
+<tr>
+<td> pageSize </td>
+<td> 笔数   </td>
+<td> NSInteger </td>
+<td>      </td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+
+
+<h4 id="MTimeTickDetailResponse">应答类(MTimeTickDetailResponse)</h4>
+
+
+<ul>
+<li><p>属性说明:</p>
+
+<table>
+<thead>
+<tr>
+<th> 属性名      </th>
+<th> 说明         </th>
+<th> 型态     </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> tickItems     </td>
+<td> 分时数组 </td>
+<td> NSArray </td>
+<td>   列表中的对象类<a href="#MTimeTickItem">MTimeTickItem</a>   </td>
+</tr>
+<tr>
+<td> detailTickItems     </td>
+<td> 明细数组 </td>
+<td> NSArray </td>
+<td>   列表中的对象类<a href="#MTimeTickDetailItem">MTimeTickDetailItem</a>   </td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+
+
+<h4 id="MTimeTickDetailSample">调用样例</h4>
+
+
+<pre><code>MTimeTickDetailRequest *request = [[MTimeTickDetailRequest alloc] init];
+request.code = @"600000.sh";
+request.subtype = @"1001";
+request.pageIndex = 0;
+request.pageSize = 10;
+
+//发送请求
+[MApi sendRequest:request completionHandler:^(MResponse *resp) {
+    if(resp.status == MResponseStatusSuccess) {
+        //应答无误，处理数据更新画面
+        MTimeTickDetailResponse *response = (MTimeTickDetailResponse *)resp;
+        self.tickItems = response.tickItems;
+        self.detailTickItems = response.detailTickItems;
+        [self.list reloadData];
+    } else {
+        //应答错误，显示错误信息
+        [Utility alertMessage:resp.message];
+    }
+}];
+</code></pre>
+
+<p><a href="#top">top</a></p>
+
+<h3 id="MStaticData">个股静态数据</h3>
+
+
+
+
+<h4 id="MStaticDataExplain">说明</h4>
+
+
+<ul>
+<li>通过设置股票代码可以获取个股所属板块信息、两市港股通标识、融资标识、融券标识</li>
+</ul>
+
+
+<h4 id="MStaticDataRequest">请求类(MStaticDataRequest)</h4>
+
+
+<ul>
+<li><p>属性说明:</p>
+
+<table>
+<thead>
+<tr>
+<th> 属性名      </th>
+<th> 说明         </th>
+<th> 型态     </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> code     </td>
+<td> 股票代码 </td>
+<td> NSString </td>
+<td>   多个股票用逗号隔开，如："000001.sh,600000.sh"   </td>
+</tr>
+<tr>
+<td> param </td>
+<td>  获取信息参数  </td>
+<td> NSString </td>
+<td>   默认为全部,即"bk,hki,su,bu",也可以指定为以上4种的任一一种或多种的组合，如"bk,bki"   </td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+
+
+<h4 id="MStaticDataResponse">应答类(MStaticDataResponse)</h4>
+
+
+<ul>
+<li><p>属性说明:</p>
+
+<table>
+<thead>
+<tr>
+<th> 属性名      </th>
+<th> 说明         </th>
+<th> 型态     </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> dataItems     </td>
+<td> 静态数据数组 </td>
+<td> NSArray </td>
+<td>   列表中的对象类<a href="#MStaticDataItem">MStaticDataItem</a>,顺序为传入股票的顺序   </td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+
+
+<h4 id="MStaticDataSample">调用样例</h4>
+
+
+<pre><code>MStaticDataRequest *r = [[MStaticDataRequest alloc] init];
+r.code = @"600000.sh,000001.sz";
+r.param = @"bk";
+
+//发送请求
+[MApi sendRequest:r completionHandler:^(MResponse *resp) {
+    if(resp.status == MResponseStatusSuccess) {
+        //应答无误，处理数据更新画面
+       MStaticDataResponse* response = (MStaticDataResponse *)resp;
+
+    } else {
+
+    }
+}];
+</code></pre>
+
+<p><a href="#top">top</a></p>
+
+<h3 id="MHKMarketInfo">两市港股通数据</h3>
+
+
+
+
+<h4 id="MHKMarketInfoExplain">说明</h4>
+
+
+<ul>
+<li>获取两市港股通 每日初始额度 日中剩余额度和额度状态</li>
+</ul>
+
+
+<h4 id="MHKMarketInfoRequest">请求类(MHKMarketInfoRequest)</h4>
+
+
+<ul>
+<li><p>属性说明:</p>
+
+<p>  无参数</p></li>
+</ul>
+
+
+<h4 id="MHKMarketInfoResponse">应答类(MHKMarketInfoResponse)</h4>
+
+
+<ul>
+<li><p>属性说明:</p>
+
+<table>
+<thead>
+<tr>
+<th> 属性名      </th>
+<th> 说明         </th>
+<th> 型态     </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> SHInitialQuota     </td>
+<td> 沪初始额度 </td>
+<td>    NSString </td>
+<td>      </td>
+</tr>
+<tr>
+<td> SHRemainQuota     </td>
+<td> 沪日中剩余额度 </td>
+<td>   NSString </td>
+<td>      </td>
+</tr>
+<tr>
+<td> SHStatus     </td>
+<td> 沪港通额度状态 </td>
+<td>    NSInteger </td>
+<td>   1:不可用,2:可用,0或者null:源没有   </td>
+</tr>
+<tr>
+<td> SZInitialQuota     </td>
+<td> 深初始额度 </td>
+<td>    NSString </td>
+<td>      </td>
+</tr>
+<tr>
+<td> SZRemainQuota     </td>
+<td> 深日中剩余额度 </td>
+<td>   NSString </td>
+<td>      </td>
+</tr>
+<tr>
+<td> SZStatus     </td>
+<td> 深港通额度状态 </td>
+<td>    NSInteger </td>
+<td>   1:不可用,2:可用,0或者null:源没有   </td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+
+
+<h4 id="MHKMarketInfoSample">调用样例</h4>
+
+
+<pre><code>MHKMarketInfoRequest *r = [[MHKMarketInfoRequest alloc] init];
+
+//发送请求
+[MApi sendRequest:r completionHandler:^(MResponse *resp) {
+    if(resp.status == MResponseStatusSuccess) {
+        //应答无误，处理数据
+       MHKMarketInfoResponse* response = (MHKMarketInfoResponse *)resp;
+
+    } else {
+
+    }
+}];
+</code></pre>
+
+<p><a href="#top">top</a></p>
+
+<h2 id="数据结构">数据结构</h2>
+
+
+
+
+<h3 id="MStockItem">股票行情(MStockItem)</h3>
+
+
+<table>
+<thead>
+<tr>
+<th> 属性名           </th>
+<th> 说明              </th>
+<th> 型态         </th>
+<th> 备注                                                                                  </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> status           </td>
+<td> 股票状态          </td>
+<td> NSInteger    </td>
+<td> 正常交易=0, 暂停交易=1, 停牌=2, 退市=3                                                </td>
+</tr>
+<tr>
+<td> stage            </td>
+<td> 交易階段          </td>
+<td> NSInteger    </td>
+<td> 未开市=0, 集合竞价=1, 未知状态=2,连续竞价=3,临时停市=4,已收盘=5,午间休市＝6 ,交易中=7 </td>
+</tr>
+<tr>
+<td> ID               </td>
+<td> 股票代码          </td>
+<td> NSString     </td>
+<td> 含市場代號的股票代碼                                                                  </td>
+</tr>
+<tr>
+<td> name             </td>
+<td> 股票名            </td>
+<td> NSString     </td>
+<td>                                                                                       </td>
+</tr>
+<tr>
+<td> datetime         </td>
+<td> 交易时间          </td>
+<td> NSString     </td>
+<td>                                                                                       </td>
+</tr>
+<tr>
+<td> market           </td>
+<td> 市场别            </td>
+<td> NSString     </td>
+<td>                                                                                       </td>
+</tr>
+<tr>
+<td> subtype          </td>
+<td> 次类别            </td>
+<td> NSString     </td>
+<td>                                                                                       </td>
+</tr>
+<tr>
+<td> lastPrice        </td>
+<td> 最新价            </td>
+<td> NSString     </td>
+<td>                                                                                       </td>
+</tr>
+<tr>
+<td> highPrice        </td>
+<td> 最高价            </td>
+<td> NSString     </td>
+<td>                                                                                       </td>
+</tr>
+<tr>
+<td> lowPrice         </td>
+<td> 最低价            </td>
+<td> NSString     </td>
+<td>                                                                                       </td>
+</tr>
+<tr>
+<td> openPrice        </td>
+<td> 今开价            </td>
+<td> NSString     </td>
+<td>                                                                                       </td>
+</tr>
+<tr>
+<td> preClosePrice    </td>
+<td> 昨收价            </td>
+<td> NSString     </td>
+<td>                                                                                       </td>
+</tr>
+<tr>
+<td> changeRate       </td>
+<td> 涨跌比率          </td>
+<td> NSString     </td>
+<td>                                                                                       </td>
+</tr>
+<tr>
+<td> volume           </td>
+<td> 总量              </td>
+<td> NSString     </td>
+<td>                                                                                       </td>
+</tr>
+<tr>
+<td> nowVolume        </td>
+<td> 当前成交量        </td>
+<td> NSString     </td>
+<td>                                                                                       </td>
+</tr>
+<tr>
+<td> turnoverRate     </td>
+<td> 换手率            </td>
+<td> NSString     </td>
+<td>                                                                                       </td>
+</tr>
+<tr>
+<td> limitUp          </td>
+<td> 涨停价            </td>
+<td> NSString     </td>
+<td>                                                                                       </td>
+</tr>
+<tr>
+<td> limitDown        </td>
+<td> 跌停价            </td>
+<td> NSString     </td>
+<td>                                                                                       </td>
+</tr>
+<tr>
+<td> change           </td>
+<td> 涨跌              </td>
+<td> NSString     </td>
+<td>                                                                                       </td>
+</tr>
+<tr>
+<td> amount           </td>
+<td> 成交金额          </td>
+<td> NSString     </td>
+<td>                                                                                       </td>
+</tr>
+<tr>
+<td> buyPrice         </td>
+<td> 买一价            </td>
+<td> NSString     </td>
+<td>                                                                                       </td>
+</tr>
+<tr>
+<td> sellPrice        </td>
+<td> 卖一价            </td>
+<td> NSString     </td>
+<td>                                                                                       </td>
+</tr>
+<tr>
+<td> buyVolume        </td>
+<td> 外盘量            </td>
+<td> NSString     </td>
+<td>                                                                                       </td>
+</tr>
+<tr>
+<td> sellVolume       </td>
+<td> 内盘量            </td>
+<td> NSString     </td>
+<td>                                                                                       </td>
+</tr>
+<tr>
+<td> totalValue       </td>
+<td> 总值              </td>
+<td> NSString     </td>
+<td>                                                                                       </td>
+</tr>
+<tr>
+<td> flowValue        </td>
+<td> 流值              </td>
+<td> NSString     </td>
+<td>                                                                                       </td>
+</tr>
+<tr>
+<td> netAsset         </td>
+<td> 净资产            </td>
+<td> NSString     </td>
+<td>                                                                                       </td>
+</tr>
+<tr>
+<td> PE               </td>
+<td> PE(市盈)          </td>
+<td> NSString     </td>
+<td>                                                                                       </td>
+</tr>
+<tr>
+<td> ROE              </td>
+<td> ROE(净资产收益率) </td>
+<td> NSString     </td>
+<td>                                                                                       </td>
+</tr>
+<tr>
+<td> captitalization  </td>
+<td> 总股本            </td>
+<td> NSString     </td>
+<td>                                                                                       </td>
+</tr>
+<tr>
+<td> circulatingShare </td>
+<td> 流通股            </td>
+<td> NSString     </td>
+<td>                                                                                       </td>
+</tr>
+<tr>
+<td> buyPrices        </td>
+<td> 一、五、十档委买价          </td>
+<td> NSArray      </td>
+<td>                                                                                       </td>
+</tr>
+<tr>
+<td> sellPrices       </td>
+<td> 一、五、十档委卖价          </td>
+<td> NSArray      </td>
+<td>                                                                                       </td>
+</tr>
+<tr>
+<td> buyVolumes       </td>
+<td> 一、五、十档委买量          </td>
+<td> NSArray      </td>
+<td>                                                                                       </td>
+</tr>
+<tr>
+<td> sellVolumes      </td>
+<td> 一、五、十档委卖量          </td>
+<td> NSArray      </td>
+<td>                                                                                       </td>
+</tr>
+<tr>
+<td> buyCount       </td>
+<td> 一、五、十档委买笔数          </td>
+<td> NSArray      </td>
+<td>                                                                                       </td>
+</tr>
+<tr>
+<td> sellCount      </td>
+<td> 一、五、十档委卖笔数          </td>
+<td> NSArray      </td>
+<td>                                                                                       </td>
+</tr>
+<tr>
+<td> orderRatio      </td>
+<td> 委比          </td>
+<td> NSString      </td>
+<td>                                                                                       </td>
+</tr>
+<tr>
+<td> volumeRatio      </td>
+<td> 量比          </td>
+<td> NSString      </td>
+<td>                                                                                       </td>
+</tr>
+<tr>
+<td> amplitudeRate    </td>
+<td> 振幅比率          </td>
+<td> NSString     </td>
+<td>                                                                                       </td>
+</tr>
+<tr>
+<td> receipts         </td>
+<td> 收益              </td>
+<td> NSString     </td>
+<td>                                                                                       </td>
+</tr>
+<tr>
+<td> tickItems        </td>
+<td> 最新十笔明细列表  </td>
+<td> NSArray      </td>
+<td> 列表中的对象类<a href="#MTickItem">MTickItem</a>                                                               </td>
+</tr>
+<tr>
+<td> code             </td>
+<td> 股票代码          </td>
+<td> NSString     </td>
+<td> 不含市场代号                                                                          </td>
+</tr>
+<tr>
+<td> changeState      </td>
+<td> 涨跌状态          </td>
+<td> <a href="#MChangeState">MChangeState</a> </td>
+<td>                                                                                       </td>
+</tr>
+<tr>
+<td> advanceCount  </td>
+<td> 上涨家数      </td>
+<td> NSString     </td>
+<td> 指数类,     <a href="#MSnapQuoteRequest">MSnapQuoteRequest</a> only                                                                            </td>
+</tr>
+<tr>
+<td> declineCount  </td>
+<td> 下跌家数      </td>
+<td> NSString     </td>
+<td> 指数类,     <a href="#MSnapQuoteRequest">MSnapQuoteRequest</a> only                                                                            </td>
+</tr>
+<tr>
+<td> equalCount    </td>
+<td> 平盘家数      </td>
+<td> NSString     </td>
+<td> 指数类,     <a href="#MSnapQuoteRequest">MSnapQuoteRequest</a> only                                                                            </td>
+</tr>
+<tr>
+<td> HKInfoStatus    </td>
+<td> 港股信息状态  </td>
+<td> <a href="#MHKInfoStatus">MHKInfoStatus</a>   </td>
+<td> 港股                                                                                </td>
+</tr>
+<tr>
+<td> totalBuyVolume    </td>
+<td> 总买量  </td>
+<td>  NSString  </td>
+<td>    <a href="#MSnapQuoteRequest">MSnapQuoteRequest</a> only                                                                             </td>
+</tr>
+<tr>
+<td> totalSellVolume    </td>
+<td> 总卖量  </td>
+<td>  NSString  </td>
+<td>    <a href="#MSnapQuoteRequest">MSnapQuoteRequest</a> only                                                                             </td>
+</tr>
+<tr>
+<td> averageBuyPrice    </td>
+<td> 均买价  </td>
+<td>  NSString  </td>
+<td>    <a href="#MSnapQuoteRequest">MSnapQuoteRequest</a> only                                                                             </td>
+</tr>
+<tr>
+<td> averageSellPrice    </td>
+<td> 均卖价  </td>
+<td>  NSString  </td>
+<td>   <a href="#MSnapQuoteRequest">MSnapQuoteRequest</a> only                                                                              </td>
+</tr>
+<tr>
+<td> subtype2    </td>
+<td> 副类别2  </td>
+<td>  NSString  </td>
+<td>                                                                                 </td>
+</tr>
+</tbody>
+</table>
+
+
+<h5 id="MStockItemL2">股票行情L2(MStockItem)</h5>
+
+
+<p>需使用<a href="#MSnapQuoteRequest">MSnapQuoteRequest</a>并设置<code>type</code>为<a href="#MSnapQuoteRequestType">MSnapQuoteRequestType10</a>。</p>
+
+<table>
+<thead>
+<tr>
+<th> 属性名           </th>
+<th> 说明              </th>
+<th> 型态         </th>
+<th> 备注                                                                                  </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> orderQuantityBuyItems           </td>
+<td> 50笔队列(买)          </td>
+<td> NSArray    </td>
+<td> 为买1~买10的<a href="#MOrderQuantityItem">MOrderQuantityItem</a>数组对象 </td>
+</tr>
+<tr>
+<td> orderQuantitySellItems           </td>
+<td> 50笔队列(卖)          </td>
+<td> NSArray    </td>
+<td> 为卖1~卖10的<a href="#MOrderQuantityItem">MOrderQuantityItem</a>数组对象 </td>
+</tr>
+<tr>
+<td> brokerSeatBuyItems           </td>
+<td> 经济席位(买)          </td>
+<td> NSArray    </td>
+<td> 港股 </td>
+</tr>
+<tr>
+<td> brokerSeatSellItems           </td>
+<td> 经济席位(卖)        </td>
+<td> NSArray    </td>
+<td> 港股 </td>
+</tr>
+</tbody>
+</table>
+
+
+<p><a href="#top">top</a></p>
+
+<h3 id="MTickItem">分笔成交(MTickItem)</h3>
+
+
+<table>
+<thead>
+<tr>
+<th> 属性名      </th>
+<th> 说明     </th>
+<th> 型态          </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> time    </td>
+<td> 交易时间 </td>
+<td> NSString      </td>
+<td>      </td>
+</tr>
+<tr>
+<td> tradePrice  </td>
+<td> 交易价格 </td>
+<td> NSString      </td>
+<td>      </td>
+</tr>
+<tr>
+<td> tradeVolume </td>
+<td> 交易量   </td>
+<td> NSString      </td>
+<td>      </td>
+</tr>
+<tr>
+<td> type        </td>
+<td> 内外盘   </td>
+<td> <a href="#MBSVolumeType">MBSVolumeType</a> </td>
+<td>      </td>
+</tr>
+<tr>
+<td> AMSFlag    </td>
+<td> 港股旗标   </td>
+<td> <a href="#MTimeTickAMSFlag">MTimeTickAMSFlag</a> </td>
+<td>      </td>
+</tr>
+</tbody>
+</table>
+
+
+<h3 id="MTimeTickItem">分时成交(MTimeTickItem)</h3>
+
+
+<p>继承: <a href="#MTickItem">MTickItem</a></p>
+
+<table>
+<thead>
+<tr>
+<th> 属性名      </th>
+<th> 说明     </th>
+<th> 型态          </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> sectionRange    </td>
+<td> 索引范围 </td>
+<td> NSString      </td>
+<td>      </td>
+</tr>
+</tbody>
+</table>
+
+
+<h3 id="MTimeTickDetailItem">分时成交明细(MTimeTickDetailItem)</h3>
+
+
+<p>继承: <a href="#MTickItem">MTickItem</a></p>
+
+<table>
+<thead>
+<tr>
+<th> 属性名      </th>
+<th> 说明     </th>
+<th> 型态          </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> index    </td>
+<td> 索引 </td>
+<td> NSString      </td>
+<td>      </td>
+</tr>
+</tbody>
+</table>
+
+
+<p><a href="#top">top</a></p>
+
+<h3 id="MPriceVolumeItem">分价量表(MPriceVolumeItem)</h3>
+
+
+<table>
+<thead>
+<tr>
+<th> 属性名      </th>
+<th> 说明     </th>
+<th> 型态          </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> price    </td>
+<td> 价格 </td>
+<td> NSString      </td>
+<td>      </td>
+</tr>
+<tr>
+<td> volume  </td>
+<td> 量 </td>
+<td> NSString      </td>
+<td>      </td>
+</tr>
+</tbody>
+</table>
+
+
+<p><a href="#top">top</a></p>
+
+<h3 id="MStaticDataItem">静态数据(MStaticDataItem)</h3>
+
+
+<table>
+<thead>
+<tr>
+<th> 属性名      </th>
+<th> 说明     </th>
+<th> 型态          </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> boardInfoItems    </td>
+<td> 版块信息 </td>
+<td> NSArray      </td>
+<td>  列表中的对象类<a href="#MBoardInfoItem">MBoardInfoItem</a>    </td>
+</tr>
+<tr>
+<td> HFlag  </td>
+<td> 沪港通标识 </td>
+<td> BOOL      </td>
+<td>   1为沪港通标识 默认为0   </td>
+</tr>
+<tr>
+<td> SFlag  </td>
+<td> 深港通标识 </td>
+<td> BOOL      </td>
+<td>   1为深港通标识 默认为0   </td>
+</tr>
+<tr>
+<td> financeFlag  </td>
+<td> 融资标识 </td>
+<td> BOOL      </td>
+<td>   1为融资标识 0源未下 ,默认为0   </td>
+</tr>
+<tr>
+<td> securityFlag  </td>
+<td> 融券标识 </td>
+<td> BOOL      </td>
+<td>  1为融券标识 0源未下 ,默认为0    </td>
+</tr>
+</tbody>
+</table>
+
+
+<p><a href="#top">top</a></p>
+
+<h3 id="MBoardInfoItem">版块信息(MBoardInfoItem)</h3>
+
+
+<table>
+<thead>
+<tr>
+<th> 属性名      </th>
+<th> 说明     </th>
+<th> 型态          </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> name  </td>
+<td> 版块名称 </td>
+<td> NSString      </td>
+<td>      </td>
+</tr>
+<tr>
+<td> ID  </td>
+<td> 版块ID </td>
+<td> NSString      </td>
+<td>      </td>
+</tr>
+</tbody>
+</table>
+
+
+<p><a href="#top">top</a></p>
+
+<h3 id="MOrderQuantityItem">交易单明细(MOrderQuantityItem)</h3>
+
+
+<table>
+<thead>
+<tr>
+<th> 属性名      </th>
+<th> 说明     </th>
+<th> 型态          </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> volume  </td>
+<td> 量 </td>
+<td> NSString      </td>
+<td>      </td>
+</tr>
+</tbody>
+</table>
+
+
+<p><a href="#top">top</a></p>
+
+<h3 id="MOHLCItem">K线数据(MOHLCItem)</h3>
+
+
+<table>
+<thead>
+<tr>
+<th> 属性名       </th>
+<th> 说明     </th>
+<th> 型态     </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> datetime     </td>
+<td> 交易时间 </td>
+<td> NSString </td>
+<td>      </td>
+</tr>
+<tr>
+<td> openPrice    </td>
+<td> 开盘价   </td>
+<td> NSString </td>
+<td>      </td>
+</tr>
+<tr>
+<td> highPrice    </td>
+<td> 最高价   </td>
+<td> NSString </td>
+<td>      </td>
+</tr>
+<tr>
+<td> lowPrice     </td>
+<td> 最低价   </td>
+<td> NSString </td>
+<td>      </td>
+</tr>
+<tr>
+<td> closePrice   </td>
+<td> 收盘价   </td>
+<td> NSString </td>
+<td>      </td>
+</tr>
+<tr>
+<td> tradeVolume  </td>
+<td> 交易量   </td>
+<td> NSString </td>
+<td>      </td>
+</tr>
+<tr>
+<td> referencePrice </td>
+<td> 参考价   </td>
+<td> NSString </td>
+<td>      </td>
+</tr>
+<tr>
+<td> averagePrice </td>
+<td> 均价     </td>
+<td> NSString </td>
+<td>      </td>
+</tr>
+<tr>
+<td> amount       </td>
+<td> 金额     </td>
+<td> NSString </td>
+<td>      </td>
+</tr>
+<tr>
+<td> rgbar       </td>
+<td> 大盘红绿柱     </td>
+<td> NSString </td>
+<td>      </td>
+</tr>
+</tbody>
+</table>
+
+
+<p><a href="#top">top</a></p>
+
+<h3 id="MSearchResultItem">搜寻结果(MSearchResultItem)</h3>
+
+
+<table>
+<thead>
+<tr>
+<th> 属性名  </th>
+<th> 说明                 </th>
+<th> 型态     </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> stockID </td>
+<td> 股票代码             </td>
+<td> NSString </td>
+<td>      </td>
+</tr>
+<tr>
+<td> name    </td>
+<td> 股票名称             </td>
+<td> NSString </td>
+<td>      </td>
+</tr>
+<tr>
+<td> market  </td>
+<td> 市场别               </td>
+<td> NSString </td>
+<td>      </td>
+</tr>
+<tr>
+<td> pinyin  </td>
+<td> 拼音                 </td>
+<td> NSString </td>
+<td>      </td>
+</tr>
+<tr>
+<td> subtype </td>
+<td> 次类别               </td>
+<td> NSString </td>
+<td>      </td>
+</tr>
+<tr>
+<td> code    </td>
+<td> 股票代码(不含市场别) </td>
+<td> NSString </td>
+<td>      </td>
+</tr>
+</tbody>
+</table>
+
+
+<p><a href="#top">top</a></p>
+
+<h3 id="MCategoryItem">板块分类(MCategoryItem)</h3>
+
+
+<table>
+<thead>
+<tr>
+<th> 属性名 </th>
+<th> 说明     </th>
+<th> 型态     </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> code   </td>
+<td> 分类代码 </td>
+<td> NSString </td>
+<td>      </td>
+</tr>
+<tr>
+<td> name   </td>
+<td> 分类名   </td>
+<td> NSString </td>
+<td>      </td>
+</tr>
+</tbody>
+</table>
+
+
+<p><a href="#top">top</a></p>
+
+<h3 id="MSectionRankingItem">板块排行(MSectionRankingItem)</h3>
+
+
+<table>
+<thead>
+<tr>
+<th> 属性名          </th>
+<th> 说明           </th>
+<th> 型态     </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> name            </td>
+<td> 板块名称       </td>
+<td> NSString </td>
+<td>      </td>
+</tr>
+<tr>
+<td> ID              </td>
+<td> 板块代号       </td>
+<td> NSString </td>
+<td>      </td>
+</tr>
+<tr>
+<td> changeRate      </td>
+<td> 板块涨幅比     </td>
+<td> NSString </td>
+<td>      </td>
+</tr>
+<tr>
+<td> change          </td>
+<td> 板块涨幅       </td>
+<td> NSString </td>
+<td>      </td>
+</tr>
+<tr>
+<td> stockName       </td>
+<td> 领涨名称       </td>
+<td> NSString </td>
+<td>      </td>
+</tr>
+<tr>
+<td> stockID         </td>
+<td> 领涨代号       </td>
+<td> NSString </td>
+<td>      </td>
+</tr>
+<tr>
+<td> stockChangeRate </td>
+<td> 领涨个股涨幅比 </td>
+<td> NSString </td>
+<td>      </td>
+</tr>
+<tr>
+<td> stockChange     </td>
+<td> 领涨个股涨幅   </td>
+<td> NSString </td>
+<td>      </td>
+</tr>
+</tbody>
+</table>
+
+
+<p><a href="#top">top</a></p>
+
+<h3 id="MSectionSortingItem">板块排行(MSectionSortingItem)</h3>
+
+
+<table>
+<thead>
+<tr>
+<th> 属性名          </th>
+<th> 说明           </th>
+<th> 型态     </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> ID              </td>
+<td> 板块代号       </td>
+<td> NSString </td>
+<td>      </td>
+</tr>
+<tr>
+<td> name            </td>
+<td> 板块名称       </td>
+<td> NSString </td>
+<td>      </td>
+</tr>
+<tr>
+<td> weightedChange  </td>
+<td> 权涨幅        </td>
+<td> NSString </td>
+<td>      </td>
+</tr>
+<tr>
+<td> averageChange   </td>
+<td> 均涨幅        </td>
+<td> NSString </td>
+<td>      </td>
+</tr>
+<tr>
+<td> amount          </td>
+<td> 总成交额      </td>
+<td> NSString </td>
+<td>      </td>
+</tr>
+<tr>
+<td> changeRate      </td>
+<td> 板块涨幅比     </td>
+<td> NSString </td>
+<td>      </td>
+</tr>
+<tr>
+<td> turnoverRate    </td>
+<td> 换手率       </td>
+<td> NSString </td>
+<td>      </td>
+</tr>
+<tr>
+<td> stockID         </td>
+<td> 领涨代号       </td>
+<td> NSString </td>
+<td>      </td>
+</tr>
+<tr>
+<td> stockName       </td>
+<td> 领涨名称       </td>
+<td> NSString </td>
+<td>      </td>
+</tr>
+<tr>
+<td> stockChange     </td>
+<td> 领涨个股涨幅   </td>
+<td> NSString </td>
+<td>      </td>
+</tr>
+<tr>
+<td> stockChangeRate </td>
+<td> 领涨个股涨幅比 </td>
+<td> NSString </td>
+<td>      </td>
+</tr>
+</tbody>
+</table>
+
+
+<p><a href="#top">top</a></p>
+
+<h3 id="MBrokerSeatItem">经纪席位(MBrokerSeatItem)</h3>
+
+
+<table>
+<thead>
+<tr>
+<th> 属性名   </th>
+<th> 说明     </th>
+<th> 型态     </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> value    </td>
+<td> 量       </td>
+<td> NSString </td>
+<td>      </td>
+</tr>
+<tr>
+<td> name     </td>
+<td> 名称     </td>
+<td> NSString </td>
+<td>      </td>
+</tr>
+<tr>
+<td> fullName </td>
+<td> 完整名称 </td>
+<td> NSString </td>
+<td>      </td>
+</tr>
+</tbody>
+</table>
+
+
+<p><a href="#top">top</a></p>
+
+<h3 id="MOptionItem">期权行情(MOptionItem)</h3>
+
+
+<table>
+<thead>
+<tr>
+<th> 属性名       </th>
+<th> 说明         </th>
+<th> 型态        </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> contractID   </td>
+<td> 合约代码     </td>
+<td> NSString    </td>
+<td>      </td>
+</tr>
+<tr>
+<td> stockID      </td>
+<td> 标的证券代码 </td>
+<td> NSString    </td>
+<td>      </td>
+</tr>
+<tr>
+<td> stockSymbol  </td>
+<td> 标的证券简称 </td>
+<td> NSString    </td>
+<td>      </td>
+</tr>
+<tr>
+<td> stockType    </td>
+<td> 标的证券类型 </td>
+<td> NSString    </td>
+<td>      </td>
+</tr>
+<tr>
+<td> callOrPut    </td>
+<td> 认购认沽     </td>
+<td> NSString    </td>
+<td>      </td>
+</tr>
+<tr>
+<td> unit         </td>
+<td> 合约单位     </td>
+<td> NSString    </td>
+<td>      </td>
+</tr>
+<tr>
+<td> exePrice     </td>
+<td> 期权行权价格 </td>
+<td> NSString    </td>
+<td>      </td>
+</tr>
+<tr>
+<td> startDate    </td>
+<td> 首个交易日   </td>
+<td> NSString    </td>
+<td>      </td>
+</tr>
+<tr>
+<td> endDate      </td>
+<td> 最后交易日   </td>
+<td> NSString    </td>
+<td>      </td>
+</tr>
+<tr>
+<td> exeDate      </td>
+<td> 期权行权日   </td>
+<td> NSString    </td>
+<td>      </td>
+</tr>
+<tr>
+<td> deliDate     </td>
+<td> 期权交割日   </td>
+<td> NSString    </td>
+<td>      </td>
+</tr>
+<tr>
+<td> expDate      </td>
+<td> 期权到期日   </td>
+<td> NSString    </td>
+<td>      </td>
+</tr>
+<tr>
+<td> version      </td>
+<td> 合约版号     </td>
+<td> NSString    </td>
+<td>      </td>
+</tr>
+<tr>
+<td> presetPrice  </td>
+<td> 前结算价     </td>
+<td> NSString    </td>
+<td>      </td>
+</tr>
+<tr>
+<td> stockClose   </td>
+<td> 标的证券昨收 </td>
+<td> NSString    </td>
+<td>      </td>
+</tr>
+<tr>
+<td> stockLast    </td>
+<td> 标的证券价格 </td>
+<td> NSString    </td>
+<td>      </td>
+</tr>
+<tr>
+<td> isLimit      </td>
+<td> 有无涨跌限制 </td>
+<td> BOOL        </td>
+<td>      </td>
+</tr>
+<tr>
+<td> remainDate   </td>
+<td> 剩余天数     </td>
+<td> NSString    </td>
+<td>      </td>
+</tr>
+<tr>
+<td> openInterest </td>
+<td> 持仓量       </td>
+<td> NSString    </td>
+<td>      </td>
+</tr>
+<tr>
+<td> optionType   </td>
+<td> 期权类别     </td>
+<td> <a href="#MOptionType">MOptionType</a> </td>
+<td>      </td>
+</tr>
+</tbody>
+</table>
+
+
+<p><a href="#top">top</a></p>
+
+<h3 id="MHKOddInfoItem">港股碎股(MHKOddInfoItem)</h3>
+
+
+<table>
+<thead>
+<tr>
+<th> 属性名       </th>
+<th> 说明         </th>
+<th> 型态        </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> orderId   </td>
+<td> 订单编号     </td>
+<td> NSString    </td>
+<td>      </td>
+</tr>
+<tr>
+<td> orderQty      </td>
+<td> 订单数量 </td>
+<td> NSString    </td>
+<td>      </td>
+</tr>
+<tr>
+<td> price  </td>
+<td> 价格 </td>
+<td> NSString    </td>
+<td>      </td>
+</tr>
+<tr>
+<td> brokerId  </td>
+<td> 经纪人编号 </td>
+<td> NSString    </td>
+<td>      </td>
+</tr>
+<tr>
+<td> side  </td>
+<td> 买卖方向 </td>
+<td> <a href="#MHKOddSide">MHKOddSide</a>    </td>
+<td>      </td>
+</tr>
+<tr>
+<td> datetime  </td>
+<td> 时间 </td>
+<td> NSString    </td>
+<td>      </td>
+</tr>
+</tbody>
+</table>
+
+
+<p><a href="#top">top</a></p>
+
+<h2 id="Others">其他</h2>
+
+
+
+
+<h3 id="MOHLCPeriod">K线周期(MOHLCPeriod)</h3>
+
+
+<table>
+<thead>
+<tr>
+<th> 名称              </th>
+<th> 说明 </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> MOHLCPeriodMinute </td>
+<td> 分K  </td>
+<td>      </td>
+</tr>
+<tr>
+<td> MOHLCPeriodMonth  </td>
+<td> 月K  </td>
+<td>      </td>
+</tr>
+<tr>
+<td> MOHLCPeriodWeek   </td>
+<td> 周K  </td>
+<td>      </td>
+</tr>
+<tr>
+<td> MOHLCPeriodDay    </td>
+<td> 日K  </td>
+<td>      </td>
+</tr>
+</tbody>
+</table>
+
+
+<p><a href="#top">top</a></p>
+
+<h3 id="MOHLCPriceAdjustedMode">K线复权(MOHLCPriceAdjustedMode)</h3>
+
+
+<table>
+<thead>
+<tr>
+<th> 名称                 </th>
+<th> 说明     </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> MOHLCPriceAdjustedModeNone     </td>
+<td> 除权  </td>
+<td>      </td>
+</tr>
+<tr>
+<td> MOHLCPriceAdjustedModeForward  </td>
+<td> 前复权 </td>
+<td>      </td>
+</tr>
+<tr>
+<td> MOHLCPriceAdjustedModeBackward </td>
+<td> 后复权 </td>
+<td>      </td>
+</tr>
+</tbody>
+</table>
+
+
+<p><a href="#top">top</a></p>
+
+<h3 id="MBSVolumeType">内外盘类别(MBSVolumeType)</h3>
+
+
+<table>
+<thead>
+<tr>
+<th> 名称              </th>
+<th> 说明 </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> MBSVolumeTypeBuy  </td>
+<td> 内盘 </td>
+<td>      </td>
+</tr>
+<tr>
+<td> MBSVolumeTypeSell </td>
+<td> 外盘 </td>
+<td>      </td>
+</tr>
+</tbody>
+</table>
+
+
+<p><a href="#top">top</a></p>
+
+<h3 id="MChartType">走势类别(MChartType)</h3>
+
+
+<table>
+<thead>
+<tr>
+<th> 名称               </th>
+<th> 说明     </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> MChartTypeOneDay   </td>
+<td> 当日走势 </td>
+<td>      </td>
+</tr>
+<tr>
+<td> MChartTypeFiveDays </td>
+<td> 五日走势 </td>
+<td>      </td>
+</tr>
+</tbody>
+</table>
+
+
+<p><a href="#top">top</a></p>
+
+<h3 id="MChangeState">涨跌状态(MChangeState)</h3>
+
+
+<table>
+<thead>
+<tr>
+<th> 名称             </th>
+<th> 说明 </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> MChangeStateFlat </td>
+<td> 平盘 </td>
+<td>      </td>
+</tr>
+<tr>
+<td> MChangeStateRise </td>
+<td> 上涨 </td>
+<td>      </td>
+</tr>
+<tr>
+<td> MChangeStateFall </td>
+<td> 下跌 </td>
+<td>      </td>
+</tr>
+</tbody>
+</table>
+
+
+<p><a href="#top">top</a></p>
+
+<h3 id="MOptionType">期权类别(MOptionType)</h3>
+
+
+<table>
+<thead>
+<tr>
+<th> 名称            </th>
+<th> 说明 </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> MOptionTypeAll  </td>
+<td> 全部 </td>
+<td>      </td>
+</tr>
+<tr>
+<td> MOptionTypeCall </td>
+<td> 认购 </td>
+<td>      </td>
+</tr>
+<tr>
+<td> MOptionTypePut  </td>
+<td> 认沽 </td>
+<td>      </td>
+</tr>
+</tbody>
+</table>
+
+
+<p><a href="#top">top</a></p>
+
+<h3 id="MStockStatus">交易狀態表(MStockStatus)</h3>
+
+
+<table>
+<thead>
+<tr>
+<th> 名称                 </th>
+<th> 说明     </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> MStockStatusNormal   </td>
+<td> 正常交易 </td>
+<td>      </td>
+</tr>
+<tr>
+<td> MStockStatusPause    </td>
+<td> 暂停交易 </td>
+<td>      </td>
+</tr>
+<tr>
+<td> MStockStatusSuspend  </td>
+<td> 停牌     </td>
+<td>      </td>
+</tr>
+<tr>
+<td> MStockStatusUnmarket </td>
+<td> 退市     </td>
+<td>      </td>
+</tr>
+</tbody>
+</table>
+
+
+<p><a href="#top">top</a></p>
+
+<h3 id="MStockStage">交易阶段表(MStockStage)</h3>
+
+
+<table>
+<thead>
+<tr>
+<th> 名称                     </th>
+<th> 说明     </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> MStockStageAuction       </td>
+<td> 集合竞价 </td>
+<td>      </td>
+</tr>
+<tr>
+<td> MStockStageUnknown       </td>
+<td> 未知状态 </td>
+<td>      </td>
+</tr>
+<tr>
+<td> MStockStageOpen          </td>
+<td> 连续竞价 </td>
+<td>      </td>
+</tr>
+<tr>
+<td> MStockStageTempSuspensed </td>
+<td> 临时停市 </td>
+<td>      </td>
+</tr>
+<tr>
+<td> MStockStageClosed        </td>
+<td> 已收盘   </td>
+<td>      </td>
+</tr>
+<tr>
+<td> MStockStageLunchBreak    </td>
+<td> 午间休市 </td>
+<td>      </td>
+</tr>
+<tr>
+<td> MStockStageOnTrading     </td>
+<td> 交易中   </td>
+<td>      </td>
+</tr>
+</tbody>
+</table>
+
+
+<p><a href="#top">top</a></p>
+
+<h3 id="MHKInfoStatus">港股状态(MHKInfoStatus)</h3>
+
+
+<table>
+<thead>
+<tr>
+<th> 名称                     </th>
+<th> 说明     </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> MHKInfoStatusNone       </td>
+<td>  </td>
+<td>      </td>
+</tr>
+<tr>
+<td> MHKInfoStatusODD        </td>
+<td>  </td>
+<td>     </td>
+</tr>
+<tr>
+<td> MHKInfoStatusVCM         </td>
+<td>  </td>
+<td>      </td>
+</tr>
+<tr>
+<td> MHKInfoStatusCAS        </td>
+<td>  </td>
+<td>      </td>
+</tr>
+</tbody>
+</table>
+
+
+<p><a href="#top">top</a></p>
+
+<h3 id="MTimeTickAMSFlag">港股交易明细旗标(MTimeTickAMSFlag)</h3>
+
+
+<table>
+<thead>
+<tr>
+<th> 名称                     </th>
+<th> 说明     </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> MTimeTickAMSFlagUnknown       </td>
+<td>  </td>
+<td>      </td>
+</tr>
+<tr>
+<td> MTimeTickAMSFlagNone        </td>
+<td>  </td>
+<td>     </td>
+</tr>
+<tr>
+<td> MTimeTickAMSFlagLateTrade         </td>
+<td>  </td>
+<td>      </td>
+</tr>
+<tr>
+<td> MTimeTickAMSFlagNonDirectOffExchangeTrade        </td>
+<td>  </td>
+<td>      </td>
+</tr>
+<tr>
+<td> MTimeTickAMSFlagAutomatchInternalized        </td>
+<td>  </td>
+<td>      </td>
+</tr>
+<tr>
+<td> MTimeTickAMSFlagDirectOffExchangeTrade        </td>
+<td>  </td>
+<td>      </td>
+</tr>
+<tr>
+<td> MTimeTickAMSFlagOddLotTrade        </td>
+<td>  </td>
+<td>      </td>
+</tr>
+<tr>
+<td> MTimeTickAMSFlagAuctionTrade        </td>
+<td>  </td>
+<td>      </td>
+</tr>
+</tbody>
+</table>
+
+
+<p><a href="#top">top</a></p>
+
+<h3 id="MCategorySortingField">排序代码栏位(MCategorySortingField)</h3>
+
+
+<table>
+<thead>
+<tr>
+<th> 名称                     </th>
+<th> 说明     </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> MCategorySortingFieldID    </td>
+<td> 代码   </td>
+<td>      </td>
+</tr>
+<tr>
+<td> MCategorySortingFieldName    </td>
+<td> 名称   </td>
+<td>      </td>
+</tr>
+<tr>
+<td> MCategorySortingFieldPinyin    </td>
+<td> 拼音  </td>
+<td>      </td>
+</tr>
+<tr>
+<td> MCategorySortingFieldLastPrice    </td>
+<td> 最新价   </td>
+<td>      </td>
+</tr>
+<tr>
+<td> MCategorySortingFieldHighPrice    </td>
+<td> 最高价   </td>
+<td>      </td>
+</tr>
+<tr>
+<td> MCategorySortingFieldLowPrice    </td>
+<td> 最低价   </td>
+<td>      </td>
+</tr>
+<tr>
+<td> MCategorySortingFieldOpenPrice    </td>
+<td> 开盘价   </td>
+<td>      </td>
+</tr>
+<tr>
+<td> MCategorySortingFieldPreClosePrice    </td>
+<td> 昨收价   </td>
+<td>      </td>
+</tr>
+<tr>
+<td> MCategorySortingFieldChangeRate    </td>
+<td> 涨幅    </td>
+<td>      </td>
+</tr>
+<tr>
+<td> MCategorySortingFieldVolume    </td>
+<td> 总量    </td>
+<td>      </td>
+</tr>
+<tr>
+<td> MCategorySortingFieldTurnoverRate    </td>
+<td> 换手率   </td>
+<td>      </td>
+</tr>
+<tr>
+<td> MCategorySortingFieldChange    </td>
+<td> 涨跌   </td>
+<td>      </td>
+</tr>
+<tr>
+<td> MCategorySortingFieldAmount    </td>
+<td> 成交金额   </td>
+<td>      </td>
+</tr>
+<tr>
+<td> MCategorySortingFieldVolumeRatio    </td>
+<td> 量比   </td>
+<td>      </td>
+</tr>
+<tr>
+<td> MCategorySortingFieldAmplitudeRate    </td>
+<td> 振幅比率  </td>
+<td>      </td>
+</tr>
+</tbody>
+</table>
+
+
+<p><a href="#top">top</a></p>
+
+<h3 id="MSectionSortingField">版块排序代码栏位(MSectionSortingField)</h3>
+
+
+<table>
+<thead>
+<tr>
+<th> 名称                     </th>
+<th> 说明     </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> MSectionSortingFieldWeightedChange    </td>
+<td> 权涨幅   </td>
+<td>      </td>
+</tr>
+<tr>
+<td> MSectionSortingFieldAverageChange    </td>
+<td> 均涨幅   </td>
+<td>      </td>
+</tr>
+<tr>
+<td> MSectionSortingFieldAmount    </td>
+<td> 总成交额  </td>
+<td>      </td>
+</tr>
+<tr>
+<td> MSectionSortingFieldChangeRate    </td>
+<td> 涨幅比  </td>
+<td>      </td>
+</tr>
+<tr>
+<td> MSectionSortingFieldTurnoverRate    </td>
+<td> 换手率  </td>
+<td>      </td>
+</tr>
+</tbody>
+</table>
+
+
+<p><a href="#top">top</a></p>
+
+<h3 id="MHKOddSide">港股碎股订单买卖方向(MHKOddSide)</h3>
+
+
+<table>
+<thead>
+<tr>
+<th> 名称              </th>
+<th> 说明 </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> MHKOddSideNone </td>
+<td>   </td>
+<td>      </td>
+</tr>
+<tr>
+<td> MHKOddSideBid  </td>
+<td> 买  </td>
+<td>      </td>
+</tr>
+<tr>
+<td> MHKOddSideOffer   </td>
+<td> 卖  </td>
+<td>      </td>
+</tr>
+</tbody>
+</table>
+
+
+<p><a href="#top">top</a></p>
+
+<h3 id="MSnapQuoteRequestType">详细报价请求类别(MSnapQuoteRequestType)</h3>
+
+
+<table>
+<thead>
+<tr>
+<th> 名称              </th>
+<th> 说明 </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> MSnapQuoteRequestType1 </td>
+<td> 1档  </td>
+<td>      </td>
+</tr>
+<tr>
+<td> MSnapQuoteRequestType5  </td>
+<td> 5档  </td>
+<td>      </td>
+</tr>
+<tr>
+<td> MSnapQuoteRequestType10   </td>
+<td> 10档  </td>
+<td>      </td>
+</tr>
+</tbody>
+</table>
+
+
+<p><a href="#top">top</a></p>
+
+<h3 id="MCategoryID">分类代码</h3>
+
+
+<table>
+<thead>
+<tr>
+<th> 名称                     </th>
+<th> 说明     </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> SH1001    </td>
+<td> 上证A股   </td>
+<td>      </td>
+</tr>
+<tr>
+<td> SH1002    </td>
+<td> 上证B股   </td>
+<td>      </td>
+</tr>
+<tr>
+<td> SH1100    </td>
+<td> 上证基金  </td>
+<td>      </td>
+</tr>
+<tr>
+<td> SH1300    </td>
+<td> 上证债券  </td>
+<td>      </td>
+</tr>
+<tr>
+<td> SH1400    </td>
+<td> 上海指数   </td>
+<td>      </td>
+</tr>
+<tr>
+<td> SHSZ1001  </td>
+<td> 沪深A股   </td>
+<td>      </td>
+</tr>
+<tr>
+<td> SHSZ1400  </td>
+<td> 大盘指数   </td>
+<td>      </td>
+</tr>
+<tr>
+<td> SZ1001    </td>
+<td> 深证A股   </td>
+<td>      </td>
+</tr>
+<tr>
+<td> SZ1002    </td>
+<td> 深证B股   </td>
+<td>      </td>
+</tr>
+<tr>
+<td> SZ1003    </td>
+<td> 中小板    </td>
+<td>      </td>
+</tr>
+<tr>
+<td> SZ1004    </td>
+<td> 创业板    </td>
+<td>      </td>
+</tr>
+<tr>
+<td> SZ1100    </td>
+<td> 深证基金   </td>
+<td>      </td>
+</tr>
+<tr>
+<td> SZ1300    </td>
+<td> 深证债券   </td>
+<td>      </td>
+</tr>
+<tr>
+<td> SZ1400    </td>
+<td> 深证指数   </td>
+<td>      </td>
+</tr>
+<tr>
+<td> HKAH      </td>
+<td> AH股     </td>
+<td>      </td>
+</tr>
+<tr>
+<td> HKUA2301  </td>
+<td> 港股通（沪）    </td>
+<td>      </td>
+</tr>
+<tr>
+<td> SZHK      </td>
+<td> 港股通（深）    </td>
+<td>      </td>
+</tr>
+<tr>
+<td> SH3002    </td>
+<td> 上证期权   </td>
+<td>      </td>
+</tr>
+<tr>
+<td> HK1000    </td>
+<td> 主板 (港股)   </td>
+<td>      </td>
+</tr>
+<tr>
+<td> HK1004    </td>
+<td> 创业板 (港股)   </td>
+<td>      </td>
+</tr>
+<tr>
+<td> HK1100    </td>
+<td> 基金 (港股)   </td>
+<td>      </td>
+</tr>
+<tr>
+<td> HK1300    </td>
+<td> 债券 (港股)   </td>
+<td>      </td>
+</tr>
+<tr>
+<td> HK1400    </td>
+<td> 香港指数   </td>
+<td>      </td>
+</tr>
+<tr>
+<td> HKRed    </td>
+<td> 红筹股    </td>
+<td>      </td>
+</tr>
+<tr>
+<td> HKStartup    </td>
+<td> 创业板    </td>
+<td>      </td>
+</tr>
+<tr>
+<td> SH1110    </td>
+<td> LOF基金   </td>
+<td>      </td>
+</tr>
+<tr>
+<td> SH1120    </td>
+<td> ETF基金   </td>
+<td>      </td>
+</tr>
+<tr>
+<td> SH1130    </td>
+<td> 分类基金   </td>
+<td>      </td>
+</tr>
+<tr>
+<td> SH1131    </td>
+<td> 分级A   </td>
+<td>      </td>
+</tr>
+<tr>
+<td> SH1132    </td>
+<td> 分级B   </td>
+<td>      </td>
+</tr>
+<tr>
+<td> 指数代码（如000001.sh）    </td>
+<td> 成分股   </td>
+<td>      </td>
+</tr>
+<tr>
+<td> Risk      </td>
+<td> 风险提示(港澳)   </td>
+<td>      </td>
+</tr>
+<tr>
+<td> Delist    </td>
+<td> 退市调整(港澳) </td>
+<td>      </td>
+</tr>
+<tr>
+<td> SHS       </td>
+<td> 上证风险警示（交易所接口哦） </td>
+<td>      </td>
+</tr>
+<tr>
+<td> SZS       </td>
+<td> 深证风险警示（交易所接口哦） </td>
+<td>      </td>
+</tr>
+<tr>
+<td> SHP       </td>
+<td> 上证退市整理（交易所接口哦） </td>
+<td>      </td>
+</tr>
+<tr>
+<td> SZZ       </td>
+<td> 深证退市整理（交易所接口哦） </td>
+<td>      </td>
+</tr>
+<tr>
+<td> SHSZS     </td>
+<td> 沪深风险警示（交易所接口哦） </td>
+<td>      </td>
+</tr>
+<tr>
+<td> SHSZP     </td>
+<td> 沪深退市整理（交易所接口哦） </td>
+<td>      </td>
+</tr>
+</tbody>
+</table>
+
+
+<table>
+<thead>
+<tr>
+<th> 名称                     </th>
+<th> 说明     </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> allstocks    </td>
+<td> 全部股票    </td>
+<td>      </td>
+</tr>
+<tr>
+<td> SHSZTurnoverRate    </td>
+<td> 换手率排行    </td>
+<td>      </td>
+</tr>
+<tr>
+<td> SHSZAmp    </td>
+<td> 振幅排行    </td>
+<td>      </td>
+</tr>
+<tr>
+<td> SHSZTurnover    </td>
+<td> 成交额排行    </td>
+<td>      </td>
+</tr>
+<tr>
+<td> SHSZVolumeRatio    </td>
+<td> 量比排行    </td>
+<td>      </td>
+</tr>
+</tbody>
+</table>
+
+
+<p><a href="#top">top</a></p>
+
+<h3 id="MSectionRankingID">板块排行代码</h3>
+
+
+<table>
+<thead>
+<tr>
+<th> 名称                     </th>
+<th> 说明     </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> Notion    </td>
+<td> 概念板块   </td>
+<td>      </td>
+</tr>
+<tr>
+<td> Area    </td>
+<td> 地区板块   </td>
+<td>      </td>
+</tr>
+<tr>
+<td> Trade    </td>
+<td> 行业板块  </td>
+<td>      </td>
+</tr>
+</tbody>
+</table>
+
+
+<p><a href="#top">top</a></p>
+
+<h3 id="MSearchSubtype">搜索子分类代码</h3>
+
+
+<table>
+<thead>
+<tr>
+<th> 名称                     </th>
+<th> 说明     </th>
+<th> 可用市场别 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> 1001    </td>
+<td> A股   </td>
+<td>   全部   </td>
+</tr>
+<tr>
+<td> 1002    </td>
+<td> B股   </td>
+<td>    SH, SZ, HK  </td>
+</tr>
+<tr>
+<td> 1004    </td>
+<td> 创业版  </td>
+<td>   SZ, HK   </td>
+</tr>
+<tr>
+<td> 1400    </td>
+<td> 大盘指数  </td>
+<td>   全部   </td>
+</tr>
+<tr>
+<td> 1100    </td>
+<td> 基金   </td>
+<td>   全部   </td>
+</tr>
+<tr>
+<td> 1300  </td>
+<td> 债券   </td>
+<td>   全部   </td>
+</tr>
+<tr>
+<td> 3002  </td>
+<td> 上证期权   </td>
+<td>   SH   </td>
+</tr>
+<tr>
+<td>  1500 </td>
+<td> 涡轮   </td>
+<td>   HK   </td>
+</tr>
+<tr>
+<td>  1501 </td>
+<td> 主版   </td>
+<td>   HK   </td>
+</tr>
+<tr>
+<td>  1502 </td>
+<td> 创业   </td>
+<td>   HK   </td>
+</tr>
+<tr>
+<td>  1503 </td>
+<td> 衍生   </td>
+<td>   HK   </td>
+</tr>
+<tr>
+<td>  1110 </td>
+<td> LOF上市型开放式基金   </td>
+<td>   SH, SZ   </td>
+</tr>
+<tr>
+<td>  1120 </td>
+<td> ETF交易型开放式指数基金   </td>
+<td>   SH, SZ   </td>
+</tr>
+<tr>
+<td>  1140 </td>
+<td> CEF封闭式基金   </td>
+<td>   SH, SZ   </td>
+</tr>
+</tbody>
+</table>
+
+
+<p><a href="#top">top</a></p>
+
+<h3 id="MTimeTickRequestType">分时明细请求类别(MTimeTickRequestType)</h3>
+
+
+<table>
+<thead>
+<tr>
+<th> 名称                     </th>
+<th> 说明     </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> MTimeTickRequestTypeRecent    </td>
+<td> 最新N笔数据   </td>
+<td>      </td>
+</tr>
+<tr>
+<td> MTimeTickRequestTypeNewer    </td>
+<td> 比索引值更新的N笔数据   </td>
+<td>      </td>
+</tr>
+<tr>
+<td> MTimeTickRequestTypeOlder    </td>
+<td> 比索引值更旧的N笔数据  </td>
+<td>      </td>
+</tr>
+</tbody>
+</table>
+
+
+<p><a href="#top">top</a></p>
+
+<h4 id="RegisterOptionsKey">注册配置键值表</h4>
+
+
+<table>
+<thead>
+<tr>
+<th> 键值             </th>
+<th> 说明                 </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> MApiRegisterOptionGetServerPoolingTimeKey        </td>
+<td> 定时检查server时间间隔 </td>
+<td> 单位：秒 </td>
+</tr>
+</tbody>
+</table>
+
+
+<p><a href="#top">top</a></p>
+</body>
+</html>

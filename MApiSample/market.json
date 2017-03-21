@@ -1,0 +1,76 @@
+{
+    "sh": {
+        "power": 3,
+        "float": 2,
+        "unit": 100,
+        "timezone": [
+                     {
+                     "open": "0930",
+                     "close": "1130"
+                     },
+                     {
+                     "open": "1300",
+                     "close": "1500"
+                     }
+                     ]
+    },
+    "sh1300": {
+        "float": 2,
+        "unit": 1
+    },
+    "sh1400": {
+        "power": 5,
+        "unit": 1
+    },
+    "sh3002": {
+        "power": 4,
+        "float": 4,
+        "unit": 1
+    },
+    "sh1100": {
+        "float": 3
+    },
+    "sz": {
+        "power": 3,
+        "float": 2,
+        "unit": 100,
+        "timezone": [
+                     {
+                     "open": "0930",
+                     "close": "1130"
+                     },
+                     {
+                     "open": "1300",
+                     "close": "1500"
+                     }
+                     ]
+    },
+    "sz1100": {
+        "float": 3
+    },
+    "sz1300": {
+        "float": 3,
+        "unit": 1
+    },
+    "sz1400": {
+        "unit": 1
+    },
+    "hk": {
+        "power": 3,
+        "float": 3,
+        "unit": 1,
+        "timezone": [
+                     {
+                     "open": "1000",
+                     "close": "1230"
+                     },
+                     {
+                     "open": "1430",
+                     "close": "1600"
+                     }
+                     ]
+    },
+    "hk1400": {
+        "power": 4
+    }
+}

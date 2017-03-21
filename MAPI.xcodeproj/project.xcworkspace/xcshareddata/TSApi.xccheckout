@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>454D7BF1-1C0B-4CBF-9F84-B1EB32B70FEF</string>
+	<key>IDESourceControlProjectName</key>
+	<string>project</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>E0A9AF43C89C85C368043201D6462716EF060CDC</key>
+		<string>172.16.1.40:CrystalRD1/MApi.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>MAPI.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>E0A9AF43C89C85C368043201D6462716EF060CDC</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>172.16.1.40:CrystalRD1/MApi.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>E0A9AF43C89C85C368043201D6462716EF060CDC</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>E0A9AF43C89C85C368043201D6462716EF060CDC</string>
+			<key>IDESourceControlWCCName</key>
+			<string>MApi</string>
+		</dict>
+	</array>
+</dict>
+</plist>
